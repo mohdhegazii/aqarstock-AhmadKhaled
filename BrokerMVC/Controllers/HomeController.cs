@@ -61,14 +61,7 @@ namespace BrokerMVC.Controllers
             int pageNumber = (Page ?? 1);
             HorizonatlPropertyListView View = new HorizonatlPropertyListView();
             View.SpecailProperty = Repository.GetSpecailProperties().OrderByDescending(p => Guid.NewGuid()).FirstOrDefault();
-            if (pageNumber == 0)
-            {
-                View.ReqularProperties = Repository.GetPropertiesBySaleType(SaleTypeID).OrderByDescending(p => p.ChangeActiveStatus).Take(PageSize).ToList();
-            }
-            else
-            {
-                View.ReqularProperties = Repository.GetPropertiesBySaleType(SaleTypeID).OrderByDescending(p => p.ChangeActiveStatus).Skip((pageNumber * PageSize) + PageSize).Take(PageSize).ToList();
-            }
+            View.ReqularProperties = Repository.GetPropertiesBySaleType(SaleTypeID).OrderByDescending(p => p.ChangeActiveStatus).Skip((pageNumber - 1) * PageSize).Take(PageSize).ToList();
             if (SaleTypeID == (int)SaleTypes.Sale)
                 View.Name = General.LatestAddedForSale;
             else
