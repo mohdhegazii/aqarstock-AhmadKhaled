@@ -1,0 +1,72 @@
+
+<div class="homeSearchContent">
+    <div class="homeSearchContentUnit price">
+        <div class="homeSearchContentUnitContent">
+            <p>السعر:</br><span class="sliderAmount">من 0 جنية إلى 10000000 جنية</span></p>
+            <div id="PriceSlider" class="priceSlider" max="10000000" min="0" search-slider step="1000" unit="جنية" values-from="0" values-to="100000"></div>
+            <div class="homeSearchContentUnitContentButtons" circle-search-buttons>
+                <a class="back" href="javascript:void(0);">رجوع</a>
+                <a class="search" ng-click="SearchByPrice()">إبحث</a>
+            </div>
+        </div>
+    </div>
+    <div class="homeSearchContentUnit location">
+        <div class="homeSearchContentUnitContent">
+             <p style="font-size:11px;">أختر البلد</p>
+            <select id="Country" name="Country" ui-Selectcountry>
+                <option value="">كل البلاد</option>
+                <option ng-repeat="Country in Countries" value="{{Country.ID}}">{{Country.Name}}</option>
+            </select>
+            <p style="font-size:11px;">أختر المحافظة</p>
+            <select id="city" name="city" disabled ui-select>
+                <option value="">كل المحافظات</option>
+                <option ng-repeat="City in Cities" value="{{City.ID}}">{{City.Name}}</option>
+            </select>
+            <p style="font-size:11px;">أختر الحي</p>
+            <select id="district" disabled name="district" ui-select>
+                <option value="">كل الأحياء</option>
+                <option ng-repeat="District in Districts" value="{{District.ID}}">{{District.Name}}</option>
+            </select>
+            <div class="homeSearchContentUnitContentButtons" circle-search-buttons>
+                <a class="back" href="javascript:void(0);">رجوع</a>
+                <a class="search" ng-click="SearchByLocation()" >إبحث</a>
+            </div>
+        </div>
+    </div>
+    <div class="homeSearchContentUnit payment">
+        <div class="homeSearchContentUnitContent">
+            <p>اختر النظام</p>
+            <select id="SaleType" name="city" ui-select >
+                <option value="">كل الأنظمة</option>
+                  <option ng-repeat="SaleType in SaleTypes" value="{{SaleType.ID}}">{{SaleType.Name}}</option>
+            </select>
+            <div class="homeSearchContentUnitContentButtons" circle-search-buttons>
+                <a class="back" href="javascript:void(0);">رجوع</a>
+                <a class="search"  ng-click="SearchBySaleType()">إبحث</a>
+            </div>
+        </div>
+    </div>
+    <div class="homeSearchContentUnit type">
+        <div class="homeSearchContentUnitContent">
+            <p>اختر النوع</p>
+            <select id="RealEstateType" name="RealEstateType" ui-select  >
+                <option value="">كل الأنواع</option>
+                 <option ng-repeat="RealEstateType in RealEstateTypes" value="{{RealEstateType.ID}}">{{RealEstateType.Name}}</option>
+            </select>
+            <div class="homeSearchContentUnitContentButtons" circle-search-buttons>
+                <a class="back" href="javascript:void(0);">رجوع</a>
+                <a class="search"  ng-click="SearchByRealEstateType()">إبحث</a>
+            </div>
+        </div>
+    </div>
+    <div class="homeSearchContentUnit area">
+        <div class="homeSearchContentUnitContent">
+            <p>المساحة:</br><span class="sliderAmount">من 0 متر إلى 300 متر</span></p>
+            <div id="AreaSlider" class="priceSlider" max="800" min="0" search-slider step="50" unit="متر" values-from="0" values-to="300"></div>
+            <div class="homeSearchContentUnitContentButtons" circle-search-buttons>
+                <a class="back" href="javascript:void(0);">رجوع</a>
+                <a class="search" ng-click="SearchByArea()">إبحث</a>
+            </div>
+        </div>
+    </div>
+</div>

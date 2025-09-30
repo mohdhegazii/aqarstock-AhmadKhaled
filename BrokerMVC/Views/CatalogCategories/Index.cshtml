@@ -1,0 +1,68 @@
+﻿@model PagedList.IPagedList<BrokerMVC.Models.CatalogCategory>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = General.SiteName + " - " + General.CatalogCategories;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2><i class="fa  fa-cubes fa-fw"></i> @General.CatalogCategories</h2>
+            </div>
+            <div class="btn-group pull-left">
+                <a href='@Url.Action("Create")' class="btn btn-group-lg btn-success">
+                    <i class="fa fa-plus-square"></i>
+                    @General.CreateNew
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+
+            @*<i class="fa fa-plus-square fa-fw"></i>
+                @Html.ActionLink(General.CreateNew, "Create")*@
+        </div>
+        <div class="row">
+            <table class="table table-responsive table-bordered table-striped table-hover">
+                <tr class="warning">
+                    <th class="text-center">
+                        @Html.ActionLink(General.FullName, "Index", new { sortOrder = ViewBag.ArabicNameSortParm })
+                    </th>
+               
+                    <th class="text-center">@General.Edit</th>
+                    <th class="text-center">@General.Delete</th>
+                </tr>
+
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td class="text-center">
+                            <a href='@Url.Action("Edit", new { id = item.ID })' class="btn btn-small">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href='@Url.Action("delete", new { id = item.ID })' class="btn btn-small Deleteconfirm">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div class="row text-center">
+            <div class="Paging">
+                @*صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) من @Model.PageCount*@
+
+                @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), new PagedListRenderOptions { LiElementClasses = new List<string> { "Pageitem" } })
+            </div>
+        </div>
+    </div>
+</div>

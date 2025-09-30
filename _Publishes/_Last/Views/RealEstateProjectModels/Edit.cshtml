@@ -1,0 +1,120 @@
+﻿@model BrokerMVC.Models.RealEstateProjectModel
+@{
+    ViewBag.Title = General.SiteName + " - " + ViewBag.ProjectName + " - " + General.Edit + " " + General.Models;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-lg-1 col-xs-4 pull-right">
+                <img class="img-responsive img-thumbnail logo" src="~/@ViewBag.ProjectLogo.Replace("~/","")" />
+
+            </div>
+            <div class="col-md-7 col-xs-8 pull-right">
+                <h2>@ViewBag.ProjectName /@General.Models - @General.Edit</h2>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <div class="btn-group btn-group-status pull-left">
+                    <a href='@Url.Action("Edit","RealEstateProjects",new{id=Model.ProjectID })' data-toggle="tooltip" data-placement="bottom" title="@General.BackToList" data-original-title="@General.BackToList" class="btn btn-group-sm btn-back">
+                        <strong> <i class="fa fa-arrow-circle-left fa-2x"></i></strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-body">
+
+
+        @using (Html.BeginForm("Edit", "RealEstateProjectModels", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ID)
+                @Html.HiddenFor(model => model.ProjectID)
+                @Html.HiddenFor(model => model.PlanImgURL)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CategoryId, General.RealestateCategory, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control", @onchange = "GetTypes()" })
+                        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RealEstateTypeID, General.RealestateType, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("RealEstateTypeID", null, htmlAttributes: new { @class = "form-control", @id = "ddlType" })
+                        @Html.ValidationMessageFor(model => model.RealEstateTypeID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EnTitle, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EnTitle, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EnTitle, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EnDescription, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EnDescription, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EnDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImageFile, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.ImageFile, new { type = "file", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ImageFile, "", new { @class = "text-danger" })
+                        <img src='~/@Model.PlanImgURL.Replace("~/","")' alt="@Model.Title" class="img-responsive img-thumbnail form-img" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="@General.Save" class="btn btn-success btn-group-lg" />
+                    </div>
+                </div>
+            </div>
+        }
+
+</div>
+    </div>

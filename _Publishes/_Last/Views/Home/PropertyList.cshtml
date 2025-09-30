@@ -1,0 +1,221 @@
+﻿@model BrokerMVC.Models.ViewModel.PropertyListView
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = Model.Name + "- " + General.PageTitle;
+    Layout = "~/Views/Home/_Layout.cshtml";
+    var routeValues = this.ViewContext.RouteData.Values;
+    var action = routeValues["action"] as string;
+
+}
+
+<div class="inner-banner">
+    <!-- banner start  -->
+    @if (Model.Type == Menu.Resdintial)
+    {
+        <span class="full-size-img" style="background:url(@Url.Content("~/Content/_ui/img/media/slide-1.jpg")) no-repeat center center / cover"></span>
+    }
+    else if (Model.Type == Menu.Commercial)
+    {
+        <span class="full-size-img" style="background:url(@Url.Content("~/Content/_ui/img/media/slide-3.jpg")) no-repeat center bottom / cover"></span>
+    }
+    else if (Model.Type == Menu.Lands)
+    {
+        <span class="full-size-img" style="background:url(@Url.Content("~/Content/_ui/img/media/slide-4.jpg")) no-repeat center bottom / cover"></span>
+    }
+    else
+    {
+        <span class="full-size-img" style="background:url(@Url.Content("~/Content/_ui/img/media/slide-2.jpg")) no-repeat center center / cover"></span>
+    }
+    <!-- // banner end -->
+        <div itemscope itemtype="http://schema.org/WebPage" class="block-title">
+            <div class="container">
+                <h1 itemprop="name">@Model.Name</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <div class="container">
+            <div class="col-md-12 col-sm-12">
+                <!-- Search form start  -->
+                <div id="divSearch"></div>
+                <!-- // Search form end -->
+            </div>
+
+            <div class="col-md-12 col-sm-12">
+                <!-- listing block start -->
+                <div class="block listing-wrapper" itemscope itemtype="http://schema.org/ItemList">
+                    @foreach (var item in Model.SpecailProperties)
+                {
+                        <div class="thumbnail no-border no-padding thumbnail-list special-thumbnail" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <div class="col-sm-4">
+                                <div class="label-badge banner-special">
+                                    <span class="text"><i class="fa fa-gift" aria-hidden="true"></i></span>
+                                </div>
+                                <div class="media">
+                                    <a itemprop="url" class="media-link" href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">
+                                        <span itemprop="image" class="img-listing-background" style="background:url(@Url.Content(item.DefaultImage.PhotoName)) no-repeat center center / contain"></span>
+                                        <span class="icon-view"><strong><i class="fa fa-arrows-alt"></i></strong></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="caption text-center">
+                                    <h4 itemprop="name" class="caption-title">
+                                        <a href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">
+                                            @(Commons.Culture.Contains("ar") ? item.RealEstateType.Title : item.RealEstateType.EnTitle)  @item.Area @General.Meter
+                                        </a>
+                                    </h4>
+                                    <p itemprop="address" class="caption-text">
+                                        @(Commons.Culture.Contains("ar") ? item.District.Name + "-" + item.City.Name : item.District.EnName + "-" + item.City.EnName)
+                                    </p>
+                                    <span itemprop="description" class="p-price">
+                                        @item.Price
+                                        @if (item.CurrencyID > 0)
+                                        {@(Commons.Culture.Contains("ar") ? item.Currency.Name : item.Currency.EnName)
+                                        }
+                                    </span>
+                                    <div class="buttons">
+                                        <a class="btn btn-theme" href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">
+                                            @General.More
+                                        </a>
+                                    </div>
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td onclick="AddToCompareList(@item.ID)"><i class="fa fa-balance-scale" aria-hidden="true"></i> قارن</td>
+                                                <td onclick="AddToFavourite(@item.ID)"><i class="fa fa-star-o" aria-hidden="true"></i></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <!-- ads block start -->
+                    <div class="block">
+                        <div id="divFirstAd">
+
+                        </div>
+                    </div>
+                    <!-- // ads block end -->
+                    @foreach (var item in Model.ReqularProperties)
+                {
+                        <div class="thumbnail no-border no-padding thumbnail-list" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <div class="col-sm-4">
+                                <div class="media">
+                                    <a itemprop="url" class="media-link" href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">
+                                        <span itemprop="image" class="img-listing-background" style="background:url(@Url.Content(item.DefaultImage.PhotoName)) no-repeat center center / contain"></span>
+                                        <span class="icon-view"><strong><i class="fa fa-arrows-alt"></i></strong></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="caption text-center">
+                                    <h4 itemprop="name" class="caption-title">
+                                        <a href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">
+                                            @(Commons.Culture.Contains("ar") ? item.RealEstateType.Title : item.RealEstateType.EnTitle)  @item.Area @General.Meter
+                                        </a>
+                                    </h4>
+                                    <p itemprop="address" class="caption-text">
+                                        @(Commons.Culture.Contains("ar") ? item.District.Name + "-" + item.City.Name : item.District.EnName + "-" + item.City.EnName)
+                                    </p>
+                                    <span itemprop="description" class="p-price">
+                                        @item.Price
+                                        @if (item.CurrencyID > 0)
+                                        {@(Commons.Culture.Contains("ar") ? item.Currency.Name : item.Currency.EnName)
+                                        }
+                                    </span>
+
+                                    <div class="buttons">
+                                        <a class="btn btn-theme" href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">
+                                            @General.More
+                                        </a>
+                                    </div>
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td onclick="AddToCompareList(@item.ID)"><i class="fa fa-balance-scale" aria-hidden="true"></i> قارن</td>
+                                                <td onclick="AddToFavourite(@item.ID)"><i class="fa fa-star-o" aria-hidden="true"></i></td>
+                                                @*<td><button class="btn btn-02" id="btnCompare" onclick="AddToCompareList(@item.ID)"><i class="fa fa-balance-scale" aria-hidden="true"></i> @General.Compare</button></td>
+                                                    <td><button class="btn btn-03" id="btnFavourite" onclick="AddToFavourite(@item.ID)"><i class="fa fa-star-o" aria-hidden="true"></i> @General.AddFavorite</button></td>*@
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <!-- ads block start -->
+                    <div class="block">
+                        <div id="divSecondAd">
+
+                        </div>
+                    </div>
+                    <!-- // ads block end -->
+                </div>
+                <div class="row text-center">
+                    <div class="Paging">
+                        @*صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) من @Model.PageCount*@
+
+                        @Html.PagedListPager(Model.ReqularProperties, page => Url.Action(action,
+    new { Page = page }), new PagedListRenderOptions { LiElementClasses = new List<string> { "Pageitem" } })
+                    </div>
+                </div>
+                <!-- // listing block end -->
+            </div>
+
+            <!-- latest unit block start -->
+
+            <div id="divLatestAdded" class="Latest-Prop">
+
+            </div>
+            <!-- // latest unit block end -->
+
+        </div>
+    </div>
+    @section Scripts
+{
+        <script>
+            LoadPropertySearch("list");
+            LoadPageAds();
+            if ('@Model.Type' == '@Menu.Resdintial') {
+                SetActiveMenu("liResdintial");
+            }
+            if ('@Model.Type' == '@Menu.Commercial') {
+                SetActiveMenu("liCommercial");
+            }
+            if ('@Model.Type' == '@Menu.Lands') {
+                SetActiveMenu("liLands");
+            }
+            if ('@Model.Type' == '@Menu.LatestAdded') {
+                SetActiveMenu("lilastadded");
+            }
+            if ('@Model.Type' == '@Menu.Rent') {
+                SetActiveMenu("liRent");
+            }
+            GetPageContent('@Pages.PropertyList');
+        </script>
+    }
+        @section META{
+            <meta name="title" content="@Model.Name - @General.PageTitle" />
+            <meta name="description" content="@General.SiteDescription" />
+            <meta name="keywords" content="عقارات, خريطة, جوجل إرث, فيلا, بيت, منزل, شقة, أرض, قصر, غرفة, للبيع, شراء, مطلوب, تأجير, الرياض, السعودية, دبي, أبو ظبي, الدوحة, مصر, القاهرة, اسكندرية, شقق للبيع,Real Estate, Map, Google Legacy, Villa, House, House, Apartment, Land, Palace, Room, Sale, Buy, Wanted, Rent, Riyadh, Saudi Arabia, Dubai, Abu Dhabi, Doha, Egypt, Cairo, Alexandria, Apartments for Sale" />
+            <meta name='twitter:card' content="summary" />
+            <meta name='twitter:title' content="@Model.Name - @General.PageTitle" />
+            <meta name='twitter:url' content="@this.Request.Url" />
+            <meta name='twitter:description' content="@General.SiteDescription" />
+            <meta name='twitter:image' content="http://www.aqarstock.com/Content/_ui/img/Aqar-Stock-Sociallogo-1.png" />
+            <meta name='og:type' content="article" />
+            <meta name='og:title' content="@Model.Name - @General.PageTitle" />
+            <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-1.png" />
+            <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-2.png" />
+            <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-3.png" />
+            <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-4.png" />
+            <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-5.png" />
+            <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-6.png" />
+            <meta name='og:url' content="@this.Request.Url" />
+            <meta name='og:description' content="@General.SiteDescription" />
+        }

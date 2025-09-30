@@ -1,0 +1,255 @@
+﻿
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="brokerApp" ng-controller="MainController">
+<head>
+    <meta charset="utf-8" />
+    <title>Aqar Stock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/bootstrap-theme.min.css" />
+    <link href="styles/CssStyle.css" rel="stylesheet" type="text/css" />
+    <script src="scripts/jquery-1.11.0.min.js"></script>
+    <script src="scripts/angular.min.js" type="text/javascript"></script>
+    <script src="scripts/angular-route.min.js" type="text/javascript"></script>
+    <script src="scripts/angular-ui-router.min.js" type="text/javascript"></script>
+    <script src="scripts/angular-animate.min.js" type="text/javascript"></script>
+    <script src="scripts/angular-resource.min.js" type="text/javascript"></script>
+    <script src="scripts/FrontEndController.js" type="text/javascript"></script>
+    <script src="scripts/services.js" type="text/javascript"></script>
+    <script src="scripts/FrontEndDirective.js" type="text/javascript"></script>
+</head>
+
+<body class="rtl">
+    <div class="wrapper">
+        <header>
+	        <div id="divHeader" ng-include src="'parts/Header.htm'">
+            </div>
+        </header>
+        <!-- content Area start -->
+            <div class="content">
+                <div class="container">
+                    <div class="sideBar">
+                        <div class="searchArea">
+                             <div class="searchSm">
+                                <div class="tabsBoxSm">
+                                    <div class="tabs">
+                                        <div id="divTabSale" class="tab active" tab-click>
+                                            <span>وحدات للبيع</span>
+                                        </div>
+                                        <div id="divTabRent" class="tab" tab-click>
+                                            <span>وحدات للإيجار</span>
+                                        </div>
+                                    </div>
+                                    <div class="tabContentBoxes">
+                                        <div class="tabContentBox">
+                                            <div class="firstRow">
+                                                <div class="in">
+                                                    <span>نوع الوحدة</span></br>
+                                                    <select id="ddlSearchType" search-selecttype>
+                                                        <option value="">كل الأنواع</option>
+                                                        <option ng-repeat="RealEstateType in RealEstateTypes" value="{{RealEstateType.ID}}">
+                                                            {{RealEstateType.Name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="in">
+                                                    <span>البلد</span></br>
+                                                    <select id="ddlSearchCountry" search-selectcountry>
+                                                        <option value="">كل البلاد</option>
+                                                        <option ng-repeat="Country in Countries" value="{{Country.ID}}">{{Country.Name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="in">
+                                                    <span>المحافظة</span></br>
+                                                    <select id="ddlSearchCity" search-selectcity disabled>
+                                                        <option value="">كل المحافظات</option>
+                                                        <option ng-repeat="City in SearchCitiesList" value="{{City.ID}}">{{City.Name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="in">
+                                                    <span>الحي</span></br>
+                                                    <select id="ddlSearchDistrict" disabled>
+                                                        <option value="">كل الأحياء</option>
+                                                        <option ng-repeat="District in SearcDistricts" value="{{District.ID}}">{{District.Name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="in">
+                                                    <span>السعر</span></br>
+                                                    <select>
+                                                        <option value="">أختر السعر</option>
+                                                        <option ng-repeat="Price in Prices" value="{{Price.value}}">{{Price.text}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="clear">
+                                                </div>
+                                            </div>
+                                            <div class="secRow">
+                                                <div class="control">
+                                                    <span>البحث عن طريق <b>:</b> </span> </br>
+                                                    <ul>
+                                                        <li>
+                                                            <input type="radio" name="1" value="الصور" /><label>الصور</label></li>
+                                                        <li>
+                                                            <input type="radio" name="1" value="القائمة" /><label>القائمة</label></li>
+                                                        <li>
+                                                            <input type="radio" name="1" value="الخريطة" /><label>الخريطة</label></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="clear">
+                                                </div>
+                                            </div>
+                                            <div class="line">
+                                            </div>
+                                            <div class="thirdRow">
+                                                <div class="in">
+                                                    <span>المساحة</span></br>
+                                                    <select>
+                                                        <option value="">أختر المساحة</option>
+                                                        <option ng-repeat="Area in Areas" value="{{Area.value}}">{{Area.text}}</option>
+                                                    </select>
+                                                </div>
+                                                
+                                                <div class="in">
+                                                    <span>حالة الوحدة</span></br>
+                                                    <select id="ddlSearchStatus" disabled>
+                                                        <option value="">أختر حالة الوحدة</option>
+                                                        <option ng-repeat="Status in SearchStatuses" value="{{Status.ID}}">{{Status.Name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="in">
+                                                    <span>طريقة الدفع</span></br>
+                                                    <select>
+                                                        <option value="">أختر طريقة الدفع</option>
+                                                        <option ng-repeat="PaymentType in PaymentTypes" value="{{PaymentType.ID}}">{{PaymentType.Name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="in">
+                                                    <span>العملة</span></br>
+                                                    <select>
+                                                        <option value="">أختر العملة</option>
+                                                        <option ng-repeat="Currency in Currincies" value="{{Currency.ID}}">{{Currency.Name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="clear">
+                                                </div>
+                                                <div class="control">
+                                                    <span><a href="#" btn-advanced>بحث مفصل عن عقارك</a></span> <span class="expand"
+                                                        id="close"><a href="#" btn-advanced>غلق البحث المفضل</a></span>
+                                                    <div class="moreBtn">
+                                                        <a href="#">بحث</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="addAqar">
+                            <div class="BGC">
+                                <a href="#">أضف عقارك هنا</a>
+                            </div>
+                        </div>
+                        <div class="ADSSm">
+                            <img src="images/Frontend/ADS1.jpg" />
+                        </div>
+                        <div class="lastAdded">
+                            <div class="lastAddedTitle">
+                                 <h4>آخر الوحدات المضافة</h4>
+                            </div>
+                            <div class="lastAddedItems">
+                                <ul>
+                                    <li class="item">
+                                        <a href="#"><span>فيلا <b>245</b> م تمليك بجنينة ، التجمع الخامس</span></a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="#"><span>فيلا <b>245</b> م تمليك بجنينة ، التجمع الخامس</span></a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="#"><span>فيلا <b>245</b> م تمليك بجنينة ، التجمع الخامس</span></a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="#"><span>فيلا <b>245</b> م تمليك بجنينة ، التجمع الخامس</span></a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="#"><span>فيلا <b>245</b> م تمليك بجنينة ، التجمع الخامس</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="projectGallery">
+                        <div class="Title">
+                            <h4><a class="back" href="#">رجوع</a><span>صور المشروع</span></h4>
+                        </div>
+                        <div class="slider">
+                            <div class="viewPort">
+                                <ul>
+                                    <li><img src="images/Frontend/banner.jpg" /></li>
+                                    <li><img src="images/Frontend/banner2.jpg" /></li>
+                                    <li><img src="images/Frontend/banner.jpg" /></li>
+                                    <li><img src="images/Frontend/banner2.jpg" /></li>
+                                    <li><img src="images/Frontend/banner.jpg" /></li>
+                                    <li><img src="images/Frontend/banner2.jpg" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sliderControls">
+                            <div class="nextBtn"><img src="images/Frontend/twoArrowOppWhite.png" /></div>
+                            <div class="prevBtn"><img src="images/Frontend/twoArrowWhite.png" /></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        <!-- content Area end -->
+
+        <!-- footer Area start -->
+        <footer>
+			<div ng-include src="'parts/Footer.htm'">
+            </div>
+	    </footer>
+        <!-- footer Area end -->
+        
+    </div>
+
+    <script>
+
+        $(window).load(function () {
+            function fadeSlider(slide) {
+                slide.fadeIn(1000).delay(6000).queue(function () {
+                    slide.fadeOut(1000);
+                    slide.remove();
+                    $('.slider .viewPort ul li:last-child').after(slide);
+                    fadeSliderMark = setTimeout(function () { fadeSlider($('.slider .viewPort ul li:first-child')) });
+                });
+
+            }
+            var fadeSliderMark = setTimeout(function () { fadeSlider($('.slider .viewPort ul li:first-child')) });
+            var slide;
+            $('.sliderControls .nextBtn').click(function () {
+                clearTimeout(fadeSliderMark);
+                slide = $('.slider .viewPort ul li:first-child');
+                slide.hide();
+                slide.remove();
+                $('.slider .viewPort ul li:last-child').after(slide);
+                fadeSliderMark = setTimeout(function () { fadeSlider($('.slider .viewPort ul li:first-child')) });
+            });
+            $('.sliderControls .prevBtn').click(function () {
+                clearTimeout(fadeSliderMark);
+                slide = $('.slider .viewPort ul li:not(:last-child)');
+                slide.hide();
+                slide.remove();
+                $('.slider .viewPort ul li:last-child').after(slide);
+                fadeSliderMark = setTimeout(function () { fadeSlider($('.slider .viewPort ul li:first-child')) });
+            });
+
+
+        });
+    </script>
+
+</body>
+</html>

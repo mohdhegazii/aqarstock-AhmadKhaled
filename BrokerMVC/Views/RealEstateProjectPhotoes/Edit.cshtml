@@ -1,0 +1,77 @@
+﻿@model BrokerMVC.Models.RealEstateProjectPhoto
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2 class="btn btn-lg">
+                        <i class="fa fa-picture-o"></i>
+                        @General.Images
+                    /@General.Edit
+                </h2>
+            </div>
+            <div class="btn-group pull-left">
+                <button type="button" class="btn btn-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="panel-body">
+
+       @using (Html.BeginForm("Edit", "RealEstateProjectPhotoes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+       {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ID)
+                @Html.HiddenFor(model => model.ProjectID)
+                @Html.HiddenFor(model => model.PhotoURL)
+                @Html.HiddenFor(model => model.Date)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PhotoFile, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.PhotoFile, new { type = "file", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PhotoFile, "", new { @class = "text-danger" })
+                        <img src='~/@Model.PhotoURL.Replace("~/","")' alt="" class="img-responsive img-thumbnail form-img" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EnDescription, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.EnDescription, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EnDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsDefault, General.DefaultImage, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                    <div class="col-md-9">
+                        <div class="checkbox">
+                            @Html.CheckBox("IsDefault", Model.IsDefault.GetValueOrDefault())
+                            @Html.ValidationMessageFor(model => model.IsDefault, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="@General.Save" class="btn btn-success btn-group-lg" />
+                    </div>
+                </div>
+            </div>
+        }
+</div>
+    </div>

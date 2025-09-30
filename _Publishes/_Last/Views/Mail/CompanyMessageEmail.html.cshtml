@@ -1,0 +1,59 @@
+﻿@using ActionMailer.Net
+@model BrokerMVC.Models.CompanyMessage
+@{
+    Layout = "~/Views/Mail/_EmailLayout.html.cshtml";
+}
+@*<div class="email_banner">
+        طلب شراء جديد
+    </div>
+    <div class="email_body">*@
+
+<div class="caption">
+    <h1>
+        عزيزى العميل
+        <br />
+        <span>
+            تم ارسال رسالة من احد العملاء 
+        </span>
+    </h1>
+
+</div>
+<table id="table">
+    @*<tr class="header-row row">
+            <td class="cell primary">Vehcile</td>
+            <td class="cell">Exterior</td>
+        </tr>*@
+    @if(ViewBag.Project!=null)
+    { 
+    <tr>
+        <td class="cell primary"><h4>@General.Project</h4></td>
+        <td class="cell"><a href="@ViewBag.URL">@ViewBag.Project</a></td>
+    </tr>
+    }
+    <tr>
+        <td class="cell primary"><h4>@General.FullName</h4></td>
+        <td class="cell">@Html.DisplayFor(model => model.Name)</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.Phone</h4></td>
+        <td class="cell">@Html.DisplayFor(model => model.Phone)</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.Email</h4></td>
+        <td class="cell">@Html.DisplayFor(model => model.Email)</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.Date</h4></td>
+        <td class="cell">@Model.CreatedDate.Value.ToShortDateString()</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.Message</h4></td>
+        <td class="cell">@Html.Raw(Model.Message)</td>
+    </tr>
+
+</table>
+<div class="footer">
+    <a href="@ConfigurationSettings.AppSettings["WebSite"].ToString()"> خدمة عملاء @ConfigurationSettings.AppSettings["Name"].ToString()</a>
+<br />
+</div>
+

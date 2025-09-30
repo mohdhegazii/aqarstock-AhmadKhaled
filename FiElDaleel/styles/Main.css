@@ -1,0 +1,1649 @@
+﻿@import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
+
+body
+{
+    /*font-family: 'Droid Arabic Naskh', Arial;*/
+    background-color: #f4f4f4 !important;
+}
+
+h1, h2, h3, h4, h5, h6, span, label, p, a, input, textarea, select
+{
+    /*font-family: 'Droid Arabic Naskh', Arial;*/
+}
+a:focus, a:active, input:focus, textarea:focus, select:focus
+{
+    outline: none;
+    border: none;
+}
+:-moz-any-link:focus, object:focus, a:focus, input:focus, textarea:focus, select:focus
+{
+    outline: medium none;
+}
+.clear
+{
+    clear: both;
+}
+.container
+{
+    direction: rtl;
+    position: relative;
+  /*  z-index: 999;*/
+}
+
+.row
+{
+    width: 100%;
+}
+
+.Validator
+{
+    color: Red;
+    border-radius: 0;
+    box-shadow: 0 0 0;
+    display: block;
+}
+
+.login
+{
+    width: 100%;
+}
+
+.login #divMsg
+{
+    width: 90%;
+}
+
+.loginItem
+{
+    width: 100%;
+}
+
+.loginItem Input[type="submit"].btn-block
+{
+    width: 90%;
+}
+
+.Valid
+{
+    color: Green;
+    border-radius: 0;
+    box-shadow: 0 0 0;
+    display: inline-block;
+}
+
+
+.Header
+{
+    width: 100%;
+}
+glemap
+.Content
+{
+    width: 100%;
+}
+
+.Content .Icon
+{
+    margin-bottom: 10px;
+    max-width: 200px;
+}
+
+.ContentItem
+{
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.ContentItem span
+{
+    margin-left: 5px;
+    font-family: 'Droid Arabic Naskh' , Arial;
+}
+
+.ContentItem > input[type="text"]
+{
+    margin-right: 19px;
+    width: 65%;
+    display: inline-block;
+}
+
+
+.uploadimage
+{
+    display: inline-block;
+    width: 65%;
+    box-shadow: 0px 0px 0px;
+    border: 0px;
+}
+
+.ComboBox
+{
+    width: 100% !important;
+    box-shadow: 0px 0px 0px;
+    border: 0px;
+}
+
+.Grid
+{
+    width: 100%;
+}
+
+.GridColumnHeader
+{
+    text-align: center;
+}
+
+.Note
+{
+    color: #d77900;
+    background-color: #f5ebdf;
+    border-radius: 5px;
+    margin: 5px 0 5px 5px;
+    font-size: 11px;
+    float: right;
+    padding: 5px 10px;
+}
+
+.GoogleMap
+{
+    width: 100%;
+    height: 100%;
+    min-height: 382px;
+}
+.ImageItemHolder
+{
+    display: inline-block;
+    width: 210px;
+}
+.ImageItem
+{
+    margin-bottom: 11px;
+    width: 200px;
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    border: solid 10px #ffffff;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+    margin: 5px;
+}
+.ImageItem .DefaultTitle
+{
+    display: none;
+}
+
+.ImageItem .Image
+{
+    max-height: 110px;
+    min-width: 100%;
+}
+
+.ImageItem .ImageControls
+{
+    display: inline-block;
+}
+
+.ImageItem .ImageControls input
+{
+    display: inline-block;
+    height: 24px;
+}
+
+.ImageItem .DefaultTitle
+{
+    background-color: #FFFFFF;
+    color: #0000FF;
+    opacity: 0.85;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+.thumbnail
+{
+    border: solid 1px #eeeeee;
+}
+.divWorkTime > div
+{
+    display: inline-block;
+}
+
+.WizardTabs
+{
+    width: 100%;
+}
+
+.WizardTab
+{
+    width: 100%;
+    display: inline-block;
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: 100%;
+    font-size: 15px;
+    padding: 5px;
+    font-family: 'Droid Arabic Naskh' , Arial;
+}
+
+.rtsDisabled
+{
+    opacity: 0.5;
+}
+
+.WizardTab img
+{
+    display: inline-block;
+}
+
+.WizardContent
+{
+    border: 5px solid #ffffff;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    margin: 3px;
+    margin-top: 0px;
+}
+
+.WizardContent .Header
+{
+    border-bottom: solid 2px #eeeeee;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+}
+
+.WizardPageView
+{
+    margin-right: 44px;
+}
+
+.divListHeader
+{
+    width: 100%;
+    border: 1px solid black;
+}
+
+.divListHeader a
+{
+    float: left;
+}
+
+.divList
+{
+    border: 1px solid black;
+}
+
+.divListItem
+{
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.divListItem img
+{
+    max-height: 48px;
+    max-width: 48px;
+    display: inline-block;
+}
+
+.divListItemContent
+{
+    margin-right: 1px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.Title
+{
+    margin-bottom: 1px;
+}
+
+.Title img
+{
+    max-height: 64px;
+    max-width: 64px;
+    display: inline-block;
+}
+
+.Title span
+{
+    font-weight: bold;
+    font-size: 26px;
+    margin-right: 20px;
+}
+
+.divDetails
+{
+    padding: 10px;
+    margin-right: 20px;
+    border-bottom: solid 1px #ffffff;
+    border-top: solid 1px #e0e0e0;
+    font-size: 17px;
+}
+
+.divDetailsAlt
+{
+    background-color: rgba(255,255,255,0.5);
+}
+
+.divDetails:first-child
+{
+    border-top: none;
+}
+
+.divDetails:last-child
+{
+    border-bottom: none;
+}
+
+.DetailTitle
+{
+    display: inline-block;
+    font-weight: bold;
+}
+
+.Detail
+{
+    margin-right: 1px;
+    display: inline-block;
+}
+
+.keyword
+{
+    display: inline-block;
+}
+
+.BusinessSocialImage
+{
+    max-width: 32px;
+    display: inline-block;
+}
+
+.divDetails a.aspNetDisabled
+{
+    opacity: 0.14;
+}
+
+.EditBusiness
+{
+    float: left;
+}
+
+.imageList
+{
+    display: inline-block;
+    height: 64px;
+    margin-top: 20px;
+    max-width: 128px;
+    margin-right: 3px;
+}
+
+.imageList img
+{
+    height: 64px;
+}
+
+.currentimage
+{
+    float: right;
+    margin-top: 15px;
+    border: solid 5px #eeeeee;
+    max-width: 90%;
+    margin-left: 28px;
+    margin-right: 28px;
+}
+
+.BranchSave
+{
+    margin-right: 38px;
+    margin-top: 12px;
+}
+
+.col-lg-2, .col-md-3, .col-sm-3
+{
+    padding: 0px;
+}
+
+.divEmptyData
+{
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.rightList
+{
+    width: 90% !important;
+}
+
+.SoldImage
+{
+    position: absolute;
+    right: -3px;
+    bottom: 5px;
+}
+
+.MessageTitle
+{
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.Message
+{
+    margin-top: 5px;
+    margin-right: 2px;
+    width: 100%;
+}
+
+.MessageItem
+{
+    background-color: #F3F3F3;
+}
+
+.MessageAlternateItem
+{
+    background-color: #FFFDB4;
+}
+
+.Win
+{
+    width: 500px !important;
+}
+
+.WizardTab span span:last-child
+{
+    display: none;
+}
+/******************************************Extra Small Devices Css**************************************/
+
+
+@media (max-width: 500px)
+{
+    .Win
+    {
+        width: 200px !important;
+        margin: 0px !important;
+    }
+}
+/********************************Telerik Controls****************************************************/
+.rcbList
+{
+    min-height: 200px;
+}
+
+.RadUpload
+{
+    width: auto !important;
+}
+
+.rtImg
+{
+    width: 32px;
+    height: 32px;
+}
+
+
+.RadAutoCompleteBoxPopup
+{
+    float: right !important;
+}
+
+.racSlide
+{
+    float: right !important;
+    direction: rtl !important;
+    left: 0px !important;
+    position: relative !important;
+    margin-right: 19%;
+}
+
+.RadAutoCompleteBox .racInput
+{
+    background-color: #FFFFFF;
+    background-image: none;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    vertical-align: middle;
+    width: 100%;
+}
+
+@media (max-width: 768px)
+{
+    .racSlide
+    {
+        margin-right: 1px;
+    }
+}
+
+/****************************************************************************************/
+
+.nav.nav-center
+{
+    margin: 0;
+    float: none;
+}
+
+.navbar-top-links li:last-child
+{
+    margin-right: 0;
+}
+
+#page-wrapper
+{
+    border-left: 0; /* border-right: 1px solid #e7e7e7;  background-image: -webkit-linear-gradient(top, #f4f4f4 0%, #f7f7f7 100%);     background-image: linear-gradient(to bottom, #f4f4f4 0%, #f7f7f7 100%); */
+    margin: 0 250px 0 0;
+    padding-top: 20px;
+}
+
+.nav#side-menu
+{
+    margin: 0;
+    padding: 0;
+}
+
+.fa-fw
+{
+    margin-left: 10px;
+}
+
+.nav.navbar-static-side > li > a
+{
+    font-weight: bold;
+    padding: 15px;
+}
+
+nav
+{
+    background-color: #000 !important;
+}
+
+nav a, .navbar-default .navbar-brand
+{
+    color: #ffffff;
+    -webkit-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+nav a:hover, .navbar-default .navbar-brand:hover, .nav > li > a:hover, .nav > li > a:focus
+{
+    color: #ffba00;
+    background: none;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus
+{
+    background-color: #ea5821;
+    color: White;
+}
+
+.dropdown-menu
+{
+    border: none;
+    margin-top: -3px;
+}
+
+.navbar-static-side ul li, .navbar-default
+{
+    border-bottom: solid 1px #666666;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Droid Arabic Naskh' , Arial;
+}
+
+.nopadding
+{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.unit
+{
+    position: relative;
+    display: inline-block;
+    width: 293px;
+    height: 200px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    -webkit-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    position: relative;
+}
+
+.unit:hover
+{
+    background-color: #fff7de;
+}
+
+.unitImg
+{
+    float: right;
+    width: 38px; /* height: 80px;*/
+}
+
+.unitData
+{
+    float: right;
+    width: 200px;
+    height: 165px;
+    overflow: hidden;
+    margin-right: 15px;
+    padding-right: 15px;
+    text-align: right;
+    border-right: solid 1px #eeeeee;
+}
+
+.unit a
+{
+    color: #666666;
+    float: right;
+    width: 100%;
+    height: 100%;
+}
+
+.centerThis
+{
+    text-align: center;
+}
+
+.controls
+{
+    float: left;
+}
+
+.controls input
+{
+    float: right;
+    margin: 5px;
+}
+
+.realestateLoog
+{
+    width: 32px;
+}
+
+.RadTabStrip_Simple .rtsLink
+{
+    border: none !important;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    background-color: #ea5821 !important;
+    color: #ffffff !important;
+}
+
+.RadTabStrip_Simple .rtsSelected
+{
+    background-color: #b4d009 !important;
+    color: white !important;
+}
+
+.rtsLI
+{
+    padding: 0 3px !important;
+}
+
+.rtsLI.rtsFirst
+{
+    padding-right: 0;
+}
+
+.rtsLI.rtsLast
+{
+    padding-left: 0;
+}
+
+.unitImages
+{
+    display: block;
+    margin: 0 28px;
+}
+
+.unitImages > div
+{
+    border: solid 3px #eeeeee;
+    cursor: pointer;
+}
+
+.WizardContent .ContentItem
+{
+    margin-bottom: 20px;
+}
+
+.RadDataPager_Default
+{
+    border: none !important;
+    background-color: transparent !important;
+    text-align: center;
+}
+
+.RadDataPager_Default a, .RadDataPager_Default input, .RadDataPager .rdpWrapRight
+{
+    float: none !important;
+    display: inline-block !important;
+}
+
+.rdpNumPart a
+{
+    width: 25px;
+    height: 25px;
+    color: #ffffff !important;
+    padding: 3px !important;
+    font-weight: bold;
+    background: #999999 !important;
+    float: right !important;
+    border-radius: 50%;
+    margin: 0 3px !important;
+}
+
+.rdpNumPart a:hover
+{
+    background-color: #005997 !important;
+}
+
+.rdpNumPart a.rdpCurrentPage, .rdpNumPart a.rdpCurrentPage:hover
+{
+    background: #428bca !important;
+}
+
+.rdpNumPart a span
+{
+    background: none !important;
+}
+
+.theGridTable
+{
+    direction: ltr;
+    text-align: right;
+    font-size: 17px;
+}
+
+@media (max-width: 780px)
+{
+    #page-wrapper
+    {
+        margin: 0;
+    }
+}
+
+@media (min-width: 780px)
+{
+  /*  .collapse
+    {
+        display: block;
+    }*/
+}
+
+.background
+{
+    position: fixed !important;
+    top: 0;
+    -webkit-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    border-top: 10px #000000 solid;
+}
+
+.background, .backgroundUnit
+{
+    width: 100%;
+    height: 100%;
+}
+
+.backgroundUnit
+{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.shadowPanel
+{
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+}
+
+.navbar-admin .navbar-nav > li > a
+{
+    color: #ffffff;
+}
+
+.navbar-admin
+{
+    margin-bottom: 20px !important;
+}
+
+.table-striped th
+{
+    background-color: #ea5821 !important;
+    color: #ffffff;
+    font-size: 17px !important;
+    font-weight: bold !important;
+}
+
+.rtlDirection
+{
+    direction: rtl;
+}
+
+.adminWrapper
+{
+    margin: 0 20px 20px 20px !important;
+    padding-bottom: 20px !important;
+    min-height: 0 !important;
+}
+
+.subscriperWrapper
+{
+    margin-bottom: 20px !important;
+    padding-bottom: 20px !important;
+    min-height: 700px !important;
+}
+
+.footerRights
+{
+    text-align: center; /*color: #ffffff;*/
+}
+
+.approval
+{
+    margin-left: 18px;
+}
+
+.approval span, .approval input
+{
+    float: right;
+    margin-right: 5px;
+}
+
+.racTokenList
+{
+    border-radius: 3px;
+    border: 2px solid #bdc3c7 !important;
+}
+
+.racToken
+{
+    border: none !important;
+    background-color: #eeeeee !important;
+    color: #666666 !important;
+    margin: 2px !important;
+    padding: 3px 15px 3px 5px !important;
+}
+
+.RadAutoCompleteBox_Default
+{
+    position: absolute;
+    right: 0;
+}
+
+.navbar-brand
+{
+    position: relative;
+}
+
+.logoTip
+{
+    position: absolute;
+    left: -160px;
+    top: 10px;
+    display: none;
+}
+
+.logoTip .tooltip-inner
+{
+    background-color: #ffffff;
+    color: #666666;
+    margin: 0;
+    padding: 5px;
+}
+
+.logoTip .tooltip-arrow
+{
+    border-left-color: #ffffff !important;
+}
+
+.navbar-brand:hover .logoTip
+{
+    display: block !important;
+    opacity: 1;
+}
+
+.nav-pills > li > a
+{
+    color: #ffffff;
+}
+
+.loginAndRegisterButtons
+{
+    width: 160px;
+    float: none;
+    margin: 0 auto;
+    padding-right: 0;
+}
+
+/*.adminWrapper .SoldImage {
+  bottom: auto;
+    right: 16px;
+}*/
+.addPropertyWrapper
+{
+    display: block;
+    width: 100%;
+}
+.addProperty
+{
+    display: block;
+    width: 100%;
+}
+.addProperty p
+{
+    font-weight: bold;
+}
+.addProperty p span.tinyNote
+{
+    font-size: 14px;
+    color: #b9b9b9;
+}
+.addProperty .row
+{
+    margin: 0;
+    text-align: center;
+}
+.addProperty .row.labelRow
+{
+    margin-top: 20px;
+}
+.ui-button-text-only .ui-button-text
+{
+    font-weight: bold;
+}
+.ui-state-active
+{
+    background: #349300 url(../images/icons/backend/check.png) no-repeat left bottom;
+    color: #ffffff;
+}
+.ui-selectmenu-button span.ui-selectmenu-text, .ui-selectmenu-menu .ui-menu, .ui-selectmenu-menu .ui-menu li:hover
+{
+    text-align: right;
+    font-weight: bold;
+}
+.addPropertyGroup
+{
+    float: right;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding-bottom: 30px;
+}
+.addPropertyGroup input[type="text"], .addPropertyGroup textarea
+{
+    border-radius: 5px !important;
+    border: solid 2px #d3d3d3 !important;
+    padding: 5px !important;
+    text-align: center !important;
+    color: #666666 !important;
+    font-size: 20px !important;
+    width: 250px !important;
+}
+.addPropertyGroup input[type="text"]:focus, .addPropertyGroup textarea:focus
+{
+    border: solid 2px #adadad;
+}
+.addPropertyGroup textarea
+{
+    width: 50% !important;
+    height: 200px;
+    min-width: 300px;
+}
+.addPropertyGroup select
+{
+    width: 300px;
+    border: solid 2px #d3d3d3;
+    border-radius: 5px;
+    height: 40px;
+    width: 250px;
+}
+.addPropertyGroupTitle
+{
+    float: right;
+    width: 100%;
+    background-color: #0071c0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.addPropertyGroupTitle h1
+{
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 10px;
+    float: right;
+}
+.addPropertyGroupTitleOrange
+{
+    background-color: #ff5400;
+}
+.addPropertyGroupTitleGrey
+{
+    background-color: #eeeeee;
+}
+.addPropertyGroupTitleGrey h1
+{
+    color: #666666;
+    text-align: center;
+    font-size: 16px;
+    float: none;
+}
+.addPropertyInsideGroupSub
+{
+    margin-top: 30px;
+}
+.addPropertyHalf
+{
+    float: right;
+    width: 47.5%;
+}
+.addPropertyMap
+{
+    float: left;
+    padding-right: 20px;
+    border-right: solid 1px #eeeeee;
+}
+.addPropertyMapCore
+{
+    float: left;
+    width: 100%;
+    border: solid 5px #eeeeee;
+    padding: 1px;
+    border-radius: 5px;
+}
+.addPropertyMapCore iframe
+{
+    float: left;
+}
+.addPropertyAddressContainer
+{
+    padding: 40px;
+}
+.addPropertyButtonContainer
+{
+    text-align: center;
+}
+.addPropertyButtonContainer .btn
+{
+    font-size: 34px;
+}
+.aLabel
+{
+    float: right;
+}
+
+.aControl
+{
+}
+.navbar-default .navbar-nav > .dropdown > a .caret
+{
+    border-top-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+.pagerRow > td
+{
+    padding: 10px !important;
+}
+.pagerRow:hover td
+{
+    background-color: #284775 !important;
+    color: #ffffff !important;
+}
+.pagerRow span
+{
+    color: #284775 !important;
+    background-color: #ffffff !important;
+    padding: 3px 10px;
+    border-radius: 3px;
+}
+.pagerRow a
+{
+    padding: 3px 10px;
+    font-weight: bold;
+}
+.loginButton
+{
+    font-size: 15px;
+}
+.basicData
+{
+    border-right: solid 1px #eeeeee;
+}
+.regUnit h3
+{
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.regUnit h3 span
+{
+    font-size: 12px;
+    color: #a3a3a3;
+}
+.alert-dismissable .close
+{
+    right: auto;
+    left: 3px;
+    top: 3px;
+}
+.alert-dismissable
+{
+    padding-right: 10px;
+    font-weight: bold;
+}
+.editRemove
+{
+    float: left;
+    font-size: 14px;
+    float: left;
+    margin-right: 20px;
+}
+.editRemove span
+{
+    margin-right: 0px;
+    font-size: 14px;
+    margin-top: 12px;
+    float: right;
+}
+.ruInputs li:first-child span.ruFileWrap
+{
+    margin-top: -50px !important;
+    height: 50px !important;
+    opacity: 0;
+}
+.ruInputs li
+{
+    padding: 5px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+}
+.ruInputs li:first-child
+{
+    background-color: transparent;
+}
+.ruBrowse
+{
+    display: none;
+}
+.ruFakeInput
+{
+    width: 114px !important;
+    height: 30px !important;
+}
+.RadAsyncUpload
+{
+    height: auto !important;
+}
+.ruRemove
+{
+    float: left !important;
+    border-right: solid 1px #ffffff !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+.checkboxsHolder
+{
+    float: right;
+    width: 100%;
+    text-align: center;
+}
+.checkboxsHolder div
+{
+    display: inline-block;
+}
+.checkboxsHolder div div:nth-child(2), .checkboxsHolder div div:nth-child(4)
+{
+    display: block;
+}
+.checkboxsHolder div div:nth-child(4)
+{
+    margin-bottom: 30px;
+}
+.checkboxsHolder input[type="checkbox"]
+{
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+}
+.navbar-static-side
+{
+    right: 0;
+    position: fixed;
+}
+@media (max-width: 780px)
+{
+    .navbar-static-side
+{
+    width:100% !important;
+}
+}
+@media (max-width: 1450px)
+{
+    .navbar-admin .navbar-brand
+    {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .navbar-admin .navbar-nav li > a
+    {
+        padding: 20px 4px;
+    }
+}
+
+@media (max-width: 768px)
+{
+    .ImageItem .Image
+    {
+        max-height: 78px;
+    }
+
+    .WizardTab img
+    {
+        display: none;
+    }
+
+    .ShowImg
+    {
+        display: inline-block !important;
+        width: 32px;
+    }
+
+    .WizardSpan
+    {
+        display: none;
+    }
+
+    .loginPage .row, .loginPage, .loginPage .col-lg-12, .col-md-4
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    .form-group
+    {
+        margin-bottom: 0;
+    }
+
+    .loginPage .panel-default
+    {
+        margin-top: 30px;
+    }
+
+    #HyperLink1
+    {
+        font-size: 12px;
+    }
+
+    .modal-dialog .form-group
+    {
+        margin-bottom: 20px;
+    }
+
+    .navbar-top-links
+    {
+        display: none;
+    }
+
+    .navbar-brand
+    {
+        padding: 17px 0;
+    }
+
+    .nav#side-menu
+    {
+        margin-top: 33px;
+    }
+
+    body
+    {
+        padding-top: 54px;
+    }
+
+    .panel .col-lg-10, .WizardContent .col-lg-10
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    .WizardPageView
+    {
+        margin-right: 10px;
+    }
+
+    .WizardContent .Header
+    {
+        border-bottom: solid 2px #eeeeee;
+        margin-bottom: 20px;
+        margin-top: 15px;
+        padding-bottom: 10px;
+    }
+
+    .WizardContent .Header h1
+    {
+        font-size: 18px;
+    }
+
+    .WizardTab
+    {
+        font-size: 12px;
+        padding: 0;
+    }
+
+    .WizardTab span span:first-child
+    {
+        display: none;
+    }
+
+    .WizardTab span span:last-child
+    {
+        display: block;
+    }
+
+    .RadTabStrip_Simple .rtsLI .rtsLink
+    {
+        padding-left: 0 !important;
+    }
+
+    .RadTabStrip_Simple .rtsLI .rtsOut
+    {
+        padding-right: 0 !important;
+    }
+
+    .unit
+    {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .unitImg
+    {
+        width: 50px;
+        height: 50px;
+    }
+
+    .unitData
+    {
+        float: none;
+        width: auto;
+        margin-right: 60px;
+    }
+
+    .Title span
+    {
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    .alert
+    {
+        padding: 5px !important;
+    }
+
+    .controls input
+    {
+        width: 22px;
+    }
+
+    .divDetails
+    {
+        margin-right: 0;
+        padding: 7px;
+    }
+
+    .modal-dialog .col-xs-12
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    label
+    {
+        font-size: 13px;
+    }
+
+    .adminWrapper
+    {
+        margin: 0 !important;
+        margin-top: 20px !important;
+        padding: 5px !important;
+    }
+
+    .adminWrapper .panel-body
+    {
+        padding: 2px;
+    }
+
+    .adminWrapper .theGridTable
+    {
+        font-size: 13px;
+    }
+
+    .adminWrapper .table > thead > tr > th, .adminWrapper .table > tbody > tr > th, .adminWrapper .table > tfoot > tr > th, .adminWrapper .table > thead > tr > td, .adminWrapper .table > tbody > tr > td, .adminWrapper .table > tfoot > tr > td
+    {
+        padding: 5px;
+    }
+
+    .adminWrapper .row
+    {
+        margin: 0;
+    }
+
+    .adminWrapper .SoldImage
+    {
+        right: 8px;
+    }
+
+    .adminWrapper .navbar-nav
+    {
+        margin: 0;
+        padding-right: 0;
+    }
+
+    .adminWrapper .panel-heading
+    {
+        padding: 1px 15px;
+        margin-bottom: 10px;
+    }
+
+    .navbar-admin .dropdown-toggle
+    {
+        display: none;
+    }
+
+    .navbar-admin .dropdown-menu
+    {
+        display: block !important;
+        background-color: transparent;
+        position: initial;
+        box-shadow: none;
+        width: 90%;
+    }
+
+    .navbar-admin .navbar-nav
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar-admin .dropdown
+    {
+        width: 100%;
+    }
+
+    .navbar-admin .dropdown-menu > li > a
+    {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .navbar-admin .dropdown-menu > li > a:hover
+    {
+        color: #1abc9c;
+        background-color: transparent;
+    }
+
+    .navbar-admin .dropdown-menu .divider
+    {
+        display: none;
+    }
+    .addPropertyHalf
+    {
+        width: 100%;
+        margin: 0 !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+    .addPropertyAddressContainer
+    {
+        padding: 0;
+    }
+    .addPropertyGroup textarea
+    {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+    .checkboxsHolder div
+    {
+        width: 100%;
+    }
+    .checkboxsHolder
+    {
+        text-align: right;
+    }
+    .ui-button-text-only .ui-button-text
+    {
+        font-size: 12px;
+    }
+    .addProperty p span.tinyNote
+    {
+        display: block;
+    }
+}
+.menuLi
+{
+    margin-right: 20px;
+    border-bottom: 0 !important;
+}
+.imageColumnStyle img
+{
+    max-width: 100px;
+    max-height: 100px;
+    margin-bottom: 10px;
+}
+.panel-primary
+{
+    border-color: #ea5821;
+}
+.panel-primary > .panel-heading
+{
+    background-color: #ea5821;
+    border-color: #ea5821;
+    font-size: 20px;
+    font-weight: bold;
+}
+.dropdown-menu > li > a
+{
+    color: White;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Droid Arabic Naskh' , Arial;
+}
+.btn, .btn:hover
+{
+    background-color: #ea5821;
+    color: White;
+    font-size: 15px;
+    font-weight: bold;
+}
+.RadTabStrip_rtl .rtsUL
+{
+    width: 100%;
+}
+.veiwtab .rtsUL .rtsLI
+{
+    width: 50% !important;
+}
+.menuitem
+{
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Droid Arabic Naskh' , Arial;
+    transition: all 300ms ease-out;
+}
+.alert
+{
+    font-size: 20px;
+}
+.badge
+{
+    background-color: #ea5821;
+}
+.Menu
+{
+    background-color: #000 !important;
+}
+.panel-heading h4
+{
+    font-family: 'Droid Arabic Naskh' , Arial;
+    font-weight: bold;
+}
+.sidebar-collapse
+{
+    overflow-y:visible;
+    max-height:none;
+    }
+    .addPropertyButtonContainer .btn:hover
+    {
+        font-size:34px;
+        }
+.tabList {
+background-color:#ea5821;
+width:100%;
+}
+.tabList .active>a{
+    background-color:#47a447 !important;
+    color:white !important;
+}
+.tabList .tab>a{
+     color:white !important;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0;
+}
+.tabContent{
+    width:100%;
+}
+.tabList-Vertical{
+    background-color:black !important;
+    width:100%;
+    padding-right:0;
+    margin:5px;
+}
+    .tabList-Vertical li {
+    width:100%;
+    }
+    .Editor body{
+        padding:0 !important;
+    }

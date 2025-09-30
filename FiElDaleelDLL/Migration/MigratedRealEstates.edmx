@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MigratedRealEstatesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="MigratedRealEstatesModelStoreContainer">
+          <EntitySet Name="BrokerRealEstatesSchema" EntityType="MigratedRealEstatesModel.Store.BrokerRealEstatesSchema" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="City" EntityType="MigratedRealEstatesModel.Store.City" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="District" EntityType="MigratedRealEstatesModel.Store.District" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PropertyFinderRealEstatesSchema" EntityType="MigratedRealEstatesModel.Store.PropertyFinderRealEstatesSchema" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Types" EntityType="MigratedRealEstatesModel.Store.Types" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="BrokerRealEstatesSchema">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="saleType" Type="nvarchar" MaxLength="50" />
+          <Property Name="category" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="District" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="Longitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="Latitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="Area" Type="nvarchar" MaxLength="50" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="50" />
+          <Property Name="paymenttype" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="int" />
+          <Property Name="Ar_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="En_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="CityID" Type="int" />
+          <Property Name="Code" Type="int" />
+          <Property Name="Ar_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="En_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lng" Type="nvarchar" MaxLength="50" />
+          <Property Name="City_AR_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PropertyFinderRealEstatesSchema">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="price" Type="nvarchar" MaxLength="50" />
+          <Property Name="category" Type="nvarchar" MaxLength="250" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="city_province" Type="nvarchar" MaxLength="50" />
+          <Property Name="town_area" Type="nvarchar" MaxLength="50" />
+          <Property Name="district" Type="nvarchar" MaxLength="500" />
+          <Property Name="title_ar" Type="nvarchar" MaxLength="500" />
+          <Property Name="description_ar" Type="nvarchar(max)" />
+          <Property Name="sqm" Type="int" />
+          <Property Name="bedroom" Type="int" />
+          <Property Name="bathroom" Type="int" />
+          <Property Name="agent_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="agent_email" Type="nvarchar" MaxLength="250" />
+          <Property Name="agent_number" Type="nvarchar" MaxLength="50" />
+          <Property Name="photo_url_1" Type="nvarchar" MaxLength="250" />
+          <Property Name="photo_url_2" Type="nvarchar" MaxLength="250" />
+          <Property Name="photo_url_3" Type="nvarchar" MaxLength="250" />
+          <Property Name="photo_url_4" Type="nvarchar" MaxLength="250" />
+          <Property Name="photo_url_5" Type="nvarchar" MaxLength="250" />
+          <Property Name="photo_url_6" Type="nvarchar" MaxLength="250" />
+          <Property Name="photo_url_7" Type="nvarchar" MaxLength="250" />
+          <Property Name="photo_url_8" Type="nvarchar" MaxLength="250" />
+          <Property Name="photo_url_9" Type="nvarchar" MaxLength="250" />
+          <Property Name="photo_url_10" Type="nvarchar" MaxLength="250" />
+          <Property Name="SaleType" Type="int" />
+          <Property Name="RoomCriteriaID" Type="int" />
+          <Property Name="BathroomCriteriaID" Type="int" />
+          <Property Name="TypeID" Type="int" />
+          <Property Name="DistrictID" Type="int" />
+          <Property Name="IsMigrated" Type="bit" />
+        </EntityType>
+        <EntityType Name="Types">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="int" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="Ar_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="En_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MigratedRealEstatesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="MigratedRealEstatesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BrokerRealEstatesSchema" EntityType="MigratedRealEstatesModel.BrokerRealEstatesSchema" />
+          <EntitySet Name="PropertyFinderRealEstatesSchema" EntityType="MigratedRealEstatesModel.PropertyFinderRealEstatesSchema" />
+          <EntitySet Name="City" EntityType="MigratedRealEstatesModel.City" />
+          <EntitySet Name="District" EntityType="MigratedRealEstatesModel.District" />
+          <EntitySet Name="Types" EntityType="MigratedRealEstatesModel.Types" />
+        </EntityContainer>
+        <EntityType Name="BrokerRealEstatesSchema">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="saleType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="category" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Country" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="District" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Longitude" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Latitude" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Area" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Currency" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="paymenttype" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="PropertyFinderRealEstatesSchema">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="price" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="category" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="city_province" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="town_area" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="district" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="title_ar" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="description_ar" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="sqm" Type="Int32" />
+          <Property Name="bedroom" Type="Int32" />
+          <Property Name="bathroom" Type="Int32" />
+          <Property Name="agent_name" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="agent_email" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="agent_number" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="photo_url_1" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="photo_url_2" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="photo_url_3" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="photo_url_4" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="photo_url_5" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="photo_url_6" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="photo_url_7" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="photo_url_8" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="photo_url_9" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="photo_url_10" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="SaleType" />
+          <Property Type="Int32" Name="RoomCriteriaID" />
+          <Property Type="Int32" Name="BathroomCriteriaID" />
+          <Property Type="Int32" Name="TypeID" />
+          <Property Type="Int32" Name="DistrictID" />
+          <Property Type="Boolean" Name="IsMigrated" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Code" />
+          <Property Type="String" Name="Ar_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="En_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CountryID" />
+          <Property Type="Int32" Name="CityID" />
+          <Property Type="Int32" Name="Code" />
+          <Property Type="String" Name="Ar_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="En_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Lat" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Lng" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City_AR_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Types">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Code" />
+          <Property Type="Int32" Name="CategoryID" />
+          <Property Type="String" Name="Ar_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="En_Name" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MigratedRealEstatesModelStoreContainer" CdmEntityContainer="MigratedRealEstatesEntities">
+          <EntitySetMapping Name="BrokerRealEstatesSchema"><EntityTypeMapping TypeName="MigratedRealEstatesModel.BrokerRealEstatesSchema"><MappingFragment StoreEntitySet="BrokerRealEstatesSchema">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="saleType" ColumnName="saleType" />
+            <ScalarProperty Name="category" ColumnName="category" />
+            <ScalarProperty Name="Type" ColumnName="Type" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="Country" ColumnName="Country" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="District" ColumnName="District" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+            <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+            <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+            <ScalarProperty Name="Area" ColumnName="Area" />
+            <ScalarProperty Name="Currency" ColumnName="Currency" />
+            <ScalarProperty Name="paymenttype" ColumnName="paymenttype" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PropertyFinderRealEstatesSchema"><EntityTypeMapping TypeName="MigratedRealEstatesModel.PropertyFinderRealEstatesSchema"><MappingFragment StoreEntitySet="PropertyFinderRealEstatesSchema">
+            <ScalarProperty Name="IsMigrated" ColumnName="IsMigrated" />
+                <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="BathroomCriteriaID" ColumnName="BathroomCriteriaID" />
+                <ScalarProperty Name="RoomCriteriaID" ColumnName="RoomCriteriaID" />
+                <ScalarProperty Name="SaleType" ColumnName="SaleType" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Code" ColumnName="Code" />
+            <ScalarProperty Name="price" ColumnName="price" />
+            <ScalarProperty Name="category" ColumnName="category" />
+            <ScalarProperty Name="type" ColumnName="type" />
+            <ScalarProperty Name="city_province" ColumnName="city_province" />
+            <ScalarProperty Name="town_area" ColumnName="town_area" />
+            <ScalarProperty Name="district" ColumnName="district" />
+            <ScalarProperty Name="title_ar" ColumnName="title_ar" />
+            <ScalarProperty Name="description_ar" ColumnName="description_ar" />
+            <ScalarProperty Name="sqm" ColumnName="sqm" />
+            <ScalarProperty Name="bedroom" ColumnName="bedroom" />
+            <ScalarProperty Name="bathroom" ColumnName="bathroom" />
+            <ScalarProperty Name="agent_name" ColumnName="agent_name" />
+            <ScalarProperty Name="agent_email" ColumnName="agent_email" />
+            <ScalarProperty Name="agent_number" ColumnName="agent_number" />
+            <ScalarProperty Name="photo_url_1" ColumnName="photo_url_1" />
+            <ScalarProperty Name="photo_url_2" ColumnName="photo_url_2" />
+            <ScalarProperty Name="photo_url_3" ColumnName="photo_url_3" />
+            <ScalarProperty Name="photo_url_4" ColumnName="photo_url_4" />
+            <ScalarProperty Name="photo_url_5" ColumnName="photo_url_5" />
+            <ScalarProperty Name="photo_url_6" ColumnName="photo_url_6" />
+            <ScalarProperty Name="photo_url_7" ColumnName="photo_url_7" />
+            <ScalarProperty Name="photo_url_8" ColumnName="photo_url_8" />
+            <ScalarProperty Name="photo_url_9" ColumnName="photo_url_9" />
+            <ScalarProperty Name="photo_url_10" ColumnName="photo_url_10" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="MigratedRealEstatesModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="En_Name" ColumnName="En_Name" />
+                <ScalarProperty Name="Ar_Name" ColumnName="Ar_Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="District">
+            <EntityTypeMapping TypeName="MigratedRealEstatesModel.District">
+              <MappingFragment StoreEntitySet="District">
+                <ScalarProperty Name="City_AR_Name" ColumnName="City_AR_Name" />
+                <ScalarProperty Name="Lng" ColumnName="Lng" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="En_Name" ColumnName="En_Name" />
+                <ScalarProperty Name="Ar_Name" ColumnName="Ar_Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Types">
+            <EntityTypeMapping TypeName="MigratedRealEstatesModel.Types">
+              <MappingFragment StoreEntitySet="Types">
+                <ScalarProperty Name="En_Name" ColumnName="En_Name" />
+                <ScalarProperty Name="Ar_Name" ColumnName="Ar_Name" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="MigratedRealEstates" ZoomLevel="98">
+        <EntityTypeShape EntityType="MigratedRealEstatesModel.BrokerRealEstatesSchema" Width="1.5" PointX="0.75" PointY="0.75" Height="4.0956022135416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="MigratedRealEstatesModel.PropertyFinderRealEstatesSchema" Width="1.5" PointX="2.75" PointY="0.75" Height="6.0186165364583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="MigratedRealEstatesModel.City" Width="1.5" PointX="4.75" PointY="0.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="MigratedRealEstatesModel.District" Width="1.5" PointX="4.75" PointY="3.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="MigratedRealEstatesModel.Types" Width="1.5" PointX="6.75" PointY="0.75" Height="1.9802864583333246" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

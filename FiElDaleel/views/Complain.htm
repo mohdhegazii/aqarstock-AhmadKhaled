@@ -1,0 +1,64 @@
+﻿<form name="ComplainForm" id="ComplainForm" ng-submit="SendComplain()" novalidate>
+<div class="contactArea" style="width:100%" ng-class="{true: 'error'}[submitted && ComplainForm.$invalid]">
+    <div class="contactForm">
+        <div class="item ">
+            <span class="title">الإسم </span></br>
+            <input type="text" id="complainName" ng-model="Complain.Name" name="name" required />
+            <span ng-show="submitted && ComplainForm.name.$error.required" class="Error">الإسم مطلوب</span>
+            </br>
+        </div>
+        <div class="item left">
+            <span class="title">عنوان الشكوى </span></br>
+            <input type="text" id="ComplainTitle" ng-model="Complain.ComplainTitle" name="title" required />
+            <span ng-show="submitted && ComplainForm.title.$error.required" class="Error">عنوان الشكوى مطلوب</span>
+            </br> 
+        </div>
+        <div class="item ">
+            <span class="title">رقم الموبايل</span></br>
+            <input type="phone" id="complainPhone" ng-model="Complain.Phone" name="phone" required />
+            <span ng-show="submitted && ComplainForm.phone.$error.required" class="Error">رقم الموبايل مطلوب</span>
+            </br>
+        </div>
+        <div class="item left">
+            <span class="title">الرسالة </span></br>
+            <!--<input type="text" />-->
+            <textarea id="complainMsg" ng-model="Complain.Message" name="message" required></textarea>
+            <span ng-show="submitted && ComplainForm.message.$error.required" class="Error">الرسالة
+                مطلوب</span> </br>
+        </div>
+        <div class="item ">
+            <span class="title">البريد الإلكتروني</span></br>
+            <input type="email" id="complainEmail" ng-model="Complain.Email" name="email" required />
+            <span ng-show="submitted && ComplainForm.email.$error.required" class="Error">البريد الإلكتروني مطلوب</span>
+            <span ng-show="submitted && ComplainForm.email.$error.email" class="Error">البريد الإلكتروني
+                غير صحيح</span> </br>
+        </div>
+        
+       
+        <div class="clear">
+        </div>
+        <div class="actions">
+            <div class="back">
+                <a href="javascript:void(0);" detail-backbutton>رجوع</a></div>
+            <!--    <div class="resetBtn">
+                <input class="gray" type="reset" value="رجوع" detail-Backbutton />
+            </div>-->
+            <div class="saveBtn">
+                <!--<input class="orang" type="submit" ng-click="submitted=true" value="تسجيل البيانات" />-->
+                <button id="btnSend" class="orang send" type="submit" ng-click="submitted=true">
+                    إرسال</button>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</div>
+</form>
+<script>
+    $('#complainName , #ComplainTitle , #complainPhone , #complainMsg , #complainEmail').keypress(function (event) {
+        if (event.keyCode == 13) {
+            $('#btnSend').click();
+        }
+    });
+</script>
+

@@ -1,0 +1,103 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="RealEstateTypeCriterias.aspx.cs" Inherits="BrokerWeb.Backend.Admin.RealEstateTypeCriterias" %>
+<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="head">
+    <style>
+        
+        .row{
+            margin: 0 0 20px 0;
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4>خصائص العقارات</h4>
+            <div id="divMsg" runat="server">
+                <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-4 pull-right">
+                    <div class="ContentItem row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 pull-right">
+                            <asp:Label ID="Label1" runat="server" CssClass="control-label" Text="الفئة"></asp:Label>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                            <asp:DropDownList ID="ddlCategories" runat="server" AutoPostBack="True" CssClass="form-control" onselectedindexchanged="ddlCategories_SelectedIndexChanged">
+                            </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlCategories" CssClass="Validator" Display="Dynamic" ErrorMessage="!" InitialValue="0" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="ContentItem row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 pull-right">
+                            <asp:Label ID="Label3" runat="server" CssClass="control-label" Text="النوع"></asp:Label>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                            <asp:DropDownList ID="ddlTypes" runat="server" CssClass="form-control">
+                            </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlTypes" CssClass="Validator" Display="Dynamic" ErrorMessage="!" InitialValue="0" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+
+                    <div class="ContentItem row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 pull-right">
+                            <asp:Label ID="Label2" runat="server" CssClass="control-label" Text="الاسم"></asp:Label>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                            <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtTitle" CssClass="Validator" Display="Dynamic" ErrorMessage="!" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="ContentItem row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 pull-right">
+                            <asp:Label ID="Label4" runat="server" CssClass="control-label" Text="نوع القيمة"></asp:Label>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                            <asp:DropDownList ID="ddlValueType" runat="server" CssClass="form-control">
+                                <asp:listitem text="--اختار--" value="0"></asp:listitem>
+                                <asp:listitem text="احرف" value="string"></asp:listitem>
+                                <asp:listitem text="ارقام" value="int"></asp:listitem>
+                                <asp:listitem text="نعم\لا" value="bool"></asp:listitem>
+                            </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ddlValueType" CssClass="Validator" Display="Dynamic" ErrorMessage="!" InitialValue="0" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ContentItem">
+                <asp:Button ID="btnSave" runat="server" CssClass="btn btn-lg btn-primary pull-left" OnClick="btnSave_Click" Text="حفظ" ValidationGroup="Save" />
+            </div>
+            <div class="ContentItem">
+                <asp:GridView ID="gvCriterias" runat="server" AllowPaging="True" 
+                    AutoGenerateColumns="False" CellPadding="4" 
+                    CssClass="table table-striped table-bordered table-hover theGridTable rtlDirection" 
+                    DataKeyNames="ID" PageSize="20" 
+                    onpageindexchanging="gvCriterias_PageIndexChanging">
+                    <alternatingrowstyle />
+                    <columns>
+                        <asp:boundfield datafield="ID" headertext="Id" visible="false" />
+                        <asp:boundfield datafield="TypeTitle" headerstyle-cssclass="GridColumnHeader" headerstyle-horizontalalign="Center" headertext=" النوع" />
+                        <asp:boundfield datafield="Title" headerstyle-cssclass="GridColumnHeader" headerstyle-horizontalalign="Center" headertext=" الاسم" />
+                        <asp:templatefield headerstyle-cssclass="GridColumnHeader" headerstyle-horizontalalign="Center" headertext=" نوع القيمة">
+                            <itemtemplate>
+                                <%#GetValueTypeText(Eval("ValueType").ToString())%>
+                            </itemtemplate>
+                        </asp:templatefield>
+                        <asp:templatefield>
+                            <itemtemplate>
+                                <asp:ImageButton ID="ibtnEdit" runat="server" ImageUrl="~/Images/icons/Edit.png" OnClick="ibtnEdit_Click" OnClientClick="OpenWindow()" />
+                            </itemtemplate>
+                        </asp:templatefield>
+                        <asp:templatefield>
+                            <itemtemplate>
+                                <asp:ImageButton ID="ibtnDelete" runat="server" CssClass="Deleteconfirm" ImageUrl="~/Images/icons/Delete.png" OnClick="ibtnDelete_Click" />
+                            </itemtemplate>
+                        </asp:templatefield>
+                    </columns>
+                    <pagerstyle horizontalalign="Center" CssClass="pagerRow" />
+                </asp:GridView>
+            </div>
+        </div>
+
+    </div>
+</asp:Content>

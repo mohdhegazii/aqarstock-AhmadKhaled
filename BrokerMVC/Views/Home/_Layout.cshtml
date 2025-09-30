@@ -1,0 +1,226 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head >
+    <!-- Google Tag Manager -->
+    <script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K79M4WF');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <link rel="icon" href="content/_ui/img/commen/favicon.ico">
+    @*<meta name="keywords" content="عقار ستوك - محرك بحث عقارى - شقق وفيلات واراضى - للبيع والإيجار" />*@
+    
+    @RenderSection("META", required: false)
+    <title>@ViewBag.Title</title>
+    <link rel="canonical" href="http://aqarstock.com">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cairo:400,700|Mada:400,500,900&amp;subset=arabic,latin-ext" rel="stylesheet">
+
+@Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/PagedList.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("Styles", required: false)
+</head>
+<body >
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K79M4WF"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- preloader start -->
+    <!--
+    <div id="preloader">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="loader-logo">
+                    <img src="_ui/img/loader-logo.png" alt="">
+                </div>
+                <div class="object" id="first_object"></div>
+                <div class="object" id="second_object"></div>
+                <div class="object" id="third_object"></div>
+            </div>
+        </div>
+    </div>
+    -->
+    <!-- // preloader end -->
+    <!-- header start -->
+    <header class="">
+        <div class="top-nav-wrapper">
+            <div class="container">
+                <div class="col-sm-6">
+                    <ul id="ulUser" class="pull-right">
+     
+
+                    </ul>
+
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-left social-top">
+                        <li><a href="https://www.linkedin.com/company/aqar-stock" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                        <li><a href="https://plus.google.com/u/0/+Aqarstockcom" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                        <li><a href="https://twitter.com/aqar_stock" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.facebook.com/aqarstock" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mid-nav-wrapper">
+            <div class="container">
+                <div class="col-sm-4">
+                    <a href="/RealEstates/Add" class="add-your-property pull-left"><span>بيع عقارك</span> <i class="ico ico-for-sale" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-sm-4">
+                    <a class="navbar-brand" href="~/"></a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="/RealEstates/Add" class="add-your-property pull-right"><span>اجر شقتك</span><i class="ico ico-for-rent" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-custome">
+            <div class="container">
+                <div class="col-sm-12">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="\"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul id="ulMenu" class="nav navbar-nav">
+                            <li id="liHome"><a href="~/">@General.HomePage <span class="sr-only">(current)</span></a></li>
+                            <li id="liResdintial" class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">وحدات سكنية <span class="caret"></span></a>
+                                <ul id="ulResidentialList" class="dropdown-menu">
+                                    <li><a href="/@Commons.EncodeText(Menu.Category.GetValue())/1/@Commons.EncodeText(General.Resedintial)">@General.Resedintial</a></li>
+                                    @*<li><a href="#">شاليهات</a></li>
+                    <li><a href="#">فيلات</a></li>*@
+                                </ul>
+                            </li>
+                            <li id="liCommercial"><a href="/@Commons.EncodeText(Menu.Category.GetValue())/2/@Commons.EncodeText(General.Commercial)">@General.Commercial</a></li>
+                            <li id="liLands"><a href="/@Commons.EncodeText(Menu.Category.GetValue())/3/@Commons.EncodeText(General.Lands)">@General.Lands</a></li>
+                            <li id="liProjects"><a href="/@Commons.EncodeText(Menu.Projects.GetValue())">@General.ProjectList</a></li>
+                            <li id="liCompanies"><a href="/@Commons.EncodeText(Menu.Companys.GetValue())">@General.Companies</a></li>
+                            <li id="lilastadded"><a href="/@Commons.EncodeText(Menu.LatestAdded.GetValue())">@General.LatestAdded</a></li>
+                            <li id="liRent"><a href="/@Commons.EncodeText(Menu.Rent.GetValue())">@General.ForRent</a></li>
+                            <li id="liAqarServices" class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@General.AqarstockServices<span class="caret"></span></a>
+                                <ul id="ulResidentialList" class="dropdown-menu">
+                                    <li id="liTechnicalSupport"><a href="/@Menu.TechnicalSupport.GetValue()">@General.TechnicalSupport</a></li>
+                                    <li id="SupscriptionTypes"><a href="/@Menu.SupscriptionTypes.GetValue()">@General.SupscriptionTypes</a></li>
+                                    <li id="MarketingServices"><a href="/@Menu.MarketingServices.GetValue()">@General.MarketingServices</a></li>
+                               </ul>
+                                </li>
+                                 </ul>
+</div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- // header end -->
+    @RenderBody()
+
+    <div id="divCompareList">
+
+    </div>
+    <footer>
+        <!-- tell me service block start -->
+        <div id="divNotifyService">
+
+        </div>
+        <!-- // tell me service block end -->
+        <!-- footer lists block start -->
+        <div id="divFooterKeywords"></div>
+        <!-- // footer lists block end -->
+        <!-- copyrights block start -->
+        <div class="copyrights">
+            <div class="container">
+                <div class="col-sm-6">
+                    <p>جميع الحقوق محفوظة لعقار ستوك &copy; 2015 .. تصميم وتطوير <a href="http://www.masteryit.com/en/" target="_blank">MasteryIT</a></p>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="social-list" itemscope itemtype="http://schema.org/Organization">
+                        <li><a itemprop="sameAs" href="https://www.facebook.com/aqarstock" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                        <li><a itemprop="sameAs" href="https://twitter.com/aqar_stock" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                        <li><a itemprop="sameAs" href="https://plus.google.com/u/0/+Aqarstockcom" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                        <li><a itemprop="sameAs" href="https://www.linkedin.com/company/aqar-stock" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- // copyrights block end -->
+        <!-- seo content block start -->
+        <div class="block seo-content-wrapper">
+            <div class="container">
+                <div class="seo-content-details">
+                    <div id="divPageContent" class="col-sm-12" itemprop="description">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- // seo content block end -->
+    </footer>
+
+    <!-- pop up messages start -->
+    <div class="modal fade" id="divMsgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="MsgTitle"></h4>
+                </div>
+                <div class="modal-body">
+                    <div id="MsgContent" class="container-fluid">
+                       
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-04" data-dismiss="modal">@General.Close</button>
+                    @*<button type="button" class="btn btn-03">تأكيد</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- note there is a script for this modal in the bottom of the page to launch the script -->
+    <!-- // pop up messages end -->
+    <!-- go to btns start -->
+    <button class="btn go-to-btn go-up"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+    <button class="btn go-to-btn go-to-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+    <!-- // go to btns end -->
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="_ui/js/jquery.min.js"><\/script>')</script>
+    @Scripts.Render("~/bundles/frontend")
+    @Scripts.Render("~/bundles/unit")
+    @Scripts.Render("~/bundles/Custom")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+    <script>
+        LoadMastetFunctions();
+        $(document).ready(function(){
+            stickyScrollCustome();
+        });
+    </script>
+</body>
+</html>

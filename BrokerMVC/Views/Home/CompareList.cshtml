@@ -1,0 +1,228 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstate>
+@{
+    ViewBag.Title = General.CompareList + "- " + General.PageTitle;
+    Layout = "~/Views/Home/_Layout.cshtml";
+}
+<div class="inner-banner">
+    <!-- banner start  -->
+    <span class="full-size-img" style="background:url(@Url.Content("~/Content/_ui/img/media/slide-5.jpg")) no-repeat center center / cover"></span>
+    <!-- // banner end -->
+    <div class="block-title">
+        <div class="container">
+            <h1>@General.CompareList</h1>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <!-- Search form start  -->
+            <div id="divSearch">
+
+            </div>
+            <!-- // Search form end -->
+        </div>
+        <!-- ads block start -->
+        <div class="block">
+            <div id="divFirstAd">
+
+            </div>
+        </div>
+        <!-- // ads block end -->
+        <!-- project details block start -->
+        <div class="col-md-12">
+            <div class="block project-details-wrapper">
+                <div class="project-title">
+                    <div class="col-md-8 col-sm-7">
+                        <h1>@General.CompareList<i class="fa fa-balance-scale" aria-hidden="true"></i></h1>
+                    </div>
+                    <div class="col-md-4 col-sm-5">
+                        <a href="@this.Request.UrlReferrer" class="btn btn-theme btn-back">@General.Return <i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+
+
+                <div class="block project-info-wrapper">
+                    <div class="col-sm-12">
+                        <!-- new data start -->
+                        <div class="comparesion-wrapper">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr id="trimage">
+                                        <td><h4>صورة الاعلان</h4></td>
+                                    </tr>
+                                    <tr id="trTitle">
+                                        <td><h4>عنوان الاعلان</h4></td>
+                                    </tr>
+                                    <tr id="traddress">
+                                        <td><h4>العنوان</h4></td>
+                                    </tr>
+                                    <tr id="trCategory">
+                                        <td><h4>نوع الوحدة</h4></td>
+                                    </tr>
+                                    <tr id="trtype">
+                                        <td><h4>النوع</h4></td>
+                                    </tr>
+                                    <tr id="trStatus">
+                                        <td><h4>الحالة</h4></td>
+                                    </tr>
+                                    <tr id="trArea">
+                                        <td><h4>المساحة</h4></td>
+                                    </tr>
+                                    <tr id="trSaleType">
+                                        <td><h4>النظام</h4></td>
+                                    </tr>
+                                    <tr id="trPrice">
+                                        <td><h4>السعر الأجمالى</h4></td>
+                                    </tr>
+                                    <tr id="trPaymentType">
+                                        <td><h4>طريقة السداد</h4></td>
+                                    </tr>
+                                    <tr id="trCriteria">
+                                        <td>
+                                            <h4>خصائص العقارات </h4>
+                                        </td>
+                                </table>
+                            </div>
+
+
+                        </div>
+                        <!-- // new data end -->
+                    </div>
+
+                </div>
+
+
+                <div class="inner-social">
+                    <div class="col-sm-6 social-list">
+
+                        <div class="addthis_sharing_toolbox">
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="@this.Request.UrlReferrer" class="btn btn-theme btn-back">@General.Return <i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ads block start -->
+        <div class="block">
+            <div id="divSecondAd">
+
+            </div>
+        </div>
+        <!-- // ads block end -->
+        <div class="col-md-12">
+            <!-- latest unit block start -->
+            <div id="divLatestAdded" class="Latest-Prop">
+
+            </div>
+            <!-- // latest unit block end -->
+        </div>
+        <!-- // project details block block end -->
+    </div>
+</div>
+@section Scripts
+{
+    <script type="text/javascript">
+        // alert("test134");
+        @foreach (var item in Model)
+        {
+            @*<Text>$("#trimage").append(""_</text>*@
+            <text>
+                appendimage('@Url.Content(item.DefaultImage.PhotoName)', '@item.Title - @item.EnTitle', '/Details/@item.ID/@(Commons.Culture.Contains("ar") ? Commons.EncodeText(item.Title) : Commons.EncodeText(item.EnTitle))')
+                appendtd('@(Commons.Culture.Contains("ar") ? item.RealEstateType.Title : item.RealEstateType.EnTitle)  @item.Area @General.Meter', 'trTitle');
+                appendtd('@(Commons.Culture.Contains("ar") ? item.Address : item.EnAddress)', 'traddress');
+                appendtd('@(Commons.Culture.Contains("ar") ? item.RealEstateCategory.Title : item.RealEstateCategory.EnTitle)', 'trCategory')
+                appendtd('@(Commons.Culture.Contains("ar") ? item.RealEstateType.Title : item.RealEstateType.EnTitle)', 'trtype');
+                appendtd('@(Commons.Culture.Contains("ar") ? item.RealEstateStatu.Title : item.RealEstateStatu.EnTitle)', 'trStatus');
+                appendtd('@item.Area @General.Meter', 'trArea');
+                appendtd('@(Commons.Culture.Contains("ar") ? item.SaleType.Title : item.SaleType.EnTitle)', 'trSaleType');
+                appendtd('@(Commons.Culture.Contains("ar") ? item.PaymentType.Title : item.PaymentType.EnTitle)','trPaymentType');
+                @if (item.CurrencyID > 0)
+                {
+                    <Text>
+        appendtdprice(@item.Price, ' @(Commons.Culture.Contains("ar") ? @item.Currency.Name : item.Currency.EnName)');
+        </Text>
+                }
+                else
+                {
+                    <Text>
+        appendtdprice(@item.Price, null);
+        </Text>
+                }
+                var tdxriteria="";
+                @foreach (var ctireia in item.RealEstateCriterias)
+                {
+                    <Text>
+        tdxriteria += "<i class='fa fa-check; aria-hidden='true'></i>";
+        @if(ctireia.RealEstateTypeCriteria.ValueType + "_Type" == CriteriaValueType.int_Type.ToString())
+        {
+            <text> tdxriteria+=@ctireia.Value;</text>
+        }
+        tdxriteria+= " @(Commons.Culture.Contains("ar") ? ctireia.RealEstateTypeCriteria.Title : ctireia.RealEstateTypeCriteria.EnTitle)";
+        tdxriteria+="<br/>";
+        </Text>
+
+                        }
+                appendtd(tdxriteria,"trCriteria")
+            </text>
+
+        }
+
+        LoadPropertySearch("list");
+        LoadPageAds();
+        function appendtd(data, tr) {
+            $("<td>" + data + "</td>").appendTo("#" + tr);
+        }
+        function appendtdprice(price, currency) {
+            var tdprice = "<td>" + price;
+            if (currency != null) {
+                tdprice += currency;
+            }
+            tdprice += "</td>";
+            $(tdprice).appendTo("#trPrice");
+        }
+        function appendimage(photo, alt, url) {
+            var tdimg;
+            tdimg = "<td><a class='details-info-hover' href='" + url + "'>";
+            tdimg += "<span class='hover-img'><i class='fa fa-arrows-al' aria-hidden='true'></i></span>";
+            tdimg += "<img src = '" + photo + "' alt='" + alt + "'></a> </td>";
+            $(tdimg).appendTo("#trimage");
+            //  $("#trimage").appendChild(tdimg);
+        }
+    </script>
+
+    <script type="text/javascript">
+        var addthis_share = {
+            url: "@this.Request.Url",
+            title: "@General.CompareList - @General.PageTitle",
+            description: "",
+            media: "http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-1.png"
+        };
+    </script>
+}
+@section META{
+    <meta name="title" content="@General.CompareList - @General.PageTitle" />
+    <meta name="description" content="@General.SiteDescription" />
+    <meta name="keywords" content="عقارات, خريطة, جوجل إرث, فيلا, بيت, منزل, شقة, أرض, قصر, غرفة, للبيع, شراء, مطلوب, تأجير, الرياض, السعودية, دبي, أبو ظبي, الدوحة, مصر, القاهرة, اسكندرية, شقق للبيع,Real Estate, Map, Google Legacy, Villa, House, House, Apartment, Land, Palace, Room, Sale, Buy, Wanted, Rent, Riyadh, Saudi Arabia, Dubai, Abu Dhabi, Doha, Egypt, Cairo, Alexandria, Apartments for Sale" />
+    <meta name='twitter:card' content="summary" />
+    <meta name='twitter:title' content="@General.CompareList - @General.PageTitle" />
+    <meta name='twitter:url' content="http://www.aqarstock.com/" />
+    <meta name='twitter:url' content="http://www.aqarstock.net/" />
+    <meta name='twitter:description' content="@General.SiteDescription" />
+    <meta name='twitter:image' content="http://www.aqarstock.com/Content/_ui/img/Aqar-Stock-Sociallogo-1.png" />
+    <meta name='og:type' content="article" />
+    <meta name='og:title' content="@General.CompareList - @General.PageTitle" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-1.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-2.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-3.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-4.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-5.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-6.png" />
+    <meta name='og:url' content="http://www.aqarstock.com/" />
+    <meta name='og:url' content="http://www.aqarstock.net/" />
+    <meta name='og:description' content="@General.SiteDescription" />
+}

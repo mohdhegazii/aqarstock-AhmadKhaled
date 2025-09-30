@@ -1,0 +1,43 @@
+﻿
+@model BrokerMVC.Models.ViewModel.Suspend
+@{
+    ViewBag.Title = General.PageTitle + " - " +General.SuspendedAccount;
+    Layout = "~/Views/Home/_Layout.cshtml";
+}
+<div class="inner-banner">
+    <!-- banner start  -->
+    <span class="full-size-img" style="background:url(../../../Content/_ui/img/media/slide-6.jpg) no-repeat center top / cover"></span>
+    <!-- // banner end -->
+    <div class="block-title">
+        <div class="container">
+            <h1><i class="fa fa-exclamation-triangle"></i>
+@General.SuspendedAccount</h1>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container">
+                    <div class="login-form">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-md-3 pull-right">
+                                    <h4>@Messages.SuspendedUserMessage</h4>
+                                </div>
+                                <div class="col-md-9">
+                                    <h4><strong>  @Model.SuspendReason</strong></h4>
+                                    @*<br />*@
+                                    <h4> @Model.Message</h4>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <h3>@Messages.SuspendInfoMsg <a href="/@Menu.TechnicalSupport.GetValue()" target="_blank">@General.TechnicalSupport</a></h3>
+                            </div>
+                        </div>
+                    </div>
+    </div>
+    </div>
+
+

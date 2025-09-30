@@ -1,0 +1,79 @@
+﻿@using BrokerMVC.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = General.PageTitle + "- " + General.Login;
+    Layout = "~/Views/Home/_Layout.cshtml";
+
+}
+
+<div class="inner-banner">
+    <!-- banner start  -->
+    <span class="full-size-img" style="background:url(../../Content/_ui/img/media/slide-6.jpg) no-repeat center top / cover"></span>
+    <!-- // banner end -->
+    <div class="block-title">
+        <div class="container">
+            <h1>@General.Login</h1>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container">
+        <link href="/Content/login.css" rel="stylesheet">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 col-sm-12">
+                <!-- login form start  -->
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="login-form">
+                        <div class="text-center">
+                            <hr>
+                            <span class="or">أو</span>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group" style="direction: rtl">
+                                @Html.Partial("_Notifications")
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="nameLogin">@General.UserNameEmailMobilNo<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                @*<input class="form-control" id="nameLogin">*@
+                                @Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.Email, "", new {@class = "text-danger"})
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="passwordLogin">@General.Password<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                @*<input class="form-control" id="passwordLogin">*@
+                                @Html.PasswordFor(m => m.Password, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(m => m.Password, "", new {@class = "text-danger"})
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6">
+                            <button type="submit" class="btn btn-02 fs-18">@General.Signin </button>
+                        </div>
+                        <div class="col-sm-6 text-left">
+                            <a href="/Account/ForgotPassword" class="btn btn-03 fs-18">@General.ForgetPassword</a>
+                        </div>
+                    </div>
+                }
+                <!-- // login form end -->
+
+            </div>
+        </div>
+    </div>
+</div>
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstateProjectPhoto>
+
+@{
+    ViewBag.Title = General.SiteName + " - " + ViewBag.ProjectName + " - " + General.Edit + " " + General.Images;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-lg-1 col-xs-4 pull-right">
+                <img class="img-responsive img-thumbnail logo" src="~/@ViewBag.Logo.Replace("~/","")" />
+
+            </div>
+            <div class="col-md-7 col-xs-8 pull-right">
+                <h2>@ViewBag.ProjectName / @General.Edit - @General.Images</h2>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <div class="btn-group btn-group-status pull-left">
+                    <a href='@Url.Action("Edit",new{id=ViewBag.ProjectID })' data-toggle="tooltip" data-placement="bottom" title="@General.BackToList" data-original-title="@General.BackToList" class="btn btn-group-sm btn-back">
+                        <strong> <i class="fa fa-arrow-circle-left fa-2x"></i></strong>
+                    </a>
+                    <button type="button" onclick="AddNewProjectPhoto(@ViewBag.ProjectID)" rel="@General.Add" class=" btn btn-group-sm btn-success" data-target="#divModal" data-toggle="modal">
+                        <strong> <i class="fa fa-plus-circle fa-2x"></i></strong>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-body">
+        @if (Model.Count() > 0)
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-md-4 pull-right">
+                    @if (item.IsDefault == true)
+                    {
+                        <h4 class="title-opcity">
+                            <i class="fa fa-bullseye" aria-hidden="true"></i>
+                            @General.DefaultImage
+                        </h4>
+                    }
+                    <div class="row">
+
+                        <img class="img-responsive img-thumbnail img-list" src="~/@item.PhotoURL.Replace("~/", "")" />
+                    </div>
+                    <div class="row list-controls">
+                        <div>@item.Description</div>
+                        <div class="btn-group btn-group-justified btn-success">
+                            <div class="btn-group">
+                                <a href='@Url.Action("SetDefault", "RealEstateProjectPhotoes", new { id = item.ID })' class="btn  btn-success"><i class="fa fa-bullseye"></i></a>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" onclick="EditProjectPhoto(@item.ID)" class="btn  btn-success" data-target="#divModal" data-toggle="modal">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="btn-group">
+                                <a href='@Url.Action("Delete", "RealEstateProjectPhotoes", new { id = item.ID })' class="btn btn-success Deleteconfirm"><i class="fa fa-trash"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            @Html.Partial("_EmptyMessage")
+        }
+    </div>
+</div>

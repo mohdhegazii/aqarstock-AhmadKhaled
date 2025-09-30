@@ -1,0 +1,40 @@
+﻿<div class="property advancedSearch">
+    <div class="advSlider">
+        <p>السعر:</br><span class="sliderAmount">من 0 جنية إلى 100000 جنية</span></p>
+        <div id="PriceSlider" class="priceSlider" max="1000000" min="0" search-slider step="10000" unit="جنية" values-from="0" values-to="100000"></div>
+    </div>
+       <p>أختر البلد</p>
+ <select id="Country" name="Country" ui-Selectcountry>
+        <option value="0">كل البلاد</option>
+         <option ng-repeat="Country in Countries" value="{{Country.ID}}">{{Country.Name}}</option>
+    </select>
+    <p>أختر المحافظة</p>
+    <select id="city" name="city" disabled ui-select>
+        <option value="0">كل المحافظات</option>
+        <option ng-repeat="City in Cities" value="{{City.ID}}">{{City.Name}}</option>
+    </select>
+    <p>أختر الحي</p>
+    <select id="district" disabled name="neighborhood" ui-select>
+        <option value="0">كل الأحياء</option>
+        <option ng-repeat="District in Districts" value="{{District.ID}}">{{District.Name}}</option>
+    </select>
+    <p>اختر النظام</p>
+    <select id="SaleType" name="city" ui-select>
+        <option value="">كل الأنظمة</option>
+        <option ng-repeat="SaleType in SaleTypes" value="{{SaleType.ID}}">{{SaleType.Name}}</option>
+    </select>
+    <p>اختر النوع</p>
+    <select id="RealEstateType" name="RealEstateType" ui-select>
+        <option value="">كل الأنواع</option>
+        <option ng-repeat="RealEstateType in RealEstateTypes" value="{{RealEstateType.ID}}">{{RealEstateType.Name}}</option>
+    </select>
+    <div class="advSlider">
+        <p>المساحة:</br><span class="sliderAmount">من 1 متر إلى 300 متر</span></p>
+        <div id="AreaSlider" class="priceSlider" max="800" min="1" search-slider step="50" unit="متر" values-from="1" values-to="300"></div>
+    </div>
+    <div class="homeSearchContentUnitContentButtons" circle-search-buttons>
+        
+        <a class="search" ng-click="AdvancedSearch()">إبحث</a>
+        <a class="back" href back-button>رجوع</a>
+    </div>
+</div>

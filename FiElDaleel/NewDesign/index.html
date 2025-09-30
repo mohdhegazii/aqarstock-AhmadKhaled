@@ -1,0 +1,1138 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Aqar Stock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-theme.min.css" />
+    <style>
+		@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+           html, body {  height:100%;margin:0;padding:0;
+					font-family:'arial';
+					background-color:#f4f4f4;
+                      }
+			img {border-width:0}
+			a {text-decoration:none}
+			ul {margin:0;padding:0;list-style:none}
+			h3,h2{color:#7e7e7e}
+			
+			.ltr {direction:ltr;text-align:left}
+			.rtl {direction:rtl;text-align:right}
+			.clear{display:block;clear:both}
+			header {}
+			
+				.rtl header .top_bar ul {float:left;margin-right:-4px}
+				.ltr header .top_bar ul {float:right;margin-left:-4px}
+				.rtl header .top_bar ul li {float:right;}
+				.ltr header .top_bar ul li {float:left;}
+				
+				header .top_bar {background-color:#000}
+				header .top_bar:after {content:"";display:block;clear:both}
+				header .top_bar ul li {/*padding:8px 8px 0px 8px*/}
+					header .top_bar .social ul {border-left:1px solid #333333;padding:12px 20px}
+						header .top_bar .social ul  li {margin-right:8px}
+						header .top_bar .social #linked{background-color:#1983bc;padding:2px}
+						header .top_bar .social #FB{background-color:#3b5998;padding:2px}
+						header .top_bar .social #twitter{background-color:#55acee;padding:2px}
+						header .top_bar .social #google{background-color:#e13333;padding:2px}
+						header .top_bar .social #linked:hover{background-color:#000}
+						header .top_bar .social #FB:hover{background-color:#000}
+						header .top_bar .social #twitter:hover{background-color:#000}
+						header .top_bar .social #google:hover{background-color:#000}
+						
+					header .top_bar .main_links a{color:#c2c2c2;font-size:20px;line-height:50px}
+						header .top_bar .main_links li:last-child a{color: #b4d009}
+					header .top_bar .main_links a:hover{color:#dc531f}
+					.rtl header .top_bar .main_links ul li{padding:0 10px 0 20px;line-height:50px;border-left:1px solid  #333333}
+					.ltr header .top_bar .main_links ul li{padding:0 10px 0 20px;line-height:50px;border-right:1px solid  #333333}
+					
+					 header .top_bar .main_links ul #signIn:before {content: '';background-image:url('images/signinBefore.png');float:right;width:15px;height:15px;margin:16px 10px;}
+					 header .top_bar .main_links ul #signUp:before {content: '';background-image:url('images/signupBefore.png');float:right;width:15px;height:15px;margin:16px 10px;}
+					 header .top_bar .main_links ul #add:before {content: '';background-image:url('images/addBefore.png');float:right;width:15px;height:15px;margin:16px 10px;}
+					 
+					header .top_bar .flags {height:50px;float:left}
+						header .top_bar .flags ul {height:50px;padding:8px 18px;overflow:hidden;background-color:#000;border-left:1px solid #333333}
+							header .top_bar .flags li {float:none !important}
+								header .top_bar .flags a {display:block;padding:8px 0}
+								header .top_bar .flags li:first-child a:before {content: '';background-image:url('images/downArrow.png');float:right;width:13px;height:7px;margin:6px;}
+								
+									header .top_bar .flags img {display:block}
+					
+					header .top_bar .langList {line-height:50px;float:left}
+						header .top_bar .langList span {color:#c2c2c2;font-size:16px;line-height:50px;padding-right:12px}
+					
+				
+				header .navigator {background-color:#ffffff;}
+					header .logo {margin:9px auto}
+						header .logo a {display:block}
+						header .logo img {display:block}
+					.ltr header .logo {float:left}
+					.rtl header .logo {float:right}
+					header .nav {}
+					header .nav:after {content:"";display:block;clear:both}
+						header .nav ul {height:62px;margin:0;padding:0;list-style:none}
+						.ltr header .nav ul {float:right}
+						.rtl header .nav ul {float:left}
+							header .nav ul li {height:68px;}
+							header .nav .mark {display:none;cursor:pointer;margin:18px;border:2px solid #afafaf;border-radius:4px;width:32px;height:32px;padding:0}
+							header .nav .mark:hover {background-color:#ddd}
+							.ltr header .nav .mark {float:right}
+							.rtl header .nav .mark {float:left}
+							header .nav ul li.active a, header .nav ul li:hover a {color:#dc531f}
+							header .nav ul li.contact {background-image:url('images/contactXRBG.png')}
+							
+							.ltr header .nav ul li {float:left}
+							.rtl header .nav ul li {float:right}
+								header .nav ul li a {line-height:80px;display:block;text-decoration:none;font-size:20px;padding-right:30px;font-weight:bold;color:#737373}
+								header .nav ul li.contact a {color:#fff;background-image:url('images/contactBG.png');background-repeat:no-repeat}
+								.ltr header .nav ul li.contact a {padding-right:56px;background-position:right center}
+								.rtl header .nav ul li.contact a {padding-left:56px;background-position:left center}
+								
+				.navigator.fixed {position:fixed;top:0;z-index:2;width:100%;box-shadow: 0px 3px 8px #DC531F;}
+					.navigator.fixed .logo img {width:80%}
+					.navigator.fixed .nav ul {margin:0}
+						.navigator.fixed .nav ul li {}
+								
+				.searchArea{min-height:460px;background-image:url('images/banner.jpg');background-position:center center;position:relative}
+					.searchArea .bottomBar{width:100%;background-color:rgba(0, 0, 0, 0.76);line-height:36px;position:absolute;bottom:0px}
+						.searchArea .bottomBar .moreBtn{line-height:40px;font-size:22px;width:95px;background-color:#dc531f;border-radius:3px;float:left;margin:10px 0}
+							.searchArea .bottomBar .moreBtn a {color:#fff;}
+							.searchArea .bottomBar .moreBtn a:before {content:"" ;background-image:url('images/arrowBtnBold.png');float:right;width:10px;height:10px;margin: 15px 14px}
+						.searchArea .bottomBar span{color:#fff;line-height:60px;font-size:22px}
+						
+				.tabsBox {margin:0 auto;width:63%;height:auto;padding-top:78px;color:#fff}
+					.tabsBox a {color:#fff}
+					.tabsBox .tabs {padding:0 18px}
+					.tabsBox .tabs:after {content:"";display:block;clear:both}
+						.tabsBox .tab {cursor:pointer;float:right;line-height:32px;margin-right:-18px}
+						.tabsBox .tab:after {content:"";float:right;display:block;width:0;height:0;border:24px solid transparent;border-bottom-color:#252525;border-right-color:#252525;opacity:0.9}
+							.tabsBox .tab span {display:block;font-size:22px;line-height:48px;font-weight:bold;float:right;padding:0 30px;background-image:url('images/tabRBG.png')}
+							.tabsBox .tab span:before {content: "";background-image:url('images/arrowBtnBold.png');float:right;width:10px;height:10px;margin:19px 8px;}
+						.tabsBox .tab.active {}
+						.tabsBox .tab.active:after {border-bottom-color:#dc531f;border-right-color:#dc531f}
+							.tabsBox .tab.active span {background-image:url('images/tabActiveRBG.png')}
+					.tabsBox .tabContentBoxes {}
+						.tabsBox .tabContentBox {display:none;padding:20px;background-image:url('images/tabContentBoxRBG.png')}
+						.tabsBox .tabContentBox.active {display:block}
+						
+						.tabsBox .tabContentBox .firstRow .in {width:20%;float:right;padding:5px}
+							.tabsBox .tabContentBox .firstRow .in span{font-size:22px}
+								.tabsBox .tabContentBox .firstRow .in span:before {content: "";background-image:url('images/twoArrowSearch.png');float:right;width:16px;height:16px;margin:8px 0 0 4px;}
+							.tabsBox .tabContentBox .firstRow .in select{width:100%;height:45px;color:#aeadad}
+						
+						.tabsBox .tabContentBox .secRow {.margin-bottom:10px}
+							.tabsBox .tabContentBox .secRow .control {margin-top:15px}
+								.tabsBox .tabContentBox .secRow .control label {padding:0 6px ;font-weight:100;font-size:22px;line-height:40px;float:right}
+								.tabsBox .tabContentBox .secRow .control input[type=radio] {margin:13px 20px 13px 4px;float:right}
+								.tabsBox .tabContentBox .secRow .control span {float:right;font-size:22px;line-height:40px;}
+								.tabsBox .tabContentBox .secRow .control span:before {content: "";background-image:url('images/twoArrowSearch.png');float:right;width:16px;height:16px;margin:12px 0 0 4px;}
+								.tabsBox .tabContentBox .secRow .control .moreBtn{line-height:40px;font-size:22px;width:95px;background-color:#dc531f;border-radius:3px;float:left;margin:0 4px 6px}
+								.tabsBox .tabContentBox .secRow .control .moreBtn a:before {content:"" ;background-image:url('images/arrowBtnBold.png');float:right;width:10px;height:10px;margin:15px 14px;}
+
+						
+						.tabsBox .tabContentBox .thirdRow {border-top:1px solid rgba(128, 128, 128, 0.3)}
+							.tabsBox .tabContentBox .thirdRow .control {margin-bottom: -20px}
+							.tabsBox .tabContentBox .thirdRow span {font-size:22px;line-height:60px}
+							.tabsBox .tabContentBox .thirdRow span:before {content: "";background-image:url('images/twoArrowSearch.png');float:right;width:16px;height:16px;margin:22px 0 0 4px;}
+							
+				.content {margin-bottom:20px}		
+				.content .ADS {width:100%;height:100px;margin:10px 0;background-color:#dc531f}
+				.content .offers {}
+					.content .offers .offerTitle{}
+					.content .offers .offerTitle h4 {background-color: #ededed;color:#3c3c3c;border-bottom: 1px solid #d2d2d2;text-align: center;line-height: 60px;font-size: 30px;}
+					.content .offers .offerBody ul li {width:25%;float:right; }
+						.content .offers .offerBody ul li .item {margin:12px;background-color:#fff;border-bottom:3px solid #e1e1e1; }
+							.content .offers .offerBody ul li .item  a {text-decoration:none;color:#6d6d6d}
+							.content .offers .offerBody ul li .item span:before{content:"" ;background-image:url('images/twoArrow.png');float:right;width:7px;height:7px;margin:12px -10px 0px 6px;}
+							.content .offers .offerBody ul li .item img {width:100% }
+							.content .offers .offerBody ul li .item .itemDetails {margin:6px 0px;padding:0 20px;display:block;line-height:32px;height:64px;text-align: justify;overflow:hidden;color:#6d6d6d;font-size:20px}
+							.content .offers .offerBody ul li .item .itemPrice {padding: 10px 20px;text-align:justify;border-top:1px dotted;color:#6d6d6d;font-size:20px}
+								.content .offers .offerBody ul li .item .itemPrice b {color:#afcb08}
+								.content .offers .offerBody ul li .item .itemPrice span:before{content:"" ;background-image:url('images/twoArrow.png');float:right;width:7px;height:7px;margin:10px -10px 0px 6px;}
+						.content .offers .offerBody ul li .squareADS {padding:12px}
+							.content .offers .offerBody ul li .squareADS img{width:100% }
+							.content .offers .offerBody ul li .item .wow {position:relative;z-index:1;float:left;margin-top:-2px;margin-left:-2px;margin-bottom:-120px;width:120px;height:120px;overflow:hidden}
+							.content .offers .offerBody ul li .item .wowText {float: left;width: 240px;line-height: 28px;border-bottom:2px dotted;border-top:2px dotted;
+																											background: rgb(151,184,68);
+																											background: -moz-linear-gradient(left, rgb(151,184,68) 27%, rgb(151,184,68) 36%, rgb(209,240,108) 52%, rgb(204,230,117) 58%, rgb(157,191,73) 69%, rgb(156,190,69) 79%, rgb(153,189,62) 100%);
+																											background: -webkit-gradient(left top, right top, color-stop(27%, rgb(151,184,68)), color-stop(36%, rgb(151,184,68)), color-stop(52%, rgb(209,240,108)), color-stop(58%, rgb(204,230,117)), color-stop(69%, rgb(157,191,73)), color-stop(79%, rgb(156,190,69)), color-stop(100%, rgb(153,189,62)));
+																											background: -webkit-linear-gradient(left, rgb(151,184,68) 27%, rgb(151,184,68) 36%, rgb(209,240,108) 52%, rgb(204,230,117) 58%, rgb(157,191,73) 69%, rgb(156,190,69) 79%, rgb(153,189,62) 100%);
+																											background: -o-linear-gradient(left, rgb(151,184,68) 27%, rgb(151,184,68) 36%, rgb(209,240,108) 52%, rgb(204,230,117) 58%, rgb(157,191,73) 69%, rgb(156,190,69) 79%, rgb(153,189,62) 100%);
+																											background: -ms-linear-gradient(left, rgb(151,184,68) 27%, rgb(151,184,68) 36%, rgb(209,240,108) 52%, rgb(204,230,117) 58%, rgb(157,191,73) 69%, rgb(156,190,69) 79%, rgb(153,189,62) 100%);
+																											background: linear-gradient(to right, rgb(151,184,68) 27%, rgb(151,184,68) 36%, rgb(209,240,108) 52%, rgb(204,230,117) 58%, rgb(157,191,73) 69%, rgb(156,190,69) 79%, rgb(153,189,62) 100%);
+																											filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#97b844', endColorstr='#99bd3e', GradientType=1 );																											text-align: center;color: #5b7020;font-size: 20px;font-weight: bold;box-shadow: 1px 2px 3px;
+																											-ms-transform: rotate(-45deg);-ms-transform-origin: 90px 130px;-webkit-transform: rotate(-45deg);-webkit-transform-origin: 90px 130px;transform: rotate(-45deg);transform-origin: 90px 130px;}
+							.content .offers .offerBody ul li .item .itemImg {}
+					
+					.content .slider .sliderTitle{width:100%;margin:12px 0}
+					.content .slider .sliderTitle img {padding:17px 16px}
+					.content .slider .sliderTitle .leftBtn {width:50px;height:60px;background-color:#dc531f;display:block;float:left;cursor:pointer;}
+					.content .slider .sliderTitle .rightBtn {width:50px;height:60px;background-color:#dc531f;display:block;float:right;cursor:pointer;}
+					.content .slider .sliderTitle h4.middle {margin:0 60px;background-color: #ededed;color:#3c3c3c;border-bottom: 1px solid #d2d2d2;text-align: center;line-height: 60px;font-size: 30px;}
+					
+					.content .slider .sliderBody ul {position:relative;left:0;margin:0 px }
+					.content .slider .sliderBody ul li {width:25%;float:right; }
+					.content .slider .sliderBody ul li .item {margin:12px;background-color:#fff;border-bottom:3px solid #e1e1e1; }
+						.content .slider .sliderBody ul li .item a {text-decoration:none;color:#6d6d6d}
+						.content .slider .sliderBody ul li .item span:before{content:"" ;background-image:url('images/twoArrow.png');float:right;width:7px;height:7px;margin:12px -10px 0px 6px;}
+						.content .slider .sliderBody ul li .item img {width:100% }
+						.content .slider .sliderBody ul li .item .itemDetails { margin: 6px 0px;padding: 0 20px;display: block;line-height: 32px;height: 64px;text-align: justify;overflow:hidden;font-size:20px}
+						.content .slider .sliderBody ul li .item .itemPrice {padding: 10px 20px;text-align:justify;border-top:1px dotted ;font-size:20px}
+							.content .slider .sliderBody ul li .item .itemPrice span:before{content:"" ;background-image:url('images/twoArrow.png');float:right;width:7px;height:7px;margin:10px -10px 0px 6px;}
+							.content .slider .sliderBody ul li .item .itemPrice b {color:#dc531f}
+					
+					
+					.content .slider .sliderBody {width:100%;overflow:hidden ;margin:28px 0}
+					.content .slider .viewport {width:100%;overflow:hidden ;}
+					
+					
+					.content .lastProj .lastProjTitle h4 {background-color: #ededed;color:#3c3c3c;border-bottom: 1px solid #d2d2d2;text-align: center;line-height: 60px;font-size: 30px;}
+					.content .lastProj .lastProjBody img {width:100% ;border: 3px solid #e1e1e1;padding: 2px;background-color: white;}
+					.content .lastProj .lastProjBody .title {line-height: 34px;color: #6d6d6d;font-size:22px}
+					.content .lastProj .lastProjBody .title:before {content:"" ;background-image:url('images/twoArrow.png');float:right;width:7px;height:7px;margin:14px 10px 0 6px;}
+					.content .lastProj .lastProjBody p {margin:10px 0;color: #6d6d6d;font-size:18px;padding:10px}
+					.content .lastProj .lastProjBody a {color: #3c3c3c;font-size:18px}
+					.content .lastProj .lastProjBody a.more:before {content:"" ;background-image:url('images/arrowBtnOrang.png');float:right;width:4px;height:7px;margin: 8px 10px 0 6px;}
+						.content .lastProj .lastProjBody .firstProj{width:50%;padding:6px;float:right}
+							.content .lastProj .lastProjBody .firstProj .item{}
+						.content .lastProj .lastProjBody .secProj{width:50%;padding:6px;float:right}
+							.content .lastProj .lastProjBody .secProj .item{}
+						
+						
+				footer .tellMeService .tellMeServiceHeader {background-color:#5b5b5b;}
+					footer .tellMeService .tellMeServiceHeader p {color:#fff;line-height:65px;font-size:26px;padding:0;margin:0}
+				
+				footer .tellMeService .tellMeServiceBody {background-color:#d7d7d7;border-bottom:2px solid #f4f4f4}
+					footer .tellMeService .tellMeServiceBody ul li {width:160px;float:right;padding:30px 0}
+						footer .tellMeService .tellMeServiceBody ul li span {color:#5b5b5b;font-size:22px;line-height:40px}
+						footer .tellMeService .tellMeServiceBody ul li span:before {content: "";background-image:url('images/twoArrow.png');float:right;width:7px;height:7px;margin:16px 0px 0px 8px;}
+						footer .tellMeService .tellMeServiceBody ul li select {width:150px;height:44px;color:#aeadad}
+						footer .tellMeService .tellMeServiceBody ul li input {width:240px;height:44px}
+						
+					footer .tellMeService .tellMeServiceBody ul li.e-mail {width:250px}
+					footer .tellMeService .tellMeServiceBody ul li.sendBtn {width:90px;}
+						footer .tellMeService .tellMeServiceBody ul li.sendBtn a {line-height:45px;width:90px;font-size:22px;background-color:#5B5B5B;color:#fff;border-radius:3px;float:left;margin:40px 0 0 0}
+							footer .tellMeService .tellMeServiceBody ul li.sendBtn a:before {content:"" ;background-image:url('images/arrowBtnBold.png');float:right;width:10px;height:10px;margin: 16px 10px;}
+						
+					
+				footer .listOfAqarat  {background-color:white}
+					footer .listOfAqarat .listItem {width:20%;float:right;padding-bottom:6px}
+						footer .listOfAqarat .listItem li.title {font-size:20px;font-weight:bold;padding:8px 0;color:#5b5b5b}
+						footer .listOfAqarat .listItem li a{font-size:18px;color:#909090;}
+						
+				footer .ADS{width:100%;height:100px;margin-top:28px;background-color:#dc531f}		
+				footer .aboutMastery  {}
+					footer .aboutMastery .social {float:left;}
+					footer .aboutMastery .copyrights {}
+					  footer .aboutMastery .copyrights a {font-size:18px;color:#5b5b5b;text-decoration:none;line-height:54px}
+						footer .aboutMastery .social ul li {float:right;margin:12px 12px 12px 0 }
+						 .aboutMastery .social #linked{background-color:#1983bc;padding:4px}
+						 .aboutMastery .social #FB{background-color:#3b5998;padding:4px;margin-left:0}
+						 .aboutMastery .social #twitter{background-color:#55acee;padding:4px;}
+						 .aboutMastery .social #google{background-color:#e13333;padding:4px;}
+						 .aboutMastery .social #linked:hover{border-radius:5px}
+						 .aboutMastery .social #FB:hover{border-radius:5px}
+						 .aboutMastery .social #twitter:hover{border-radius:5px}
+						 .aboutMastery .social #google:hover{border-radius:5px}
+					
+			@media (max-width:960px) {
+				.content .slider .sliderBody ul li {width:33.33%}
+				header .nav .mark {display:block}
+				header .nav ul {display:none;width:100%;height:auto}
+					header .nav ul li {float:none !important;border-width:0 !important;height:32px;padding:0}
+						header .nav ul li a {line-height:32px;text-align:center}
+						.navigator.fixed .nav ul li {padding:0}
+					.navigator.fixed .logo img {width:80%}
+			
+				.content .offers .offerBody ul li {width:50%;float:right; }
+			
+			}
+			
+			@media (max-width:840px) {
+				.tabsBox .tabContentBox .firstRow .in {width:32%}
+				.tabsBox .tabContentBox .secRow .control .moreBtn {margin: 20px 4px 4px}
+			}
+			@media (max-width:600px) {
+				.tabsBox .tabContentBox .firstRow .in {width:50%}
+				.tabsBox .tabContentBox .secRow .control input[type=radio] {margin:4px 0}
+			}
+			
+			@media (max-width:540px) {
+				.tabsBox .tabContentBox .secRow .control span{float:none}
+				.tabsBox .tab  {float:none}
+					.tabsBox .tab span:before {width:0;margin:0 }
+					.tabsBox .tab:after {border:0px }
+			}
+			@media (max-width:640px) {
+				.content .slider .sliderBody ul li {width:50%}	
+				.content .lastProj .lastProjBody .firstProj {width:100%}
+				.content .lastProj .lastProjBody .secProj {width:100%}
+			}
+			
+			@media (max-width:480px) {
+				.content .slider .sliderBody ul li {width:100%}	
+				.content .offers .offerBody ul li {width:100%;}
+			}
+			
+			@media (max-width:320px) {
+					
+			}
+		</style>
+    <body class="rtl">
+        <div class="wrapper">
+            <header>
+				<div class="top_bar">
+					<div class="container">
+						<div class="langList opp_float">
+							<span>English</span>
+						</div>
+						<div class="flags opp_float">
+							<ul>
+							  <li id=""><a href="#"><img src="images/egyptF.png" /></a></li>
+							  <li id=""><a href="#"><img src="images/egyptF.png" /></a></li>  
+							  <li id=""><a href="#"><img src="images/egyptF.png" /></a></li>
+							</ul>
+						</div>
+						<div class="social opp_float">
+							<ul>
+							  <li id="linked"><a href="#"><img src="images/smlink.png" /></a></li>
+							  <li id="google"><a href="#"><img src="images/smGoogle.png" /></a></li>  
+							  <li id="twitter"><a href="#"><img src="images/smTwitter.png" /></a></li>
+							  <li id="FB"><a href="#"><img src="images/smFB.png" /></a></li>
+							</ul>
+						</div>
+						<div class="main_links opp_float">
+                            <ul>						
+							  <li><a id="signIn" href="#">دخول</a></li>
+							  <li><a id="signUp" href="#">تسجيل</a></li>
+							  <li><a id="add" href="#">أضف عقار</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="navigator">
+					<div class="container">
+						<div class="logo">
+							<a href="#"><img src="images/logo.jpg" alt="" /></a>
+						</div>
+						<div class="nav">
+							<div class="mark"></div>
+							<ul>
+								<li class="active"><a href="#"><span>الرئيسية</span></a></li>
+								<li><a href="#"><span>عن عقار ستوك</span></a></li>
+								<li><a href="#"><span>وحدات</span></a></li>
+								<li><a href="#"><span>اخر الوحدات المضافة</span></a></li>
+								<li><a href="#"><span>عقارات مطلوبة</span></a></li>
+								<li><a href="#"><span>شركات عقارية</span></a></li>
+								<li><a href="#"><span>تقيم عقار</span></a></li>
+								<li><a href="#"><span>اتصل بنا</span></a></li>
+								<div class="clear"></div>
+							</ul>
+							
+						</div>
+					</div>
+				</div>
+			</header>
+            <!-- search Area start -->
+            <div class="searchArea">
+                <div class="search">
+                    <div class="tabsBox">
+                        <div class="tabs">
+                            <div class="tab">
+                                <span>واحدات للبيع</span>
+                            </div>
+                            <div class="tab">
+                                <span>واحدات للإيجار</span>
+                            </div>
+                        </div>
+                        <div class="tabContentBoxes">
+                            <div class="tabContentBox">
+                                <div class="firstRow">
+                                    <div class="in">
+                                        <span>نوع الوحدة</span></br>
+                                        <select>
+                                            <option value="volvo">سكنية</option>
+                                            <option value="saab">سكنية</option>
+                                            <option value="opel">سكنية</option>
+                                            <option value="audi">سكنية</option>
+                                        </select>
+                                    </div>
+                                    <div class="in">
+                                        <span>البلد</span></br>
+                                        <select>
+                                            <option value="volvo">سكنية</option>
+                                            <option value="saab">سكنية</option>
+                                            <option value="opel">سكنية</option>
+                                            <option value="audi">سكنية</option>
+                                        </select>
+                                    </div>
+                                    <div class="in">
+                                        <span>المحافظة</span></br>
+                                        <select>
+                                            <option value="volvo">سكنية</option>
+                                            <option value="saab">سكنية</option>
+                                            <option value="opel">سكنية</option>
+                                            <option value="audi">سكنية</option>
+                                        </select>
+                                    </div>
+                                    <div class="in">
+                                        <span>المنطقة</span></br>
+                                        <select>
+                                            <option value="volvo">سكنية</option>
+                                            <option value="saab">سكنية</option>
+                                            <option value="opel">سكنية</option>
+                                            <option value="audi">سكنية</option>
+                                        </select>
+                                    </div>
+                                    <div class="in">
+                                        <span>السعر</span></br>
+                                        <select>
+                                            <option value="volvo">سكنية</option>
+                                            <option value="saab">سكنية</option>
+                                            <option value="opel">سكنية</option>
+                                            <option value="audi">سكنية</option>
+                                        </select>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                </div>
+                                <div class="secRow">
+                                    <div class="control">
+                                        <span>البحث عن طريق <b>:</b> </span>
+                                        <ul>
+                                            <li>
+                                                <input type="radio" name="1" value="الصور" /><label>الصور</label></li>
+                                            <li>
+                                                <input type="radio" name="1" value="القائمة" /><label>القائمة</label></li>
+                                            <li>
+                                                <input type="radio" name="1" value="الخريطة" /><label>الخريطة</label></li>
+                                        </ul>
+                                        <div class="moreBtn">
+                                            <a href="#">بحث</a>
+                                        </div>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                </div>
+                                <div class="thirdRow">
+                                    <div class="control">
+                                        <span><a href="#">بحث مفصل عن عقارك</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tabContentBox">
+                                tab content 2
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomBar">
+                    <div class="container">
+                        <div class="moreBtn">
+                            <a href="#">المزيد</a>
+                        </div>
+                        <span>مون سيتي - القاهرة - أقرب مكان لكل مكان</span>
+                    </div>
+                </div>
+            </div>
+            <!-- search Area end -->
+            <!-- content Area start -->
+            <div class="content">
+                <div class="container">
+                    <div class="ADS">
+                    </div>
+                    <div class="offers">
+                        <div class="offerTitle">
+                            <h4>
+                                عروض عقار ستوك المميزة</h4>
+                        </div>
+                        <div class="offerBody">
+                            <ul>
+                                <li>
+                                    <div class="item">
+                                        <a href="#">
+                                            <div class="wow">
+                                                <div class="wowText">
+                                                    للإيجار
+                                                </div>
+                                            </div>
+                                            <div class="itemImg">
+                                                <img src="images/offers.jpg" /></div>
+                                            <div class="itemDetails">
+                                                <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                            <div class="itemPrice">
+                                                <span><b>3,000,000</b> جنية مصري</span></div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item">
+                                        <a href="#">
+                                            <div class="wow">
+                                                <div class="wowText">
+                                                    للإيجار</div>
+                                            </div>
+                                            <div class="itemImg">
+                                                <img src="images/offers.jpg" /></div>
+                                            <div class="itemDetails">
+                                                <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                            <div class="itemPrice">
+                                                <span><b>3,000,000</b> جنية مصري</span></div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item">
+                                        <a href="#">
+                                            <div class="wow">
+                                                <div class="wowText">
+                                                    للبيع</div>
+                                            </div>
+                                            <div class="itemImg">
+                                                <img src="images/offers.jpg" /></div>
+                                            <div class="itemDetails">
+                                                <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                            <div class="itemPrice">
+                                                <span><b>3,000,000</b> جنية مصري</span></div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="squareADS">
+                                        <a href="#">
+                                            <img src="images/ADS1.jpg" /></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="slider">
+                        <div class="sliderTitle">
+                            <span class="leftBtn">
+                                <img src="images/prev.png" /></span> <span class="rightBtn">
+                                    <img src="images/next.png" /></span>
+                            <h4 class="middle">
+                                آخر الوحدات المضافة للبيع</h4>
+                            <div class="clear">
+                            </div>
+                        </div>
+                        <div class="sliderBody">
+                            <div class="viewport">
+                                <ul>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider">
+                        <div class="sliderTitle">
+                            <span class="leftBtn">
+                                <img src="images/prev.png" /></span> <span class="rightBtn">
+                                    <img src="images/next.png" /></span>
+                            <h4 class="middle">
+                                آخر الوحدات المضافة للبيع</h4>
+                            <div class="clear">
+                            </div>
+                        </div>
+                        <div class="sliderBody">
+                            <div class="viewport">
+                                <ul>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="itemImg">
+                                                    <img src="images/offers.jpg" /></div>
+                                                <div class="itemDetails">
+                                                    <span>فيلا <b>245</b> م تمليك _ التجمع الخامس بمنطقة القرنفل</span></div>
+                                                <div class="itemPrice">
+                                                    <span><b>3,000,000</b> جنية مصري</span></div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lastProj">
+                        <div class="lastProjTitle">
+                            <h4>
+                                أحدث المشاريع المضافة</h4>
+                        </div>
+                        <div class="lastProjBody">
+                            <div class="firstProj">
+                                <div class="item">
+                                    <div class="title">
+                                        أسم المشروع - موقع المشروع</div>
+                                    <a href="#">
+                                        <img src="images/3.jpg" /></a>
+                                    <p>
+                                        يأتى الإهتمام بالسكن كأحد أهم الأولويات التى يحتاجها الإنسان لتوفير حياة كريمة للأسرة
+                                        ويراعى دائماً في اختيار الأنماط السكنية المفضلة للعملاء..</p>
+                                    <a class="more" href="#">تعرف علي المزيد</a>
+                                </div>
+                            </div>
+                            <div class="secProj">
+                                <div class="item">
+                                    <div class="title">
+                                        أسم المشروع - موقع المشروع</div>
+                                    <a href="#">
+                                        <img src="images/3.jpg" /></a>
+                                    <p>
+                                        يأتى الإهتمام بالسكن كأحد أهم الأولويات التى يحتاجها الإنسان لتوفير حياة كريمة للأسرة
+                                        ويراعى دائماً في اختيار الأنماط السكنية المفضلة للعملاء..</p>
+                                    <a class="more" href="#">تعرف علي المزيد</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content Area end -->
+            <!-- footer Area start -->
+            <footer>
+				<div class="tellMeService">
+					<div class="tellMeServiceHeader">
+						<div class="container">
+							<p>خدمة بلغني : أرسل لنا العقار الذي تبحث عنه ، وسوف نرسل لك عنما يتم إضافته</P>
+						</div>
+					</div>
+					<div class="tellMeServiceBody">
+						<div class="container">
+							<ul>
+								<li class="in">
+									<span>نوع الوحدة</span></br>
+									<select>
+									  <option value="volvo">سكنية</option>
+									  <option value="saab">سكنية</option>
+									  <option value="opel">سكنية</option>
+									  <option value="audi">سكنية</option>
+									</select>
+								</li>
+								<li class="in">
+									<span>البلد</span></br>
+									<select>
+									  <option value="volvo">سكنية</option>
+									  <option value="saab">سكنية</option>
+									  <option value="opel">سكنية</option>
+									  <option value="audi">سكنية</option>
+									</select>
+								</li>
+								<li class="in">
+									<span>المحافظة</span></br>
+									<select>
+									  <option value="volvo">سكنية</option>
+									  <option value="saab">سكنية</option>
+									  <option value="opel">سكنية</option>
+									  <option value="audi">سكنية</option>
+									</select>
+								</li>
+								<li class="in">
+									<span>المنطقة</span></br>
+									<select>
+									  <option value="volvo">سكنية</option>
+									  <option value="saab">سكنية</option>
+									  <option value="opel">سكنية</option>
+									  <option value="audi">سكنية</option>
+									</select>
+								</li>
+								<li class="in">
+									<span>السعر</span></br>
+									<select>
+									  <option value="volvo">سكنية</option>
+									  <option value="saab">سكنية</option>
+									  <option value="opel">سكنية</option>
+									  <option value="audi">سكنية</option>
+									</select>
+								</li>
+								<li class="e-mail">
+									<span>الأيميل</span></br>
+									<input type="mail"/>
+								</li>
+								<li class="sendBtn">
+									<a href="#">أرسل</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="listOfAqarat">
+					<div class="container">
+					   <div class="listItem">
+							<ul>
+								<li class="title">عقارات القاهرة</li>
+								<li><a href="#">شقق للبيع</a></li>
+								<li><a href="#">عقارات مصر</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق للبيع بالأسكندرية</a></li>
+								<li><a href="#">شقق بالتقسيط</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> عقارات</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق عقار قديم</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+							</ul>
+					   </div>
+						<div class="listItem">
+							<ul>
+								<li class="title">عقارات القاهرة</li>
+								<li><a href="#">شقق للبيع</a></li>
+								<li><a href="#">عقارات مصر</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق للبيع بالأسكندرية</a></li>
+								<li><a href="#">شقق بالتقسيط</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> عقارات</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق عقار قديم</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+							</ul>
+					   </div>
+						<div class="listItem">
+							<ul>
+								<li class="title">عقارات القاهرة</li>
+								<li><a href="#">شقق للبيع</a></li>
+								<li><a href="#">عقارات مصر</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق للبيع بالأسكندرية</a></li>
+								<li><a href="#">شقق بالتقسيط</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> عقارات</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق عقار قديم</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+							</ul>
+					   </div>
+						<div class="listItem">
+							<ul>
+								<li class="title">عقارات القاهرة</li>
+								<li><a href="#">شقق للبيع</a></li>
+								<li><a href="#">عقارات مصر</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق للبيع بالأسكندرية</a></li>
+								<li><a href="#">شقق بالتقسيط</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> عقارات</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق عقار قديم</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+							</ul>
+					   </div>
+						<div class="listItem">
+							<ul>
+								<li class="title">عقارات القاهرة</li>
+								<li><a href="#">شقق للبيع</a></li>
+								<li><a href="#">عقارات مصر</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق للبيع بالأسكندرية</a></li>
+								<li><a href="#">شقق بالتقسيط</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> عقارات</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق عقار قديم</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+							</ul>
+					   </div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="ADS"></div>
+					<div class="aboutMastery">						
+						<div class="social opp_float">
+							<ul>
+							  <li id="linked"><a href="#"><img src="images/smlink.png" /></a></li>
+							  <li id="google"><a href="#"><img src="images/smGoogle.png" /></a></li>  
+							  <li id="twitter"><a href="#"><img src="images/smTwitter.png" /></a></li>
+							  <li id="FB"><a href="#"><img src="images/smFB.png" /></a></li>						  
+							</ul>
+						</div>						
+						<div class="copyrights">
+							<a href="#">&copy;2014 جميع الحقوق محفوظة لعقار ستوك .. تصميم وتطوير <b>MasteryIT</b></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+            <!-- footer Area end -->
+        </div>
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script>
+            var IW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var IH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+            $(function () {
+
+                $('.searchArea').height(IH - $('header').height());
+
+                var navigatorScrollPoint = $('.navigator').position().top;
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > navigatorScrollPoint) {
+                        $('.navigator').addClass('fixed');
+                    } else {
+                        $('.navigator').removeClass('fixed');
+                    }
+                });
+
+
+                function toggleNavMenu(mark) {
+
+                    if ($('ul', mark.parents('.nav')).css('display') === 'none') {
+
+                        $('ul', mark.parents('.nav')).slideDown(1000);
+                    } else {
+                        $('ul', mark.parents('.nav')).slideUp(1000);
+                    }
+                }
+                $('.nav .mark').click(function () {
+                    toggleNavMenu($(this));
+                });
+                $('.nav li').click(function () {
+                    if ($('.mark', $(this).parents('.nav')).css('display') === 'block') {
+                        $('ul', $(this).parents('.nav')).slideUp(1000);
+                    }
+                });
+
+
+
+                $('.slider').each(function () {
+                    var slider = $(this);
+                    var viewportWidth = $('.viewport', slider).width();
+                    var sliderWidth = $('.viewport li', slider).width() * $('.viewport li', slider).length;
+                    var nextStepFlag = true, previousStepFlag = true;
+                    $('.viewport li', slider).width($('.viewport li', slider).width());
+                    $('.viewport ul', slider).width(sliderWidth);
+
+                    $('.rightBtn', slider).click(function () {
+                        if (nextStepFlag) {
+                            nextStepFlag = false;
+                            var nextStep = ((parseInt($('.viewport ul', slider).css('left')) + viewportWidth) + viewportWidth) > sliderWidth ? (sliderWidth - viewportWidth) : (parseInt($('.viewport ul', slider).css('left')) + viewportWidth);
+                            $('.viewport ul', slider).animate({ "left": nextStep + "px" }, 1000, function () {
+                                nextStepFlag = true;
+                            });
+                        }
+                    });
+                    $('.leftBtn', slider).click(function () {
+                        if (previousStepFlag) {
+                            previousStepFlag = false;
+                            var previousStep = (parseInt($('.viewport ul', slider).css('left')) - viewportWidth) < 0 ? 0 : (parseInt($('.viewport ul', slider).css('left')) - viewportWidth);
+                            $('.viewport ul', slider).animate({ "left": previousStep + "px" }, 1000, function () {
+                                previousStepFlag = true;
+                            });
+                        }
+                    });
+                });
+
+                $('.tabsBox').each(function () {
+                    var tabsBox = $(this);
+                    if ($('.tab.active', tabsBox).length) {
+                        $('.tabContentBox.active', tabsBox).removeClass('active');
+                        $('.tabContentBox:eq(' + $('.tab.active', tabsBox).index() + ')', tabsBox).addClass('active');
+                    } else {
+                        $('.tabContentBox.active', tabsBox).removeClass('active');
+                        $('.tab:eq(0)', tabsBox).addClass('active');
+                        $('.tabContentBox:eq(0)', tabsBox).addClass('active');
+
+                    }
+                    $('.tab', tabsBox).click(function () {
+                        $('.tab.active', tabsBox).removeClass('active');
+                        $('.tabContentBox.active', tabsBox).removeClass('active');
+                        $('.tab:eq(' + $(this).index() + ')', tabsBox).addClass('active');
+                        $('.tabContentBox:eq(' + $(this).index() + ')', tabsBox).addClass('active');
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

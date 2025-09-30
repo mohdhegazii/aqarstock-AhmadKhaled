@@ -1,0 +1,18 @@
+﻿
+@if (HttpContext.Current.User.Identity.IsAuthenticated)
+{
+    <li><a href="#"><span class="pull-right"> @General.Hello </span> <strong> @HttpContext.Current.User.Identity.Name </strong></a></li>
+    if (Security.IsUserInRole(BrokerMVC.Roles.Admin))
+    {
+        <li><a href="/AdminDashBoard">@General.Backend <i class="fa fa-dashboard" aria-hidden="true"></i></a></li>
+    }
+    else
+    {
+        <li><a href="/UserDashBoard">@General.MyAccount <i class="fa fa-user" aria-hidden="true"></i></a></li>
+    }
+}
+else
+{
+    <li><a href="/@General.Login">@General.Login <i class="fa fa-lock" aria-hidden="true"></i></a></li>
+                            <li><a href="/@General.Register">@General.Register <i class="fa fa-user" aria-hidden="true"></i></a></li>
+}

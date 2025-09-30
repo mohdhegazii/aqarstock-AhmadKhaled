@@ -1,0 +1,81 @@
+﻿@model BrokerMVC.Models.Currency
+@using ResourcesFiles;
+@{
+    ViewBag.Title = General.SiteName + " - " + General.Currencies + " - " + General.Edit;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2>
+                    <a href='@Url.Action("Index")'>
+                        <i class="fa fa-money"></i>
+                        @General.Currencies
+                    </a>
+                    /@General.Edit
+                </h2>
+            </div>
+            <div class="btn-group pull-left">
+                <a href='@Url.Action("Index")' class="btn btn-group-lg btn-success">
+                    <i class="fa fa-angle-left"></i>
+                    @General.BackToList
+
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="panel-body">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ID)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EnName, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EnName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EnName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Sort, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Sort, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Sort, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="@General.Save" class="btn btn-success btn-group-lg" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        @*<div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>*@
+        </div>
+    </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,243 @@
+﻿@model BrokerMVC.Models.RealEstateCompany
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RealEstateCompany</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Summary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnSummary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnSummary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Logo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Logo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Entreet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entreet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Longutide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longutide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowOnFrontEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShowOnFrontEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserNos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserNos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentUserNos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentUserNos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectNos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectNos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentProjectNos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentProjectNos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubscriptionEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubscriptionEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActivateStatusID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActivateStatusID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuspendReasonID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuspendReasonID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuspendMessage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuspendMessage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSpecial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsSpecial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.District.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.District.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

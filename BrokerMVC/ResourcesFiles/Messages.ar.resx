@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ConfirmDelete" xml:space="preserve">
+    <value>هل انت متاكد انك ترغب فى الحذف؟</value>
+  </data>
+  <data name="DeletedSuccessfully" xml:space="preserve">
+    <value>تم الحذف بنجاح</value>
+  </data>
+  <data name="DescriptionRequired" xml:space="preserve">
+    <value>يجب ادخال الوصف</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>الرجاء إدخال البريد الالكتروني</value>
+  </data>
+  <data name="EnglishDescriptionRequired" xml:space="preserve">
+    <value>يجب ادخال الوصف باللغة الانجليزية</value>
+  </data>
+  <data name="EnglishNameRequired" xml:space="preserve">
+    <value>يجب ادخال الاسم باللغة الانجليزية</value>
+  </data>
+  <data name="EnSummaryRequired" xml:space="preserve">
+    <value>الوصف الموجز باللغة الانجليزية مطلوب</value>
+  </data>
+  <data name="IconToolTip" xml:space="preserve">
+    <value>يجب أن تكون الأبعاد 32*32</value>
+  </data>
+  <data name="KeywordRequired" xml:space="preserve">
+    <value>يجب ادخال كلمة البحث</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>الرجاء ادخال الاسم</value>
+  </data>
+  <data name="PhoneRequired" xml:space="preserve">
+    <value>الرجاء إدخال رقم الهاتف</value>
+  </data>
+  <data name="PhotoRequired" xml:space="preserve">
+    <value>الرجاء إدخال الصورة</value>
+  </data>
+  <data name="SavedSuccessfully" xml:space="preserve">
+    <value>تم الحفظ بنجاح</value>
+  </data>
+  <data name="SummaryRequired" xml:space="preserve">
+    <value>الوصف الموجزمطلوب</value>
+  </data>
+  <data name="UpdatedSuccessfully" xml:space="preserve">
+    <value>تم التعديل بنجاح</value>
+  </data>
+  <data name="URLRequired" xml:space="preserve">
+    <value>يجب ادخال الرابط</value>
+  </data>
+  <data name="ValidDescription" xml:space="preserve">
+    <value>يجب ان يزيد الوصف عن 10 احرف</value>
+  </data>
+  <data name="ValidEmail" xml:space="preserve">
+    <value>البريد الإلكتروني غير صحيح</value>
+  </data>
+  <data name="ValidImage" xml:space="preserve">
+    <value>الرجاء إدخال صورة صالحة</value>
+  </data>
+  <data name="ValidImageDimension" xml:space="preserve">
+    <value>أبعاد الصورة غير صحيحة</value>
+  </data>
+  <data name="ValidName" xml:space="preserve">
+    <value>يجب ان لا يقل الاسم عن حرفين</value>
+  </data>
+  <data name="ActivatedSuccessfully" xml:space="preserve">
+    <value>تم تفعيله بنجاح</value>
+  </data>
+  <data name="EnglishSloganRequired" xml:space="preserve">
+    <value>يجب ادخال الشعار باللغة الانجليزية</value>
+  </data>
+  <data name="EnglishStreetNameRequired" xml:space="preserve">
+    <value>يجب ادخال اسم الشارع باللغة الانجليزية</value>
+  </data>
+  <data name="LatitudeRequired" xml:space="preserve">
+    <value>الرجاء إدخال خط العرض</value>
+  </data>
+  <data name="LogoToolTip" xml:space="preserve">
+    <value>يجب أن تكون الأبعاد 367*367</value>
+  </data>
+  <data name="LongitudeRequired" xml:space="preserve">
+    <value>الرجاء إدخال خط الطول</value>
+  </data>
+  <data name="SloganRequired" xml:space="preserve">
+    <value>يجب ادخال الشعار</value>
+  </data>
+  <data name="StreetNameRequired" xml:space="preserve">
+    <value>يجب ادخال اسم الشارع</value>
+  </data>
+  <data name="SuspendedSuccessfully" xml:space="preserve">
+    <value>تم إيقافه بنجاح</value>
+  </data>
+  <data name="SuspendMsg" xml:space="preserve">
+    <value>تم الإيقاف  للسبب التالي:</value>
+  </data>
+  <data name="TotalNumberRequired" xml:space="preserve">
+    <value>يجب إدخال العدد الإجمالي</value>
+  </data>
+  <data name="ValidationError" xml:space="preserve">
+    <value>بعض البيانات غير صحيحة</value>
+  </data>
+  <data name="AreaRequired" xml:space="preserve">
+    <value>يجب ادخال المساحة</value>
+  </data>
+  <data name="EmptyMsg" xml:space="preserve">
+    <value>لا توجد بيانات</value>
+  </data>
+  <data name="PriceRequired" xml:space="preserve">
+    <value>يجب ادخال السعر</value>
+  </data>
+  <data name="ValidImageSize" xml:space="preserve">
+    <value>يجب أن يكون حجم الصورة أقل من 1 ميغا بايت</value>
+  </data>
+  <data name="PendingAccount" xml:space="preserve">
+    <value>لم يتم تفعيل الحساب بعد</value>
+  </data>
+  <data name="AddAditionalDataMsg" xml:space="preserve">
+    <value>تذكر أن الدقة في البيانات تزيد من فرصك في البيع</value>
+  </data>
+  <data name="AdPlaceHolder" xml:space="preserve">
+    <value>شقة / فيلا / ارض ( نوع العقار ) للبيع / للأيجار [ تقسيط / كاش ]  بـــ ( اسم الحى ) – ( أهم المناطق بجواره )</value>
+  </data>
+  <data name="AdTooltip" xml:space="preserve">
+    <value>يرجى ان يكون عنوان الاعلان مختصر بكلمات يبجث بها العميل على جووجل</value>
+  </data>
+  <data name="AreaToolTip" xml:space="preserve">
+    <value>المساحة بالمتر المربع</value>
+  </data>
+  <data name="CantAddMsg" xml:space="preserve">
+    <value>لا يمكن إضافة أكثر من</value>
+  </data>
+  <data name="CategoryTooltip" xml:space="preserve">
+    <value>مثال:إذا كنت تريد بيع شقتك فقم بإختيار وحدة سكنية</value>
+  </data>
+  <data name="CodeNotMatch" xml:space="preserve">
+    <value>الرمز الذي أدخلته لا يتطابق مع رمز التفعيل</value>
+  </data>
+  <data name="CodeSentSuccessfuly" xml:space="preserve">
+    <value>تم إرسال رمز التفعيل الجديد إلى البريد الإلكتروني والهاتف</value>
+  </data>
+  <data name="CompanyDataRequired" xml:space="preserve">
+    <value>يجب عليك إدخال بيانات الشركة الخاصة بك أولا</value>
+  </data>
+  <data name="ConfirmChangeSubscription" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد تغيير الاشتراك الى مدير الشركة؟</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>يرجى تأكيد كلمة المرور</value>
+  </data>
+  <data name="ContactAdmin" xml:space="preserve">
+    <value>لمزيد من المعلومات يمكنك الاتصال بنا</value>
+  </data>
+  <data name="CreateNewMsg" xml:space="preserve">
+    <value>دقة البيانات تحسن فرصك في بيع او تأجير عقارك, فضلا تحرى الدقة في ملء البيانات التالية.</value>
+  </data>
+  <data name="DeleteProjectRelatedData" xml:space="preserve">
+    <value>سيتم حذف البيانات المتعلقة بالمشروع والتي هي:</value>
+  </data>
+  <data name="DeleteRealestateRelatedData" xml:space="preserve">
+    <value>سيتم حذف البيانات المتعلقة بالعقار والتي هي:</value>
+  </data>
+  <data name="DescriptionTooltip" xml:space="preserve">
+    <value>أكتب وصف كامل للعقار ومميزاته ومميزات موقعه والخدمات المتاحة والقريبة منه مثل المدارس والمستشفيات وخلافه - 500 حرف.</value>
+  </data>
+  <data name="InCompleteAddress" xml:space="preserve">
+    <value>يرجى إدخال العنوان</value>
+  </data>
+  <data name="IncompleteMsg" xml:space="preserve">
+    <value>البيانات غير كاملة</value>
+  </data>
+  <data name="InCompletePhotos" xml:space="preserve">
+    <value>يرجى ادخال صور العقار</value>
+  </data>
+  <data name="InCompleteRealestateMsg" xml:space="preserve">
+    <value>لن تظهر العقارات غير المكتملة على الموقع</value>
+  </data>
+  <data name="InValidEmail" xml:space="preserve">
+    <value>البريد الالكتروني موجود بالفعل</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>كلمة المرور غير صحيحة</value>
+  </data>
+  <data name="InValidUserName" xml:space="preserve">
+    <value>اسم المستخدم موجود بالفعل</value>
+  </data>
+  <data name="MovetoRequired" xml:space="preserve">
+    <value>يجب تحديد الموظف الذي ستنقل إليه العقارات</value>
+  </data>
+  <data name="PasswordNotMatch" xml:space="preserve">
+    <value>تأكيد كلمة المرور لا تتطابق مع كلمة المرور</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>كلمة المرور مطلوبة</value>
+  </data>
+  <data name="PendingUserMsg" xml:space="preserve">
+    <value>لم يتم تفعيل الحساب الخاص بك حتى الآن الرجاء إدخال رمز التفعيل</value>
+  </data>
+  <data name="PhotosToolTip" xml:space="preserve">
+    <value>إضافة الصور تحسن من فرصك في البيع</value>
+  </data>
+  <data name="PriceTooltip" xml:space="preserve">
+    <value>ما هو السعر الاجمالى التقديري للبيع؟</value>
+  </data>
+  <data name="SigninMessage" xml:space="preserve">
+    <value>تسجيل الدخول الى الموقع</value>
+  </data>
+  <data name="SuspendedCompanyMsg" xml:space="preserve">
+    <value>تم إيقاف بيانات الشركة للسبب التالي:</value>
+  </data>
+  <data name="SuspendedUserMessage" xml:space="preserve">
+    <value>تم إيقاف حسابك للأسباب التالية</value>
+  </data>
+  <data name="UserCreated" xml:space="preserve">
+    <value>تم إنشاء حساب المستخدم بنجاح، سيتم إرسال كلمة المرور المؤقتة إلى البريد الإلكتروني للمستخدم والجوال</value>
+  </data>
+  <data name="UserNameNotExsit" xml:space="preserve">
+    <value>اسم المستخدم غير موجود</value>
+  </data>
+  <data name="SendSuccessfully" xml:space="preserve">
+    <value>تم الارسال بنجاح</value>
+  </data>
+  <data name="CodesTooltip" xml:space="preserve">
+    <value>ادخل اكواد العقارات بينهم ','</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>تم تغيير كلمة المرور بنجاح</value>
+  </data>
+  <data name="AddUserDataMsg" xml:space="preserve">
+    <value>من فضلك أضف بياناتك</value>
+  </data>
+  <data name="ErrorMsg" xml:space="preserve">
+    <value>لقد حدث خطأ يرجى المحاولة مرة اخرى</value>
+  </data>
+  <data name="ErrorTitleMsg" xml:space="preserve">
+    <value>عفوا</value>
+  </data>
+  <data name="NotifyTitle" xml:space="preserve">
+    <value>خدمة بلغني : أرسل لنا العقار الذي تبحث عنه ، وسوف نرسل لك عندما يتم إضافته</value>
+  </data>
+  <data name="ThanksTitleMsg" xml:space="preserve">
+    <value>شكراً لك</value>
+  </data>
+  <data name="AddingCompareFailed" xml:space="preserve">
+    <value>لا يمكنك المقارنة بين اكثر من 4 عقارات</value>
+  </data>
+  <data name="FavoritePropErrorMsg" xml:space="preserve">
+    <value>يجب تسجيل الدخول قبل اضافة العقار للعقارات المفضلة</value>
+  </data>
+  <data name="FavoritePropMsg" xml:space="preserve">
+    <value>تم اضافة العقار لقائمة العقارات المفضلة الخاصة بك</value>
+  </data>
+  <data name="GeneratePasswordMsg" xml:space="preserve">
+    <value>تم ارسال كلمة السر الى رقم هاتفك و الايميل الخاص بك برجاء تسجيل الدخول</value>
+  </data>
+  <data name="SuspendInfoMsg" xml:space="preserve">
+    <value>للمزيد من المعلومات، يرجى الاتصال بــ </value>
+  </data>
+  <data name="UserNameRequired" xml:space="preserve">
+    <value>الرجاء ادخال اسم المستخدم</value>
+  </data>
+  <data name="ValidPassword" xml:space="preserve">
+    <value>يجب أن تكون كلمة المرور أكثر من 6 حرف</value>
+  </data>
+  <data name="ViewCompanyData" xml:space="preserve">
+    <value>للاتصال بالشركة</value>
+  </data>
+  <data name="ResultNotFound" xml:space="preserve">
+    <value>عذرا، لا توجد بيانات</value>
+  </data>
+  <data name="CatalogNamesTooltip" xml:space="preserve">
+    <value>يرجى كتابة اسم كل كتالوج في سطر منفصل</value>
+  </data>
+  <data name="HeadersTooltip" xml:space="preserve">
+    <value>يرجى كتابة  كل عنوان في سطر منفصل</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>مطلوب</value>
+  </data>
+  <data name="ErrorInvalidEmailOrPhoneNumber" xml:space="preserve">
+    <value>البريد الإلكتروني أو الهاتف غير صالح</value>
+  </data>
+  <data name="ErrorUserNameExist" xml:space="preserve">
+    <value>البريد الإلكتروني أو الهاتف الذي تم إدخاله موجود بالفعل</value>
+  </data>
+  <data name="ErrorUserNameNotExist" xml:space="preserve">
+    <value>البريد الإلكتروني أو الهاتف الذي تم إدخاله غير موجود</value>
+  </data>
+  <data name="ForgetPasswordTitle" xml:space="preserve">
+    <value>رمز استعادة كلمة المرور</value>
+  </data>
+  <data name="ForgetPasswordRecover" xml:space="preserve">
+    <value>استرجاع كلمة المرور</value>
+  </data>
+  <data name="ForgetPasswordRecoverTitle" xml:space="preserve">
+    <value>تم إرسال رمز استعادة كلمة المرور بنجاح إلى</value>
+  </data>
+  <data name="DeleteSubscriberRelatedData" xml:space="preserve">
+    <value>سيتم حذف البيانات المتعلقة بالمستخدم والتي هي:</value>
+  </data>
+  <data name="InValidMobileNo" xml:space="preserve">
+    <value>رقم الموبايل موجود بالفعل</value>
+  </data>
+  <data name="ErrorInvalidMobileNo" xml:space="preserve">
+    <value>رقم الموبايل غير صالح</value>
+  </data>
+  <data name="ErrorInvalidUsername" xml:space="preserve">
+    <value>اسم المستخدم غير صالح</value>
+  </data>
+</root>

@@ -1,0 +1,75 @@
+﻿<div class="col-md-8 pull-right">
+<div class="projectGallery ">
+                        <div class="Title">
+                            <h4><a class="back" href="javascript:void(0);" detail-backbutton>رجوع</a><span>صور {{Name}}({{Date}}) </span></h4>
+                        </div>
+                        <div class="slider">
+                            <div class="viewPort">
+                                <ul>
+                                    <li ng-repeat="Photo in Photos">
+                                      <img src="{{Photo.PhotoURL}}" alt="عقار ستوك - {{Name}}" />
+                                        <div class="photoDes"><span>
+                                        {{Photo.Description}}
+                                        </span></div>
+                                    </li>
+                                    <!--<li>
+                                        <img src="images/Frontend/banner.jpg" />
+                                        <div class="photoDes"><span>
+                                        يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً
+                                        عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو وكأنها نص مقروء</span></div>
+                                    </li>
+                                    <li>
+                                        <img src="images/Frontend/banner.jpg" />
+                                        <div class="photoDes"><span>
+                                        يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً
+                                        عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو وكأنها نص مقروء</span></div>
+                                    </li>
+                                    <li>
+                                        <img src="images/Frontend/banner.jpg" />
+                                        <div class="photoDes"><span>
+                                        يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً
+                                        عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو وكأنها نص مقروء</span></div>
+                                    </li>-->
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="divSlidetBtn" class="sliderControls">
+                            <div class="nextBtn" ng-click="Next()"><img src="images/Frontend/twoArrowOppWhite.png" /></div>
+                            <div class="prevBtn" ng-click="Previous()"><img src="images/Frontend/twoArrowWhite.png" /></div>
+                        </div>
+                    </div>
+    </div>
+                    <!--<script>
+
+                        $(window).load(function () {
+                            function fadeSlider(slide) {
+                                slide.fadeIn(1000).delay(6000).queue(function () {
+                                    slide.fadeOut(1000);
+                                    slide.remove();
+                                    $('.slider .viewPort ul li:last-child').after(slide);
+                                    fadeSliderMark = setTimeout(function () { fadeSlider($('.slider .viewPort ul li:first-child')) });
+                                });
+
+                            }
+                            var fadeSliderMark = setTimeout(function () { fadeSlider($('.slider .viewPort ul li:first-child')) });
+                            var slide;
+                            $('.sliderControls .nextBtn').click(function () {
+                                clearTimeout(fadeSliderMark);
+                                slide = $('.slider .viewPort ul li:first-child');
+                                slide.hide();
+                                slide.remove();
+                                $('.slider .viewPort ul li:last-child').after(slide);
+                                fadeSliderMark = setTimeout(function () { fadeSlider($('.slider .viewPort ul li:first-child')) });
+                            });
+                            $('.sliderControls .prevBtn').click(function () {
+                                clearTimeout(fadeSliderMark);
+                                slide = $('.slider .viewPort ul li:not(:last-child)');
+                                slide.hide();
+                                slide.remove();
+                                $('.slider .viewPort ul li:last-child').after(slide);
+                                fadeSliderMark = setTimeout(function () { fadeSlider($('.slider .viewPort ul li:first-child')) });
+                            });
+
+
+                        });
+    </script>-->

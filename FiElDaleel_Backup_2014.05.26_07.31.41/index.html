@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""/>
+    <link rel="stylesheet" href="styles/normalize.css"/>
+    <link rel="stylesheet" href="styles/chosen.css"/>
+    <link rel="stylesheet" href="styles/bootstrap.css"/>
+    <link rel="stylesheet" href="styles/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="styles/layout.css"/>
+    <!--[if lt IE 9]>
+    <script src="scripts/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <p class="browsehappy">
+        You are using an
+        <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a>
+        to improve your experience.
+    </p>
+    <![endif]-->
+</head>
+<body>
+
+<!-- CONTACT US MODAL -->
+<div class="modal fade" id="Contact_us" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">
+                    إتصل بنا
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <input type="text" id="name" class="form-control"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="name">
+                            الاسم
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <input type="text" id="mobile" class="form-control"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="mobile">
+                            رقم الهاتف
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <input type="text" id="mail" class="form-control"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="mail">
+                            البريد الإلكترنى
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <textarea type="text" id="msg" class="form-control"></textarea>
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="msg">
+                            الرسالة
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="button" class="btn btn-default">
+                            إرسال
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel1">
+                    الدخول
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <input type="text" id="username" class="form-control"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="username">
+                            الاسم
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <input type="text" id="pass" class="form-control"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="pass">
+                            رقم المرور
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="button" class="btn btn-default">
+                            دخول
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SIGN UP MODAL -->
+<div class="modal fade" id="sign_up" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel2">
+                    تسجيل
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <input type="text" id="name" class="form-control"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="name">
+                            الاسم
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <input type="text" id="mobile" class="form-control"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="mobile">
+                            رقم الهاتف
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <input type="text" id="mail" class="form-control"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="mail">
+                            البريد الإلكترنى
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="button" class="btn btn-default">
+                            تسجيل
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- CONTAINER -->
+<div class="container">
+    <!-- HEADER -->
+    <header>
+        <div class="content">
+            <!-- NAV BAR -->
+            <nav class="navbar navbar-default menu" role="navigation">
+                <div class="container-fluid">
+                    <img class="logo" src="images/logo.jpg" alt="logo" width="120"/>
+                    <!-- SIGN IN -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" style="cursor: pointer" data-toggle="modal" data-target="#login">
+                            دخول
+                        </a>
+                        <a class="navbar-brand" style="cursor: pointer" data-toggle="modal" data-target="#sign_up">
+                            تسجيل
+                        </a>
+                    </div>
+
+                    <!-- LINKS -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right links">
+                            <li class="menu_selected"><a href="#">
+                                الرئيسية
+                            </a></li>
+                            <li><a href="#">
+                                الخريطة
+                            </a></li>
+                            <li><a href="#tabs_control" data-target="about_us">
+                                عن الشركة
+                            </a></li>
+                            <li><a style="cursor: pointer" data-toggle="modal" data-target="#Contact_us">
+                                إتصل بنا
+                            </a></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- BOTTOM SECTION -->
+    <div class="content">
+        <!-- RIGHT SIDE -->
+        <div class="right_side col-sm-7 col-xs-12 pull-right col-sm-pull-2">
+            <h2 class="text-center white search_titles">
+                البحث
+            </h2>
+            <!-- FIRST ROW SEARCH -->
+            <div class="search">
+                <div class="col-xs-12 pull-right no_padding">
+                    <input class="txt type=" text" placeholder="....أدخل الكلمة المراد البحث عنها"/>
+                </div>
+            </div>
+            <!-- SECOND ROW SEARCH -->
+            <div class="more_search col-xs-12 pull-right no_padding text-center">
+                <div class="col-sm-5 col-xs-12 no_padding pull-right">
+                    <select name="category" id="category"  class="category_dropdown col-xs-12">
+                        <option value="">100</option>
+                        <option value="">200</option>
+                        <option value="">300</option>
+                    </select>
+                </div>
+                <div class="col-sm-2 col-xs-12 pull-right text-center h4 white">
+                    الى
+                </div>
+                <div class="city_dropdown_container col-sm-5 col-xs-12 no_padding pull-right">
+                    <select name="city" class="city_dropdown col-xs-12">
+                        <option value="">300</option>
+                        <option value="">200</option>
+                        <option value="">100</option>
+                    </select>
+                </div>
+            </div>
+            <!-- THIRD ROW SEARCH -->
+            <div class="checkboxes col-xs-12 pull-right clearfix no_padding">
+                <button class="btn btn-success search_btn">
+                    إبدأ البحث
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- TABS -->
+<div class="tabs_container">
+<div class="tab_bg"></div>
+<div class="content">
+<div>
+
+</div>
+<!-- TAB HEADER -->
+<ul id="tabs_control" class="tabs_header nav nav-tabs">
+    <li class="real_estates active"><a href="#profile" data-toggle="tab">
+        عقارات
+        <img src="images/tabs_icons/realestate.png" alt="img"/>
+    </a></li>
+    <li class="about_us"><a href="#about_us" data-toggle="tab">
+        عن الشركة
+        <img class="about_us_icon" src="images/tabs_icons/about.png" alt="img"/>
+    </a></li>
+    <li class="search_tab" style="display: none"><a href="#search_results" data-toggle="tab">
+        نتيجة البحث
+        <img src="images/tabs_icons/search.png" alt="img" width="15"/>
+    </a></li>
+    <li>
+        <input class="btn small_search" type="button"/>
+        <input class="txt" type="text" placeholder="...أدخل كلمة البحث"/>
+        <select class="category_selector" name="category">
+            <option value="x1">x1</option>
+            <option value="x2">x2</option>
+            <option value="x3">x3</option>
+        </select>
+    </li>
+</ul>
+<!-- TAB CONTENT -->
+<div id="myTabContent" class="tab-content">
+<div class="tab-pane fade active in" id="profile">
+<div class="col-xs-12 no_padding items_container">
+<div class="item  pull-right no_padding">
+    <div class="img">
+        <a href="item_page.html">
+            <img src="images/test.jpg" alt="item"/>
+        </a>
+    </div>
+    <div class="txt">
+        <p>
+            150 م²
+        </p>
+
+        <p>
+            3 غرف
+        </p>
+
+        <p>
+            2 حمام
+        </p>
+    </div>
+    <div class="item_title">
+        القاهرة - مدينة نصر - مكرم عبيد
+    </div>
+    <div class="item_title">
+        400000 جنية
+    </div>
+</div>
+<div class="item  pull-right no_padding">
+    <div class="img">
+        <a href="item_page.html">
+            <img src="images/test.jpg" alt="item"/>
+        </a>
+    </div>
+    <div class="txt">
+        <p>
+            150 م²
+        </p>
+
+        <p>
+            3 غرف
+        </p>
+
+        <p>
+            2 حمام
+        </p>
+    </div>
+    <div class="item_title">
+        القاهرة - مدينة نصر - مكرم عبيد
+    </div>
+    <div class="item_title">
+        400000 جنية
+    </div>
+</div>
+<div class="item  pull-right no_padding">
+    <div class="img">
+        <a href="item_page.html">
+            <img src="images/test.jpg" alt="item"/>
+        </a>
+    </div>
+    <div class="txt">
+        <p>
+            150 م²
+        </p>
+
+        <p>
+            3 غرف
+        </p>
+
+        <p>
+            2 حمام
+        </p>
+    </div>
+    <div class="item_title">
+        القاهرة - مدينة نصر - مكرم عبيد
+    </div>
+    <div class="item_title">
+        400000 جنية
+    </div>
+</div>
+<div class="item  pull-right no_padding">
+    <div class="img">
+        <a href="item_page.html">
+            <img src="images/test.jpg" alt="item"/>
+        </a>
+    </div>
+    <div class="txt">
+        <p>
+            150 م²
+        </p>
+
+        <p>
+            3 غرف
+        </p>
+
+        <p>
+            2 حمام
+        </p>
+    </div>
+    <div class="item_title">
+        القاهرة - مدينة نصر - مكرم عبيد
+    </div>
+    <div class="item_title">
+        400000 جنية
+    </div>
+</div>
+<div class="item  pull-right no_padding">
+    <div class="img">
+        <a href="item_page.html">
+            <img src="images/test.jpg" alt="item"/>
+        </a>
+    </div>
+    <div class="txt">
+        <p>
+            150 م²
+        </p>
+
+        <p>
+            3 غرف
+        </p>
+
+        <p>
+            2 حمام
+        </p>
+    </div>
+    <div class="item_title">
+        القاهرة - مدينة نصر - مكرم عبيد
+    </div>
+    <div class="item_title">
+        400000 جنية
+    </div>
+</div>
+<div class="item  pull-right no_padding">
+    <div class="img">
+        <a href="item_page.html">
+            <img src="images/test.jpg" alt="item"/>
+        </a>
+    </div>
+    <div class="txt">
+        <p>
+            150 م²
+        </p>
+
+        <p>
+            3 غرف
+        </p>
+
+        <p>
+            2 حمام
+        </p>
+    </div>
+    <div class="item_title">
+        القاهرة - مدينة نصر - مكرم عبيد
+    </div>
+    <div class="item_title">
+        400000 جنية
+    </div>
+</div>
+<div class="item  pull-right no_padding">
+    <div class="img">
+        <a href="item_page.html">
+            <img src="images/test.jpg" alt="item"/>
+        </a>
+    </div>
+    <div class="txt">
+        <p>
+            150 م²
+        </p>
+
+        <p>
+            3 غرف
+        </p>
+
+        <p>
+            2 حمام
+        </p>
+    </div>
+    <div class="item_title">
+        القاهرة - مدينة نصر - مكرم عبيد
+    </div>
+    <div class="item_title">
+        400000 جنية
+    </div>
+</div>
+<div class="item  pull-right no_padding">
+    <div class="img">
+        <a href="item_page.html">
+            <img src="images/test.jpg" alt="item"/>
+        </a>
+    </div>
+    <div class="txt">
+        <p>
+            150 م²
+        </p>
+
+        <p>
+            3 غرف
+        </p>
+
+        <p>
+            2 حمام
+        </p>
+    </div>
+    <div class="item_title">
+        القاهرة - مدينة نصر - مكرم عبيد
+    </div>
+    <div class="item_title">
+        400000 جنية
+    </div>
+</div>
+<!-- ADS -->
+<div class="clearfix"></div>
+<img src="images/Watches-ar.gif" alt="Ads" style="display: block;margin: 0 auto"/>
+<!-- END ADS -->
+</div>
+<img class="loading_new_items" src="images/loading_items.gif"/>
+
+<div class="more_lnk">
+    المزيد
+</div>
+</div>
+<div class="tab-pane fade" id="about_us">
+    <div class="col-xs-12 no_padding items_container">
+        <p>
+            شركة فاليو لتكنولوجيا المعلومات، بأقسامها الثلاثة الرئيسية، توفر للسوق المصري حلول متكاملة متميزة تعتمد على أحدث التقنيات، رامية بذلك إلى
+            سد الفجوة بين متطلبات الأعمال المحلية والتقنيات الحديثة الرائدة على مستوى العالم.
+
+            كما تخدم الشركة مجموعة كبيرة من القطاعات الاقتصادية، مثل قطاع الاتصالات، والنفط والغاز، والصناعة، والمرافق، والمؤسسات، والقطاع الحكومي،
+            وقطاعات الخدمات المالية.
+
+            تركز الشركة تركيزاً كاملاً على العملاء وتوفير الحلول التقنية المتكاملة والخدمات الاستشارية التي تمكنهم من تنظيم أعمالهم، وتقليل التكاليف،
+            ورفع مستوى الأداء، وبناء ميزة تنافسية.
+        </p>
+        <!-- ADS -->
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+
+<div class="tab-pane fade" id="search_results">
+    <div class="col-xs-12 no_padding items_container">
+    </div>
+    <img class="loading_search_result" src="images/loading.gif"/>
+    <img class="loading_new_items" src="images/loading_items.gif"/>
+
+    <div class="more_lnk" style="display: none">
+        المزيد
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="content">
+        <div class="mail">
+            <img src="images/mail.png" alt="mail"/>
+            info@value.com
+        </div>
+        <p>
+            Copyright © 2014 powered by MasteryIT
+        </p>
+    </div>
+</footer>
+
+<!-- INITIALIZE JS -->
+<script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="scripts/chosen.jquery.js"></script>
+<script type="text/javascript" src="scripts/bootstrap-tabcollapse.js"></script>
+<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="scripts/jquery.localscroll-1.2.7-min.js"></script>
+<script type="text/javascript" src="scripts/scripts.js"></script>
+<script>
+    $(function () {
+        $('.links').localScroll();
+        $(".category_dropdown").chosen();
+        $(".city_dropdown").chosen();
+        $(".category_selector").chosen();
+        $('.tabs_header').tabCollapse();
+        buttons_events();
+        get_realestate_items();
+    });
+</script>
+</body>
+</html>

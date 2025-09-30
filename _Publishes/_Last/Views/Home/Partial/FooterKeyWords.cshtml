@@ -1,0 +1,102 @@
+﻿@model IEnumerable<BrokerMVC.Models.SearchKeyword>
+<div class="footer-content">
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-401">
+                <ul class="footer-list">
+                    <li><a href="@item.URL"><h3>@item.Keywords </h3></a></li>
+                    @foreach (var sub in item.SubKeywords)
+                    {
+                        <li><a href="@sub.URL"><i class="fa fa-minus-circle" aria-hidden="true"></i>@sub.Keywords</a></li>
+                    }
+                    @*<li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i> شقق بالتقسيط فى العبور</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع فى 6 اكتوبر بالتقسيط</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع في الاسكندرية بالتقسيط</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق بالتقسيط فى التجمع الخامس</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق بالتقسيط فى الشروق</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع في القاهرة بالتقسيط</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع فى الشيخ زايد بالتقسيط</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع فى مصر الجديدة بالتقسيط</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق بالتقسيط فى المعادى</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق بالتقسيط فى حدائق الاهرام</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع فى السويس بالتقسيط</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع بالتقسيط فى القاهرة الجديدة</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق فى العجمى بالتقسيط</a></li>*@
+                </ul>
+            </div>
+        }
+
+
+        @*<div class="col-sm-401">
+                <ul class="footer-list">
+                    <li><h3>شقق للايجار</h3></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للايجار بمدينة نصر</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للايجار بطنطا</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للايجار بالمنصورة</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للايجار ببورسعيد</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للايجار بالزقازيق</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للايجار بالتجمع الخامس</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للايجار باسيوط</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للايجار بالهرم</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للايجار بالهرم</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للايجار بالاسماعيلية</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للايجار 6 اكتوبر</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للايجار بالمعادى</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للايجار بالغردقة</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-401">
+                <ul class="footer-list">
+                    <li><h3>شقق للبيع </h3></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع فى العبور</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع فى 6 اكتوبر بالتقسيط</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع في الاسكندرية بالتقسيط</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع فى التجمع الخامس</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع فى الشروق</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع في القاهرة بالتقسيط</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع فى الشيخ زايد بالتقسيط</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع فى مصر الجديدة بالتقسيط</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع فى المعادى</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع فى حدائق الاهرام</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع فى السويس بالتقسيط</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق للبيع بالتقسيط فى القاهرة الجديدة</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>شقق فى العجمى للبيع</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-401">
+                <ul class="footer-list">
+                    <li><h3>عقارات</h3></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات بورسعيد</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات السويس</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات الاسماعيلية</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات الاسكندرية</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات كفر الشيخ</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات المنصورة</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات بنى سويف</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات اسوان</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات العاشر من رمضان</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات سوهاج</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات 6 اكتوبر</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات الزقازيق</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات الفيوم</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-401">
+                <ul class="footer-list">
+                    <li><h3>عقارات للبيع</h3></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات للبيع بالاسكندرية</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات للبيع ببورسعيد</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات للبيع بالقاهرة</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات للبيع بالاسماعيلية</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات للبيع بالفيوم</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات للبيع بطنطا</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات للبيع فى الجيزة</a></li>
+                    <li><a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i>عقارات للبيع بمصر</a></li>
+                </ul>
+            </div>*@
+    </div>
+</div>

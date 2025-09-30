@@ -1,0 +1,63 @@
+﻿@model BrokerMVC.Models.ViewModel.RegisterInquiry
+@using (Html.BeginForm("PropertyRegister", "Home", FormMethod.Post, htmlAttributes: new { @id = "RegisterForm" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">@General.RegisterTitle</h4>
+    </div>
+    <div class="modal-body">
+        <div class="send-complain-form">
+            @Html.Partial("_Notifications")
+            @Html.HiddenFor(model => model.RealestateID)
+            @Html.HiddenFor(model => model.ProjectID)
+            @Html.HiddenFor(model => model.CompanyID)
+            @Html.HiddenFor(model => model.type)
+            @Html.EditorFor(model => model.Subscriber.FullName, new { htmlAttributes = new { @class = "form-control", placeholder = General.FullName } })
+            @Html.ValidationMessageFor(model => model.Subscriber.FullName, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Subscriber.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = General.UserName } })
+            @Html.ValidationMessageFor(model => model.Subscriber.UserName, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Subscriber.Email, new { htmlAttributes = new { @class = "form-control", placeholder = General.Email } })
+            @Html.ValidationMessageFor(model => model.Subscriber.Email, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Subscriber.MobileNo, new { htmlAttributes = new { @class = "form-control", placeholder = General.Phone } })
+            @Html.ValidationMessageFor(model => model.Subscriber.MobileNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-04" data-dismiss="modal">@General.Close</button>
+        <button id="btnRegister" type="submit" class="btn btn-03">@General.Register </button>
+    </div>
+    @*<div class="login-form">
+            <div class="col-md-12">
+                <div class="form-group" style="direction:rtl">
+                    @Html.Partial("_Notifications")
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="nameLogin">@General.UserName<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="passwordLogin">@General.Password<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="col-sm-6">
+                <button id="btnLogin" type="submit" class="btn btn-03">@General.Signin </button>
+            </div>
+            <div class="col-sm-6">
+                <a href="/@Menu.Register.GetValue()" class="btn btn-theme btn-back">@General.Register</a>
+            </div>
+        </div>*@
+}
+
+

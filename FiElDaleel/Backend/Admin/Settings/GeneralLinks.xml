@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url Code="Gen-1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <loc>http://www.aqarstock.com/الرئيسية</loc>
+    <image:image>
+      <image:loc>http://109.203.127.181:1717/images/Frontend/logo.jpg</image:loc>
+    </image:image>
+  </url>
+  <url Code="Gen-2" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <loc>http://www.aqarstock.com/الدعم_الفنى</loc>
+    <image:image>
+      <image:loc>http://109.203.127.181:1717/images/Frontend/logo.jpg</image:loc>
+    </image:image>
+  </url>
+  <url Code="Gen-3" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <loc>http://www.aqarstock.com/الفئة/1/وحدات_سكنية/1</loc>
+    <image:image>
+      <image:loc>http://109.203.127.181:1717/images/Frontend/logo.jpg</image:loc>
+    </image:image>
+  </url>
+  <url Code="Gen-4" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <loc>http://www.aqarstock.com/الفئة/1/اراضى/3</loc>
+    <image:image>
+      <image:loc>http://109.203.127.181:1717/images/Frontend/logo.jpg</image:loc>
+    </image:image>
+  </url>
+  <url Code="Gen-5" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <loc>http://www.aqarstock.com/الفئة/1/وحدات_تجارية/2#/</loc>
+    <image:image>
+      <image:loc>http://109.203.127.181:1717/images/Frontend/logo.jpg</image:loc>
+    </image:image>
+  </url>
+  <url Code="Gen-6" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <loc>http://www.aqarstock.com/آخر_الوحدات_المضافة</loc>
+    <image:image>
+      <image:loc>http://109.203.127.181:1717/images/Frontend/logo.jpg</image:loc>
+    </image:image>
+  </url>
+  <url Code="Gen-7" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <loc>http://www.aqarstock.com/مشاريع_عقارية/1#/</loc>
+    <image:image>
+      <image:loc>http://109.203.127.181:1717/images/Frontend/logo.jpg</image:loc>
+    </image:image>
+  </url>
+  <url Code="Gen-8" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <loc>http://www.aqarstock.com/شركات_عقارية/1#/</loc>
+    <image:image>
+      <image:loc>http://109.203.127.181:1717/images/Frontend/logo.jpg</image:loc>
+    </image:image>
+  </url>
+  <url Code="Gen-9" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <loc>http://www.aqarstock.com/عروض_مميزة/1</loc>
+    <image:image>
+      <image:loc>http://109.203.127.181:1717/images/Frontend/logo.jpg</image:loc>
+    </image:image>
+  </url>
+</urlset>

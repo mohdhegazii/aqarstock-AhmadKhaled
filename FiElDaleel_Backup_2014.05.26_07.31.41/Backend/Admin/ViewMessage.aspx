@@ -1,0 +1,89 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend/Admin/AdminMaster.Master"
+    AutoEventWireup="true" CodeBehind="ViewMessage.aspx.cs" Inherits="BrokerWeb.Backend.Admin.ViewMessage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<div class="Content row">
+    <telerik:RadSplitter ID="rsMessage" runat="server" 
+        Orientation="Horizontal" Width="100%" BorderStyle="Groove" Height="500px">
+        <telerik:RadPane ID="RadPane3"  runat="server" Width="100%" Height="10%" 
+            Scrolling="None">
+        <div class="MessageTitle">
+    <h4>
+        <asp:Label ID="lblTitle" runat="server" Text="Message Title" CssClass="control-label"></asp:Label>
+    </h4>
+    </div>
+        </telerik:RadPane>
+        <telerik:RadPane ID="rpPrevMessages" CssClass="" runat="server" Width="100%" 
+            Scrolling="Y">
+            <telerik:RadListView ID="rlvPrevMessages" runat="server" 
+                onitemdatabound="rlvPrevMessages_ItemDataBound">
+                <ItemTemplate>
+            <div class="row Message MessageItem">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 pull-right">
+                         <asp:Label ID="lblSender" runat="server" Text='' CssClass="control-label"></asp:Label>
+                          <br />
+                          <span>   <%#Eval("CreatedDate")%></span>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                           <p>
+                          <%#Eval("Body")%>
+                           </p>
+                      </div>
+                    </div>
+            </ItemTemplate>
+          <AlternatingItemTemplate>
+            <div class="row Message MessageAlternateItem">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 pull-right">
+                         <asp:Label ID="lblSender" runat="server" Text='' CssClass="control-label"></asp:Label>
+                          <br />
+                          <span>   <%#Eval("CreatedDate")%></span>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                           <p>
+                          <%#Eval("Body")%>
+                           </p>
+                      </div>
+                    </div>
+          </AlternatingItemTemplate>
+            
+            </telerik:RadListView>
+           
+                    
+        </telerik:RadPane>
+        <telerik:RadPane ID="RadPane2" CssClass="" runat="server" Width="100%" Height="30%" Scrolling="Y">
+              <div id="divMsg" runat="server">
+            <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+        </div>
+                    <div class="ContentItem row Message">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 pull-right">
+                            <asp:Label ID="Label4" runat="server" Text="الرد " CssClass="control-label"></asp:Label>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                            <asp:TextBox ID="txtMessage" runat="server" CssClass="form-control" TextMode="MultiLine"
+                                MaxLength="500"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="Save" CssClass="Validator"
+                                ControlToValidate="txtMessage" runat="server" Display="Dynamic" ErrorMessage="! من فضلك ادخل رد على الرسالة"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="ContentItem row Message">
+                        <asp:Button ID="btnSave" runat="server" CssClass="btn btn-lg" Text="ارسال" 
+                            ValidationGroup="Save" onclick="btnSave_Click" />
+                    </div>
+               
+        </telerik:RadPane>
+    </telerik:RadSplitter>
+    </div>
+<%--    <script>
+
+        $(document).ready(function () {
+
+            var splitter = $find("<%= rsMessage.ClientID %>");
+            alert(splitter);
+            var pane = splitter.getPaneById("rpPrevMessages");
+            alert(pane);
+            pane.setScrollPos(0, pane.get_height());
+        });
+    </script>--%>
+</asp:Content>

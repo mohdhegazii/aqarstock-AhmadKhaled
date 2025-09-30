@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstate>
+@foreach (var item in Model)
+{
+    <div class="swiper-slide" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <div class="thumbnail no-border no-padding thumbnail-property special-thumbnail">
+            <div class="label-badge banner-special">
+                <span class="text"><i class="fa fa-gift" aria-hidden="true"></i></span>
+            </div>
+            <div class="media">
+                <a itemprop="url" class="media-link" href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">
+                    <img itemprop="image" src="@Url.Content(item.DefaultImage.PhotoName)" alt="@item.Title - @item.EnTitle">
+                    <span class="icon-view"><strong><i class="fa fa-arrows-alt"></i></strong></span>
+                </a>
+            </div>
+            <div class="caption text-center">
+                <h4 itemprop="name" class="caption-title">
+                    <a href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">
+                        @(Commons.Culture.Contains("ar") ? item.RealEstateType.Title : item.RealEstateType.EnTitle)  @item.Area @General.Meter
+                    </a>
+                </h4>
+                <p itemprop="address" class="caption-text">
+                    @(Commons.Culture.Contains("ar") ? item.District.Name + "-" + item.City.Name : item.District.EnName + "-" + item.City.EnName)
+                </p>
+                <div class="buttons">
+                    <a class="btn btn-theme" href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">@General.More</a>
+                </div>
+                <span itemprop="description" class="p-price bottom-price">
+                    @item.Price
+                    @if (item.CurrencyID > 0)
+                    {@(Commons.Culture.Contains("ar") ? item.Currency.Name : item.Currency.EnName)
+                    }
+                </span>
+                @*<table class="table">
+                        <tbody>
+                            <tr>
+                                <td><i class="fa fa-expand"></i> 167 م </td>
+                                <td><i class="fa fa-bed"></i> 1 غرف نوم</td>
+                                <td><i class="fa fa-tint"></i> 1 حمام</td>
+                            </tr>
+                        </tbody>
+                    </table>*@
+            </div>
+        </div>
+    </div>
+}

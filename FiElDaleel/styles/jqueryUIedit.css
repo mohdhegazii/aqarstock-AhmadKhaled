@@ -1,0 +1,50 @@
+.ui-slider-horizontal .ui-slider-handle{
+    background: #ffffff;
+    border-radius: 50%;
+}
+.ui-slider-horizontal .ui-slider-range{
+    background: #ffcc00!important;
+}
+.ui-selectmenu-button span.ui-selectmenu-text{
+    text-align: right;
+}
+.ui-selectmenu-button span.ui-icon{
+    left: 0.5em;
+    right: auto;
+}
+.ui-widget-content{
+    color: #666666;
+}
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus{
+    background: #009449;
+    color: #ffffff;
+    border: solid 1px #ffffff;
+}
+
+.homeSearchContentUnit.bedrooms .ui-state-hover, .homeSearchContentUnit.bedrooms .ui-widget-content .ui-state-hover, .homeSearchContentUnit.bedrooms .ui-widget-header .ui-state-hover, 
+.homeSearchContentUnit.bedrooms .ui-state-focus, .homeSearchContentUnit.bedrooms .ui-widget-content .ui-state-focus, .homeSearchContentUnit.bedrooms .ui-widget-header .ui-state-focus{
+    background: #ae0011;
+}
+
+.homeSearchContentUnit.bathrooms .ui-state-hover, .homeSearchContentUnit.bathrooms .ui-widget-content .ui-state-hover, .homeSearchContentUnit.bathrooms .ui-widget-header .ui-state-hover, 
+.homeSearchContentUnit.bathrooms .ui-state-focus, .homeSearchContentUnit.bathrooms .ui-widget-content .ui-state-focus, .homeSearchContentUnit.bathrooms .ui-widget-header .ui-state-focus{
+    background: #00817d;
+}
+.homeSearchContentUnit.area .ui-state-hover, .homeSearchContentUnit.area .ui-widget-content .ui-state-hover, .homeSearchContentUnit.area .ui-widget-header .ui-state-hover, 
+.homeSearchContentUnit.area .ui-state-focus, .homeSearchContentUnit.area .ui-widget-content .ui-state-focus, .homeSearchContentUnit.area .ui-widget-header .ui-state-focus{
+    background: #72006b;
+}
+.ui-selectmenu-button{
+    background:  #ffffff;
+    color: #555555;
+}
+.ui-selectmenu-button:hover{
+    background:  #ffcc00!important;
+}
+.ui-selectmenu-menu{
+    z-index: 9999999;
+}
+.ui-selectmenu-menu {
+    max-height:200px;
+    overflow:overlay;
+}

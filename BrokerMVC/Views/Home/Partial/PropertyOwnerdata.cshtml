@@ -1,0 +1,10 @@
+﻿@model BrokerMVC.Models.RealEstate
+@if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+    @Html.Partial("Partial/OwnerData", Model)
+}
+else
+{
+    @Html.Partial("Partial/LoginRequired")
+
+}

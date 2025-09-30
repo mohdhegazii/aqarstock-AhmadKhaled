@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>عقار ستوك</title>
+    <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
+    <style>
+        body {
+            direction: rtl;
+            background: #cacaca;
+            margin: 0;
+            padding: 20px;
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 300;
+        }
+
+        #table {
+            display: table;
+            width: 100%;
+            background: #fff;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .caption {
+            direction: rtl;
+            display: block;
+            width: 100%;
+            background: #64e0ef;
+            height: 100px;
+            padding-right: 10px;
+            color: #fff;
+            font-size: 20px;
+            line-height: 55px;
+            text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+            box-sizing: border-box;
+        }
+
+
+        .footer {
+            direction: rtl;
+            display: block;
+            width: 100%;
+            background: #fff;
+            height: 55px;
+            padding: 10px;
+            color: black;
+            font-size: 20px;
+            line-height: 55px;
+            text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+            box-sizing: border-box;
+        }
+
+        .header-row {
+            background: #8b8b8b;
+            color: #fff;
+        }
+
+        .row {
+            display: table-row;
+        }
+
+        .cell {
+            display: table-cell;
+            padding: 6px;
+            border-bottom: 1px solid #e5e5e5;
+            /*text-align: center;*/
+        }
+
+        .primary {
+            text-align: left;
+        }
+
+
+
+        @@media only screen and (max-width: 760px) {
+
+            body {
+                padding: 0;
+            }
+
+            #table {
+                display: block;
+                margin: 44px 0 0 0;
+            }
+
+            .caption {
+                position: fixed;
+                top: 0;
+                text-align: center;
+                font-size: 15px;
+                /*height: 44px;
+                line-height: 44px;*/
+                z-index: 5;
+                border-bottom: 2px solid #999;
+            }
+
+            .footer {
+                /*position: fixed;*/
+                top: 0;
+                text-align: center;
+                /*height: 44px;
+                line-height: 44px;*/
+                z-index: 5;
+                /*border-bottom: 2px solid #999;*/
+            }
+
+            .row {
+                position: relative;
+                display: block;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .header-row {
+                display: none;
+            }
+
+            .cell {
+                /*display: block;*/
+                border: none;
+                /*position: relative;*/
+                height: 45px;
+                line-height: 45px;
+                text-align: left;
+            }
+
+            .primary:after {
+                content: "";
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 18px;
+                z-index: 2;
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                border-right: 10px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="caption">
+        <span style="padding-right:10px;"> <strong> عزيزى العميل</strong> </span>
+        <br />
+        <span>
+            تم ارسال طلب شراء لاحد عقاراتك المسجلة على النظام
+        </span>
+    </div>
+    <table id="table">
+        <tr>
+            <td class="cell primary"><h4>عنوان الإعلان</h4></td>
+            <td class="cell"><a href="#">شقة للبيع باكتوبر بالتقسيط 140م بكمبوند لايف سيتى بالشماليات</a></td>
+        </tr>
+        <tr>
+            <td class="cell primary"><h4>الاسم</h4></td>
+            <td class="cell">test</td>
+        </tr>
+        <tr>
+            <td class="cell primary"><h4>رقم الهاتف</h4></td>
+            <td class="cell">1234 </td>
+        </tr>
+        <tr>
+            <td class="cell primary"><h4>البريد الالكترونى</h4></td>
+            <td class="cell"> test@test.com</td>
+        </tr>
+        <tr>
+            <td class="cell primary"><h4>التاريخ</h4></td>
+            <td class="cell">12-2-2015</td>
+        </tr>
+        <tr>
+            <td class="cell primary"><h4>الرسالة</h4></td>
+            <td class="cell">لوسمحت مساحة ١٣٥م بكام مقدم</td>
+        </tr>
+
+    </table>
+    <div class="footer">
+        <a href="#">خدمة عملاء عقار ستوك </a>
+        <br />
+    </div>
+</body>
+</html>

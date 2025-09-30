@@ -1,0 +1,108 @@
+﻿@model BrokerMVC.Models.Advertisement
+
+@{
+    ViewBag.Title = General.SiteName + " - " + General.Advertisements + " - " + General.Edit;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2>
+                    <a href='@Url.Action("Index")'>
+                        <i class="fa fa-tv"></i>
+                        @General.Advertisements
+                    </a>
+                    /@General.Edit
+                </h2>
+            </div>
+            <div class="btn-group pull-left">
+                <a href='@Url.Action("Index")' class="btn btn-group-lg btn-success">
+                    <i class="fa fa-angle-left"></i>
+                    @General.BackToList
+
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="panel-body">
+
+        @using (Html.BeginForm("Edit", "Advertisements", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ID)
+                @Html.HiddenFor(model => model.Code)
+                @Html.HiddenFor(model => model.ContentSide)
+                @Html.HiddenFor(model => model.HomePageMainLarge)
+                @Html.HiddenFor(model => model.HomePageMainSmall)
+                @Html.HiddenFor(model => model.HomePageSide)
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.URL, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.URL, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.URL, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                    @Html.LabelFor(model => model.ContentSideFile, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.ContentSideFile, new { type = "file", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ContentSideFile, "", new { @class = "text-danger" })
+                        <img src='~/@Model.ContentSide.Replace("~/","")' alt="" class="img-responsive img-thumbnail" />
+                    </div>
+                </div>*@
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.HomePageSideFile,General.Mobile, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.HomePageSideFile, new { type = "file", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.HomePageSideFile, "", new { @class = "text-danger" })
+                        <img src='~/@Model.HomePageSide.Replace("~/","")' alt="" class="img-responsive img-thumbnail" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.HomePageMainLargeFile,General.Desktop, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.HomePageMainLargeFile, new { type = "file", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.HomePageMainLargeFile, "", new { @class = "text-danger" })
+                        <img src='~/@Model.HomePageMainLarge.Replace("~/","")' alt="" class="img-responsive img-thumbnail" />
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                    @Html.LabelFor(model => model.HomePageMainSmallFile, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.HomePageMainSmallFile, new { type = "file", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.HomePageMainSmallFile, "", new { @class = "text-danger" })
+                        <img src='~/@Model.HomePageMainSmall.Replace("~/","")' alt="" class="img-responsive img-thumbnail" />
+                    </div>
+                </div>*@
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="@General.Save" class="btn btn-success btn-group-lg" />
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

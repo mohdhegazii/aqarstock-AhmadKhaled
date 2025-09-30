@@ -1,0 +1,127 @@
+﻿    <div class="tellMeService" ng-class="{true: 'error'}[submitted && NotifyForm.$invalid]">
+    <div class="tellMeServiceHeader">
+        <div class="container">
+            <p>
+                خدمة بلغني : أرسل لنا العقار الذي تبحث عنه ، وسوف نرسل لك عندما يتم إضافته</p>
+        </div>
+    </div>
+    <div class="tellMeServiceBody">
+    <div class="container">
+            <div class="firstRow">
+                <ul>
+                      <li class="in"><span>نوع الوحدة</span></br>
+                    <select ng-model="Notify.RealEstateTypeID">
+                        <option value="">كل الأنواع</option>
+                        <option ng-repeat="RealEstateType in RealEstateTypes" value="{{RealEstateType.ID}}">
+                            {{RealEstateType.Name}}</option>
+                    </select>
+                </li>
+                      <li class="in"><span>البلد</span></br>
+                    <select id="ddlNotifyCountry" ng-model="Notify.CountryID" notify-selectcountry>
+                        <option value="">كل البلاد</option>
+                        <option ng-repeat="Country in Countries" value="{{Country.ID}}">{{Country.Name}}</option>
+                    </select>
+                </li>
+                    <li class="in"><span>المحافظة</span></br>
+                    <select id="ddlNotifyCity" ng-model="Notify.CityID" notify-selectcity>
+                        <option value="">كل المحافظات</option>
+                        <option ng-repeat="City in NotifyCities" value="{{City.ID}}">{{City.Name}}</option>
+                    </select>
+                </li>
+                        <li class="in"><span>الحي</span></br>
+                    <select id="ddlNotifyDistrict" ng-model="Notify.DistrictID" select-District>
+                        <option value="">كل الأحياء</option>
+                        <option ng-repeat="District in NotifyDistricts" value="{{District.ID}}">{{District.Name}}</option>
+                    </select>
+                </li>
+                    <li class="in"><span>النظام</span></br>
+                        <select ng-model="Notify.SaleTypeID">
+                            <option value="">أختر النظام</option>
+                            <option value="1">للبيع</option>
+                            <option value="2">للإيجار</option>
+                        </select>
+                    </li>
+                     <li class="in"><span>السعر</span></br>
+                    <select id="ddlNotifyPrice" ng-model="Notify.Price">
+                        <option value="">أختر السعر</option>
+                        <option ng-repeat="Price in Prices" value="{{Price.value}}">{{Price.text}}</option>
+                    </select>
+                </li>
+                    <li class="in"><span>المساحة</span></br>
+                    <select id="ddlNotifyArea" ng-model="Notify.Area">
+                        <option value="">أختر المساحة</option>
+                        <option ng-repeat="Area in Areas" value="{{Area.value}}">{{Area.text}}</option>
+                     </select>
+                    </li>
+                </ul>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="secRow">
+                <ul>
+                    <span>من فضلك أضف بياناتك</span></br>
+                    <li>
+                        <input type="text" name="name" ng-model="Notify.Name" placeholder="الاسم" required />
+                        <span  ng-show="submitted && NotifyForm.name.$error.required" class="Error">الاسم مطلوب</span>
+                        </li>
+                    <li>
+                        <input id="txtPhone" type="text" name="phone" ng-model="Notify.Phone" placeholder="التليفون" required
+                         data-container="body" data-toggle="popover" data-placement="bottom" data-content="  الرجاء ادخال كود البلد المقيم بها"/>
+                        <span  ng-show="submitted && NotifyForm.phone.$error.required" class="Error">التليفون مطلوب</span>
+                        </li>
+                    <li class="e-mail">
+                        <input type="email" name="email" ng-model="Notify.Email" placeholder="الأيميل" required/>
+                        <span  ng-show="submitted && NotifyForm.email.$error.required" class="Error">الأيميل مطلوب</span>
+                        <span  ng-show="submitted && NotifyForm.email.$error.email" class="Error">الأيميل غير صحيح</span>
+                        </li>
+                    <li class="sendBtn">
+                  <!-- <a href="javascript:void(0);" ng-click="submitted=true">أرسل</a>-->
+                    <button id="btnNotify" type="submit" ng-click="submitted=true">إرسال</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="listOfAqarat">
+    <div class="container">
+        <div class="listItem" ng-repeat="keyword in Keywords">
+            <ul>
+                <li class="title"><a href="{{keyword.URL}}">{{keyword.Keyword}}</a></li>
+                <li ng-repeat="ChildKeyword in keyword.ChildKeywords"><a href="{{ChildKeyword.URL}}">{{ChildKeyword.Keyword}}</a></li>
+  
+    </div>
+</div>
+<div class="container">
+    <div class="ADS">
+    <a href="{{FooterAd.URL}}" alt="{{FooterAd.Name}}">
+        <img src="{{FooterAd.HomePageMainAd}}" />
+        </a>
+    </div>
+    <div class="aboutMastery">
+        <div class="copyrights">
+            <a href="http://www.masteryit.com/en/" target="_blank"> جميع الحقوق محفوظة لعقار ستوك &copy; 2015 .. تصميم وتطوير <b>MasteryIT</b></a>
+        </div>
+        <div class="social opp_float">
+            <ul>
+                <li id="linked"><a href="https://www.linkedin.com/company/aqar-stock" target="_blank">
+                        <img src="{{BaseURl}}/images/Frontend/smlink.png" /></a></li>
+                    <li id="google"><a href="https://plus.google.com/u/0/+Aqarstockcom" target="_blank">
+                        <img src="{{BaseURl}}/images/Frontend/smGoogle.png" /></a></li>
+                    <li id="twitter"><a href="https://twitter.com/aqar_stock" target="_blank">
+                        <img src="{{BaseURl}}/images/Frontend/smTwitter.png" /></a></li>
+                    <li id="FB"><a href="https://www.facebook.com/aqarstock" target="_blank">
+                        <img src="{{BaseURl}}/images/Frontend/smFB.png" />
+                        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    $("#txtPhone").focusin(function () {
+        $("#txtPhone").popover('show');
+    });
+    $("#txtPhone").focusout(function () {
+        $("#txtPhone").popover('hide');
+    });
+</script>

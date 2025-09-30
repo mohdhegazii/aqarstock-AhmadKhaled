@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Views/Home/_Layout.cshtml";
+}
+
+<div class="inner-banner">
+    <!-- banner start  -->
+    <span class="full-size-img" style="background:url(@Url.Content("~/Content/_ui/img/media/slide-1.jpg")) no-repeat center center / cover"></span>
+    <!-- // banner end -->
+    <div class="block-title">
+        <div class="container">
+            <h1>@Messages.ErrorTitleMsg <i class="fa fa-exclamation" aria-hidden="true"></i></h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <!-- ads block start -->
+            <div class="block">
+                <div id="divFirstAd">
+
+                </div>
+            </div>
+            <!-- // ads block end -->
+            <!-- listing block start -->
+            <div class="block listing-wrapper static-pages">
+                <div class="block project-details-wrapper">
+                    <div class="block project-info-wrapper exclamation-wrapper">
+                        <div class="col-sm-12">
+                            <h1>@Messages.ErrorMsg <span></span>  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i></h1>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- ads block start -->
+                <div class="block">
+                    <div id="divSecondAd">
+
+                    </div>
+                </div>
+                <!-- // ads block end -->
+
+
+            </div>
+            <!-- // listing block end -->
+        </div>
+
+        <!-- latest unit block start -->
+        <div id="divLatestAdded" class="Latest-Prop">
+
+        </div>
+        <!-- // latest unit block end -->
+
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        LoadPageAds();
+        GetPageContent('@Pages.CompanyList');
+    </script>
+}

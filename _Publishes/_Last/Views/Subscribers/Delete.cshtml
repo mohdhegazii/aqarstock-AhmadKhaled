@@ -1,0 +1,51 @@
+﻿@model BrokerMVC.Models.Subscriber
+
+@{
+    ViewBag.Title = General.SiteName + " - " + General.Delete;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <div class="panel-title paneltitle">
+            <h1 class="col-md-11 pull-right">
+                <i class="fa fa-exclamation-triangle"></i>
+                @*<span class="fa-stack ">
+                        <i class="fa fa-square-o fa-stack-2x"></i>
+
+                    </span>*@
+                @Messages.ConfirmDelete
+            </h1>
+        </div>
+    </div>
+    <div class="panel panel-body text-danger">
+        <div class="col-md-12 pull-right">
+            <h4>
+                @Messages.DeleteSubscriberRelatedData
+            </h4>
+        </div>
+        <div class="col-md-12 pull-right">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-Delete">
+                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    @General.Realestates
+                </li>
+                @*<li class="list-group-item list-group-item-Delete">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                        @General.Criteria
+                    </li>*@
+                <li class="list-group-item list-group-item-Delete">
+                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    @General.PurchaseRequests
+                </li>
+            </ul>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class=" col-md-offset-2 col-md-10">
+                <input type="submit" value="@General.Delete" class=" btn btn-lg btn-danger" />
+            </div>
+        }
+    </div>
+</div>

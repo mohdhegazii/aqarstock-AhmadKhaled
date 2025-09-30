@@ -1,0 +1,438 @@
+﻿<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="brokerApp" ng-controller="MainController">
+<head>
+    <meta charset="utf-8" />
+    <title>Aqar Stock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/bootstrap-theme.min.css" />
+    <link href="styles/CssStyle.css" rel="stylesheet" type="text/css" />
+    <script src="scripts/jquery-1.11.0.min.js"></script>
+    <script src="scripts/angular.min.js" type="text/javascript"></script>
+    <script src="scripts/angular-route.min.js" type="text/javascript"></script>
+    <script src="scripts/angular-ui-router.min.js" type="text/javascript"></script>
+    <script src="scripts/angular-animate.min.js" type="text/javascript"></script>
+    <script src="scripts/angular-resource.min.js" type="text/javascript"></script>
+    <script src="scripts/FrontEndController.js" type="text/javascript"></script>
+    <script src="scripts/services.js" type="text/javascript"></script>
+    <script src="scripts/FrontEndDirective.js" type="text/javascript"></script>
+</head>
+<body class="rtl">
+    <div class="wrapper">
+        <header>
+	        <div id="divHeader" ng-include src="'parts/Header.htm'">
+            </div>
+        </header>
+        <!-- content Area start -->
+        <div class="content">
+            <div class="container">
+                <div class="comparePG">
+                    <div class="compareTitle">
+                        <h4>
+                            <a class="back" href="#">رجوع</a><span>قائمة قارن</span></h4>
+                    </div>
+                    <div class="compareBox">
+                        <div class="compareFactors col-lg-2">
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>صورة الوحدة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>العنوان</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>نوع الوحدة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>النوع</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>المساحة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>حديقة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>إجمالي السعر</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>سعر المتر</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>عدد الغرف</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>عدد الحمامات</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>رسبشن</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>تكييف مركزي</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>حالة التشطيب</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>الطابق</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>أسانسير</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>طريقة الدفع</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="titl">
+                                    <span>ملاحظات</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="compareProjects col-lg-2">
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <div class="photo">
+                                        <div class="delete">
+                                            <img src="images/Frontend/popUpClose.png" /></div>
+                                        <div class="projectImage">
+                                            <img src="images/Frontend/compareXS.png" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>فيلا تمليك ، بجنينة ، التجمع الخامس - بمنطقة القرنفل</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>الوحدة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>فيلا تمليك ، بجنينة ، التجمع الخامس - بمنطقة القرنفل</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="compareProjects col-lg-2">
+                            <div class="detailsRow a1">
+                                <div class="descrip">
+                                    <div class="photo">
+                                        <div class="delete">
+                                            <img src="images/Frontend/popUpClose.png" /></div>
+                                        <div class="projectImage">
+                                            <img src="images/Frontend/compareXS.png" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>فيلا تمليك ، بجنينة ، التجمع الخامس - بمنطقة القرنفل</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>الوحدة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>فيلا تمليك ، بجنينة ، التجمع الخامس - بمنطقة القرنفل</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="compareProjects col-lg-2">
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <div class="photo">
+                                        <div class="delete">
+                                            <img src="images/Frontend/popUpClose.png" /></div>
+                                        <div class="projectImage">
+                                            <img src="images/Frontend/compareXS.png" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>فيلا تمليك ، بجنينة ، التجمع الخامس - بمنطقة القرنفل</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>الوحدة الوحدة الوحدة الوحدة الوحدة الوحدة الوحدة الوحدة الوحدة الوحدة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>فيلا تمليك ، بجنينة ، التجمع الخامس - بمنطقة القرنفل</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                            <div class="detailsRow">
+                                <div class="descrip">
+                                    <span>صورة</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <!-- content Area end -->
+        <!-- footer Area start -->
+        <footer>
+			<div ng-include src="'parts/Footer.htm'">
+            </div>
+	    </footer>
+        <!-- footer Area end -->
+    </div>
+    <script>
+
+
+        // adapt detailsRow height
+
+
+        $('.compareBox').each(function () {
+            var compareBox = $(this);
+            var compareFactorsCount = $('.compareFactors > *', compareBox).length;
+            for (i = 0; i < compareFactorsCount; i++) {
+                var maxCellHeight = 0;
+                $('> *', compareBox).each(function () {
+                    maxCellHeight = Math.max(parseInt($('> *:eq(' + i + ')', $(this)).height(), 10), maxCellHeight);
+                    window.console.log(maxCellHeight);
+                });
+                $('> *', compareBox).each(function () {
+                    $('> *:eq(' + i + ')', $(this)).height(maxCellHeight);
+                });
+            }
+        });
+       
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+﻿@model PagedList.IPagedList<BrokerMVC.Models.Currency>
+@using PagedList.Mvc;
+@using ResourcesFiles;
+@{
+    //using re;
+    ViewBag.Title = General.SiteName + " - " + General.Currencies;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+    var DeleteID = 0;
+}
+@helper selected(string c, string culture)
+{
+if (c == culture)
+{
+        @:checked="checked"
+    }
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2><i class="fa fa-money fa-fw"></i>@General.Currencies</h2>
+            </div>
+            <div class="btn-group pull-left">
+                <a href='@Url.Action("Create")' class="btn btn-group-lg btn-success">
+                    <i class="fa fa-plus-square"></i>
+                    @General.CreateNew
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        @*<i class="fa fa-plus-square fa-fw"></i>
+            @Html.ActionLink(General.CreateNew, "Create")*@
+
+        <div class="row">
+            <table class="table table-responsive table-bordered table-striped table-hover">
+                <tr class="warning">
+                    <th class="text-center">
+                        @Html.ActionLink(General.Name, "Index", new { sortOrder = ViewBag.ArabicNameSortParm })
+                    </th>
+                    <th class="text-center">
+                        @Html.ActionLink(General.EnglishName, "Index", new { sortOrder = ViewBag.EnglishNameSortParm })
+                    </th>
+                    <th class="text-center">
+                        @Html.ActionLink(General.Sort, "Index", new { sortOrder = ViewBag.PrioritySortParm })
+                    </th>
+                    <th class="text-center">@General.Edit</th>
+                    <th class="text-center">@General.Delete</th>
+                </tr>
+
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.EnName)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Sort)
+                        </td>
+                        <td class="text-center">
+                            <a href='@Url.Action("Edit", new { id = item.ID })' class="btn btn-small">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href='@Url.Action("delete", new { id = item.ID })' class="btn btn-small Deleteconfirm">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div class="row text-center">
+            <div class="Paging">
+                @*صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) من @Model.PageCount*@
+
+                @Html.PagedListPager(Model, page => Url.Action("Index",
+new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), new PagedListRenderOptions { LiElementClasses = new List<string> { "Pageitem" } })
+            </div>
+        </div>
+    </div>
+    </div>

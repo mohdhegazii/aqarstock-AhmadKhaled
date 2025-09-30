@@ -1,0 +1,34 @@
+﻿@model BrokerMVC.Models.RealEstateComplain
+
+@using (Html.BeginForm("SendComplain", "home", FormMethod.Post, htmlAttributes: new { @id = "ComplainForm" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">@General.SendComplain</h4>
+    </div>
+            <div class="modal-body">
+                <div  class="send-complain-form">
+                    @Html.HiddenFor(model => model.RealEstateID)
+                    @Html.EditorFor(model => model.ComplainerName, new { htmlAttributes = new { @class = "form-control", placeholder = General.FullName } })
+                    @Html.ValidationMessageFor(model => model.ComplainerName, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.ComplainerPhone, new { htmlAttributes = new { @class = "form-control", placeholder = General.Phone } })
+                    @Html.ValidationMessageFor(model => model.ComplainerPhone, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.ComplainerEmail, new { htmlAttributes = new { @class = "form-control", placeholder = General.Email } })
+                    @Html.ValidationMessageFor(model => model.ComplainerEmail, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.ComplainTitle, new { htmlAttributes = new { @class = "form-control", placeholder = General.ComplainTitle } })
+                    @Html.ValidationMessageFor(model => model.ComplainTitle, "", new { @class = "text-danger" })
+                    @Html.TextAreaFor(model => model.ComplainDetails, new { @class = "form-control", @type = "text", placeholder = General.Message })
+                    @Html.ValidationMessageFor(model => model.ComplainDetails, "", new { @class = "text-danger" })
+
+  
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-04" data-dismiss="modal">@General.Close</button>
+                <button type="submit" id="btnSendComplain" class="btn btn-03"><i class="fa fa-paper-plane-o"></i> @General.Send</button>
+            </div>
+       
+}
+
+

@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SubscriberMaster.master.cs"
+    Inherits="BrokerWeb.Backend.SubScriber.SubscriberMaster" %>
+    
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<%@ Register src="UserControls/ucHeader.ascx" tagname="ucHeader" tagprefix="uc1" %>
+<%@ Register src="UserControls/ucNewMessage.ascx" tagname="ucNewMessage" tagprefix="uc2" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ar-eg">
+<head id="Head1" runat="server">
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../../scripts/bootstrap.min.js" type="text/javascript"></script>
+    <link href="../../styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../styles/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../styles/Main.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" dir="rtl">   
+      <div class="container">
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+    </telerik:RadScriptManager>
+    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+    </telerik:RadAjaxManager>
+    <telerik:RadAjaxLoadingPanel ID="radLoadingPannel" runat="server" HorizontalAlign="Left"
+        Skin="Default">
+        <%--       <asp:Image id="Image1" runat="server" ImageUrl="~/Images/loading.gif" />--%>
+    </telerik:RadAjaxLoadingPanel>
+<uc1:ucHeader ID="ucHeader1" runat="server" />
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+         <div class="modal fade pull-right" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true" dir="rtl">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close pull-left" data-dismiss="modal" aria-hidden="true">
+                        &times;</button>
+                    <h4 class="modal-title" id="myModalLabel">
+                              رسالة جديدة
+                    </h4>
+                </div>
+                <div class="modal-body login">
+              
+                    <uc2:ucNewMessage ID="ucNewMessage1" runat="server" />
+              
+                </div>
+                <%-- <div class="modal-footer">
+              
+                   <asp:Button ID="btnForgetPassword" class="btn btn-primary" runat="server" Text="ارسال"
+                        ValidationGroup="ForgetPassword" OnClick="btnForgetPassword_Click" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        اغلاق</button>
+                </div>--%>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        $('.Deleteconfirm').click(function () {
+            return confirm('هل أنت متأكد أنك تريد حذفه؟');
+        });
+    </script>
+      
+    </form>
+    </body>
+</html>

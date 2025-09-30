@@ -1,0 +1,178 @@
+﻿@model BrokerMVC.Models.ViewModel.AddRealEstateAditionalData
+@{
+    ViewBag.Title = General.SiteName + " - " + Model.RealestateName + " " + General.AdditionalData;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-8 col-xs-8 pull-right">
+                <h2>
+                    <i class="fa fa-building-o"></i>
+                    @Model.RealestateName - @General.AdditionalData
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-body">
+        <div class="alert alert-dismissable alert-message">
+            <h4>
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                @Messages.AddAditionalDataMsg
+            </h4>
+        </div>
+        @using (Html.BeginForm("AddAditionalData", "RealEstates", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => Model.ID)
+            @Html.HiddenFor(m => Model.RealestateName)
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @if(Model.TypeCriterias.Count>0)
+                { 
+                <div class="col-md-12">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="panel-title" role="button" data-toggle="collapse" href="#divCriteria" aria-expanded="false" aria-controls="divCriteria">
+                                <h4>
+                                    <i class="fa fa-angle-down"></i>
+                                    <i class="fa fa-filter"></i>
+                                    @General.Criteria
+                                </h4>
+                            </div>
+                        </div>
+                        <div id="divCriteria" class="panel panel-body collapse in">
+                            @for (int i = 0; i < Model.TypeCriterias.Count; i++)
+                            {
+                                @Html.HiddenFor(m => Model.TypeCriterias[i].ID)
+                                @Html.HiddenFor(m => Model.TypeCriterias[i].Title)
+                                @Html.HiddenFor(m => Model.TypeCriterias[i].ValueType)
+                                if (Model.TypeCriterias[i].ValueType + "_Type" == CriteriaValueType.bool_Type.ToString())
+                                {
+                                    <div class="col-md-3">
+
+                                        @Html.CheckBoxFor(m => Model.TypeCriterias[i].BoolValue)
+                                        <strong>  @Model.TypeCriterias[i].Title</strong>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 pull-right">
+                                            @Model.TypeCriterias[i].Title
+                                        </label>
+                                        <div class="col-md-3 pull-right">
+                                            @if (Model.TypeCriterias[i].ValueType + "_Type" == CriteriaValueType.int_Type.ToString())
+                                            {
+                                                @Html.EditorFor(m => Model.TypeCriterias[i].intValue, new { htmlAttributes = new { @class = "form-control" } })
+                                            }
+                                            else
+                                            {
+                                                @Html.EditorFor(m => Model.TypeCriterias[i].Value, new { htmlAttributes = new { @class = "form-control" } })
+                                            }
+                                        </div>
+                                    </div>
+
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                }
+                <div class="col-md-6">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="panel-title" role="button" data-toggle="collapse" href="#divOwner" aria-expanded="false" aria-controls="divOwner">
+                                <h4>
+                                    <i class="fa fa-angle-down"></i>
+                                    <i class="fa fa-user"></i>
+                                    @General.OwnerData
+                                </h4>
+                            </div>
+                        </div>
+                        <div id="divOwner" class="panel panel-body collapse in">
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <label class="btn btn-Activate btn-block" style="color:white">
+                                        <strong>
+                                            @Html.CheckBoxFor(m => Model.UseContactInfo, htmlAttributes: new { @id = "chkUseContact"})
+                                        @General.UseContactData
+                                    </strong>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Owner.Name, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.EditorFor(model => model.Owner.Name, new { htmlAttributes = new { @class = "form-control ownerdata", disabled = "disabled" } })
+                                    @Html.ValidationMessageFor(model => model.Owner.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Owner.Phone, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.EditorFor(model => model.Owner.Phone, new { htmlAttributes = new { @class = "form-control ownerdata", disabled = "disabled" } })
+                                    @Html.ValidationMessageFor(model => model.Owner.Phone, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Owner.Email, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.EditorFor(model => model.Owner.Email, new { htmlAttributes = new { @class = "form-control ownerdata", disabled = "disabled" } })
+                                    @Html.ValidationMessageFor(model => model.Owner.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="panel-title" role="button" data-toggle="collapse" href="#divPhotos" aria-expanded="false" aria-controls="divPhotos">
+                                <h4>
+                                    <i class="fa fa-angle-down"></i>
+                                    <i class="fa fa-image"></i>
+                                    @General.Images
+                                </h4>
+                            </div>
+                        </div>
+                        <div id="divPhotos" class="panel panel-body collapse in">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.PhotosUpload, General.Images, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.PhotosUpload, new { type = "file", @class = "form-control", @multiple = "true" })
+                                    <small class="help-block text-warning"><i class="fa fa-info-circle"></i> @Messages.PhotosToolTip</small>
+                                    @Html.ValidationMessageFor(model => model.PhotosUpload, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-9">
+                        <input type="submit" value="@General.Save" class="btn btn-success btn-lg btn-block" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        $("#chkUseContact").change(function () {
+          //  alert("test")
+            if (this.checked) {
+                $(".ownerdata").attr("disabled","disabled");
+            }
+            else
+            {
+                $(".ownerdata").removeAttr("disabled");
+            }
+        });
+    </script>
+}

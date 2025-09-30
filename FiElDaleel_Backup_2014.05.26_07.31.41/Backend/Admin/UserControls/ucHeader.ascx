@@ -1,0 +1,74 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucHeader.ascx.cs" Inherits="BrokerWeb.Backend.Admin.UserControls.ucHeader" %>
+<%--<div class="navbar navbar-default navbar-fixed-top " role="navigation">
+        <div class="navbar-header pull-right">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand pull-right" href="#">فى الدليــل</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active pull-right"><a href="#">Home</a></li>
+            <li class="dropdown pull-right">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">الانشطة التجارية <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">فئات الانشطة التجارية</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+    </div>--%>
+<div class="navbar navbar-default row" role="navigation">
+    <div class="navbar-header pull-right col-lg-2 col-sm-2 col-xs-12">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
+                class="icon-bar"></span><span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand pull-right" href="#"><asp:Label ID="lblTitle" runat="server" Text="Label"></asp:Label></a>
+    </div>
+    <div class="pull-right navbar-collapse collapse col-lg-10 col-sm-10 col-xs-12">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="  pull-right"><a href="/AdminDashboard">الرئيسية</a></li>
+              <li class="  pull-right"><a href="/MessagesList">الرسائل الجديدة<asp:Label ID="lblUnReadMsgNo"
+                  runat="server" CssClass="badge"></asp:Label></a></li>
+        
+            <li class="dropdown  pull-right"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                العقارات <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/RealEstateCategories">فئات العقارات</a></li>
+                    <li><a href="/RealEstateTypes">انواع العقارات</a></li>
+                    <li><a href="/RealEstateStatuses">حالات العقارات</a></li>
+                    <li><a href="/RealEstateTypeCriterias">خصائص العقارات</a></li>
+                </ul>
+            </li>
+        
+            <li class="dropdown  pull-right"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                الاكواد <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/Countries">البلاد</a></li>
+                    <li><a href="/Cities">المحافظات</a></li>
+                    <li><a href="/Districts">الاحياء</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/Currencies">العملات</a></li>
+                    <li><a href="/Keywords">كلمات البحث</a></li>
+                </ul>
+            </li>
+              <li class="pull-right"><asp:LinkButton ID="lbtnLogout" runat="server" onclick="lbtnLogout_Click">خروج</asp:LinkButton></li>
+        </ul>
+    </div>
+    <!--/.nav-collapse -->
+</div>
+<script>
+    $("a.navbar-toggle").on('click', function () {
+        var state = $(this).hasClass('active');
+        $(this).html(state ? 'Hide' : 'Show')
+           .toggleClass('active')
+           .next("div.abstract").toggle(state);
+    });
+</script>

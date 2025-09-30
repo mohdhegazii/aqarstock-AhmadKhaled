@@ -1,0 +1,215 @@
+@media only screen and (max-width:1100px){
+    nav.top a span{
+        display:none;
+    }
+}
+
+@media only screen and (max-width:870px){
+     .hideRes {
+        display:none;
+    }
+    nav.top{
+        right:150px;
+        z-index:999999;
+    }
+    aside{
+        width:150px;
+        height:91px;
+        background-color:#000000;
+    }
+    aside a.logo{
+        width:90px;
+        top:10px;
+        right:12px;
+        z-index:99999;
+        position:absolute;
+    }
+    aside a.logo img{
+        width:90px;
+    }
+    aside nav{
+        position:fixed;
+        left:0;
+        right:0;
+        top:-100%;
+        z-index:99;
+        border-top:solid 1px #666666;
+        opacity:0;
+        -webkit-transition: all 500ms ease-out;
+        transition: all 500ms ease-out;
+    }
+    aside nav.in{
+        top:90px;
+        opacity:1;
+    }
+    aside nav>a{
+        background-color:#000000;
+    }
+    .unitsInfo{
+        right:0px;
+        top:0;
+        padding-top:90px;
+    }
+    .core{
+        right:0;
+        top:50px;
+        border-right:0;
+    }
+    nav.top .navCore{
+    }
+    nav.top .navCore a{
+        padding-right:5px;
+        padding-top:55px;
+        border-right:none;
+        text-align:center;
+        background-position:center 5px;
+    }
+    nav.top .navCore a:hover{
+        background-position:center -40px;
+    }
+    nav.top .navCore a.miniMenu{
+        display:table-cell
+    }
+    nav.top .navCore a.miniMenu.active,nav.top .navCore a.miniMenu.active:hover{
+        background-color: #000000;
+        color: #ffffff;
+        background-position: center -40px;
+    }
+    .copyrights {
+        background-color: #000000;
+        float:left;
+    }
+    .topSocial {
+        position: absolute;
+        right: 125px;
+        top: 12px;
+        left:auto;
+    }
+    .topSocialUnit {
+        margin-bottom:5px;
+    }
+    nav.homeMenu {
+        right:20px;
+        left:20px;
+    }
+    aside nav > a:hover {
+        background-color:#666666;
+    }
+    .advancedSearch .priceSlider {
+        width:100%;
+        left:auto;
+    }
+    .advancedSearch .ui-selectmenu-button {
+        width:100%!important;
+    }
+    .background div {
+        background:#333333;
+        background-image:none!important;
+    }
+}
+@media only screen and (max-width:768px) {
+    .propertyHalf {
+        width:100%;
+        display:block;
+    }
+    .map {
+        display:none;
+    }
+    .propertyHalfLeft {
+        position:absolute;
+        left:10px;
+        top:0;
+        height:auto;
+    }
+    .propertyHalf:first-child {
+        padding-top:50px;
+    }
+    nav.top {
+        right:0;
+        float:left;
+        background-color:#000000;
+        height: 92px;
+        position:fixed;
+        right:150px;
+    }
+        nav.top .navCore {
+            background-color:#000000;
+        }
+    nav.top .navCore a {
+        display:none;
+        width:50%;
+        float:left;
+        padding:0;
+        padding-top:55px;
+    }
+        nav.top .navCore a.miniMenu{
+            display:block;
+        }
+    .homeSearchContent {
+        -webkit-transform:scale3d(0.8,0.8,1);
+        margin-left:-168px;
+    }
+    .unit {
+        min-width:85%;
+        max-width:100%;
+    }
+    .globalForm .globalFormRow div input, .globalForm .globalFormRow div textarea {
+        width:100%;
+    }
+    .globalForm .globalFormRow div {
+        display:block;
+        padding:0;
+        width:100%;
+    }
+        .globalForm .globalFormRow div:first-child {
+            width:100%;
+        }
+        .globalForm .globalFormRow div:first-child p {
+            text-align:center;
+            margin-top:10px;
+        }
+    .propertyDetails {
+        width:100%;
+    }
+    .propertyImage {
+        width:80%;
+    }
+    .homeSearchContent {
+        margin-top:-130px;
+    }
+}
+/*By Height*/
+@media only screen and (max-height:720px){
+    .homeSearch{
+        -webkit-transform: scale3d(0.9,0.9,0.9);
+        transform: scale3d(0.9,0.9,0.9);
+    }
+    nav.homeMenu{
+        bottom:2px;
+    }
+    nav.homeMenu a{
+        font-size:14px;
+        paddin:2px 5px;
+    }
+}
+@media only screen and (max-height:680px){
+    aside nav>a{
+        padding:5px 10px;
+    }
+}
+@media only screen and (max-height:660px){
+    .homeSearch{
+        -webkit-transform: scale3d(0.8,0.8,0.8);
+        transform: scale3d(0.8,0.8,0.8);
+        margin-top:100px;
+    }
+    .homeLogo{
+        -webkit-transform: scale3d(0.8,0.8,0.8);
+        transform: scale3d(0.8,0.8,0.8);
+    }
+}
+@media only screen and (max-height:600px){
+    aside nav>a{
+        font-size:12px;
+    }
+}

@@ -1,0 +1,87 @@
+﻿@model BrokerMVC.Models.RealEstateType
+@using ResourcesFiles;
+@{
+    ViewBag.Title = General.SiteName + " - " + General.RealestateTypes + " - " + General.CreateNew;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2>
+                    <a href='@Url.Action("Index")'>
+                        <i class="fa fa-object-group"></i>
+                        @General.RealestateTypes
+                    </a>
+                    /@General.CreateNew
+                </h2>
+            </div>
+            <div class="btn-group pull-left">
+                <a href='@Url.Action("Index")' class="btn btn-group-lg btn-success">
+                    <i class="fa fa-angle-left"></i>
+                    @General.BackToList
+
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="panel-body">
+
+        @using (Html.BeginForm("Create", "RealEstateTypes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RealEstateCategoryId, General.RealestateCategory, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("RealEstateCategoryId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.RealEstateCategoryId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, General.Name, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EnTitle, General.EnglishName, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EnTitle, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EnTitle, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Sort, General.EnglishName, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Sort, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Sort, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Icon, General.Icon, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.IconFile, new { type = "file", @class = "form-control" })
+                        <small class="help-block text-warning"><i class="fa fa-info-circle"></i> @Messages.IconToolTip</small><br />
+                        @Html.ValidationMessageFor(model => model.IconFile, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="@General.Add" class="btn btn-success btn-group-lg" />
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

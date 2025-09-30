@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+@{
+    var ISCAdmin = Security.IsUserInRole(BrokerMVC.Roles.CompanyAdmin);
+}
+<html lang="@CultureHelper.GetCurrentNeutralCulture()" dir="@(CultureHelper.IsRighToLeft() ? "rtl" : "ltr")">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="content/_ui/img/commen/favicon.ico">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Backend/css")
+    @Styles.Render("~/Content/PagedList.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("Styles", required: false)
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="description" content="The description of my page" />
+</head>
+@using ResourcesFiles;
+<body class="container body-content">
+    <header>
+        <div class="row">
+
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header pull-right col-xs-12 col-md-2">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span>@General.Menu</span>
+                        </button>
+                        <a class="navbar-brand pull-right" href="~/@Menu.Homepage" target="_blank">
+                            <img class="img-responsive img-thumbnail logo" src="~/Content/Backend/images/logo.jpg" />
+                        </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse col-xs-12 col-md-10 pull-right" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            @if (Security.IsUserInRole(BrokerMVC.Roles.Admin))
+                            {
+                                <li><a href="/AdminDashBoard"><i class="fa fa-list fa-fw"></i>@General.LatestAdded</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-search fa-fw"></i>@General.Search <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="/RealEstates">
+                                                <span><i class="fa fa-building fa-fw"></i>@General.Realestates</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/RealEstateProjects">
+                                                <span><i class="fa fa-industry fa-fw"></i>@General.ProjectList</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/RealEstateCompanies">
+                                                <span>  <i class="fa fa-university fa-fw"></i>@General.Companies</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/Subscribers">
+                                                <span><i class="fa fa-user fa-fw"></i>@General.Users</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/AdminDashBoard/GetRequstedRealEstates">
+                                                <span>
+                                                    <i class="fa fa-question-circle fa-fw"></i>
+                                                    @General.RequestedRealestates
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/RealEstatePurchaseRequests/GetRequests">
+                                                <span><i class="fa fa-shopping-cart fa-fw"></i>@General.PurchaseRequests</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                        <li>
+                                            <a href="/CompanyMessages/GetMessages">
+                                                <span>
+                                                    <i class="fa fa-question-circle fa-fw"></i>
+                                                    @General.CustomerInquiries
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/RealEstates/GetSuspendedRealestates">
+                                                <span>
+                                                    <i class="fa fa-pause-circle fa-fw"></i>
+                                                    @General.SuspendedRealestates
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-cogs fa-fw"></i>@General.Codes <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="/RealEstateTypes">
+                                                <span><i class="fa fa-object-group fa-fw"></i>@General.RealestateTypes</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/RealEstateStatus">
+                                                <span><i class="fa fa-star-half-o fa-fw"></i>@General.RealestateStatusList</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/RealEstateTypeCriterias">
+                                                <span><i class="fa fa-filter fa-fw"></i>@General.RealestateCriteria</span>
+                                            </a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li>
+                                            <a href="/Countries">
+                                                <span><i class="fa fa-globe fa-fw"></i>@General.Countries</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/Cities">
+                                                <span><i class="fa fa-train fa-fw"></i>@General.Cities</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/Districts">
+                                                <span><i class="fa fa-subway fa-fw"></i>@General.Districts</span>
+                                            </a>
+                                        </li>
+                                        @*<li><a href="#">@General.</a></li>*@
+                                        <li role="separator" class="divider"></li>
+                                        <li>
+                                            <a href="/Currencies">
+                                                <span><i class="fa fa-money fa-fw"></i>@General.Currencies</span>
+                                            </a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li>
+                                            <a href="/SearchKeywords">
+                                                <span><i class="fa fa-search fa-fw"></i>@General.SearchKeyword</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/CatalogCategories">
+                                                <span><i class="fa fa-cubes fa-fw"></i> @General.CatalogCategories</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/AdminDashBoard/GetMessages">
+                                        <i class="fa fa-envelope-o fa-fw"></i>
+                                        @General.Messages
+                                        <span class="label label-danger" id="spanMessageNo">
+
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/RealEstateComplains">
+                                        <i class="fa fa-file-text-o fa-fw"></i>
+                                        @General.Complains
+                                        <span class="label label-danger" id="spanComplainNo">
+
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-wrench fa-fw"></i>@General.Settings <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="/Advertisements">
+                                                <span><i class="fa fa-tv fa-fw"></i>@General.Advertisements</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/RealEstates/DeleteSuspendedRealestates">
+                                                <span>
+                                                    <i class="fa fa-pause-circle fa-fw"></i>
+                                                    @General.Delete @General.SuspendedRealestates
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/Catalogs">
+                                                <span><i class="fa fa-cube fa-fw"></i>@General.Catalog</span>
+                                            </a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+
+                                        <li>
+                                            <a href="/StaticPages">
+                                                <span><i class="fa fa-wpforms fa-fw"></i>@General.StaticPages</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/RealEstateCatalogs">
+                                                <span><i class="fa fa-cube fa-fw"></i>@General.OldCatalogs</span>
+                                            </a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li>
+                                            <a href="/AdminDashBoard/GenerateXMl">
+                                                <span><i class="fa fa-cube fa-fw"></i>Generate Face Feed</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+                            else
+                            {
+                                <li><a href="/userDashboard"><i class="fa fa-dashboard fa-fw"></i>@General.MyAccount</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-building fa-fw"></i>@General.Realestates <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="/RealEstates/Add">
+                                                <span><i class="fa fa-plus-square fa-fw"></i>@General.CreateNew</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/RealEstates/GetRealestates">
+                                                <span><i class="fa fa-eye fa-fw"></i>@General.MyRealestates</span>
+                                            </a>
+                                        </li>
+                                        @if (ISCAdmin)
+                                        {
+                                            <li>
+                                                <a href="/RealEstates/GetRealestates?type=company">
+                                                    <span><i class="fa fa-eye fa-fw"></i>@General.CompanyRealestates</span>
+                                                </a>
+                                            </li>
+                                        }
+                                        <li>
+                                            <a href="/userDashboard/GetFavouriteRealEstate">
+                                                <span><i class="fa fa-bookmark-o fa-fw"></i>@General.FavouriteRealestates</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                if (ISCAdmin || Security.IsUserInRole(BrokerMVC.Roles.CompanyEmployee))
+                                {
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-industry fa-fw"></i>@General.ProjectList <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="/RealEstateProjects/Create">
+                                                    <span><i class="fa fa-plus-square fa-fw"></i>@General.CreateNew</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/RealEstateProjects/GetProjects">
+                                                    <span><i class="fa fa-eye fa-fw"></i>@General.MyProjects</span>
+                                                </a>
+                                            </li>
+                                            @if (ISCAdmin)
+                                            {
+                                                <li>
+                                                    <a href="/RealEstateProjects/GetProjects?type=company">
+                                                        <span><i class="fa fa-eye fa-fw"></i>@General.CompanyProjects</span>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-envelope-o fa-fw"></i>@General.Messages <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="/RealEstatePurchaseRequests">
+                                                <span><i class="fa fa-shopping-cart fa-fw"></i>@General.PurchaseRequests</span>
+                                            </a>
+                                        </li>
+                                        @if (ISCAdmin == true)
+                                        {
+                                            <li>
+                                                <a href="/CompanyMessages">
+                                                    <span>
+                                                        <i class="fa fa-question-circle fa-fw"></i>
+                                                        @General.CustomerInquiries
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        }
+                                        <li>
+                                            <a href="/SubscriberNotifications">
+                                                <span><i class="fa fa-bell fa-fw"></i>@General.Notifications</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/userDashboard/GetMessages">
+                                                <span>
+                                                    <i class="fa fa-comments fa-fw"></i>@General.ManagementMessages
+                                                </span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                if (ISCAdmin == true)
+                                {
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-university fa-fw"></i>@General.CompanyAccount <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="/RealEstateCompanies/Account">
+                                                    <span><i class="fa fa-edit fa-fw"></i>@General.Edit @General.CompanyData</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/CompanyMessages">
+                                                    <span>
+                                                        <i class="fa fa-question-circle fa-fw"></i>
+                                                        @General.CustomerInquiries
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/RealEstatePurchaseRequests/GetReport">
+                                                    <span><i class="fa fa-shopping-cart fa-fw"></i>@General.CompanyPurchaseRequests</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/RealEstates/GetRealestates?type=company">
+                                                    <span><i class="fa fa-building fa-fw"></i>@General.CompanyRealestates</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/RealEstateProjects/GetProjects?type=company">
+                                                    <span><i class="fa fa-industry fa-fw"></i>@General.CompanyProjects</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/RealEstateCompanies/CompanyEmployees">
+                                                    <span><i class="fa fa-users fa-fw"></i>@General.Employees</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/userDashboard/MoveRealEstates">
+                                                    <span><i class="fa fa-exchange fa-fw"></i>@General.MoveRealestate</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                }
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-server fa-fw"></i>@General.AqarstockServices <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="~/@Menu.TechnicalSupport.GetValue()" target="_blank">
+                                                <span>
+                                                    <i class="fa fa-support fa-fw"></i>
+                                                    @General.TechnicalSupport </span>
+</a>
+                                        </li>
+                                        <li>
+                                            <a href="~/@Menu.SupscriptionTypes.GetValue()" target="_blank">
+                                                <span>
+                                                    <i class="fa fa- fa-user-plus fa-fw"></i>
+                                                    @General.SupscriptionTypes </span>
+</a>
+                                        </li>
+                                        <li>
+                                            <a href="~/@Menu.MarketingServices.GetValue()" target="_blank">
+                                                <span>
+                                                    <i class="fa fa-suitcase fa-fw"></i>
+                                                    @General.MarketingServices </span>
+</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript(void)" onclick="SendMessage()" data-target="#divModal" data-toggle="modal">
+                                        <i class="fa fa-comment fa-fw"></i>
+                                        @General.SendMessage
+                                    </a>
+                                </li>
+                            }
+
+                            <li><a href='@Url.Action("LogOff","Account")'><i class="fa fa-sign-out fa-fw"></i>@General.Signout</a></li>
+                        </ul>
+
+
+
+
+
+
+
+                    </div>
+
+
+
+                </div>
+            </nav>
+
+        </div>
+    </header>
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            @Html.Partial("_Notifications")
+            @RenderBody()
+        </div>
+    </div>
+    <div class="modal fade" id="divModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div id="divModalContent" class="modal-body">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/Backend")
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $('.Deleteconfirm').click(function () {
+            return confirm('@Messages.ConfirmDelete');
+        });
+
+        SetConfirmDeleteMsg('@Messages.ConfirmDelete')
+        GetUserMsgsNo();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstate>
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <div class="panel-title" role="button" data-toggle="collapse" href="#divRealestateData" aria-expanded="false" aria-controls="dicBasicData">
+            <h4 class="col-md-11 pull-right">
+                <i class="fa fa-angle-down"></i>
+                <i class="fa fa-building" aria-hidden="true"></i>
+                @General.Realestates
+            </h4>
+        </div>
+        <a href='@Url.Action("AddRealEstates",new{id=ViewBag.ProjectID })' data-toggle="tooltip" data-placement="bottom" title="@General.BackToList" data-original-title="@General.BackToList" class=" btn btn-sm btn-warning">
+            <i class="fa fa-plus"></i>
+        </a>
+    </div>
+    <div id="divRealestateData" class="panel panel-body collapse in">
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-responsive table-bordered table-striped table-hover">
+                <tr class="success">
+                    <th class="text-center">
+                        @General.Name
+                    </th>
+
+                    <th class="text-center">@General.Edit</th>
+                    <th class="text-center">@General.Delete</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <div data-toggle="collapse" data-target="#divrealestate-@item.ID" aria-expanded="false" aria-controls="divContact-@item.ID">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </div>
+                        </td>
+
+                        <td class="text-center">
+                            <a href='@Url.Action("Edit","RealEstates", new { id = item.ID })' class="btn btn-small">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href='@Url.Action("RemoveRealEstates", new { id = item.ID })' class="btn btn-small Deleteconfirm">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="divrealestate-@item.ID" class="collapse tr-colspan">
+
+
+                        <td colspan="3" class="td-colspan text-warning">
+                            <div class="col-md-4 pull-right">
+                                <div class="row">
+                                    <h4>
+                                        <i class="fa fa-object-group" aria-hidden="true"></i>
+                                        <strong> @General.RealestateType: </strong>
+                                        @Html.DisplayFor(modelItem => item.RealEstateType.Title)
+                                    </h4>
+                                </div>
+                                <div class="row">
+                                    <h4>
+                                        <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                                        <strong> @General.Area: </strong>
+                                        @Html.DisplayFor(modelItem => item.Area) @General.Meter
+                                    </h4>
+                                </div>
+                                <div class="row">
+                                    <h4>
+                                        <i class="fa fa-money" aria-hidden="true"></i>
+                                        <strong> @General.Price: </strong>
+                                        @Html.DisplayFor(modelItem => item.Price)
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="~/@item.DefaultImage.PhotoName.Replace("~/","")" class="img-responsive img-thumbnail icon-200" />
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        }
+        else
+        {
+            @Html.Partial("_EmptyMessage")
+        }
+    </div>
+</div>

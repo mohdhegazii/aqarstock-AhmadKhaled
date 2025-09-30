@@ -1,0 +1,8 @@
+﻿SELECT *
+  FROM [PropertyFinderRealEstatesSchema]
+  where description_ar <>''
+  and district<>''
+  and photo_url_1<>''
+  and agent_number<>''
+  and CHARINDEX('@',agent_email)<>0
+  --and type ='Apartment' --not in ('Villa','Apartment')

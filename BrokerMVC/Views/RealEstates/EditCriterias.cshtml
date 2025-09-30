@@ -1,0 +1,79 @@
+﻿@model BrokerMVC.Models.ViewModel.Criteria
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2 class="btn btn-lg">
+                    <i class="fa fa-flag-checkered"></i>
+                    @General.Criteria
+                    /@General.Edit
+                </h2>
+            </div>
+            <div class="btn-group pull-left">
+                <button type="button" class="btn btn-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="panel panel-body">
+        <div class="panel-body">
+            @if (Model.Criterias.Count() > 0)
+            {
+
+                using (Html.BeginForm())
+                {
+                    
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.ID)
+                    <div class="row">
+                        <table class=" table table-bordered table-striped table-hover">
+                            <tr class="success">
+                                <th class="text-center">
+                                    @General.Name
+                                </th>
+                                <th class="text-center">@General.Value</th>
+                            </tr>
+                            @for (int i = 0; i < Model.Criterias.Count; i++)
+                            {
+                                <tr>
+                                    <td class="text-center">
+
+                                        @Model.Criterias[i].RealEstateTypeCriteria.Title
+                                        @Html.HiddenFor(m => Model.Criterias[i].ID)
+                                        @Html.HiddenFor(m => Model.Criterias[i].RealEstateID)
+                                        @Html.HiddenFor(m => Model.Criterias[i].RealEstateTypeCriteria.ValueType)
+                                    </td>
+                                    <td class="text-center">
+                                   
+                                            @if (Model.Criterias[i].RealEstateTypeCriteria.ValueType + "_Type" == CriteriaValueType.int_Type.ToString())
+                                            {
+                                                @Html.EditorFor(m => Model.Criterias[i].Value,new { htmlAttributes = new { @type = "number" } })
+                                            }
+                                            else
+                                            {
+                                                @Html.EditorFor(m => Model.Criterias[i].Value)
+                                            }
+                                    </td>
+
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-9">
+                            <input type="submit" value="@General.Save" class="btn btn-success btn-lg btn-block" />
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                @Html.Partial("_EmptyMessage")
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿@model BrokerMVC.Models.ViewModel.RemoveSuspended
+@{
+    ViewBag.Title = "DeleteSuspendedRealestates";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2>
+                    <strong>
+                        <i class="fa fa-pause-circle"></i>
+                        @General.Delete @General.SuspendedRealestates
+                    </strong>
+                </h2>
+            </div>
+            <div class="btn-group pull-left">
+                @*<button type="button" class="btn btn-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>*@
+            </div>
+        </div>
+
+
+    </div>
+    <div class="panel-body">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.Label(General.SuspendReason, htmlAttributes: new { @class = "control-label col-md-1 pull-right" })
+                    <div class="col-md-6 pull-right">
+                        @Html.DropDownList("SuspendReasonID", null, General.Select, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span class="control-label col-md-1 pull-right">@General.From</span>
+                    <div class="col-md-6 pull-right">
+                        @Html.TextBoxFor(model => model.From, htmlAttributes: new { @class = "form-control", @type = "date" })
+
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <span class="control-label col-md-1 pull-right">@General.To</span>
+                    <div class="col-md-6 pull-right">
+                        @Html.TextBoxFor(model => model.To, htmlAttributes: new { @class = "form-control", @type = "date" })
+
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-group-lg btn-danger" value="@General.Delete" />
+                   
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+

@@ -1,0 +1,37 @@
+﻿@model BrokerMVC.Models.ViewModel.SubscriptionErrorMessage
+@{
+    ViewBag.Title = General.SiteName + " - " + General.Users;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <div class="panel-title paneltitle">
+            <h1 class="col-md-11 pull-right">
+                <i class="fa fa-exclamation-triangle"></i>
+                @*<span class="fa-stack ">
+                        <i class="fa fa-square-o fa-stack-2x"></i>
+
+                    </span>*@
+                @General.CantAddUser
+            </h1>
+        </div>
+    </div>
+    <div class="panel panel-body text-danger">
+        <div class="col-md-12 pull-right">
+            <h4>
+                @Messages.CantAddMsg
+                <strong>  @Model.TotalNo</strong> @General.Users, @Messages.ContactAdmin
+                <a target="_blank" href="http://aqarstock.com/%D8%A7%D9%84%D8%AF%D8%B9%D9%85_%D8%A7%D9%84%D9%81%D9%86%D9%89#/">
+                    @General.Here
+                    <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                </a>
+            </h4>
+        </div>
+        @*<div class="col-md-9">
+                <h4><strong>  @Model.SuspendReason</strong></h4>
+                <h4> @Model.Message</h4>
+            </div>*@
+    </div>
+</div>
+

@@ -1,0 +1,228 @@
+﻿
+@model PagedList.IPagedList<BrokerMVC.Models.RealEstatePurchaseRequest>
+@using PagedList.Mvc;
+@using ResourcesFiles;
+@{
+    //using re;
+    ViewBag.Title = General.SiteName + " - " + General.PurchaseRequestsReport;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+
+}
+@*@Styles.Render("//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css")*@
+@helper selected(string c, string culture)
+{
+if (c == culture)
+{
+        @:checked="checked"
+    }
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2><i class="fa fa-shopping-cart fa-fw"></i>@General.PurchaseRequestsReport</h2>
+            </div>
+            @*<div class="btn-group pull-left">
+                    <a href='@Url.Action("Index", "UserDashBoard")' data-toggle="tooltip" data-placement="bottom" title="@General.DashBoard" data-original-title="@General.DashBoard" class="btn btn-group-sm btn-Dashboard">
+                        <span class="fa-stack">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-dashboard fa-stack-1x Dashboard-icon"></i>
+                        </span>
+                    </a>
+                </div>*@
+        </div>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("GetRequests", "RealEstatePurchaseRequests", FormMethod.Get))
+        {
+            <div class="">
+                <div class="form-horizontal">
+
+                    <div class="form-group">
+                        <span class="control-label col-md-1 pull-right">@General.keyword</span>
+                        <div class="col-md-11">
+                            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, htmlAttributes: new { @class = "form-control" })
+
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="control-label col-md-1 pull-right">@General.CountryName</span>
+                            <div class="col-md-11">
+                                @Html.DropDownList("CountryID", null, General.Select, htmlAttributes: new { @class = "form-control", @onchange = "GetCity()" })
+                              </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="control-label col-md-1 pull-right">@General.CityName</span>
+                            <div class="col-md-11">
+                                @Html.DropDownList("CityId", null, General.Select, htmlAttributes: new { @class = "form-control", @id = "ddlCity", @onchange = "GetDistrict()" })
+                              </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="control-label col-md-1 pull-right">@General.District</span>
+                            <div class="col-md-11">
+                                @Html.DropDownList("DistrictId", null, htmlAttributes: new { @class = "form-control", @id = "ddldistrict", @onchange = "OnDistrictChange()" })
+                              </div>
+                        </div>
+                    
+                    <div class="form-group">
+                        <span class="control-label col-md-1 pull-right">@General.From</span>
+                        <div class="col-md-6 pull-right">
+                            @Html.TextBox("date", ViewBag.CurrentFilter as string, htmlAttributes: new { @class = "form-control", @type = "date" })
+                            @*<div class="input-append date datepicker" id="dp3" data-date="" data-date-format="dd-mm-yyyy">
+                                    <input type="date" class="span2" size="16">
+                                    <span class="add-on"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                </div>*@
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-group-lg btn-success" value="@General.Search" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="row">
+            <table class="table table-responsive table-bordered table-striped table-hover">
+                <tr class="warning">
+                    <th class="text-center">
+                        @Html.ActionLink(General.RealEstate, "GetReport", new { sortOrder = ViewBag.RealEstateSortParm, subscriberId = ViewBag.subscriber, date = ViewBag.date, currentFilter = ViewBag.CurrentFilter })
+                    </th>
+                    @*<th class="text-center">
+                        @Html.ActionLink(General.New, "GetReport", new { sortOrder = ViewBag.NewSortParm, subscriberId = ViewBag.subscriber, date = ViewBag.date, currentFilter = ViewBag.CurrentFilter })
+                    </th>*@
+                    <th class="text-center">
+                        @Html.ActionLink(General.Date, "GetReport", new { sortOrder = ViewBag.DateSortParm, subscriberId = ViewBag.subscriber, date = ViewBag.date, currentFilter = ViewBag.CurrentFilter })
+                    </th>
+                    @*<th class="text-center">
+                            @Html.ActionLink(General.Type, "Index", new { sortOrder = ViewBag.RealEstateSortParm })
+                        </th>*@
+
+                    <th class="text-center">@General.View</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <div data-toggle="collapse" data-target="#divrealestate-@item.RealEstateID" aria-expanded="false" aria-controls="divContact-@item.ID">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.RealEstate.Title)
+                            </div>
+                        </td>
+                        @*<td class="text-center">
+                            @if (item.IsRead == false)
+                            {
+                                <i class="fa fa-eye-slash text-danger"></i>
+                            }
+                        </td>*@
+                        <td class="text-center">
+                            @item.Date.Value.ToShortDateString()
+                        </td>
+                        <td class="text-center">
+                            <a href="javascript(void)" onclick="ViewPurchaseRequest(@item.ID)" data-target="#divModal" data-toggle="modal" class="btn btn-sm btn-small">
+                                <i class="fa fa-folder-open"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="divrealestate-@item.RealEstateID" class="collapse tr-colspan">
+                        <td colspan="5" class="td-colspan text-warning">
+                            <div class="col-md-12 pull-right">
+                                <i class="fa fa-map" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.RealEstate.Address)
+                                <br />
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.RealEstate.RealEstateType.Title) @Html.DisplayFor(modelItem => item.RealEstate.SaleType.Title) -
+                                @Html.DisplayFor(modelItem => item.RealEstate.Area) @General.Meter -
+                                @Html.DisplayFor(modelItem => item.RealEstate.Price) @Html.DisplayFor(modelItem => item.RealEstate.Currency.Name)
+                                @*<br />*@
+                                @Html.DisplayFor(modelItem => item.RealEstate.PaymentType.Title) - @Html.DisplayFor(modelItem => item.RealEstate.RealEstateStatu.Title)
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div class="row text-center">
+            <div class="Paging">
+                @*صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) من @Model.PageCount*@
+              
+                @Html.PagedListPager(Model, page => Url.Action("GetRequests",
+new { page, searchString=ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort, date = ViewBag.date, currentFilter = ViewBag.CurrentFilter, CountryID=ViewBag.Country, CityId=ViewBag.City, DistrictId=ViewBag.District }), new PagedListRenderOptions { LiElementClasses = new List<string> { "Pageitem" } })
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        //function ResetPage() {
+        //    $('#Page').val(1);
+        //}
+        //$('.Pageitem a').click(function () {
+        //    // get the url of the page link
+        //   // var url = this.href;
+
+        //    var page = $(this).text();
+        //  //  alert(page);
+        //    // update a hidden field inside the search form with this value
+        //    $('#Page').val(page);
+
+        //    // trigger the search
+        //    $('#searchForm').submit();
+
+        //    // stop the link from navigating to the url it is pointing to
+        //    return false;
+        //});
+        function GetCity() {
+
+            var stateId = $('#CountryID').val();
+            //  var url = "../GetCities/"@*@Url.Action("GetCities")+"/"+stateId;*@
+
+            $.ajax({
+                url: "@Url.Action("GetCities", "Districts")",
+                type: "GET",
+                dataType: "JSON",
+                data: { CountryID: stateId },
+                success: function (cities) {
+                    //   alert("test")
+                    $("#ddlCity").html(""); // clear before appending new lis
+                    $("#ddlCity").append($('<option></option>').html('@General.Select'));
+                    $.each(cities, function (i, city) {
+                        $("#ddlCity").append(
+                            $('<option></option>').val(city.Id).html(city.Name));
+                    });
+                    $("#ddldistrict").html(""); // clear before appending new list
+                    $("#ddldistrict").append($('<option></option>').html('@General.Select'));
+                }
+            });
+        }
+        function GetDistrict() {
+            var stateId = $('#ddlCity').val();
+            //$("#ddlCity").html("");
+            //$("#ddlCity").append($('<option></option>').html('@General.Select'));
+            $.ajax({
+                url: "@Url.Action("GetDistricts", "Districts")",
+                type: "GET",
+                dataType: "JSON",
+                data: { CityID: stateId },
+                success: function (cities) {
+                    //  alert("success")
+                    $("#ddldistrict").html(""); // clear before appending new list
+                    $("#ddldistrict").append($('<option></option>').html('@General.Select'));
+                    $.each(cities, function (i, city) {
+                        $("#ddldistrict").append(
+                            $('<option></option>').val(city.Id).html(city.Name));
+                    });
+                }
+            });
+        }
+    </script>
+}

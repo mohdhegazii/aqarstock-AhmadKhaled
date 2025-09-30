@@ -1,0 +1,74 @@
+﻿@model BrokerMVC.Models.RealEstatePurchaseRequest
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2 class="btn btn-lg">
+                    <i class="fa fa-shopping-cart"></i> @Model.RealEstate.Title
+                    @*@General.Notifications
+                        /@General.View*@
+                </h2>
+            </div>
+            <div class="btn-group pull-left">
+
+                <button type="button" class="btn btn-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidiven="true">&times;</span>
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="pull-right col-md-2">
+                @General.FullName
+            </div>
+
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.PurchaserName)
+            </div>
+        </div>
+        <div class="row">
+            <div class="pull-right col-md-2">
+                @General.Phone
+            </div>
+
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.PurchaserPhone)
+            </div>
+        </div>
+        <div class="row">
+            <div class="pull-right col-md-2">
+                @General.Email
+            </div>
+
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.PurchaserEmail)
+            </div>
+        </div>
+        <div class="row">
+            <div class="pull-right col-md-2">
+                @General.Date
+            </div>
+
+            <div class="col-md-10">
+                @Model.Date.Value.ToShortDateString()
+            </div>
+        </div>
+        <div class="row">
+            <div class="pull-right col-md-2">
+                @General.Message
+            </div>
+
+            <div class="col-md-10">
+                @Html.Raw(Model.Message)
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+

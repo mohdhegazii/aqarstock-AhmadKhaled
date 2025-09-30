@@ -1,0 +1,117 @@
+﻿@model BrokerMVC.Models.StaticPage
+
+@{
+    ViewBag.Title = General.SiteName + " - " + General.StaticPages + " - " + General.Edit;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2>
+                    <a href='@Url.Action("Index")'>
+                        <i class="fa fa-wpforms"></i>
+                        @General.StaticPages
+                    </a>
+                    /@General.Edit - @Model.Name
+                </h2>
+            </div>
+            <div class="btn-group pull-left">
+                <a href='@Url.Action("Index")' class="btn btn-group-lg btn-success">
+                    <i class="fa fa-angle-left"></i>
+                    @General.BackToList
+
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="panel-body">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ID)
+                @Html.HiddenFor(model => model.Name)
+                <div class="panel panel-warning">
+                    <div class="panel-heading " role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Arabic Content
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @Html.TextAreaFor(model => model.Content, new { @class = "form-control Content" })
+                                    @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-warning">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEnglish" aria-expanded="false" aria-controls="collapseEnglish">
+                                English Content
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseEnglish" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @Html.TextAreaFor(model => model.EngContent, new { @class = "form-control Content" })
+                                    @Html.ValidationMessageFor(model => model.EngContent, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-9">
+                        <input type="submit" value="@General.Save" class="btn btn-block btn-lg btn-success" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        @*<div>
+                @Html.ActionLink(General.BackToList, "Index")
+            </div>*@
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/tinymce/tinymce.min.js")
+    <script>
+        tinymce.init({
+            selector: '.Content',
+            height: 500,
+            browser_spellcheck: true,
+            plugins: [
+               'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    'insertdatetime media nonbreaking save table contextmenu directionality',
+    'emoticons template paste textcolor colorpicker textpattern imagetools codesample'
+            ],
+            toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            toolbar2: 'print preview media | forecolor backcolor emoticons | codesample',
+            image_advtab: true,
+            content_css: [
+  '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+  '//www.tinymce.com/css/codepen.min.css'
+            ]
+            // language: "ar",
+            // directionality: 'rtl'
+        });
+        
+    </script>
+    }

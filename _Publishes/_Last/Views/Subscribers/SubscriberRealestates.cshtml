@@ -1,0 +1,145 @@
+﻿@model BrokerMVC.Models.ViewModel.SubscriberRealEstate
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = General.SiteName + " - " + Model.Name + " - " + General.Realestates;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@helper selected(string c, string culture)
+{
+if (c == culture)
+{
+        @:checked="checked"
+    }
+}
+@{
+    ViewBag.Title = "SubscriberRealestates";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-7 col-xs-8 pull-right">
+                <h2>@Model.Name</h2>
+            </div>
+            <div class="col-md-1 col-xs-12">
+                <div class="btn-group btn-group-status pull-right">
+                    <a href='@Url.Action("Edit", new {id=Model.ID })' data-toggle="tooltip" data-placement="bottom" title="@General.Back" data-original-title="@General.Back" class="btn btn-group-sm btn-back">
+                        <strong> <i class="fa fa-arrow-circle-left fa-2x"></i></strong>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-body">
+        @using (Html.BeginForm("SubscriberRealestates", "Subscribers", FormMethod.Get))
+        {
+            <div class="">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <span class="control-label col-md-1 pull-right">@General.keyword</span>
+                        <div class="col-md-11">
+                            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, htmlAttributes: new { @class = "form-control" })
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-group-lg btn-success" value="@General.Search" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="row">
+            <table class="table table-responsive table-bordered table-striped table-hover">
+                <tr class="warning">
+                    <th class="text-center">
+                        @Html.ActionLink(General.Name, "SubscriberRealestates", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+                    </th>
+                    <th class="text-center">
+                        @Html.ActionLink(General.Special, "SubscriberRealestates", new { sortOrder = ViewBag.SpecialSortParm, currentFilter = ViewBag.CurrentFilter })
+                    </th>
+                    <th class="text-center">
+                        @General.Status
+                    </th>
+                    <th class="text-center">
+                        @General.Available
+                    </th>
+                    <th class="text-center">@General.Edit</th>
+                </tr>
+
+                @foreach (var item in Model.RealEstates)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <div data-toggle="collapse" data-target="#divrealestate-@item.ID" aria-expanded="false" aria-controls="divContact-@item.ID">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            @if (item.IsSpecialOffer == true)
+                            {
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            }
+                        </td>
+                        <td class="text-center">
+                            @if (item.ActiveStatusId == (int)ActiveStatus.Suspended)
+                            {
+                                <i class="fa fa-pause text-danger"></i>
+                            }
+                            @if (item.ActiveStatusId == (int)ActiveStatus.Active)
+                            {
+                                <i class="fa fa-check text-success"></i>
+                            }
+                        </td>
+                        <td class="text-center">
+                            @if (item.IsSold == true)
+                            {
+                                <span class="fa-stack">
+                                    <i class="fa fa-shopping-basket fa-stack-1x" aria-hidden="true"></i>
+                                    <i class="fa fa-ban fa-stack-2x text-danger" aria-hidden="true"></i>
+                                    </span>
+                            }
+</td>
+                        <td class="text-center">
+                            <a href='@Url.Action("Edit","RealEstates", new { id = item.ID })' class="btn btn-small">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="divrealestate-@item.ID" class="collapse tr-colspan">
+
+
+                        <td colspan="6" class="td-colspan text-warning">
+                            <div class="col-md-12 pull-right">
+                                <i class="fa fa-map" aria-hidden="true"></i> 
+                                @Html.DisplayFor(modelItem => item.Address)
+                                <br />
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> 
+                                @Html.DisplayFor(modelItem => item.RealEstateType.Title) @Html.DisplayFor(modelItem => item.SaleType.Title) - 
+                                @Html.DisplayFor(modelItem => item.Area) @General.Meter -
+                                @Html.DisplayFor(modelItem => item.Price) @Html.DisplayFor(modelItem => item.Currency.Name) -
+                                @Html.DisplayFor(modelItem => item.PaymentType.Title) - @Html.DisplayFor(modelItem => item.RealEstateStatu.Title)
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="row text-center">
+            <div class="Paging">
+                @*صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) من @Model.PageCount*@
+
+                @Html.PagedListPager(Model.RealEstates, page => Url.Action("SubscriberRealestates",
+    new { id = Model.ID, page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), new PagedListRenderOptions { LiElementClasses = new List<string> { "Pageitem" } })
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,198 @@
+﻿@model BrokerMVC.Models.ViewModel.HomePage
+@{
+    ViewBag.Title = General.PageTitle;
+    Layout = "_Layout.cshtml";
+}
+<div class="main-banner">
+    <!-- banner start  -->
+    <span class="full-size-img" style="background:url(@Url.Content(Model.BannerProject.DefaultPhotoURL)) no-repeat center center / cover"></span>
+    <!-- // banner end -->
+    <!-- Search form start  -->
+    <div class="search-main">
+        <div class="container">
+            <div class="col-sm-8">
+                <div itemscope itemtype="http://schema.org/Product" class="slogen-wrapper">
+                    <h1 itemprop="name">@Model.BannerProject.Title</h1>
+                    <h1 itemprop="alternativeHeadline">@Model.BannerProject.EnTitle </h1>
+                    <h2 itemprop="">@(Commons.Culture.Contains("ar") ? Model.BannerProject.Sologan : Model.BannerProject.EnSologan)</h2>
+                    <a itemprop="url" href="~/@Menu.Projects.GetValue()/@Model.BannerProject.ID/@Commons.EncodeText(Commons.Culture.Contains("ar")?Model.BannerProject.Title:Model.BannerProject.EnTitle)" class="btn more-slogen-link">@General.More <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div id="divSearch"></div>
+            </div>
+        </div>
+    </div>
+    <!-- // Search form end -->
+</div>
+
+
+<div class="content">
+    <div id="divLatestAdded" class="Latest-Prop">
+
+    </div>
+    <!-- offers block start -->
+    @*<div class="block offers">
+        <div class="container">
+            <div class="col-sm-12">
+                <div class="block-title">
+                    <h1>@General.SpecialPropList</h1>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <div itemscope itemtype="http://schema.org/Product" class="thumbnail no-border no-padding thumbnail-property special-thumbnail-blue">
+                    <div class="label-badge banner-special">
+                        <span class="text"><i class="fa fa-gift" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="media">
+                        <a class="media-link" href="~/Details/@Model.SpecialProp.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(Model.SpecialProp.Title):Commons.EncodeText(Model.SpecialProp.EnTitle))">
+                            <img itemprop="image" src="@Url.Content(Model.SpecialProp.DefaultImage.PhotoName)" alt="@Model.SpecialProp.Title - @Model.SpecialProp.EnTitle">
+                            <span class="icon-view"><strong><i class="fa fa-arrows-alt"></i></strong></span>
+                        </a>
+                    </div>
+                    <div class="caption text-center">
+                        <h4 itemprop="name" class="caption-title"><a href="#">@(Commons.Culture.Contains("ar") ? Model.SpecialProp.RealEstateType.Title : Model.SpecialProp.RealEstateType.EnTitle)  @Model.SpecialProp.Area @General.Meter</a></h4>
+                        <p itemprop="address" class="caption-text">@(Commons.Culture.Contains("ar") ? Model.SpecialProp.District.Name + "-" + Model.SpecialProp.City.Name : Model.SpecialProp.District.EnName + "-" + Model.SpecialProp.City.EnName)</p>
+                        <div class="buttons">
+                            <a itemprop="url" class="btn btn-theme" href="~/Details/@Model.SpecialProp.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(Model.SpecialProp.Title):Commons.EncodeText(Model.SpecialProp.EnTitle))">@General.More</a>
+                        </div>
+                        <span itemprop="description" class="p-price bottom-price">@Model.SpecialProp.Price @(Commons.Culture.Contains("ar") ? Model.SpecialProp.Currency.Name : Model.SpecialProp.Currency.EnName)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-8 swiper-SpecialProp">
+                <!-- Swiper -->
+                <div id="divSpecialProp" class="swiper-container" dir="rtl">
+                    <div  class="swiper-wrapper" itemscope itemtype="http://schema.org/ItemList">
+                        @foreach (var item in Model.SpecialPropList)
+                        {
+                            <div class="swiper-slide" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                <div class="thumbnail no-border no-padding thumbnail-property special-thumbnail">
+                                    <div class="label-badge banner-special">
+                                        <span class="text"><i class="fa fa-gift" aria-hidden="true"></i></span>
+                                    </div>
+                                    <div class="media">
+                                        <a itemprop="url" class="media-link" href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">
+                                            <img itemprop="image" src="@Url.Content(item.DefaultImage.PhotoName)" alt="@item.Title - @item.EnTitle">
+                                            <span class="icon-view"><strong><i class="fa fa-arrows-alt"></i></strong></span>
+                                        </a>
+                                    </div>
+                                    <div class="caption text-center">
+                                        <h4 itemprop="name" class="caption-title"><a href="#">@(Commons.Culture.Contains("ar") ? item.RealEstateType.Title : item.RealEstateType.EnTitle)  @item.Area @General.Meter</a></h4>
+                                        <p itemprop="address" class="caption-text">@(Commons.Culture.Contains("ar") ? item.District.Name + "-" + item.City.Name : item.District.EnName + "-" + item.City.EnName)</p>
+                                        <div class="buttons">
+                                            <a class="btn btn-theme" href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">@General.More</a>
+                                        </div>
+                                        <span itemprop="description" class="p-price bottom-price">
+                                            @item.Price
+                                            @if (item.CurrencyID>0)
+                                            {@(Commons.Culture.Contains("ar") ? item.Currency.Name : item.Currency.EnName)
+                                            }
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                    <!-- Add Navigation -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+    <!-- // offers block end -->
+    <!-- ads block start -->
+    <div class="block">
+        <div id="divFirstAd" class="container">
+
+        </div>
+    </div>
+    <!-- // ads block end -->
+    <!-- latest unit block start -->
+    <div id="divLatestSale" class="forsale-Prop">
+
+    </div>
+    <!-- // latest unit block end -->
+    <!-- latest rent block start -->
+    <div id="divLatestRent" class="block latest-rent">
+        
+    </div>
+    <!-- // latest rent block end -->
+    <!-- ads block start -->
+    <div class="block">
+        <div id="divSecondAd" class="container">
+
+        </div>
+    </div>
+    <!-- // ads block end -->
+    <!-- real estate projects block start -->
+    <div class="block realestate-projects-wrapper">
+        <div class="container">
+            <div class="col-sm-12">
+                <div class="block-title">
+                    <h1>@General.ProjectList</h1>
+                </div>
+            </div>
+            @foreach (var item in Model.Projects)
+            {
+                <div class="col-sm-6">
+                    <div class="recent-post alt">
+                        <div class="media">
+                            <a class="media-link" href="~/@Menu.Projects.GetValue()/@item.ID/@Commons.EncodeText(Commons.Culture.Contains("ar")?item.Title:item.EnTitle)">
+                                <div class="img-wrapper-alt">
+                                    <div class="badge type">للبيع</div>
+                                    @*<div class="badge post"><i class="fa fa-video-camera"></i></div>*@
+                                    <img class="media-object" src="@Url.Content(item.DefaultPhotoURL)" alt="@item.EnTitle @item.Title">
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href="~/@Menu.Projects.GetValue()/@item.ID/@Commons.EncodeText(Commons.Culture.Contains("ar")?item.Title:item.EnTitle)">@item.Title - @item.EnTitle</a></h4>
+                                <div class="media-excerpt">@(Commons.Culture.Contains("ar") ? item.Summary : item.EnSummary)</div>
+                                <br />
+                                <a href="~/@Menu.Projects.GetValue()/@item.ID/@Commons.EncodeText(Commons.Culture.Contains("ar")?item.Title:item.EnTitle)" class="btn btn-theme"><i class="fa fa-chevron-left">&nbsp;</i> تعرف علي المزيد</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- // real estate projects block end -->
+</div>
+@section Scripts
+{
+    <script>
+        SetActiveMenu("liHome");
+        LoadPropertySearch("HomePage");
+        //SetSpecialPropSwiper();
+        GetForSaleProperty();
+        GetForRentProperty();
+        LoadPageAds();
+        GetPageContent('@Pages.HomePage');
+    </script>
+}
+@section META{
+<meta name="title" content="@General.PageTitle" />
+<meta name="description" itemprop="description" content="@General.SiteDescription" />
+<meta name="keywords" content="عقارات, خريطة, جوجل إرث, فيلا, بيت, منزل, شقة, أرض, قصر, غرفة, للبيع, شراء, مطلوب, تأجير, الرياض, السعودية, دبي, أبو ظبي, الدوحة, مصر, القاهرة, اسكندرية, شقق للبيع,Real Estate, Map, Google Legacy, Villa, House, House, Apartment, Land, Palace, Room, Sale, Buy, Wanted, Rent, Riyadh, Saudi Arabia, Dubai, Abu Dhabi, Doha, Egypt, Cairo, Alexandria, Apartments for Sale" />
+<meta name='twitter:card' content="summary" />
+<meta name='twitter:title' content="@General.PageTitle" />
+<meta name='twitter:url' content="http://www.aqarstock.com/" />
+<meta name='twitter:url' content="http://www.aqarstock.net/" />
+<meta name='twitter:description' content="@General.SiteDescription" />
+<meta name='twitter:image' content="http://www.aqarstock.com/Content/_ui/img/Aqar-Stock-Sociallogo-1.png" />
+<meta name='og:type' content="article" />
+<meta name='og:title' content="@General.PageTitle" />
+<meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-1.png" />
+<meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-2.png" />
+<meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-3.png" />
+<meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-4.png" />
+<meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-5.png" />
+<meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-6.png" />
+<meta name='og:url' content="http://www.aqarstock.com/" />
+<meta name='og:url' content="http://www.aqarstock.net/" />
+<meta name='og:description' content="@General.SiteDescription" />
+}

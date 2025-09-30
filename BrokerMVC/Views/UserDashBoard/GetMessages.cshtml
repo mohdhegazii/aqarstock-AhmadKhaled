@@ -1,0 +1,71 @@
+﻿@model PagedList.IPagedList<BrokerMVC.Models.SubscriperMessage>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = General.SiteName + " - " + General.Messages;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2><i class="fa fa-comments fa-fw"></i>@General.ManagementMessages</h2>
+            </div>
+            <div class="btn-group pull-left">
+                <a href="javascript(void)" onclick="SendMessage()" data-target="#divModal" data-toggle="modal" class="btn btn-group-lg btn-success">
+                    <i class="fa fa-comment fa-fw"></i>
+                    @General.SendMessage
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-responsive table-bordered table-striped table-hover">
+            <tr class="warning">
+                <th class="text-center">
+                    @General.Title
+                </th>
+                <th class="text-center">
+                    @General.Date
+                </th>
+                <th class="text-center">
+                    @General.New
+                </th>
+                <th class="text-center">@General.View</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td class="text-center">
+                        @item.CreatedDate.Value.ToShortDateString()
+                    </td>
+                    <td class="text-center">
+                        @if (item.IsRead != true)
+                        {
+                            <i class="fa fa-eye-slash text-danger"></i>
+                        }
+                    </td>
+
+                    <td class="text-center">
+                        <a href='@Url.Action("GetMessage", new { id = item.ID })' class="btn btn-small">
+                            <i class="fa fa-folder-open"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <div class="row text-center">
+            <div class="Paging">
+                @*صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) من @Model.PageCount*@
+
+                @Html.PagedListPager(Model, page => Url.Action("Index",
+new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), new PagedListRenderOptions { LiElementClasses = new List<string> { "Pageitem" } })
+            </div>
+        </div>
+    </div>
+</div>

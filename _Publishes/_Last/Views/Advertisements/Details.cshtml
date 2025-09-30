@@ -1,0 +1,75 @@
+﻿@model BrokerMVC.Models.Advertisement
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Advertisement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.URL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.URL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContentSide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContentSide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomePageSide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomePageSide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomePageMainLarge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomePageMainLarge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomePageMainSmall)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomePageMainSmall)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

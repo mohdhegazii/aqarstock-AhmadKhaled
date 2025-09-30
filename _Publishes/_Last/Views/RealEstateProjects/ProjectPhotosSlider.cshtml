@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstateProjectPhoto>
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <div class="panel-title" role="button" data-toggle="collapse" href="#divphotoSlider" aria-expanded="false" aria-controls="divUser">
+            <h4 class="col-md-8 pull-right">
+                <i class="fa fa-angle-down"></i>
+                <i class="fa fa-picture-o"></i>
+                @General.Images
+            </h4>
+
+        </div>
+        <button type="button" onclick="AddNewProjectPhoto(@ViewBag.ProjectID)" rel="@General.Add" class=" btn btn-sm btn-warning" data-target="#divModal" data-toggle="modal">
+            <i class="fa fa-plus"></i>
+        </button>
+        <a class=" btn btn-sm btn-warning" rel="@General.Edit" href="@Url.Action("ProjectPhotos","RealEstateProjects",new{id=ViewBag.ProjectID,type="List" })">
+            <i class="fa fa-edit"></i>
+        </a>
+    </div>
+    <div id="divphotoSlider" class="panel panel-body collapse in">
+        @if (Model.Count() > 0)
+        {
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                @*<ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>*@
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    @foreach (var item in Model)
+                {
+                    <div class="item carousel-inner-slide">
+                        <img src="~/@item.PhotoURL.Replace("~/","")" />
+                        @if (item.IsDefault == true)
+                            {
+                            <div class="carousel-caption">
+                                <h4>
+                                    <i class="fa fa-bullseye" aria-hidden="true"></i>
+                                    @General.DefaultImage
+                                </h4>
+                            </div>
+                            }
+                    </div>
+                    }
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </div>
+        }
+        else
+        {
+       @Html.Partial("_EmptyMessage")
+        }
+    </div>
+</div>

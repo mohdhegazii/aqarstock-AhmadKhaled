@@ -1,0 +1,109 @@
+﻿<div class="projectPhotoSide col-md-8">
+    <div class="projectPhoto">
+        <div class="companyTitle">
+            <h4>
+                <a class="back" href="javascript:void(0);" detail-backbutton>رجوع</a><span>صور {{Name}}</span></h4>
+        </div>
+        <div id="divPhotoLoading" class="loader">
+            <img src="images/Frontend/loading2.gif"></div>
+        <div class="compeniesListP">
+            <ul>
+                <li class="col-md-4 col-sm-6" ng-repeat="Photo in Photos">
+                    <div class="item">
+                        <a ng-click="ShowPhotos(Photo.Date)">
+                        <!--    <div class="wow">
+                                <div class="wowText">
+                                    للإيجار
+                                </div>
+                            </div>-->
+                            <div class="itemImg">
+                                <img src="http://www.aqarstock.com/{{Photo.PhotoURL}}" /></div>
+                            <div class="itemDetails">
+                                <span>{{Photo.Date}}</span></div>
+                        </a>
+                    </div>
+                </li>
+           <!--     <li class="col-md-4 col-sm-6">
+                    <div class="item">
+                        <a href="#">
+                            <div class="wow">
+                                <div class="wowText">
+                                    للإيجار
+                                </div>
+                            </div>
+                            <div class="itemImg">
+                                <img src="images/Frontend/offers.jpg" /></div>
+                            <div class="itemDetails">
+                                <span>المرحلة الأولى - سبتمبر 2014</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-md-4 col-sm-6">
+                    <div class="item">
+                        <a href="#">
+                            <div class="wow">
+                                <div class="wowText">
+                                    للإيجار
+                                </div>
+                            </div>
+                            <div class="itemImg">
+                                <img src="images/Frontend/offers.jpg" /></div>
+                            <div class="itemDetails">
+                                <span>المرحلة الأولى - سبتمبر 2014</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-md-4 col-sm-6">
+                    <div class="item">
+                        <a href="#">
+                            <div class="wow">
+                                <div class="wowText">
+                                    للإيجار
+                                </div>
+                            </div>
+                            <div class="itemImg">
+                                <img src="images/Frontend/offers.jpg" /></div>
+                            <div class="itemDetails">
+                                <span>المرحلة الأولى - سبتمبر 2014</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-md-4 col-sm-6">
+                    <div class="item">
+                        <a href="#">
+                            <div class="wow">
+                                <div class="wowText">
+                                    للإيجار
+                                </div>
+                            </div>
+                            <div class="itemImg">
+                                <img src="images/Frontend/offers.jpg" /></div>
+                            <div class="itemDetails">
+                                <span>المرحلة الأولى - سبتمبر 2014</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-md-4 col-sm-6">
+                    <div class="item">
+                        <a href="#">
+                            <div class="wow">
+                                <div class="wowText">
+                                    للإيجار
+                                </div>
+                            </div>
+                            <div class="itemImg">
+                                <img src="images/Frontend/offers.jpg" /></div>
+                            <div class="itemDetails">
+                                <span>المرحلة الأولى - سبتمبر 2014</span></div>
+                        </a>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+        <div class="projectBtns">
+            <div class="back">
+                <a href="javascript:void(0);" detail-backbutton>رجوع</a></div>
+        </div>
+    <!--    <div class="clear">
+        </div>-->
+    </div>

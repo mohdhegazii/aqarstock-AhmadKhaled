@@ -1,0 +1,52 @@
+﻿@model BrokerMVC.Models.ViewModel.AddRealestateToCatalog
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2>
+                    <strong>
+                        @*<i class="fa fa-edit"></i>*@
+                        @General.Realestates/@General.Add
+                    </strong>
+                </h2>
+            </div>
+            <div class="btn-group pull-left">
+                <button type="button" class="btn btn-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="panel-body">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.CatalogID)
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Codes, General.Codes, htmlAttributes: new { @class = "control-label col-md-2 pull-right" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Codes, new { @class = "form-control" })
+                        <small class="help-block text-warning"><i class="fa fa-info-circle"></i> @Messages.CodesTooltip</small>
+                        @Html.ValidationMessageFor(model => model.Codes, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="@General.Save" class="btn btn-success btn-group-lg" />
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

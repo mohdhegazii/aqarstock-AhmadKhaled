@@ -1,0 +1,187 @@
+﻿@model BrokerMVC.Models.ViewModel.RealEstateBasicData
+@{
+    ViewBag.Title = General.SiteName + " - " + General.Realestates + " - " + General.CreateNew;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@helper selected(string c, string culture)
+{
+if (c == culture)
+{
+        @:checked="checked"
+    }
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-8 col-xs-8 pull-right">
+                <h2>
+                    <i class="fa fa-building-o"></i>
+                    @General.Realestates - @General.CreateNew
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-body">
+        <div class="alert alert-dismissable alert-message">
+            <h4>
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                @Messages.CreateNewMsg
+            </h4>
+        </div>
+        @using (Html.BeginForm("Add", "RealEstates", FormMethod.Post))
+            {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-md-12">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="panel-title" role="button" data-toggle="collapse" href="#divAdData" aria-expanded="false" aria-controls="divAdData">
+                                <h4>
+                                    <i class="fa fa-angle-down"></i>
+                                    <i class="fa fa-newspaper-o"></i>
+                                    @General.AdData
+                                </h4>
+                            </div>
+                        </div>
+                        <div id="divAdData" class="panel panel-body collapse in">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Name, General.AdTitle, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = Messages.AdPlaceHolder } })
+                                    <small class="help-block text-warning"><i class="fa fa-info-circle"></i> @Messages.AdTooltip</small>
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.EnName, General.EnAdTitle, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.EditorFor(model => model.EnName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.EnName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                    <small class="help-block text-warning"><i class="fa fa-info-circle"></i> @Messages.DescriptionTooltip</small>
+                                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.EnDescription, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.EditorFor(model => model.EnDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.EnDescription, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="panel-title" role="button" data-toggle="collapse" href="#dicBasicData" aria-expanded="false" aria-controls="dicBasicData">
+                                <h4>
+                                    <i class="fa fa-angle-down"></i>
+                                    <i class="fa fa-puzzle-piece"></i>
+                                    @General.FeaturesData
+                                </h4>
+                            </div>
+                        </div>
+                        <div id="dicBasicData" class="panel panel-body collapse in">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RealEstateCategoryID, General.RealestateCategory, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.DropDownList("RealEstateCategoryID", null, htmlAttributes: new { @class = "form-control", @onchange = "ChangeCtaegory()" })
+                                    <small class="help-block text-warning"><i class="fa fa-info-circle"></i> @Messages.CategoryTooltip</small>
+                                    @Html.ValidationMessageFor(model => model.RealEstateCategoryID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RealEstateTypeID, General.RealestateType, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.DropDownList("RealEstateTypeID", null, htmlAttributes: new { @class = "form-control", @id = "ddlType" })
+                                    @Html.ValidationMessageFor(model => model.RealEstateTypeID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RealEstateStatusID, General.Status, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.DropDownList("RealEstateStatusID", null, htmlAttributes: new { @class = "form-control", @id = "ddlStatus" })
+                                    @Html.ValidationMessageFor(model => model.RealEstateStatusID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control" } })
+                                    <small class="help-block text-warning"><i class="fa fa-info-circle"></i> @Messages.AreaToolTip</small>
+                                    @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="panel-title" role="button" data-toggle="collapse" href="#divFinancialData" aria-expanded="false" aria-controls="divFinancialData">
+                                <h4>
+                                    <i class="fa fa-angle-down"></i>
+                                    <i class="fa fa-money  "></i>
+                                    @General.FinancialData
+                                </h4>
+                            </div>
+                        </div>
+                        <div id="divFinancialData" class="panel panel-body collapse in">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SaleTypeId, General.SaleType, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.DropDownList("SaleTypeId", null, htmlAttributes: new { @class = "form-control" })
+                                    <small class="help-block text-warning"><i class="fa fa-info-circle"></i> @Messages.CategoryTooltip</small>
+                                    @Html.ValidationMessageFor(model => model.SaleTypeId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                                    <small class="help-block text-warning"><i class="fa fa-info-circle"></i> @Messages.PriceTooltip</small>
+                                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CurrencyID, General.Currency, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.DropDownList("CurrencyID", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CurrencyID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.PaymentTypeID, General.PaymentType, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                <div class="col-md-9">
+                                    @Html.DropDownList("PaymentTypeID", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.PaymentTypeID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-9">
+                        <input type="submit" value="@General.Next" class="btn btn-success btn-lg btn-block" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

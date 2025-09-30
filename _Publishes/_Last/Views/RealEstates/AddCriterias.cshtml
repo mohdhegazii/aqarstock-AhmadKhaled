@@ -1,0 +1,85 @@
+﻿@model BrokerMVC.Models.ViewModel.Criteria
+@{
+    ViewBag.Title = General.SiteName + " - " + Model.RealestateName + " - " + General.Add + " " + General.Criteria;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-8 col-xs-8 pull-right">
+                <h2>@Model.RealestateName / @General.Add - @General.Criteria</h2>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <div class="btn-group btn-group-status pull-left">
+                    <a href='@Url.Action("Edit",new{id=Model.ID })' data-toggle="tooltip" data-placement="bottom" title="@General.BackToList" data-original-title="@General.BackToList" class="btn btn-group-sm btn-success">
+                        <strong> <i class="fa fa-arrow-circle-left fa-2x"></i></strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-body">
+        <div class="panel-body">
+            @if (Model.TypeCriterias.Count() > 0)
+            {
+
+                using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.ID)
+                    @Html.HiddenFor(m => m.RealestateName)
+                    <div class="row">
+                        <table class=" table table-bordered table-striped table-hover">
+                            <tr class="success">
+                                <th class="text-center">
+                                    @General.Name
+                                </th>
+                                <th class="text-center">@General.Value</th>
+                            </tr>
+                            @for (int i = 0; i < Model.TypeCriterias.Count; i++)
+                            {
+                                <tr>
+                                    <td class="text-center">
+
+                                        @Model.TypeCriterias[i].Title
+                                        @Html.HiddenFor(m => Model.TypeCriterias[i].ID)
+                                        @Html.HiddenFor(m => Model.TypeCriterias[i].Title)
+                                        @Html.HiddenFor(m => Model.TypeCriterias[i].ValueType)
+                                    </td>
+                                    <td class="text-center">
+                                        @if (Model.TypeCriterias[i].ValueType + "_Type" == CriteriaValueType.bool_Type.ToString())
+                                        {
+                                            @Html.CheckBoxFor(m => Model.TypeCriterias[i].BoolValue)
+                                        }
+                                        else
+                                        {
+                                            if (Model.TypeCriterias[i].ValueType + "_Type" == CriteriaValueType.int_Type.ToString())
+                                            {
+                                                @Html.EditorFor(m => Model.TypeCriterias[i].intValue)
+                                            }
+                                            else
+                                            {
+                                                @Html.EditorFor(m => Model.TypeCriterias[i].Value)
+                                            }
+                                        }
+                                    </td>
+
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-9">
+                            <input type="submit" value="@General.Save" class="btn btn-success btn-lg btn-block" />
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                @Html.Partial("_EmptyMessage")
+            }
+        </div>
+    </div>
+    </div>

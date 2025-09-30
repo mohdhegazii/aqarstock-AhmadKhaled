@@ -1,0 +1,227 @@
+﻿@model BrokerMVC.Models.RealEstateProject
+
+@{
+    ViewBag.Title =  (Commons.Culture.Contains("ar") ? Model.Title : Model.EnTitle) + "- " + General.PageTitle;
+    Layout = "~/Views/Home/_Layout.cshtml";
+    var CompanyMessage = new BrokerMVC.Models.CompanyMessage();
+    CompanyMessage.ProjectID = Model.ID;
+    CompanyMessage.CompanyID = Model.CompanyID;
+}
+@section Styles{
+<link href="/Content/_ui/css/mediaelementplayer.min.css" rel="stylesheet" />
+@*@Styles.Render("~/Content/_ui/css/mediaelement.min.css")*@
+
+}
+<div class="inner-banner">
+    <!-- banner start  -->
+    <span class="full-size-img" style="background:url(@Url.Content(Model.DefaultPhotoURL)) no-repeat center center / cover"></span>
+    <!-- // banner end -->
+    <div class="block-title">
+        <div class="container">
+            <h1>@(Commons.Culture.Contains("ar") ? Model.Title : Model.EnTitle)</h1>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <!-- Search form start  -->
+            <div id="divSearch">
+
+            </div>
+            <!-- // Search form end -->
+        </div>
+
+        <!-- project details block start -->
+        <div class="col-md-8">
+            <div class="block project-details-wrapper" itemscope itemtype="http://schema.org/Product">
+                <div class="project-title">
+                    <div class="col-md-8 col-sm-7">
+                        <h1 itemprop="name">@(Commons.Culture.Contains("ar") ? Model.Title : Model.EnTitle)<i class="fa fa-building-o" aria-hidden="true"></i></h1>
+                    </div>
+                    <div class="col-md-4 col-sm-5">
+                        <a href="@this.Request.UrlReferrer" class="btn btn-theme btn-back">@General.Back <i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <h3 itemprop="address"><button type="button" class="slideToMap">@(Commons.Culture.Contains("ar") ? Model.Address : Model.EnAddress)<i class="fa fa-map-marker" aria-hidden="true"></i></button></h3>
+                    </div>
+                    @*<div class="btn-info-block">
+                            <div class="col-sm-4"><a href="#" class="btn btn-03"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> راسل المالك</a></div>
+                            <div class="col-sm-4"><a href="#" class="btn btn-05"><i class="fa fa-database" aria-hidden="true"></i>بيانات المالك</a></div>
+                            <div class="col-sm-4"><a href="#" class="btn btn-04"><i class="fa fa-exclamation" aria-hidden="true"></i>تقديم شكوى</a></div>
+                        </div>*@
+                </div>
+
+                <div class="project-banner-wrapper">
+                    <div class="col-sm-12">
+                        <div class="logo-project-wrapper">
+                            <img itemprop="image" src="@Url.Content(Model.Logo)" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block project-info-wrapper">
+                    <div class="col-sm-12">
+                        <div class="notes-block">
+                            <div class="col-sm-12">
+                                <h3>@General.AboutProject</h3>
+                                <p itemprop="description">
+                                    @if (Commons.Culture.Contains("ar"))
+                                    { @Html.Raw(Model.Description)}
+                                    else
+                                    {@Html.Raw(Model.EnDesctiption) }
+                                @*@(Commons.Culture.Contains("ar") ? Model.Description : Model.EnDesctiption)*@
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="divProjectRealestates"></div>
+                @Html.Partial("Partial/ProjectPhotos", Model.RealEstateProjectPhotos)
+                @Html.Partial("Partial/ProjectVideos", Model.RealEstateProjectVideos)
+                <div id="divModels"></div>
+
+
+                <div class="block map-wrapper">
+                    <div class="col-sm-12">
+                        <h2>@General.location @(Commons.Culture.Contains("ar") ? Model.Title : Model.EnTitle) <i class="fa fa-map-marker" aria-hidden="true"></i></h2>
+                        <div id="divMap" style="height:450px">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inner-social">
+                    <div class="col-sm-6 social-list">
+
+                        <div class="addthis_sharing_toolbox">
+                        </div>
+                        @*<ul class="social-list">
+                                <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                            </ul>*@
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="@this.Request.UrlReferrer" class="btn btn-theme btn-back">@General.Return <i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 owner-contact-mobile-size">
+            <div class="owner-contact-main">
+                <div class="owner-contact-wrapper">
+					<button class="btn contact-mass-wrapper-launch"><i class="fa fa-opencart"></i>@General.AdvertiserData </button>
+					<div class="owner-mass-wrapper">
+						@if (HttpContext.Current.User.Identity.IsAuthenticated)
+						{
+							@Html.Partial("Partial/CompanyData", Model.RealEstateCompany)
+						}
+						else
+						{
+							@Html.Partial("Partial/LoginRequired")
+						}
+						<div id="divCompanyMessage">
+							@Html.Partial("Partial/CompanyMessage", CompanyMessage)
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+            <!-- latest unit block start -->
+            <div id="divLatestAdded" class="Latest-Prop">
+
+            </div>
+            <!-- // latest unit block end -->
+        </div>
+        <!-- // project details block block end -->
+    </div>
+</div>
+<input type="hidden" id="hdProjectID" value="@Model.ID" />
+<input type="hidden" id="hdCompanyID" value="@Model.CompanyID" />
+<input type="hidden" id="hdType" value="@InquiryType.CompanyMessage" />
+<div class="modal fade" id="myModalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div id="divLoginForm" class="modal-content">
+            @Html.Partial("Partial/LoginForm", new BrokerMVC.Models.LoginViewModel())
+
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    @Scripts.Render(AppSettingKeysVariables.GoogleMapsKey)
+    @Scripts.Render("//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56de87f91ff9a0c0")
+    @Scripts.Render("~/Scripts/js/Map.js")
+@Scripts.Render("~/Scripts/js/mediaelement-and-player.min.js")
+    <script>
+        LoadPropertySearch("details");
+        initMap();
+        
+        $('video').mediaelementplayer({
+            success: function(media, node, player) {
+                $('#' + node.id + '-mode').html('mode: ' + media.pluginType);
+            }
+        });
+        //jQuery(document).ready(function($) {
+        //    // declare object for video
+        //    var player = new MediaElementPlayer('#player1');
+
+        //});
+        //var player = new MediaElementPlayer('#player1');
+        GetProjectProperties(@Model.ID);
+        GetProjectModels(@Model.ID);
+        SubmitMessage();
+        if(@Model.Latitude!=null && @Model.Longitude!=null)
+        {
+            SetLocationWithoutListener('@Model.Latitude', '@Model.Longitude');
+        }
+        
+        $(".gallery-album").click( function( e ) {
+            e.preventDefault();
+            $.swipebox( [
+                @foreach(var item in Model.RealEstateProjectPhotos)
+                {
+                    <text> { href:'@Url.Content(item.PhotoURL)', title:'@Model.Title - @Model.EnTitle' },</text>
+                }
+            ]);
+        });
+    </script>
+    <script type="text/javascript">
+        var addthis_share = {
+            url: "@this.Request.Url",
+            title: "@(Commons.Culture.Contains("ar")?Model.Title:Model.EnTitle)| @General.SiteName",
+            description: "",
+            media:
+                "@(ConfigurationSettings.AppSettings["WebSite"]+ "/"+ Model.DefaultPhotoURL.Replace("~/", "").Replace(" ","%20"))"
+        };
+    </script>
+}
+@section META{
+    @*///DESCRIPTION_VALUE and KEYWORD_VALUE - Can be replaced with model values (e.g. @Model.PageDescription) or ViewBag (e.g.@ViewBag.PageDescription)*@
+    <meta name="description" property="og:description" content="@(Commons.Culture.Contains("ar")?Model.Summary:Model.EnSummary)" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="@(Commons.Culture.Contains("ar")?Model.Title:Model.EnTitle)| @General.SiteName">
+    <meta property="og:url" content="@this.Request.Url">
+    @foreach (var item in Model.RealEstateProjectPhotos)
+    {
+        <meta property="og:image" content="@(ConfigurationSettings.AppSettings["WebSite"]+ item.PhotoURL.Replace("~/", "").Replace(" ","%20"))">
+    }
+
+
+    <meta property="og:site_name" content="@General.SiteName">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="@(Commons.Culture.Contains("ar")?Model.Title:Model.EnTitle) | @General.SiteName">
+    <meta name="twitter:description" content="@(Commons.Culture.Contains("ar")?Model.Summary:Model.EnSummary)">
+    <meta name="twitter:image" content="@(ConfigurationSettings.AppSettings["WebSite"]+ Model.DefaultPhotoURL.Replace("~/", "").Replace(" ","%20"))">
+    <meta name="twitter:site" content="@this.Request.Url">
+
+}

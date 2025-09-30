@@ -1,0 +1,1260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FB3DCF2C-0D07-49DF-89F1-104ABCC713E7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BrokerWeb</RootNamespace>
+    <AssemblyName>BrokerWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalDependancies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Telerik.Web.UI, Version=2012.2.912.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <HintPath>ExternalDependancies\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins, Version=2012.2.912.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <HintPath>ExternalDependancies\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="aboutus.aspx" />
+    <Content Include="arrowBtnBoldGray.png" />
+    <Content Include="Backend\Admin\AdminDashBoard.aspx" />
+    <Content Include="Backend\Admin\Catalog.aspx" />
+    <Content Include="Backend\Admin\CatalogCategory.aspx" />
+    <Content Include="Backend\Admin\CatalogList.aspx" />
+    <Content Include="Backend\Admin\Cities.aspx" />
+    <Content Include="Backend\Admin\CompanyList.aspx" />
+    <Content Include="Backend\Admin\Complains.aspx" />
+    <Content Include="Backend\Admin\Countries.aspx" />
+    <Content Include="Backend\Admin\Currencies.aspx" />
+    <Content Include="Backend\Admin\Districts.aspx" />
+    <Content Include="Backend\Admin\EditCompany.aspx" />
+    <Content Include="Backend\Admin\EditProject.aspx" />
+    <Content Include="Backend\Admin\GenerateCatalog.aspx" />
+    <Content Include="Backend\Admin\Keywords.aspx" />
+    <Content Include="Backend\Admin\MessagesList.aspx" />
+    <Content Include="Backend\Admin\NotifyReqiestReport.aspx" />
+    <Content Include="Backend\Admin\ProjectList.aspx" />
+    <Content Include="Backend\Admin\Settings\AdvertisementPage.aspx" />
+    <Content Include="Backend\Admin\Settings\ApplyImageProcessing.aspx" />
+    <Content Include="Backend\Admin\Settings\GenerateSiteMap.aspx" />
+    <Content Include="Backend\Admin\Settings\Migrate.aspx" />
+    <Content Include="Backend\Admin\PartnerList.aspx" />
+    <Content Include="Backend\Admin\PartnerPage.aspx" />
+    <Content Include="Backend\Admin\PurchaseRequestReport.aspx" />
+    <Content Include="Backend\Admin\RealEstateCategories.aspx" />
+    <Content Include="Backend\Admin\RealEstateEdit.aspx" />
+    <Content Include="Backend\Admin\RealEstateList.aspx" />
+    <Content Include="Backend\Admin\RealEstateStatuses.aspx" />
+    <Content Include="Backend\Admin\RealEstateTypeCriterias.aspx" />
+    <Content Include="Backend\Admin\RealEstateTypes.aspx" />
+    <Content Include="Backend\Admin\RealEstateView.aspx" />
+    <Content Include="Backend\Admin\Settings\GeneralLinks.xml" />
+    <Content Include="Backend\Admin\Settings\RemoveSuspendedRealEstates.aspx" />
+    <Content Include="Backend\Admin\SubscriberReport.aspx" />
+    <Content Include="Backend\Admin\SuspenedRealEstateReport.aspx" />
+    <Content Include="Backend\Admin\Tags.aspx" />
+    <Content Include="Backend\Admin\UserControls\ucChangePassword.ascx" />
+    <Content Include="Backend\Admin\UserControls\ucHeader.ascx" />
+    <Content Include="Backend\Admin\ViewCompany.aspx" />
+    <Content Include="Backend\Admin\ViewMessage.aspx" />
+    <Content Include="Backend\Admin\ViewProject.aspx" />
+    <Content Include="Backend\Login.aspx" />
+    <Content Include="Backend\Admin\SearchKeywords.aspx" />
+    <Content Include="Backend\SubScriber\ActivateSubscription.aspx" />
+    <Content Include="Backend\SubScriber\addProperty.html" />
+    <Content Include="Backend\SubScriber\ChangeRealEstateSubscriber.aspx" />
+    <Content Include="Backend\SubScriber\CompanyMessages.aspx" />
+    <Content Include="Backend\SubScriber\CompanyPurchaseRequests.aspx" />
+    <Content Include="Backend\SubScriber\CompanyUserData.aspx" />
+    <Content Include="Backend\SubScriber\CompanyUserList.aspx" />
+    <Content Include="Backend\SubScriber\FavouriteRealEstates.aspx" />
+    <Content Include="Backend\SubScriber\MessageList.aspx" />
+    <Content Include="Backend\SubScriber\Notifications.aspx" />
+    <Content Include="Backend\SubScriber\ProjectData.aspx" />
+    <Content Include="Backend\SubScriber\ProjectList.aspx" />
+    <Content Include="Backend\SubScriber\PurchaseRequest.aspx" />
+    <Content Include="Backend\SubScriber\RealEstateComanyData.aspx" />
+    <Content Include="Backend\SubScriber\RealEstateList.aspx" />
+    <Content Include="Backend\SubScriber\RealEstatePage.aspx" />
+    <Content Include="Backend\SubScriber\SubscriberDashBoard.aspx" />
+    <Content Include="Backend\SubScriber\SubscriberProfile.aspx" />
+    <Content Include="Backend\SubScriber\UserControls\ucHeader.ascx" />
+    <Content Include="Backend\SubScriber\UserControls\ucNewMessage.ascx" />
+    <Content Include="Backend\SubScriber\UserControls\ucProjectModel.ascx" />
+    <Content Include="Backend\SubScriber\UserControls\ucProjectPhoto.ascx" />
+    <Content Include="Backend\SubScriber\UserControls\ucProjectRealestate.ascx" />
+    <Content Include="Backend\SubScriber\UserControls\ucProjectVedio.ascx" />
+    <Content Include="Backend\SubScriber\UserControls\ucRealEstatePhotos.ascx" />
+    <Content Include="Backend\SubScriber\ViewMessage.aspx" />
+    <Content Include="Backend\SubScriber\ViewRealEstate.aspx" />
+    <Content Include="CatalogDetails.aspx" />
+    <Content Include="CompaniesList.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="images\Frontend\loader.gif" />
+    <Content Include="images\Frontend\logoloader.png" />
+    <Content Include="CompanyDetails.aspx" />
+    <Content Include="Compare.aspx" />
+    <Content Include="Contactus.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\Activate.png" />
+    <Content Include="images\Add.png" />
+    <Content Include="images\addBefore.png" />
+    <Content Include="images\Additional.png" />
+    <Content Include="images\Address.png" />
+    <Content Include="images\ADS1.jpg" />
+    <Content Include="images\Ads\1140-100.jpg" />
+    <Content Include="images\Ads\277-273.jpg" />
+    <Content Include="images\Ads\310-306.jpg" />
+    <Content Include="images\All.png" />
+    <Content Include="images\arrowBtn.png" />
+    <Content Include="images\arrowBtnBold.png" />
+    <Content Include="images\arrowBtnOrang.png" />
+    <Content Include="images\backgrounds\1.jpg" />
+    <Content Include="images\backgrounds\2.jpg" />
+    <Content Include="images\backgrounds\3.jpg" />
+    <Content Include="images\banner.jpg" />
+    <Content Include="images\bg.jpg" />
+    <Content Include="images\bg1.jpg" />
+    <Content Include="images\bg2.jpg" />
+    <Content Include="images\bg3.jpg" />
+    <Content Include="images\bg_btn.png" />
+    <Content Include="images\Branch.png" />
+    <Content Include="images\Business.png" />
+    <Content Include="images\chosen-sprite%402x.png" />
+    <Content Include="images\chosen-sprite.png" />
+    <Content Include="images\closed.png" />
+    <Content Include="images\Contact.png" />
+    <Content Include="images\Default.png" />
+    <Content Include="images\DefaultImage.png" />
+    <Content Include="images\default_img.jpg" />
+    <Content Include="images\Delete.png" />
+    <Content Include="images\detail.png" />
+    <Content Include="images\downArrow.png" />
+    <Content Include="images\Edit.png" />
+    <Content Include="images\egyptF.png" />
+    <Content Include="images\Empty.png" />
+    <Content Include="images\Exist.png" />
+    <Content Include="images\fb.png" />
+    <Content Include="images\Frontend\3.jpg" />
+    <Content Include="images\Frontend\addAqar.png" />
+    <Content Include="images\Frontend\addBefore.png" />
+    <Content Include="images\Frontend\ADS1.jpg" />
+    <Content Include="images\Frontend\ajax-loader.gif" />
+    <Content Include="images\Frontend\arrowBtn.png" />
+    <Content Include="images\Frontend\arrowBtnBold.png" />
+    <Content Include="images\Frontend\arrowBtnBoldGray.png" />
+    <Content Include="images\Frontend\arrowBtnBoldGrayR.png" />
+    <Content Include="images\Frontend\arrowBtnBoldOrang.png" />
+    <Content Include="images\Frontend\arrowBtnBoldOrangR.png" />
+    <Content Include="images\Frontend\arrowBtnOrang.png" />
+    <Content Include="images\Frontend\banner.jpg" />
+    <Content Include="images\Frontend\banner2.jpg" />
+    <Content Include="images\Frontend\checked.png" />
+    <Content Include="images\Frontend\close.png" />
+    <Content Include="images\Frontend\compareXS.png" />
+    <Content Include="images\Frontend\compenyLog.png" />
+    <Content Include="images\Frontend\compImg.png" />
+    <Content Include="images\Frontend\compMenu.png" />
+    <Content Include="images\Frontend\delete.png" />
+    <Content Include="images\Frontend\downArrow.png" />
+    <Content Include="images\Frontend\downArrowOrang.png" />
+    <Content Include="images\Frontend\egyptF.png" />
+    <Content Include="images\Frontend\fav.png" />
+    <Content Include="images\Frontend\favWhite.png" />
+    <Content Include="images\Frontend\firstloader1.gif" />
+    <Content Include="images\Frontend\firstloading.gif" />
+    <Content Include="images\Frontend\img1.png" />
+    <Content Include="images\Frontend\img2.png" />
+    <Content Include="images\Frontend\loading2.gif" />
+    <Content Include="images\Frontend\logo.jpg" />
+    <Content Include="images\Frontend\logoSm.png" />
+    <Content Include="images\Frontend\menuO.png" />
+    <Content Include="images\Frontend\next.png" />
+    <Content Include="images\Frontend\offerRes.png" />
+    <Content Include="images\Frontend\offers.jpg" />
+    <Content Include="images\Frontend\popUpClose.png" />
+    <Content Include="images\Frontend\prev.png" />
+    <Content Include="images\Frontend\projectImg.png" />
+    <Content Include="images\Frontend\searchicon.png" />
+    <Content Include="images\Frontend\searchiconO.png" />
+    <Content Include="images\Frontend\signinBefore.png" />
+    <Content Include="images\Frontend\signOut.png" />
+    <Content Include="images\Frontend\signupBefore.png" />
+    <Content Include="images\Frontend\signupBeforeWhite.png" />
+    <Content Include="images\Frontend\smFB.png" />
+    <Content Include="images\Frontend\smFBHover.png" />
+    <Content Include="images\Frontend\smGoogle.png" />
+    <Content Include="images\Frontend\smGoogleHover.png" />
+    <Content Include="images\Frontend\smLink.png" />
+    <Content Include="images\Frontend\smLinkHover.png" />
+    <Content Include="images\Frontend\smTwitter.png" />
+    <Content Include="images\Frontend\smTwitterHover.png" />
+    <Content Include="images\Frontend\tabActiveRBG.png" />
+    <Content Include="images\Frontend\tabActiveRBGfill.png" />
+    <Content Include="images\Frontend\tabContentBoxRBG.png" />
+    <Content Include="images\Frontend\tabRBG.png" />
+    <Content Include="images\Frontend\tabRBGfill.png" />
+    <Content Include="images\Frontend\twoArrow.png" />
+    <Content Include="images\Frontend\twoArrowOpp.png" />
+    <Content Include="images\Frontend\twoArrowOppWhite.png" />
+    <Content Include="images\Frontend\twoArrowWhite.png" />
+    <Content Include="images\Frontend\unchecked.png" />
+    <Content Include="images\Frontend\video.png" />
+    <Content Include="images\Frontend\zoom.png" />
+    <Content Include="images\google.png" />
+    <Content Include="images\icons\AddNew.png" />
+    <Content Include="images\icons\Admin\Activate.png" />
+    <Content Include="images\icons\Admin\Banner.png" />
+    <Content Include="images\icons\Admin\Edit.png" />
+    <Content Include="images\icons\Admin\HomePage.png" />
+    <Content Include="images\icons\Admin\Normal.png" />
+    <Content Include="images\icons\Admin\removeOffer.png" />
+    <Content Include="images\icons\Admin\Offer.png" />
+    <Content Include="images\icons\Admin\Sold.png" />
+    <Content Include="images\icons\Admin\suspend.png" />
+    <Content Include="images\icons\approve.png" />
+    <Content Include="images\icons\backend\address.png" />
+    <Content Include="images\icons\backend\basic.png" />
+    <Content Include="images\icons\backend\calendar.png" />
+    <Content Include="images\icons\backend\check.png" />
+    <Content Include="images\icons\backend\extra.png" />
+    <Content Include="images\icons\backend\images.png" />
+    <Content Include="images\icons\backend\ProjectProps.png" />
+    <Content Include="images\icons\backend\ProjectRealestates.png" />
+    <Content Include="images\icons\backend\Vedio.png" />
+    <Content Include="images\icons\backend\view.png" />
+    <Content Include="images\icons\delete.png" />
+    <Content Include="images\icons\deny.png" />
+    <Content Include="images\icons\details\area.png" />
+    <Content Include="images\icons\details\case.png" />
+    <Content Include="images\icons\details\location.png" />
+    <Content Include="images\icons\details\payment.png" />
+    <Content Include="images\icons\details\price.png" />
+    <Content Include="images\icons\details\type.png" />
+    <Content Include="images\icons\edit.png" />
+    <Content Include="images\icons\facebook.png" />
+    <Content Include="images\icons\google.png" />
+    <Content Include="images\icons\homeSearch\advanced.png" />
+    <Content Include="images\icons\homeSearch\area.png" />
+    <Content Include="images\icons\homeSearch\bathroom.png" />
+    <Content Include="images\icons\homeSearch\bedroom.png" />
+    <Content Include="images\icons\homeSearch\location.png" />
+    <Content Include="images\icons\homeSearch\payment.png" />
+    <Content Include="images\icons\homeSearch\price.png" />
+    <Content Include="images\icons\homeSearch\type.png" />
+    <Content Include="images\icons\loading.png" />
+    <Content Include="images\icons\login.png" />
+    <Content Include="images\icons\masteryIT.png" />
+    <Content Include="images\icons\message.png" />
+    <Content Include="images\icons\register.png" />
+    <Content Include="images\icons\req.png" />
+    <Content Include="images\icons\searchMenu\advanced.png" />
+    <Content Include="images\icons\searchMenu\area.png" />
+    <Content Include="images\icons\searchMenu\location.png" />
+    <Content Include="images\icons\searchMenu\miniMenu.png" />
+    <Content Include="images\icons\searchMenu\payment.png" />
+    <Content Include="images\icons\searchMenu\price.png" />
+    <Content Include="images\icons\searchMenu\type.png" />
+    <Content Include="images\icons\sold.png" />
+    <Content Include="images\icons\specialOffer.png" />
+    <Content Include="images\icons\twitter.png" />
+    <Content Include="images\icons\view.png" />
+    <Content Include="images\img1.png" />
+    <Content Include="images\img2.png" />
+    <Content Include="images\Item.png" />
+    <Content Include="images\item_bg.jpg" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\loading_items.gif" />
+    <Content Include="images\Loginloader.gif" />
+    <Content Include="images\logo.jpg" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\mail.png" />
+    <Content Include="images\MainData.png" />
+    <Content Include="images\map.jpg" />
+    <Content Include="images\Map.png" />
+    <Content Include="images\MapHomeIcon.png" />
+    <Content Include="images\messages.png" />
+    <Content Include="images\new.png" />
+    <Content Include="images\newtab.gif" />
+    <Content Include="images\newtab.png" />
+    <Content Include="images\Offers.png" />
+    <Content Include="images\Offer_sale.png" />
+    <Content Include="images\PhotoGallery.png" />
+    <Content Include="images\Purchase.png" />
+    <Content Include="images\Question.png" />
+    <Content Include="images\Realestate.png" />
+    <Content Include="images\RealEstateSocial\Aqar-Stock-Sociallogo-1.png" />
+    <Content Include="images\RealEstateSocial\Aqar-Stock-Sociallogo-2.png" />
+    <Content Include="images\RealEstateSocial\Aqar-Stock-Sociallogo-3.png" />
+    <Content Include="images\RealEstateSocial\Aqar-Stock-Sociallogo-4.png" />
+    <Content Include="images\RealEstateSocial\Aqar-Stock-Sociallogo-5.png" />
+    <Content Include="images\RealEstateSocial\Aqar-Stock-Sociallogo-6.png" />
+    <Content Include="images\Review.png" />
+    <Content Include="images\sales.png" />
+    <Content Include="images\search.png" />
+    <Content Include="images\sep.png" />
+    <Content Include="images\shadow.png" />
+    <Content Include="images\slider_images\slider_pic1.jpg" />
+    <Content Include="images\slider_images\slider_pic2.jpg" />
+    <Content Include="images\sociallogo.png" />
+    <Content Include="images\sold.jpg" />
+    <Content Include="images\Sold.png" />
+    <Content Include="images\suspend.png" />
+    <Content Include="images\tabs_icons\about.jpg" />
+    <Content Include="images\tabs_icons\about.png" />
+    <Content Include="images\tabs_icons\companies.png" />
+    <Content Include="images\tabs_icons\jobs.png" />
+    <Content Include="images\tabs_icons\realestate.png" />
+    <Content Include="images\tabs_icons\sales.png" />
+    <Content Include="images\tabs_icons\search.png" />
+    <Content Include="images\tabs_icons\tabs_bg.png" />
+    <Content Include="images\tabs_icons\tools.png" />
+    <Content Include="images\tabs_icons\travel.png" />
+    <Content Include="images\temp\backgrounds\1.jpg" />
+    <Content Include="images\temp\backgrounds\2.jpg" />
+    <Content Include="images\temp\backgrounds\3.jpg" />
+    <Content Include="images\temp\icons\homeSearch\advanced.png" />
+    <Content Include="images\temp\icons\homeSearch\area.png" />
+    <Content Include="images\temp\icons\homeSearch\bathroom.png" />
+    <Content Include="images\temp\icons\homeSearch\bedroom.png" />
+    <Content Include="images\temp\icons\homeSearch\location.png" />
+    <Content Include="images\temp\icons\homeSearch\payment.png" />
+    <Content Include="images\temp\icons\homeSearch\price.png" />
+    <Content Include="images\temp\icons\homeSearch\type.png" />
+    <Content Include="images\temp\icons\loading.png" />
+    <Content Include="images\temp\icons\searchMenu\advanced.png" />
+    <Content Include="images\temp\icons\searchMenu\area.png" />
+    <Content Include="images\temp\icons\searchMenu\location.png" />
+    <Content Include="images\temp\icons\searchMenu\payment.png" />
+    <Content Include="images\temp\icons\searchMenu\price.png" />
+    <Content Include="images\temp\icons\searchMenu\type.png" />
+    <Content Include="images\temp\unit1.jpg" />
+    <Content Include="images\test.jpg" />
+    <Content Include="images\twitter.png" />
+    <Content Include="images\twoArrowSearch.png" />
+    <Content Include="images\View.png" />
+    <Content Include="images\ViewEmail.png" />
+    <Content Include="images\Watches-ar.gif" />
+    <Content Include="Initial\SiteMap.aspx" />
+    <Content Include="notFound.html" />
+    <Content Include="parts\Compare.htm" />
+    <Content Include="parts\Footer.htm" />
+    <Content Include="parts\Header.htm" />
+    <Content Include="parts\HeaderSearch.htm" />
+    <Content Include="parts\loading.html" />
+    <Content Include="parts\SideBar.htm" />
+    <Content Include="ProjectDetails.aspx" />
+    <Content Include="ProjectList.aspx" />
+    <Content Include="PropertyDetails.aspx" />
+    <Content Include="PropertyList.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="robots.txt" />
+    <Content Include="scripts\angular-animate.min.js" />
+    <Content Include="scripts\angular-meta.js" />
+    <Content Include="scripts\angular-resource.min.js" />
+    <Content Include="scripts\angular-route.min.js" />
+    <Content Include="scripts\angular-ui-router.js" />
+    <Content Include="scripts\angular-ui-router.min.js" />
+    <Content Include="scripts\angular.min.js" />
+    <Content Include="scripts\bootstrap-tooltip.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\BrokerServices.js" />
+    <Content Include="scripts\chosen.jquery.js" />
+    <Content Include="scripts\controllers.js" />
+    <Content Include="scripts\DetailController.js" />
+    <Content Include="scripts\directives.js" />
+    <Content Include="scripts\factories.js" />
+    <Content Include="scripts\flatui-checkbox.js" />
+    <Content Include="scripts\flatui-radio.js" />
+    <Content Include="scripts\FrontEndController.js" />
+    <Content Include="scripts\FrontEndDirective.js" />
+    <Content Include="scripts\html5shiv.js" />
+    <Content Include="scripts\jquery-1.11.0.min.js" />
+    <Content Include="scripts\jquery-1.7.2.min.js" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="scripts\jquery-1.9.1.js" />
+    <Content Include="scripts\jquery-1.9.1.min.js" />
+    <Content Include="scripts\jquery-2.1.0.min.js" />
+    <Content Include="scripts\jquery-ui.min.js" />
+    <Content Include="scripts\jquery.cycle2.min.js" />
+    <Content Include="scripts\jquery.localscroll-1.2.7-min.js" />
+    <Content Include="scripts\jquery.scrollTo-1.4.3.1-min.js" />
+    <Content Include="scripts\jquery.ui.slider-rtl.min.js" />
+    <Content Include="scripts\jquery.ui.touch-punch.min.js" />
+    <Content Include="scripts\npm.js" />
+    <Content Include="scripts\PartnerController.js" />
+    <Content Include="scripts\select.js" />
+    <Content Include="scripts\services.js" />
+    <Content Include="scripts\xml2json.js" />
+    <Content Include="Services\General.asmx" />
+    <Content Include="Services\GeneraLService.svc" />
+    <Content Include="Services\ProjectService.svc" />
+    <Content Include="Services\RealEstate.asmx" />
+    <Content Include="Global.asax" />
+    <Content Include="scripts\bootstrap-tabcollapse.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\Map.js" />
+    <Content Include="scripts\scripts.js" />
+    <Content Include="Services\RealEstateService.svc" />
+    <Content Include="styles\bootstrap-theme.css" />
+    <Content Include="styles\bootstrap-theme.min.css" />
+    <Content Include="styles\bootstrap.css" />
+    <Content Include="styles\bootstrap.min.css" />
+    <Content Include="styles\chosen.css" />
+    <Content Include="styles\cover.css" />
+    <Content Include="styles\CssStyle.css" />
+    <Content Include="styles\flat-ui.css" />
+    <Content Include="styles\font-awesome.min.css" />
+    <Content Include="styles\images\animated-overlay.gif" />
+    <Content Include="styles\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="styles\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="styles\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="styles\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="styles\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="styles\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="styles\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="styles\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="styles\images\ui-icons_222222_256x240.png" />
+    <Content Include="styles\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="styles\images\ui-icons_454545_256x240.png" />
+    <Content Include="styles\images\ui-icons_888888_256x240.png" />
+    <Content Include="styles\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="styles\imgloading.css" />
+    <Content Include="styles\jquery-ui.css" />
+    <Content Include="styles\jquery.fileupload.css" />
+    <Content Include="styles\jquery.ui.slider-rtl.css" />
+    <Content Include="styles\jqueryUIedit.css" />
+    <Content Include="styles\layout.css" />
+    <Content Include="styles\Main.css" />
+    <Content Include="styles\normalize.css" />
+    <Content Include="styles\response.css" />
+    <Content Include="styles\style.css" />
+    <Content Include="styles\styleSelect.css" />
+    <Content Include="Test.aspx" />
+    <Content Include="test.htm" />
+    <Content Include="TestEmailStyle.aspx" />
+    <Content Include="views\CatalogProperties.html" />
+    <Content Include="views\CompanyProjects.htm" />
+    <Content Include="views\CompanyProperties.htm" />
+    <Content Include="views\Complain.htm" />
+    <Content Include="views\ModelDetails.htm" />
+    <Content Include="views\OwnerData.htm" />
+    <Content Include="views\Project PhotoList.htm" />
+    <Content Include="views\ProjectModels.htm" />
+    <Content Include="views\ProjectPhotos.htm" />
+    <Content Include="views\ProjectProperties.htm" />
+    <Content Include="views\ProjectVideoList.htm" />
+    <Content Include="views\PropertyGallery.htm" />
+    <Content Include="views\Request.htm" />
+    <Content Include="views\SendMail.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="aboutus.aspx.cs">
+      <DependentUpon>aboutus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aboutus.aspx.designer.cs">
+      <DependentUpon>aboutus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\AdminDashBoard.aspx.cs">
+      <DependentUpon>AdminDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\AdminDashBoard.aspx.designer.cs">
+      <DependentUpon>AdminDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\Catalog.aspx.cs">
+      <DependentUpon>Catalog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\Catalog.aspx.designer.cs">
+      <DependentUpon>Catalog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\CatalogCategory.aspx.cs">
+      <DependentUpon>CatalogCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\CatalogCategory.aspx.designer.cs">
+      <DependentUpon>CatalogCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\CatalogList.aspx.cs">
+      <DependentUpon>CatalogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\CatalogList.aspx.designer.cs">
+      <DependentUpon>CatalogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\Cities.aspx.cs">
+      <DependentUpon>Cities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\Cities.aspx.designer.cs">
+      <DependentUpon>Cities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\CompanyList.aspx.cs">
+      <DependentUpon>CompanyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\CompanyList.aspx.designer.cs">
+      <DependentUpon>CompanyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\Complains.aspx.cs">
+      <DependentUpon>Complains.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\Complains.aspx.designer.cs">
+      <DependentUpon>Complains.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\Countries.aspx.cs">
+      <DependentUpon>Countries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\Countries.aspx.designer.cs">
+      <DependentUpon>Countries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\Currencies.aspx.cs">
+      <DependentUpon>Currencies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\Currencies.aspx.designer.cs">
+      <DependentUpon>Currencies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\Districts.aspx.cs">
+      <DependentUpon>Districts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\Districts.aspx.designer.cs">
+      <DependentUpon>Districts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\EditCompany.aspx.cs">
+      <DependentUpon>EditCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\EditCompany.aspx.designer.cs">
+      <DependentUpon>EditCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\EditProject.aspx.cs">
+      <DependentUpon>EditProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\EditProject.aspx.designer.cs">
+      <DependentUpon>EditProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\GenerateCatalog.aspx.cs">
+      <DependentUpon>GenerateCatalog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\GenerateCatalog.aspx.designer.cs">
+      <DependentUpon>GenerateCatalog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\Keywords.aspx.cs">
+      <DependentUpon>Keywords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\Keywords.aspx.designer.cs">
+      <DependentUpon>Keywords.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\MessagesList.aspx.cs">
+      <DependentUpon>MessagesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\MessagesList.aspx.designer.cs">
+      <DependentUpon>MessagesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\NotifyReqiestReport.aspx.cs">
+      <DependentUpon>NotifyReqiestReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\NotifyReqiestReport.aspx.designer.cs">
+      <DependentUpon>NotifyReqiestReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\ProjectList.aspx.cs">
+      <DependentUpon>ProjectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\ProjectList.aspx.designer.cs">
+      <DependentUpon>ProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\Settings\AdvertisementPage.aspx.cs">
+      <DependentUpon>AdvertisementPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\Settings\AdvertisementPage.aspx.designer.cs">
+      <DependentUpon>AdvertisementPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\Settings\ApplyImageProcessing.aspx.cs">
+      <DependentUpon>ApplyImageProcessing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\Settings\ApplyImageProcessing.aspx.designer.cs">
+      <DependentUpon>ApplyImageProcessing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\Settings\GenerateSiteMap.aspx.cs">
+      <DependentUpon>GenerateSiteMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\Settings\GenerateSiteMap.aspx.designer.cs">
+      <DependentUpon>GenerateSiteMap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\Settings\Migrate.aspx.cs">
+      <DependentUpon>Migrate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\Settings\Migrate.aspx.designer.cs">
+      <DependentUpon>Migrate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\PartnerList.aspx.cs">
+      <DependentUpon>PartnerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\PartnerList.aspx.designer.cs">
+      <DependentUpon>PartnerList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\PartnerPage.aspx.cs">
+      <DependentUpon>PartnerPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\PartnerPage.aspx.designer.cs">
+      <DependentUpon>PartnerPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\PurchaseRequestReport.aspx.cs">
+      <DependentUpon>PurchaseRequestReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\PurchaseRequestReport.aspx.designer.cs">
+      <DependentUpon>PurchaseRequestReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\RealEstateCategories.aspx.cs">
+      <DependentUpon>RealEstateCategories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\RealEstateCategories.aspx.designer.cs">
+      <DependentUpon>RealEstateCategories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\RealEstateEdit.aspx.cs">
+      <DependentUpon>RealEstateEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\RealEstateEdit.aspx.designer.cs">
+      <DependentUpon>RealEstateEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\RealEstateList.aspx.cs">
+      <DependentUpon>RealEstateList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\RealEstateList.aspx.designer.cs">
+      <DependentUpon>RealEstateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\RealEstateStatuses.aspx.cs">
+      <DependentUpon>RealEstateStatuses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\RealEstateStatuses.aspx.designer.cs">
+      <DependentUpon>RealEstateStatuses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\RealEstateTypeCriterias.aspx.cs">
+      <DependentUpon>RealEstateTypeCriterias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\RealEstateTypeCriterias.aspx.designer.cs">
+      <DependentUpon>RealEstateTypeCriterias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\RealEstateTypes.aspx.cs">
+      <DependentUpon>RealEstateTypes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\RealEstateTypes.aspx.designer.cs">
+      <DependentUpon>RealEstateTypes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\RealEstateView.aspx.cs">
+      <DependentUpon>RealEstateView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\RealEstateView.aspx.designer.cs">
+      <DependentUpon>RealEstateView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\Settings\RemoveSuspendedRealEstates.aspx.cs">
+      <DependentUpon>RemoveSuspendedRealEstates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\Settings\RemoveSuspendedRealEstates.aspx.designer.cs">
+      <DependentUpon>RemoveSuspendedRealEstates.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\SubscriberReport.aspx.cs">
+      <DependentUpon>SubscriberReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\SubscriberReport.aspx.designer.cs">
+      <DependentUpon>SubscriberReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\SuspenedRealEstateReport.aspx.cs">
+      <DependentUpon>SuspenedRealEstateReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\SuspenedRealEstateReport.aspx.designer.cs">
+      <DependentUpon>SuspenedRealEstateReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\Tags.aspx.cs">
+      <DependentUpon>Tags.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\Tags.aspx.designer.cs">
+      <DependentUpon>Tags.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\UserControls\ucChangePassword.ascx.cs">
+      <DependentUpon>ucChangePassword.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\UserControls\ucChangePassword.ascx.designer.cs">
+      <DependentUpon>ucChangePassword.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\UserControls\ucHeader.ascx.cs">
+      <DependentUpon>ucHeader.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\UserControls\ucHeader.ascx.designer.cs">
+      <DependentUpon>ucHeader.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\ViewCompany.aspx.cs">
+      <DependentUpon>ViewCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\ViewCompany.aspx.designer.cs">
+      <DependentUpon>ViewCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\ViewMessage.aspx.cs">
+      <DependentUpon>ViewMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\ViewMessage.aspx.designer.cs">
+      <DependentUpon>ViewMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\ViewProject.aspx.cs">
+      <DependentUpon>ViewProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\ViewProject.aspx.designer.cs">
+      <DependentUpon>ViewProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Admin\SearchKeywords.aspx.cs">
+      <DependentUpon>SearchKeywords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Admin\SearchKeywords.aspx.designer.cs">
+      <DependentUpon>SearchKeywords.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\ActivateSubscription.aspx.cs">
+      <DependentUpon>ActivateSubscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\ActivateSubscription.aspx.designer.cs">
+      <DependentUpon>ActivateSubscription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\ChangeRealEstateSubscriber.aspx.cs">
+      <DependentUpon>ChangeRealEstateSubscriber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\ChangeRealEstateSubscriber.aspx.designer.cs">
+      <DependentUpon>ChangeRealEstateSubscriber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\CompanyMessages.aspx.cs">
+      <DependentUpon>CompanyMessages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\CompanyMessages.aspx.designer.cs">
+      <DependentUpon>CompanyMessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\CompanyPurchaseRequests.aspx.cs">
+      <DependentUpon>CompanyPurchaseRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\CompanyPurchaseRequests.aspx.designer.cs">
+      <DependentUpon>CompanyPurchaseRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\CompanyUserData.aspx.cs">
+      <DependentUpon>CompanyUserData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\CompanyUserData.aspx.designer.cs">
+      <DependentUpon>CompanyUserData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\CompanyUserList.aspx.cs">
+      <DependentUpon>CompanyUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\CompanyUserList.aspx.designer.cs">
+      <DependentUpon>CompanyUserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\FavouriteRealEstates.aspx.cs">
+      <DependentUpon>FavouriteRealEstates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\FavouriteRealEstates.aspx.designer.cs">
+      <DependentUpon>FavouriteRealEstates.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\MessageList.aspx.cs">
+      <DependentUpon>MessageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\MessageList.aspx.designer.cs">
+      <DependentUpon>MessageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\Notifications.aspx.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\Notifications.aspx.designer.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\ProjectData.aspx.cs">
+      <DependentUpon>ProjectData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\ProjectData.aspx.designer.cs">
+      <DependentUpon>ProjectData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\ProjectList.aspx.cs">
+      <DependentUpon>ProjectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\ProjectList.aspx.designer.cs">
+      <DependentUpon>ProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\PurchaseRequest.aspx.cs">
+      <DependentUpon>PurchaseRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\PurchaseRequest.aspx.designer.cs">
+      <DependentUpon>PurchaseRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\RealEstateComanyData.aspx.cs">
+      <DependentUpon>RealEstateComanyData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\RealEstateComanyData.aspx.designer.cs">
+      <DependentUpon>RealEstateComanyData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\RealEstateList.aspx.cs">
+      <DependentUpon>RealEstateList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\RealEstateList.aspx.designer.cs">
+      <DependentUpon>RealEstateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\RealEstatePage.aspx.cs">
+      <DependentUpon>RealEstatePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\RealEstatePage.aspx.designer.cs">
+      <DependentUpon>RealEstatePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\SubscriberDashBoard.aspx.cs">
+      <DependentUpon>SubscriberDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\SubscriberDashBoard.aspx.designer.cs">
+      <DependentUpon>SubscriberDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\SubscriberMaster.Master.cs">
+      <DependentUpon>SubscriberMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\SubscriberMaster.Master.designer.cs">
+      <DependentUpon>SubscriberMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\SubscriberProfile.aspx.cs">
+      <DependentUpon>SubscriberProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\SubscriberProfile.aspx.designer.cs">
+      <DependentUpon>SubscriberProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\UserControls\ucHeader.ascx.cs">
+      <DependentUpon>ucHeader.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\UserControls\ucHeader.ascx.designer.cs">
+      <DependentUpon>ucHeader.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\UserControls\ucNewMessage.ascx.cs">
+      <DependentUpon>ucNewMessage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\UserControls\ucNewMessage.ascx.designer.cs">
+      <DependentUpon>ucNewMessage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\UserControls\ucProjectModel.ascx.cs">
+      <DependentUpon>ucProjectModel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\UserControls\ucProjectModel.ascx.designer.cs">
+      <DependentUpon>ucProjectModel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\UserControls\ucProjectPhoto.ascx.cs">
+      <DependentUpon>ucProjectPhoto.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\UserControls\ucProjectPhoto.ascx.designer.cs">
+      <DependentUpon>ucProjectPhoto.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\UserControls\ucProjectRealestate.ascx.cs">
+      <DependentUpon>ucProjectRealestate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\UserControls\ucProjectRealestate.ascx.designer.cs">
+      <DependentUpon>ucProjectRealestate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\UserControls\ucProjectVedio.ascx.cs">
+      <DependentUpon>ucProjectVedio.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\UserControls\ucProjectVedio.ascx.designer.cs">
+      <DependentUpon>ucProjectVedio.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\UserControls\ucRealEstatePhotos.ascx.cs">
+      <DependentUpon>ucRealEstatePhotos.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\UserControls\ucRealEstatePhotos.ascx.designer.cs">
+      <DependentUpon>ucRealEstatePhotos.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\ViewMessage.aspx.cs">
+      <DependentUpon>ViewMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\ViewMessage.aspx.designer.cs">
+      <DependentUpon>ViewMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\SubScriber\ViewRealEstate.aspx.cs">
+      <DependentUpon>ViewRealEstate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SubScriber\ViewRealEstate.aspx.designer.cs">
+      <DependentUpon>ViewRealEstate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogDetails.aspx.cs">
+      <DependentUpon>CatalogDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CatalogDetails.aspx.designer.cs">
+      <DependentUpon>CatalogDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompaniesList.aspx.cs">
+      <DependentUpon>CompaniesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompaniesList.aspx.designer.cs">
+      <DependentUpon>CompaniesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyDetails.aspx.cs">
+      <DependentUpon>CompanyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompanyDetails.aspx.designer.cs">
+      <DependentUpon>CompanyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compare.aspx.cs">
+      <DependentUpon>Compare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compare.aspx.designer.cs">
+      <DependentUpon>Compare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contactus.aspx.cs">
+      <DependentUpon>Contactus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contactus.aspx.designer.cs">
+      <DependentUpon>Contactus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Initial\SiteMap.aspx.cs">
+      <DependentUpon>SiteMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Initial\SiteMap.aspx.designer.cs">
+      <DependentUpon>SiteMap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MainMaster.Master.cs">
+      <DependentUpon>MainMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MainMaster.Master.designer.cs">
+      <DependentUpon>MainMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectDetails.aspx.cs">
+      <DependentUpon>ProjectDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectDetails.aspx.designer.cs">
+      <DependentUpon>ProjectDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectList.aspx.cs">
+      <DependentUpon>ProjectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProjectList.aspx.designer.cs">
+      <DependentUpon>ProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyDetails.aspx.cs">
+      <DependentUpon>PropertyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyDetails.aspx.designer.cs">
+      <DependentUpon>PropertyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyList.aspx.cs">
+      <DependentUpon>PropertyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PropertyList.aspx.designer.cs">
+      <DependentUpon>PropertyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\General.asmx.cs">
+      <DependentUpon>General.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\GeneraLService.svc.cs">
+      <DependentUpon>GeneraLService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\IGeneraLService.cs" />
+    <Compile Include="Services\IProjectService.cs" />
+    <Compile Include="Services\IRealEstateService.cs" />
+    <Compile Include="Services\ProjectService.svc.cs">
+      <DependentUpon>ProjectService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\RealEstate.asmx.cs">
+      <DependentUpon>RealEstate.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Services\RealEstateService.svc.cs">
+      <DependentUpon>RealEstateService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestEmailStyle.aspx.cs">
+      <DependentUpon>TestEmailStyle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestEmailStyle.aspx.designer.cs">
+      <DependentUpon>TestEmailStyle.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Static Pages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Backend\Admin\AdminMaster.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Backend\SubScriber\SubscriberMaster.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="views\loading.html" />
+    <Content Include="views\UserData.htm" />
+    <Content Include="views\ValidateContacts.htm" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fonts\flat-ui-icons-regular.eot" />
+    <None Include="fonts\flat-ui-icons-regular.svg" />
+    <None Include="fonts\flat-ui-icons-regular.ttf" />
+    <None Include="fonts\flat-ui-icons-regular.woff" />
+    <None Include="fonts\fontawesome-webfont.eot" />
+    <None Include="fonts\fontawesome-webfont.svg" />
+    <None Include="fonts\fontawesome-webfont.ttf" />
+    <None Include="fonts\fontawesome-webfont.woff" />
+    <None Include="fonts\FontAwesome.otf" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="fonts\lato\lato-black.eot" />
+    <None Include="fonts\lato\lato-black.svg" />
+    <None Include="fonts\lato\lato-black.ttf" />
+    <None Include="fonts\lato\lato-black.woff" />
+    <None Include="fonts\lato\lato-bold.eot" />
+    <None Include="fonts\lato\lato-bold.svg" />
+    <None Include="fonts\lato\lato-bold.ttf" />
+    <None Include="fonts\lato\lato-bold.woff" />
+    <None Include="fonts\lato\lato-bolditalic.eot" />
+    <None Include="fonts\lato\lato-bolditalic.svg" />
+    <None Include="fonts\lato\lato-bolditalic.ttf" />
+    <None Include="fonts\lato\lato-bolditalic.woff" />
+    <None Include="fonts\lato\lato-italic.eot" />
+    <None Include="fonts\lato\lato-italic.svg" />
+    <None Include="fonts\lato\lato-italic.ttf" />
+    <None Include="fonts\lato\lato-italic.woff" />
+    <None Include="fonts\lato\lato-light.eot" />
+    <None Include="fonts\lato\lato-light.svg" />
+    <None Include="fonts\lato\lato-light.ttf" />
+    <None Include="fonts\lato\lato-light.woff" />
+    <None Include="fonts\lato\lato-regular.eot" />
+    <None Include="fonts\lato\lato-regular.svg" />
+    <None Include="fonts\lato\lato-regular.ttf" />
+    <None Include="fonts\lato\lato-regular.woff" />
+    <None Include="images\Thumbs.db" />
+    <Content Include="MainMaster.Master" />
+    <None Include="Properties\PublishProfiles\Broker.pubxml" />
+    <Content Include="scripts\jquery-1.9.1.min.map" />
+    <None Include="styles\images\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FiElDaleelDLL\BrokerDLL.csproj">
+      <Project>{6ba14119-335e-4c70-b4b6-e28d99341788}</Project>
+      <Name>BrokerDLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>34935</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

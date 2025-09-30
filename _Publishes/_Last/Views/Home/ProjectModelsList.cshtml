@@ -1,0 +1,155 @@
+﻿@model BrokerMVC.Models.ViewModel.ModelListView
+@{
+    ViewBag.Title = ViewBag.Name+" - "+General.Models + "- " + General.PageTitle ;
+    Layout = "~/Views/Home/_Layout.cshtml";
+    var CompanyMessage = new BrokerMVC.Models.CompanyMessage();
+    CompanyMessage.ProjectID = Model.Project.ID;
+    CompanyMessage.CompanyID = Model.Project.CompanyID;
+}
+
+<div class="inner-banner">
+    <!-- banner start  -->
+    <span class="full-size-img" style="background:url(@Url.Content(Model.Project.DefaultPhotoURL)) no-repeat center center / cover"></span>
+    <!-- // banner end -->
+    <div itemscope itemtype="http://schema.org/WebPage" class="block-title">
+        <div class="container">
+            <h1 itemprop="name">@ViewBag.Name - @General.Models</h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <!-- Search form start  -->
+            <div id="divSearch"></div>
+            <!-- // Search form end -->
+        </div>
+        <div class="block">
+            <div id="divFirstAd">
+
+            </div>
+        </div>
+        <div class="col-md-8">
+            <!-- listing block start -->
+            <div class="block listing-wrapper" itemscope itemtype="http://schema.org/ItemList">
+
+                <!-- ads block start -->
+        
+                <!-- // ads block end -->
+                @foreach (var item in Model.Models)
+                {
+                    <div class="thumbnail no-border no-padding thumbnail-list" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <div class="col-sm-4">
+                            <div class="media">
+                                <a itemprop="url" class="media-link" href="~/@Menu.Projects.GetValue()/@ViewBag.ID/@Commons.EncodeText(ViewBag.Name)/Models/@item.ID">
+                                    <span itemprop="image" class="img-listing-background" style="background:url(@Url.Content(item.PlanImgURL)) no-repeat center center / contain"></span>
+                                    <span class="icon-view"><strong><i class="fa fa-arrows-alt"></i></strong></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="caption text-center">
+                                <h4 itemprop="name" class="caption-title">
+                                    <a href="~/@Menu.Projects.GetValue()/@ViewBag.ID/@Commons.EncodeText(ViewBag.Name)/Models/@item.ID">
+                                        @(Commons.Culture.Contains("ar") ? item.Title : item.EnTitle)
+                                    </a>
+                                </h4>
+                                <p itemprop="address" class="caption-text">
+                                    @(Commons.Culture.Contains("ar") ? item.RealEstateType.Title : item.RealEstateType.EnTitle)
+                                </p>
+                                <span itemprop="description" class="p-price">
+                                    @item.Price
+                                </span>
+                                <div class="buttons">
+                                    <a class="btn btn-theme" href="~/@Menu.Projects.GetValue()/@ViewBag.ID/@Commons.EncodeText(ViewBag.Name)/Models/@item.ID">
+                                        @General.More
+                                    </a>
+                                </div>
+                                @*<table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td onclick="AddToCompareList(@item.ID)"><i class="fa fa-balance-scale" aria-hidden="true"></i> قارن</td>
+                                            <td onclick="AddToFavourite(@item.ID)"><i class="fa fa-star-o" aria-hidden="true"></i></td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>*@
+                            </div>
+                        </div>
+                    </div>
+                }
+                <!-- ads block start -->
+       
+                <!-- // ads block end -->
+            </div>
+            <!-- // listing block end -->
+        </div>
+        <div class="col-md-4 owner-contact-mobile-size">
+            <div class="owner-contact-main">
+                <div class="owner-contact-wrapper">
+					<button class="btn contact-mass-wrapper-launch"><i class="fa fa-opencart"></i>@General.AdvertiserData</button>
+					<div class="owner-mass-wrapper">
+						@if (HttpContext.Current.User.Identity.IsAuthenticated)
+						{
+							@Html.Partial("Partial/CompanyData", Model.Project.RealEstateCompany)
+						}
+						else
+						{
+							@Html.Partial("Partial/LoginRequired")
+						}
+						<div id="divCompanyMessage">
+							@Html.Partial("Partial/CompanyMessage", CompanyMessage)
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+        <div class="block">
+            <div id="divSecondAd">
+
+            </div>
+        </div>
+        <!-- latest unit block start -->
+
+        <div id="divLatestAdded" class="Latest-Prop">
+
+        </div>
+        <!-- // latest unit block end -->
+
+    </div>
+</div>
+<input type="hidden" id="hdProjectID" value="@Model.Project.ID" />
+<input type="hidden" id="hdCompanyID" value="@Model.Project.CompanyID" />
+<input type="hidden" id="hdType" value="@InquiryType.CompanyMessage" />
+<div class="modal fade" id="myModalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div id="divLoginForm" class="modal-content">
+            @Html.Partial("Partial/LoginForm", new BrokerMVC.Models.LoginViewModel())
+
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        LoadPropertySearch("list");
+        LoadPageAds();
+    </script>
+}
+@section META{
+    <meta name="title" content="@(Commons.Culture.Contains("ar")?Model.Project.Title:Model.Project.EnTitle) - @General.Models - @General.PageTitle " />
+    <meta name="description" content="@General.SiteDescription" />
+    <meta name="keywords" content="عقارات, خريطة, جوجل إرث, فيلا, بيت, منزل, شقة, أرض, قصر, غرفة, للبيع, شراء, مطلوب, تأجير, الرياض, السعودية, دبي, أبو ظبي, الدوحة, مصر, القاهرة, اسكندرية, شقق للبيع,Real Estate, Map, Google Legacy, Villa, House, House, Apartment, Land, Palace, Room, Sale, Buy, Wanted, Rent, Riyadh, Saudi Arabia, Dubai, Abu Dhabi, Doha, Egypt, Cairo, Alexandria, Apartments for Sale" />
+    <meta name='twitter:card' content="summary" />
+    <meta name='twitter:title' content="@(Commons.Culture.Contains("ar")?Model.Project.Title:Model.Project.EnTitle) - @General.Models - @General.PageTitle" />
+    <meta name='twitter:url' content="@this.Request.Url" />
+    <meta name='twitter:description' content="@General.SiteDescription" />
+    <meta name='twitter:image' content="@Url.Content(Model.Project.DefaultPhotoURL)" />
+    <meta name='og:type' content="article" />
+    <meta name='og:title' content=" @(Commons.Culture.Contains("ar")?Model.Project.Title:Model.Project.EnTitle) - @General.Models - @General.PageTitle" />
+    <meta name="og:image" content="@Url.Content(Model.Project.DefaultPhotoURL)" />
+    <meta name='og:url' content="@this.Request.Url" />
+    <meta name='og:description' content="@General.SiteDescription" />
+}

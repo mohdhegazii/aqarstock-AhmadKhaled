@@ -1,0 +1,141 @@
+﻿@model PagedList.IPagedList<BrokerMVC.Models.RealEstate>
+@using PagedList.Mvc;
+@using ResourcesFiles;
+@{
+    //using re;
+    ViewBag.Title = General.SiteName + " - " + General.SuspendedRealestates;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+
+}
+@helper selected(string c, string culture)
+{
+if (c == culture)
+{
+        @:checked="checked"
+    }
+}
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-7 col-xs-8 pull-right">
+                <h2>
+                    <i class="fa fa-pause-circle"></i>
+                    @General.SuspendedRealestates
+                </h2>
+            </div>
+
+        </div>
+    </div>
+    <div class="panel panel-body">
+        @using (Html.BeginForm("GetSuspendedRealestates", "RealEstates", FormMethod.Get))
+        {
+            <div class="">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.Label(General.SuspendReason, htmlAttributes: new { @class = "control-label col-md-1 pull-right" })
+                        <div class="col-md-6 pull-right">
+                            @Html.DropDownList("ReasonId", null, General.Select, htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span class="control-label col-md-1 pull-right">@General.From</span>
+                        <div class="col-md-6 pull-right">
+                            @Html.TextBox("from", ViewBag.from as string, htmlAttributes: new { @class = "form-control", @type = "date" })
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <span class="control-label col-md-1 pull-right">@General.To</span>
+                        <div class="col-md-6 pull-right">
+                            @Html.TextBox("to", ViewBag.to as string, htmlAttributes: new { @class = "form-control", @type = "date" })
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-group-lg btn-success" value="@General.Search" />
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="row">
+            <table class="table table-responsive table-bordered table-striped table-hover">
+                <tr class="warning">
+                    <th class="text-center">
+                        @General.Title
+                    </th>
+                    <th class="text-center">
+                        @General.SuspendReason
+                    </th>
+                    <th class="text-center">
+                        @General.Date
+                    </th>
+                    <th class="text-center">@General.Edit</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <div data-toggle="collapse" data-target="#divrealestate-@item.ID" aria-expanded="false" aria-controls="divContact-@item.ID">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </div>
+                        </td>
+                        <td>
+                            <div data-toggle="collapse" data-target="#divrealestate-@item.ID" aria-expanded="false" aria-controls="divContact-@item.ID">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.SuspendData.SuspendReason)
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            @item.ChangeActiveStatus.Value.ToShortDateString()
+                        </td>
+                        <td class="text-center">
+                            <a href='@Url.Action("Edit","RealEstates", new { id = item.ID })' class="btn btn-small">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr id="divrealestate-@item.ID" class="collapse tr-colspan">
+
+
+                        <td colspan="1" class="td-colspan text-warning">
+                            <div class="col-md-12 pull-right">
+                                <i class="fa fa-map" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.Address)
+                                <br />
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.RealEstateType.Title) @Html.DisplayFor(modelItem => item.SaleType.Title) -
+                                @Html.DisplayFor(modelItem => item.Area) @General.Meter -
+                                @Html.DisplayFor(modelItem => item.Price) @Html.DisplayFor(modelItem => item.Currency.Name) -
+                                @Html.DisplayFor(modelItem => item.PaymentType.Title) - @Html.DisplayFor(modelItem => item.RealEstateStatu.Title)
+
+                            </div>
+                        </td>
+
+                        <td colspan="3" class="td-colspan text-warning">
+                            @Html.DisplayFor(modelItem => item.SuspendData.Message)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="row text-center">
+            <div class="Paging">
+
+                @Html.PagedListPager(Model, page => Url.Action("GetSuspendedRealestates",
+    new { page, ReasonId = ViewBag.ReasonId, from = ViewBag.from, to = ViewBag.to }), new PagedListRenderOptions { LiElementClasses = new List<string> { "Pageitem" } })
+            </div>
+        </div>
+
+    </div>
+</div>

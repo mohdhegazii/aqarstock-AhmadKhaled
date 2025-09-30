@@ -1,0 +1,23 @@
+﻿update PropertyFinderRealEstatesSchema
+set SaleType=2
+where category='Residential for Rent'
+
+update PropertyFinderRealEstatesSchema
+set SaleType=2
+where category='Commercial for Rent'
+
+update PropertyFinderRealEstatesSchema
+set SaleType=1
+where category='Residential for Sale'
+
+update PropertyFinderRealEstatesSchema
+set SaleType=1
+where category='Commercial for Sale'
+
+update PropertyFinderRealEstatesSchema
+set SaleType=3
+where category='Residential for SaleOrRent'
+
+update PropertyFinderRealEstatesSchema
+set SaleType=3
+where category='Commercial for SaleOrRent'

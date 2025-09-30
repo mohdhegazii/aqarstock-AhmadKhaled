@@ -1,0 +1,60 @@
+﻿@model BrokerMVC.Models.City
+@using Resources
+@{
+    ViewBag.Title = General.SiteName + " - " + General.Cities + " - " + General.Delete;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    string Msg = "test";//ViewBag.Message;
+}
+
+<h2>@General.Cities/@General.Delete</h2>
+
+<h3>@Messages.DeleteMsg</h3>
+
+<div>
+    @*<h4>City</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sort)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sort)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="@General.Delete" class="btn btn-default" /> |
+            @Html.ActionLink(General.BackToList, "Index")
+        </div>
+    }
+</div>

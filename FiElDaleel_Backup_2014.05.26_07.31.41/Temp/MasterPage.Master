@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="BrokerWeb.MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+        <meta charset="utf-8"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""/>
+    <link rel="stylesheet" href="styles/normalize.css"/>
+    <link rel="stylesheet" href="styles/chosen.css"/>
+    <link rel="stylesheet" href="styles/bootstrap.css"/>
+    <link rel="stylesheet" href="styles/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="styles/layout.css"/>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <!-- HEADER -->
+<header>
+    <div class="content">
+        <!-- NAV BAR -->
+        <nav class="navbar navbar-default menu" role="navigation">
+            <div class="container-fluid">
+                <img class="logo" src="images/logo.png" alt="logo" width="120"/>
+                <!-- SIGN IN -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/login" target="_blank">
+                        دخول
+                    </a>
+                    <a class="navbar-brand" href="/login" target="_blank">
+                        تسجيل
+                    </a>
+                </div>
+
+                <!-- LINKS -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right links">
+                        <li class="active"><a href="#">
+                            الرئيسية
+                        </a></li>
+                        <li><a href="#">
+                            الخريطة
+                        </a></li>
+                        <li><a href="#">
+                            أنشطة تجارية
+                        </a></li>
+                        <li><a href="#">
+                            عقارات
+                        </a></li>
+                        <li><a href="#">
+                            أدوات
+                        </a></li>
+                        <li><a href="#">
+                            عروض وتخفيضات
+                        </a></li>
+                   <%--     <li><a href="#">
+                            سفر و رحلات
+                        </a></li>
+                        <li><a href="#">
+                            وظائف خالية
+                        </a></li>--%>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+</header>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <!-- FOOTER -->
+<footer>
+    <div class="content">
+        <div class="mail">
+            <img src="images/mail.png" alt="mail"/>
+            info@fildaleel.com.au
+        </div>
+        <p>
+            Copyright © 2014 powered by MasteryIT
+        </p>
+    </div>
+</footer>
+    </form>
+    <script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="scripts/chosen.jquery.js"></script>
+<script type="text/javascript" src="scripts/bootstrap-tabcollapse.js"></script>
+<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+<!--<script type="text/javascript" src="scripts/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="scripts/jquery.localscroll-1.2.7-min.js"></script>-->
+<script type="text/javascript" src="scripts/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<a class="logo homeLogo" href="index.html"><img src="images/logo.png" /></a>
+<div class="homeSearch">
+    <span class="circle"></span>
+    <figure class="advancedSearch" ui-sref="units.advancedSearch"><img src="images/icons/homeSearch/advanced.png"><span>بحث مفصل</span></figure>
+    <circle-search-link the-class="price" the-icon="images/icons/homeSearch/price.png" the-label="بالسعر"></circle-search-link>
+    <circle-search-link the-class="location" the-icon="images/icons/homeSearch/location.png" the-label="بالمكان"></circle-search-link>
+    <circle-search-link the-class="payment" the-icon="images/icons/homeSearch/payment.png" the-label="بالنظام"></circle-search-link>
+    <circle-search-link the-class="type" the-icon="images/icons/homeSearch/type.png" the-label="بالنوع"></circle-search-link>
+    <circle-search-link the-class="area" the-icon="images/icons/homeSearch/area.png" the-label="بالمساحة"></circle-search-link>
+</div>
+
+
+<nav class="homeMenu">
+    <p>
+        <a ng-click="GoHome()">الرئيسية</a> |
+        <a ui-sref="units.about">تعرف على عقار ستوك</a> |
+        <a ng-click="SearchByCategory(1,'وحدات سكنية')">وحدات سكنية</a> |
+        <a ng-click="SearchByCategory(2,'وحدات تجارية')">وحدات تجارية</a> |
+        <a ng-click="SearchByCategory(3,'اراضى')">اراضى</a> |
+        <a ng-click="SearchByNew()" class="hideRes">أخر الوحدات المضافة</a> |
+        <a ng-click="ContactUs()">اتصل بنا</a></p>
+</nav>
+<div class="reg">
+    <a href="/login">دخول</a>
+    <a href="/Register">تسجيل</a>
+</div>

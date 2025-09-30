@@ -1,0 +1,312 @@
+﻿@model BrokerMVC.Models.ViewModel.BasicData
+
+@{
+    ViewBag.Title = General.SiteName + " - " + Model.Name + " - " + General.Edit;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@helper selected(string c, string culture)
+{
+if (c == culture)
+{
+        @:checked="checked"
+    }
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-lg-1 col-xs-4 pull-right">
+                <img class="img-responsive img-thumbnail logo" src="~/@Model.Logo.Replace("~/","")" />
+
+            </div>
+            <div class="col-md-7 col-xs-8 pull-right">
+                <h2>@Model.Name</h2>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <div class="btn-group btn-group-status btn-group pull-right">
+                    @if (Security.IsUserInRole(BrokerMVC.Roles.Admin))
+                    {
+                        <a href='@Url.Action("Index")' data-toggle="tooltip" data-placement="bottom" title="@General.BackToList" data-original-title="@General.BackToList" class="btn btn-group-sm btn-success">
+                            <strong> <i class="fa fa-arrow-circle-left fa-2x"></i></strong>
+                        </a>
+
+                        <button type="button" onclick="SuspendCompany(@Model.ID)" data-target="#divModal" data-toggle="modal" class="btn btn-group-sm btn-success">
+                            <div data-toggle="tooltip" data-placement="bottom" title="@General.Suspend" data-original-title="@General.Suspend">
+                                <strong> <i class="fa fa-pause-circle fa-2x"></i></strong>
+                            </div>
+                        </button>
+
+                        <a href='@Url.Action("Activate", new { id=Model.ID})' data-toggle="tooltip" data-placement="bottom" title="@General.Activate" data-original-title="@General.Activate" class="btn btn-group-sm btn-success">
+                            <strong> <i class="fa fa-play-circle fa-2x"></i></strong>
+                        </a>
+                        if (Model.IsSpecial == true)
+                        {
+                            <a href='@Url.Action("SetSpecial", new { id=Model.ID,status=!Model.IsSpecial})' data-toggle="tooltip" data-placement="bottom" title="@General.Normal" data-original-title="@General.Normal" class="btn btn-group-sm btn-success">
+                                <span class="fa-stack">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-star fa-stack-1x text-success"></i>
+                                    <i class="fa fa-ban fa-stack-2x"></i>
+                                </span>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href='@Url.Action("SetSpecial", new { id=Model.ID,status=!Model.IsSpecial})' data-toggle="tooltip" data-placement="bottom" title="@General.Special" data-original-title="@General.Special" class="btn btn-group-sm btn-success">
+                                <span class="fa-stack">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-star fa-stack-1x text-success"></i>
+                                </span>
+                            </a>
+                        }
+                    }
+                    else
+                    {
+                        @*<a href='@Url.Action("Index", "UserDashBoard")' data-toggle="tooltip" data-placement="bottom" title="@General.DashBoard" data-original-title="@General.DashBoard" class="btn btn-group-sm btn-Dashboard">
+                            <span class="fa-stack">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-dashboard fa-stack-1x Dashboard-icon"></i>
+                            </span>
+                        </a>*@
+
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-body">
+        @if (Model.SuspendData != null)
+        {
+            @Html.Partial("_SuspendMessage", Model.SuspendData)
+        }
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <div class="panel-title" role="button" data-toggle="collapse" href="#dicBasicData" aria-expanded="false" aria-controls="dicBasicData">
+                            <h4>
+                                <i class="fa fa-angle-down"></i>
+                                <i class="fa fa-address-card"></i>
+                                @General.BasicData
+                            </h4>
+                        </div>
+                    </div>
+                    <div id="dicBasicData" class="panel panel-body collapse in">
+                        @using (Html.BeginForm("Edit", "RealEstateCompanies", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.ID)
+                                @Html.HiddenFor(model => model.Logo)
+                                @Html.HiddenFor(model => model.Address)
+                                @Html.HiddenFor(model => model.Longutide)
+                                @Html.HiddenFor(model => model.Latitude)
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                    <div class="col-md-9">
+                                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.EnName, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                    <div class="col-md-9">
+                                        @Html.EditorFor(model => model.EnName, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.EnName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                    <div class="col-md-9">
+                                        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                    <div class="col-md-9">
+                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.LogoFile, General.Icon, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(model => model.LogoFile, new { type = "file", @class = "form-control" })
+                                        @*<small class="help-block text-warning"><i class="fa fa-info-circle"></i> @Messages.LogoToolTip</small>*@
+                                        @Html.ValidationMessageFor(model => model.LogoFile, "", new { @class = "text-danger" })
+                                        <img src='~/@Model.Logo.Replace("~/","")' alt="@Model.Name" class="img-responsive img-thumbnail form-img" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                    <div class="col-md-9">
+                                        @Html.EditorFor(model => model.Summary, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.EnSummary, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                    <div class="col-md-9">
+                                        @Html.EditorFor(model => model.EnSummary, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.EnSummary, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                    <div class="col-md-9">
+                                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.EnDescription, htmlAttributes: new { @class = "control-label col-md-3 pull-right" })
+                                    <div class="col-md-9">
+                                        @Html.EditorFor(model => model.EnDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.EnDescription, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-9">
+                                        <input type="submit" value="@General.Save" class="btn btn-success btn-lg btn-block" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="col-md-12 ">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="panel-title" role="button" data-toggle="collapse" href="#divAddress" aria-expanded="false" aria-controls="divAddress">
+                                <h4 class="col-md-10 pull-right">
+                                    <i class="fa fa-angle-down"></i>
+                                    <i class="fa fa-map"></i>
+                                    @General.Map
+                                </h4>
+
+                            </div>
+                            <a class=" btn btn-sm btn-warning" href="@Url.Action("EditAddress",new{id=Model.ID })">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </div>
+                        <div id="divAddress" class="panel panel-body collapse in">
+                            <div class="row">
+                                <div class="col-md-2 pull-right">
+                                    <label> @General.Address</label>
+                                </div>
+                                <div class="col-md-10">
+                                    @Model.Address
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="divMap" class="map-sm">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 ">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="panel-title paneltitle col-md-8 pull-right" role="button" data-toggle="collapse" href="#divUsers" aria-expanded="false" aria-controls="divUsers">
+                                <h4 class="col-md-12 pull-right">
+                                    <i class="fa fa-angle-down"></i>
+                                    <i class="fa fa-users"></i>
+                                    @General.Users
+                                </h4>
+
+                            </div>
+                            <a class=" btn btn-sm btn-warning" rel="@General.Add" href="@Url.Action("AddNewUser",new{id=Model.ID})">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                            @if (Security.IsUserInRole(BrokerMVC.Roles.Admin))
+                            {
+                            <button type="button" class=" btn btn-sm btn-warning" onclick="EditCompanyUserNo(@Model.ID)" data-target="#divModal" data-toggle="modal">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                            }
+                        </div>
+                        <div id="divUsers" class="panel panel-body collapse in">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12 ">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="panel-title" role="button" data-toggle="collapse" href="#divProjects" aria-expanded="false" aria-controls="divProjects">
+                                <h4 class="col-md-10 pull-right">
+                                    <i class="fa fa-angle-down"></i>
+                                    <i class="fa fa-industry"></i>
+                                    @General.ProjectList
+                                </h4>
+
+                            </div>
+                            @if (Security.IsUserInRole(BrokerMVC.Roles.Admin))
+                            {
+                                <button type="button" class=" btn btn-sm btn-warning" onclick="EditCompanyProjectNo(@Model.ID)" data-target="#divModal" data-toggle="modal">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            }
+                            else
+                            {
+                                <a class=" btn btn-sm btn-warning" rel="@General.Add" href="@Url.Action("Create","RealEstateProjects")">
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                            }
+                        </div>
+                        <div id="divProjects" class="panel panel-body collapse in">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="divModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            @*<div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>*@
+            <div id="divModalContent" class="modal-body">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render(AppSettingKeysVariables.GoogleMapsKey)
+    @Scripts.Render("~/Scripts/js/Map.js")
+    <script>
+        initMap();
+        LoadCompanyUsers(@Model.ID);
+        LoadCompanyProjects(@Model.ID);
+        if('@Model.Latitude'!=null && '@Model.Longutide'!=null)
+        {
+            SetLocationWithoutListener('@Model.Latitude', '@Model.Longutide');
+        }
+        else
+        {
+            ShowAddress('@Model.Address');
+        }
+
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+    </script>
+}

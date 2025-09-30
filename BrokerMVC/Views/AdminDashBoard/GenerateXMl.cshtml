@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = General.SiteName;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2><i class="fa fa-tv fa-fw"></i>Generate</h2>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+
+            @*<i class="fa fa-plus-square fa-fw"></i>
+                @Html.ActionLink(General.CreateNew, "Create")*@
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <a href="@Url.Action("GenerateProjectFeedItems")" class="btn btn-Large btn-info">Generate Project Feed Items</a>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("GenerateRealestateFeedItems")" class="btn btn-Large btn-warning">Generate Realestate Feed Items</a>
+            </div>
+        </div>
+
+    </div>
+</div>

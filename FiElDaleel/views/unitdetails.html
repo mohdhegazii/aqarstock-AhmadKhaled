@@ -1,0 +1,47 @@
+﻿<div class="property">
+
+    <div class="propertyHalf">
+        <div class="propertyTitle">
+            <h1>{{realestate.Name}} <span class="propertyType">{{realestate.Type}}</span> <span class="saleType">{{realestate.SaleType}}</span></h1>
+        </div>
+        
+        <div class="propertyDesc">
+            <p>
+            {{realestate.Description}}
+            </p>
+        </div>
+
+        <div class="propertyDesc propertyDetails">
+            <p><span>العنوان: </span><span>{{realestate.Address}}</span></p>
+            <p><span>المساحة: </span><span>{{realestate.Area}}  م²</span></p>
+            <p><span>الحالة: </span><span>{{realestate.Status}}</span></p>
+            <p><span>السعر: </span><span>{{realestate.Price}} {{realestate.Currency}}</span></p>
+            <p><span>طريقة السداد: </span><span>{{realestate.PaymentType}}</span></p>
+             <p ng-repeat="realestateCriteria in Criterias"><span>{{realestateCriteria.Name}}: </span>
+             <span ng-show="realestateCriteria.Value == 'true'">متوفر</span>
+              <span ng-show="realestateCriteria.Value != 'true'">{{realestateCriteria.Value}}</span>
+             </p>
+            
+        </div>
+        <div class="propertyImage">
+            <img src="www.aqarstock.com/{{realestate.Logo}}">
+        </div>
+        <div class="propertyLinks">
+            <a ng-click="ShowPhotos(realestate.ID)">معرض الصور</a>
+            <a ng-click="ShowComplainForm(realestate.ID)">تقدم بشكوى</a>
+            <a ng-click="ShowRequestForm(realestate.ID)">طلب {{SaleType}}</a>
+            <a href back-button>رجوع</a>
+        </div>
+    </div>
+    <div class="propertyHalf">
+        
+    <map />
+     <!--   <div id="MyMap" class="map">-->
+    <!--    <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDFVt9cIFtqLuOizgH-N0kbyYCiys-DmEQ &q=31.2547189335695,30.0007438659668 ">
+</iframe>-->
+        <!--    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d55291.32281224635!2d31.294066000000004!3d29.98783!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1404960400138" width="100%" height="100%" frameborder="0" style="border:0"></iframe>-->
+       <!-- </div>-->
+    </div>
+
+</div>
+

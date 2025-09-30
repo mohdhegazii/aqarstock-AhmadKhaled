@@ -1,0 +1,95 @@
+﻿@model BrokerMVC.Models.NotifyService
+@using (Html.BeginForm("NotifyService", "home", FormMethod.Post,htmlAttributes:new { @id="NotifyForm"}))
+{
+    @Html.AntiForgeryToken()
+    <div class="tell-me-service">
+        <div class="tell-me-service-header">
+            <div class="container">
+                <div class="col-sm-12">
+                    <h2>@Messages.NotifyTitle</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="tell-me-service-search">
+            <div class="container">
+                <form class="">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="iputUnitType3">@General.RealestateType<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                            @Html.DropDownList("RealEstateTypeID", null, General.Select, htmlAttributes: new { @class = "form-control form-select selectpicker" })
+
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="inputCountry3">@General.CountryName<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                            @Html.DropDownList("CountryID", null, General.Select, htmlAttributes: new {@id="ddlNotifyCountry", @class = "form-control form-select selectpicker", @onchange = "GetCities('ddlNotifyCountry','ddlNotifyCity','ddlNotifyDistrict','" + General.Select+"')" })
+
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="inputGovernorate3">@General.CityName<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                            @Html.DropDownList("CityID", null,General.Select, htmlAttributes: new {@id= "ddlNotifyCity", @class = "form -control form-select selectpicker" , @onchange = "GetDistricts('ddlNotifyCity','ddlNotifyDistrict','" + General.Select + "')" })
+                        
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="inputDistrict3">@General.District<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                       @Html.DropDownList("DistrictID", null, General.Select, htmlAttributes: new { @id = "ddlNotifyDistrict", @class = "form -control form-select selectpicker" })
+                    
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="inputSystem3">@General.SaleType<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                            @Html.DropDownList("SaleTypeID", null, General.Select, htmlAttributes: new { @class = "form-control form-select selectpicker" })
+
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="inputPrice3">@General.Price<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                            @Html.DropDownList("Price", null, General.Select, htmlAttributes: new { @class = "form-control form-select selectpicker" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="inputArea3">@General.Area<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                            @Html.DropDownList("Area", null, General.Select, htmlAttributes: new { @class = "form-control form-select selectpicker" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <h3>@Messages.AddUserDataMsg <i class="fa fa-angle-double-left" aria-hidden="true"></i></h3>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = General.FullName } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", placeholder = General.Phone } })
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = General.Email } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <button id="btnNotify" type="submit" class="btn btn-send">@General.Send <i class="fa fa fa-paper-plane-o" aria-hidden="true"></i></button>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+}

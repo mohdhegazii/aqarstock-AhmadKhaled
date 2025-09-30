@@ -1,0 +1,107 @@
+﻿@model PagedList.IPagedList<BrokerMVC.Models.RealEstateComplain>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = General.SiteName + " - " + General.Complains;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2><i class="fa fa-file-text-o fa-fw"></i>@General.Complains</h2>
+            </div>
+            @*<div class="btn-group pull-left">
+                    <a href='@Url.Action("Index", "UserDashBoard")' data-toggle="tooltip" data-placement="bottom" title="@General.DashBoard" data-original-title="@General.DashBoard" class="btn btn-group-sm btn-Dashboard">
+                        <span class="fa-stack">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-dashboard fa-stack-1x Dashboard-icon"></i>
+                        </span>
+                    </a>
+                </div>*@
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <table class="table table-responsive table-bordered table-striped table-hover">
+                <tr class="warning">
+                    <th class="text-center">
+                       @General.RealEstate
+                    </th>
+                    <th class="text-center">
+                        @General.ComplainTitle
+                    </th>
+                    <th class="text-center">
+                        @General.New
+                    </th>
+                    <th class="text-center">
+                        @General.Date
+                    </th>
+                
+
+                    <th class="text-center">@General.View</th>
+                    <th class="text-center">@General.Delete</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <div data-toggle="collapse" data-target="#divrealestate-@item.ID" aria-expanded="false" aria-controls="divContact-@item.ID">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.RealEstate.Title)
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            @item.ComplainTitle
+                            </td>
+<td class="text-center">
+                            @if (item.IsRead == false)
+                            {
+                                <i class="fa fa-eye-slash text-danger"></i>
+                            }
+                        </td>
+                        <td class="text-center">
+                            @item.CreatedDate.Value.ToShortDateString()
+                        </td>
+
+                        <td class="text-center">
+                            <a href="javascript(void)" onclick="ViewComplain(@item.ID)" data-target="#divModal" data-toggle="modal" class="btn btn-sm btn-small">
+                                <i class="fa fa-folder-open"></i>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href='@Url.Action("delete", new { id = item.ID })' class="btn btn-small Deleteconfirm">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="divrealestate-@item.ID" class="collapse tr-colspan">
+                        <td colspan="5" class="td-colspan text-warning">
+                            <div class="col-md-12 pull-right">
+                                <i class="fa fa-map" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.RealEstate.Address)
+                                <br />
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.RealEstate.RealEstateType.Title) @Html.DisplayFor(modelItem => item.RealEstate.SaleType.Title) -
+                                @Html.DisplayFor(modelItem => item.RealEstate.Area) @General.Meter -
+                                @Html.DisplayFor(modelItem => item.RealEstate.Price) @Html.DisplayFor(modelItem => item.RealEstate.Currency.Name)
+                                @*<br />*@
+                                @Html.DisplayFor(modelItem => item.RealEstate.PaymentType.Title) - @Html.DisplayFor(modelItem => item.RealEstate.RealEstateStatu.Title)
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div class="row text-center">
+            <div class="Paging">
+                @*صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) من @Model.PageCount*@
+
+                @Html.PagedListPager(Model, page => Url.Action("Index",
+new { page }), new PagedListRenderOptions { LiElementClasses = new List<string> { "Pageitem" } })
+            </div>
+        </div>
+    </div>
+    </div>

@@ -1,0 +1,91 @@
+﻿@model BrokerMVC.Models.Subscriber
+
+@{
+    ViewBag.Title = General.SiteName + " - " + ViewBag.CompanyName + " - " + General.Add + " " + General.User;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-lg-1 col-xs-4 pull-right">
+                <img class="img-responsive img-thumbnail logo" src="~/@ViewBag.CompanyLogo.Replace("~/","")" />
+
+            </div>
+            <div class="col-md-7 col-xs-8 pull-right">
+                <h2>@ViewBag.CompanyName / @General.Add - @General.User</h2>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <div class="btn-group btn-group-status pull-left">
+                    <a href='@Url.Action("Edit",new{id=Model.CompanyID })' data-toggle="tooltip" data-placement="bottom" title="@General.Back" data-original-title="@General.Back" class="btn btn-group-sm btn-back">
+                        <strong> <i class="fa fa-arrow-circle-left fa-2x"></i></strong>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-body">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.CompanyID)
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2  pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EnFullName, htmlAttributes: new { @class = "control-label col-md-2  pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EnFullName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EnFullName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MobileNo, htmlAttributes: new { @class = "control-label col-md-2  pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2  pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserName,General.UserName, htmlAttributes: new { @class = "control-label col-md-2  pull-right" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsCompanyAdmin,General.CompanyAdmin, htmlAttributes: new { @class = "control-label col-md-2  pull-right" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBox("IsCompanyAdmin", Model.IsCompanyAdmin.GetValueOrDefault())
+                            @Html.ValidationMessageFor(model => model.IsCompanyAdmin, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="@General.Add" class="btn btn-success btn-group-lg" />
+                    </div>
+                </div>
+            </div>
+        }
+</div>
+    </div>

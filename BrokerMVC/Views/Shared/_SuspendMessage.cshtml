@@ -1,0 +1,12 @@
+﻿@model BrokerMVC.Models.ViewModel.Suspend
+<div class="col-md-12">
+    <div class="alert alert-danger">
+        <div data-toggle="collapse" href="#divSuspendMsg" aria-expanded="false" aria-controls="divSuspendMsg">
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            @Messages.SuspendMsg <strong>@Model.SuspendReason</strong>
+        </div>
+        <div id="divSuspendMsg" class="collapse in">
+            <span class="">@Model.Message</span>
+        </div>
+    </div>
+</div>

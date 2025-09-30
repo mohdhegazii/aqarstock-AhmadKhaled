@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstate>
+
+@if(Model.Count()>0)
+{ 
+<!-- comparesion start -->
+<div class="comparesion-list">
+    <button class="btn call-comparesion-list">@General.CompareList<i class="fa fa-list" aria-hidden="true"></i></button>
+    <div class="comparesion-block">
+        <div class="col-sm-12">
+            <hr>
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="comparesion-block">
+            <div class="col-sm-3">
+                <button onclick="RemoveFromCompareList(@item.ID)" class="delete-comparesion"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                <a class="details-info-hover" href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">
+                    <span class="hover-img"><i class="fa fa-arrows-alt" aria-hidden="true"></i></span>
+                    <img src="@Url.Content(item.DefaultImage.PhotoName)" alt="@item.Title - @item.EnTitle" class="compaersion-img">
+                </a>
+            </div>
+            <div class="col-sm-9">
+                <p>@(Commons.Culture.Contains("ar") ? item.RealEstateType.Title : item.RealEstateType.EnTitle)  @item.Area @General.Meter</p>
+            </div>
+            <div class="col-sm-12">
+                <hr>
+            </div>
+        </div>
+
+    }
+    @*
+        <div class="comparesion-block">
+            <div class="col-sm-3">
+                <button class="delete-comparesion"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                <a class="details-info-hover" href="project-unit-details.html">
+                    <span class="hover-img"><i class="fa fa-arrows-alt" aria-hidden="true"></i></span>
+                    <img src="_ui/img/media/challet-02.jpg" class="compaersion-img" alt="">
+                </a>
+            </div>
+            <div class="col-sm-9">
+                <p>شقة 135 م - مدينة نصر, القاهرة</p>
+            </div>
+            <div class="col-sm-12">
+                <hr>
+            </div>
+        </div>*@
+    <div class="comparesion-block">
+        <div class="col-sm-12">
+            <a href="/@Menu.CompareList.GetValue()/List" class="btn btn-02">@General.Compare<i class="fa fa-balance-scale" aria-hidden="true"></i></a>
+        </div>
+    </div>
+</div>
+<!-- // comparesion end -->
+}

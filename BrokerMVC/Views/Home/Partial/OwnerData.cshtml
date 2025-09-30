@@ -1,0 +1,21 @@
+﻿@model BrokerMVC.Models.RealEstate
+    @{ 
+        var Email = Model.UseContactInfo == false ? Model.Owner.Email : Model.Subscriber.Email;
+        var Phone = Model.UseContactInfo == false ? Model.Owner.Phone : Model.Subscriber.MobileNo;
+    }
+<div class="owner-contact-header">
+    <h1>
+        <a href="#">
+            <i class="fa fa-bell"></i>
+            @General.Advertiser @(Model.UseContactInfo==false?Model.Owner.Name:Model.Subscriber.FullName)
+        </a>
+    </h1>
+</div>
+<div class="owner-contact-price">
+    <h1><i class="fa fa-gift"></i>@Model.Price  @(Commons.Culture.Contains("ar") ? Model.Currency.Name : Model.Currency.EnName) </h1>
+</div>
+
+<div class="owner-contact-phone">
+    <h1><a href="mailto:@Email"><i class="fa fa fa-envelope"></i> @Email</a></h1>
+    <h1><a href="tel:@Phone"><i class="fa fa fa-volume-control-phone"></i> @Phone</a></h1>
+</div>

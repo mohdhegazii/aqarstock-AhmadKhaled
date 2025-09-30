@@ -1,0 +1,122 @@
+﻿@model PagedList.IPagedList<BrokerMVC.Models.CompanyMessage>
+
+@using PagedList.Mvc;
+@using ResourcesFiles;
+@{
+    //using re;
+    ViewBag.Title = General.SiteName + " - " + General.CustomerInquiries;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+
+}
+@helper selected(string c, string culture)
+{
+if (c == culture)
+{
+        @:checked="checked"
+    }
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2><i class="fa fa-question-circle fa-fw"></i>@General.CustomerInquiries</h2>
+            </div>
+            @*<div class="btn-group pull-left">
+                    <a href='@Url.Action("Index", "UserDashBoard")' data-toggle="tooltip" data-placement="bottom" title="@General.DashBoard" data-original-title="@General.DashBoard" class="btn btn-group-sm btn-Dashboard">
+                        <span class="fa-stack">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-dashboard fa-stack-1x Dashboard-icon"></i>
+                        </span>
+                    </a>
+                </div>*@
+        </div>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Index", "CompanyMessages", FormMethod.Get))
+        {
+            <div class="">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <span class="control-label col-md-1 pull-right">@General.ProjectName</span>
+                        <div class="col-md-11">
+                            @Html.DropDownList("ProjectID", null, General.Select, htmlAttributes: new { @class = "form-control" })
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-group-lg btn-success" value="@General.Search" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="row">
+            <table class="table table-responsive table-bordered table-striped table-hover">
+                <tr class="warning">
+                    <th class="text-center">
+                        @General.FullName
+                    </th>
+                    <th class="text-center">
+                        @Html.ActionLink(General.New, "Index", new { sortOrder = ViewBag.NewSortParm, currentFilter = ViewBag.CurrentFilter, ProjectID = ViewBag.CurrentFilter })
+                    </th>
+                    <th class="text-center">
+                        @Html.ActionLink(General.ProjectName, "Index", new { sortOrder = ViewBag.ProjectSortParm, currentFilter = ViewBag.CurrentFilter, ProjectID = ViewBag.CurrentFilter })
+                    </th>
+                    <th class="text-center">
+                        @Html.ActionLink(General.Date, "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter, ProjectID = ViewBag.CurrentFilter })
+                    </th>
+                 
+
+                    <th class="text-center">@General.View</th>
+                    <th class="text-center">@General.Delete</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td class="text-center">
+                            @if (item.IsRead == false)
+                            {
+                                <i class="fa fa-eye-slash text-danger"></i>
+                            }
+                        </td>
+                     
+                        <td class="text-center">
+                            @if(item.RealEstateProject!=null)
+                            { 
+                            @item.RealEstateProject.Title
+                            }
+                        </td>
+                        <td class="text-center">
+                            @item.CreatedDate.Value.ToShortDateString()
+                        </td>
+                        <td class="text-center">
+                            <a href="javascript(void)" onclick="ViewCuromerInquiry(@item.ID)" data-target="#divModal" data-toggle="modal" class="btn btn-sm btn-small">
+                                <i class="fa fa-folder-open"></i>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href='@Url.Action("delete", new { id = item.ID })' class="btn btn-small Deleteconfirm">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div class="row text-center">
+            <div class="Paging">
+                @*صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) من @Model.PageCount*@
+
+                @Html.PagedListPager(Model, page => Url.Action("Index",
+new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, ProjectID = ViewBag.CurrentFilter }), new PagedListRenderOptions { LiElementClasses = new List<string> { "Pageitem" } })
+            </div>
+        </div>
+    </div>
+</div>

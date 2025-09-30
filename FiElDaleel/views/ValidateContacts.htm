@@ -1,0 +1,23 @@
+﻿
+<div class="contactForm">
+    <div class="item">
+        <span class="title">تم ارسال كود التاكيد الى رقم هاتفك و الايميل الخاص بك برجاء ادخال الكود </span>
+        <br /><br />
+        <input type="text" id="CodeEntry" ng-model="CodeEntry" name="CodeEntry" required />
+        <br />
+    </div>
+    <br />
+    <div class="actions row">
+        <div class="back col-md-6">
+            <!--<a class="btn btn-default" style="background-color:#333; color:white;font-size:17px" href="javascript:void(0);" ng-click="ReSendCode()">اعادة ارسال</a>-->
+            <button id="btnReSend" style="background-color:#333; color:white;font-size:17px" class="btn btn-default" type="button" ng-click="ReSendCode()">
+                اعادة ارسال
+            </button>
+</div>
+        <div class="saveBtn col-md-6">
+            <button id="btnSendInduiry" style="background-color:#dc531f; color:white;font-size:17px" class="btn btn-default" type="button" ng-click="SendRequest()">
+                تاكيد
+            </button>
+        </div>
+    </div>
+</div>

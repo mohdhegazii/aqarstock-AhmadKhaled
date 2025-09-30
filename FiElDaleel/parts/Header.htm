@@ -1,0 +1,182 @@
+﻿<div header-setting>
+    <div class="top_bar">
+        <div class="container">
+            <!--     <div class="langList opp_float">
+                <span><a href="#">English</a></span>
+            </div>
+            <div class="flags opp_float">
+                <ul>
+                    <li li-flag><a href="#">
+                        <img src="{{BaseURl}}/images/Frontend/egyptF.png" /></a></li>
+                    <li li-flag class="active"><a href="#">
+                        <img src="{{BaseURl}}/images/Frontend/egyptF.png" /></a></li>
+                    <li li-flag><a href="#">
+                        <img src="{{BaseURl}}/images/Frontend/egyptF.png" /></a></li>
+                </ul>
+            </div>-->
+            <div class="social opp_float">
+                <ul>
+                    <li id="linked"><a href="https://www.linkedin.com/company/aqar-stock" target="_blank">
+                        <img src="{{BaseURl}}/images/Frontend/smlink.png" /></a></li>
+                    <li id="google"><a href="https://plus.google.com/u/0/+Aqarstockcom" target="_blank">
+                        <img src="{{BaseURl}}/images/Frontend/smGoogle.png" /></a></li>
+                    <li id="twitter"><a href="https://twitter.com/aqar_stock" target="_blank">
+                        <img src="{{BaseURl}}/images/Frontend/smTwitter.png" /></a></li>
+                    <li id="FB"><a href="https://www.facebook.com/aqarstock" target="_blank">
+                        <img src="{{BaseURl}}/images/Frontend/smFB.png" />
+                    </a></li>
+                </ul>
+            </div>
+            <div class="main_links opp_float">
+                <ul>
+                    <li id="liSignin">
+                        <a id="signIn" href="/دخول">دخول</a>
+                        <!--<a id="signIn" href="javascript:void(0);" sign-in>دخول</a>-->
+                        <!-- hidden elemnts start -->
+                        <div id="divSignin" class="logIn">
+                            <label for="userName">
+                                أسم المستخدم</label>
+                            <input id="txtUserName" type="text" name="userName" /></br>
+                            <label for="password">
+                                كلمة المرور</label>
+                            <input id="txtPassword" type="password" name="password" />
+                            <span id="validatMsg" style="display: none"></span>
+                            <div id="inBtn" class="loginBtn" btn-signin>
+                                <a href="">دخول</a>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </div>
+                        <!-- hidden elemnts end -->
+                    </li>
+                    <li><a id="signUp" href="/تسجيل">تسجيل</a></li>
+                    <li><a id="add" href="/اضافة_عقار_جديد">أضف عقار</a></li>
+                </ul>
+            </div>
+            <div id="divAccountSetting" class="accountSetting">
+                <div class="noti" title="طلبات الشراء">
+                    <a id="lPurchaseRequest" href="/طلبات_الشراء" target="_blank">0</a></div>
+                <div id="divUserName" class="acoountNam">
+                </div>
+                <span list-account><a id="accountList" href="javascript:void(0);">مرحباً : </a>
+                    <!-- hidden elemnts start -->
+                    <div id="welcome" class="welcome">
+                        <div class="myAccount">
+                            <a href="/حسابى">حسابي</a></div>
+                        <div class="favoList">
+                            <a href="/العقارات_المفضلة">العقارات المفضلة</a></div>
+                        <div class="logOut">
+                            <a href="javascript:void(0);" btn-signout>تسجيل خروج</a></div>
+                    </div>
+                    <!-- hidden elemnts end -->
+                </span>
+                <div class="clear">
+                </div>
+            </div>
+            <!--<div class="accountSetting">
+                <div class="noti">
+                </div>
+                <span id="">وليد محمد</span><span>مرحباً :</span>
+            </div>-->
+        </div>
+    </div>
+    <div class="navigator">
+        <div class="container">
+            <div class="logo">
+                <a href="/الرئيسية">
+                    <img src="{{BaseURl}}/images/Frontend/logo.jpg" alt="" /></a>
+            </div>
+            <div class="nav">
+                <div class="mark" div-mark>
+                <span>القائمة</span>
+                </div>
+                <div id="divAccountMenu" class="mark" data-target=".navbar-static-side" data-toggle="collapse">
+                <span>ادارة الحساب</span>
+        </div>
+                <div class="searchIcon">
+                <span>بحث</span>
+                </div>
+                <ul ul-menu>
+                    <li li-navigator class="active"><a href="/الرئيسية"><span>الرئيسية</span></a></li>
+                    <!--<li li-navigator><a href="/عن_عقار_ستوك"><span>عن عقار ستوك</span></a></li>-->
+                    <li li-navigator><a href="/الفئة/1/وحدات_سكنية/1"><span>وحدات سكنية</span></a></li>
+                    <li li-navigator><a href="/الفئة/1/وحدات_تجارية/2"><span>وحدات تجارية</span></a></li>
+                    <li li-navigator><a href="/الفئة/1/اراضى/3"><span>اراضى</span></a></li>
+                    <li li-navigator><a href="/آخر_الوحدات_المضافة/1"><span>اخر الوحدات المضافة</span></a></li>
+                    <li li-navigator><a href="/مشاريع_عقارية/1"><span>مشاريع عقارية</span></a></li>
+                    <li li-navigator><a href="/شركات_عقارية/1"><span>شركات عقارية</span></a></li>
+                    <!--       <li li-navigator><a href="#"><span>عقارات مطلوبة</span></a></li>
+                    <li li-navigator><a href="#"><span>شركات عقارية</span></a></li>
+                    <li li-navigator><a href="#"><span>تقيم عقار</span></a></li>-->
+                    <li li-navigator><a href="/الدعم_الفنى"><span>الدعم الفنى</span></a></li>
+                    <li li-navigator><a id="add2" href="/اضافة_عقار_جديد">أضف عقار</a></li>
+                    <div class="clear">
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="MobileSearch">
+        <mobile-search></mobile-search>
+    </div>
+</div>
+<div class="popUpContainer" div-meesage>
+    <div id="" class="popUp">
+        <div class="closeBtn" btn-close-msg>
+            <img src="{{BaseURl}}/images/Frontend/popUpClose.png" /></div>
+        <span class="popUpTitle"></span></br/> <span class="popUpCnotent">
+            <p>
+            </p>
+        </span>
+    </div>
+</div>
+<!-- <script>
+        var IW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var IH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        $('.popUpContainer').width(IW);
+        $('.popUpContainer').height(IH);
+        $('.popUp').css({ "margin-top": ((IH - $('.popUp').height()) / 2) - 100 + "px" });
+
+        $('.popUp .closeBtn , .popUpContainer').click(function () {
+            $('.popUpContainer').css({ "display": "none" });
+        });
+    </script>-->
+    <script>
+        if (!window.matchMedia('(max-width: 780px)').matches) {
+            $("#MobileSearch").remove();
+        }
+    </script>
+      <script>
+          $(function () {
+              function toggleSearch(mark) {
+
+                  if ($('header .tabsBoxSm').css('display') === 'none') {
+                      $('body').scrollTop(0);
+                      //$(document).scrollTop(parseInt($('header .tabsBoxSm').position().top, 10) - 68);
+                      $('header .tabsBoxSm').slideDown(1000);
+                  } else {
+                      $('header .tabsBoxSm').slideUp(1000);
+                  }
+              }
+              $('.searchIcon').click(function () {
+                  toggleSearch($(this));
+              });
+
+
+
+          })
+    </script>
+    
+    <script>
+
+        $('#txtUserName , #txtPassword').keypress(function (event) {
+                if (event.keyCode == 13) {
+                    $('#inBtn').click();
+                }
+            });
+//            $('#inBtn').click(function () {
+//            //    alert('button was "clicked"');
+//            });
+   
+    </script>
+

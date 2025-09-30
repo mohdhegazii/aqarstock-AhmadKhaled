@@ -1,0 +1,167 @@
+﻿@model BrokerMVC.Models.ViewModel.CompanyListView
+@using PagedList.Mvc;
+@{
+    ViewBag.Title =  Model.Name + "- " + General.PageTitle ;
+    Layout = "~/Views/Home/_Layout.cshtml";
+    var routeValues = this.ViewContext.RouteData.Values;
+    var action = routeValues["action"] as string;
+}
+
+
+<div class="inner-banner">
+    <!-- banner start  -->
+    <span class="full-size-img" style="background:url(@Url.Content("~/Content/_ui/img/media/slide-4.jpg")) no-repeat center center / cover"></span>
+    <!-- // banner end -->
+    <div class="block-title">
+        <div class="container">
+            <h1>@Model.Name</h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <!-- Search form start  -->
+            <div id="divSearch">
+
+            </div>
+            <!-- // Search form end -->
+        </div>
+
+
+        <!-- listing block start -->
+        <div class="block listing-wrapper" itemscope itemtype="http://schema.org/ItemList">
+            @foreach (var item in Model.SpecialCompany)
+            {
+                <div class="col-sm-6" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <div class="recent-post alt special-recent-post">
+                        <div class="media">
+                            <a itemprop="url" class="media-link" href="~/@Menu.Companys.GetValue()/@item.ID/@Commons.EncodeText(Commons.Culture.Contains("ar")?item.Title:item.EnTitle)">
+                                <div class="img-wrapper-alt">
+                                    <div class="badge type">@General.Special</div>
+                                    @*<div class="badge post"><i class="fa fa-video-camera"></i></div>*@
+                                    <img itemprop="image" class="media-object" src="@Url.Content(item.Logo)" alt="@item.Title - @item.EnTitle">
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                            </a>
+                            <div class="media-body">
+                                <h4 itemprop="name" class="media-heading"><a href="~/@Menu.Companys.GetValue()/@item.ID/@Commons.EncodeText(Commons.Culture.Contains("ar")?item.Title:item.EnTitle)"> @(Commons.Culture.Contains("ar") ? item.Title : item.EnTitle)</a></h4>
+                                <div itemprop="description" class="media-excerpt">@(Commons.Culture.Contains("ar") ? item.Description : item.EnDescription)</div>
+                                <br />
+                                <a href="~/@Menu.Companys.GetValue()/@item.ID/@Commons.EncodeText(Commons.Culture.Contains("ar")?item.Title:item.EnTitle)" class="btn btn-theme"><i class="fa fa-chevron-left">&nbsp;</i>@General.More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+            <!-- ads block start -->
+            <div class="block">
+                <div id="divFirstAd">
+
+                </div>
+            </div>
+            <!-- // ads block end -->
+
+            @foreach (var item in Model.ReqularCompany)
+            {
+                <div class="col-sm-6" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <div class="recent-post alt special-recent-post">
+                        <div class="media">
+                            <a itemprop="url" class="media-link" href="~/@Menu.Companys.GetValue()/@item.ID/@Commons.EncodeText(Commons.Culture.Contains("ar")?item.Title:item.EnTitle)">
+                                <div class="img-wrapper-alt">
+                                    @*<div class="badge type">للبيع</div>*@
+                                    @*<div class="badge post"><i class="fa fa-image"></i></div>*@
+                                    <img itemprop="image" class="media-object" src="@Url.Content(item.Logo)" alt="@item.Title - @item.EnTitle">
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                            </a>
+                            <div class="media-body">
+                                <h4 itemprop="name" class="media-heading"><a href="~/@Menu.Companys.GetValue()/@item.ID/@Commons.EncodeText(Commons.Culture.Contains("ar")?item.Title:item.EnTitle)"> @(Commons.Culture.Contains("ar") ? item.Title : item.EnTitle)</a></h4>
+                                <div itemprop="description" class="media-excerpt">@(Commons.Culture.Contains("ar") ? item.Description : item.EnDescription)</div>
+                                <br />
+                                <a href="~/@Menu.Companys.GetValue()/@item.ID/@Commons.EncodeText(Commons.Culture.Contains("ar")?item.Title:item.EnTitle)" class="btn btn-theme"><i class="fa fa-chevron-left">&nbsp;</i>@General.More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @*<div class="col-sm-6">
+                    <div class="recent-post alt">
+                        <div class="media">
+                            <a class="media-link" href="project-units.html">
+                                <div class="img-wrapper-alt">
+                                    <div class="badge type">للبيع</div>
+                                    <div class="badge post"><i class="fa fa-image"></i></div>
+                                    <img class="media-object" src="_ui/img/media/pyramida-logo.jpg" alt="">
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href="project-units.html">كمبوند بيراميدز هيلز اكتوبر - Pyramids Hills October</a></h4>
+                                <div class="media-excerpt">كمبوند بيراميدز هيلز اكتوبر على طريق مصر اسكندرية الصحراوى على مساحة 23 فدان بجوار ماونتن فيو جيزة</div>
+                                <br />
+                                <a href="project-units.html" class="btn btn-theme"><i class="fa fa-chevron-left">&nbsp;</i> تعرف علي المزيد</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+            <!-- ads block start -->
+            <div class="block">
+                <div id="divSecondAd">
+
+                </div>
+            </div>
+            <!-- // ads block end -->
+            <!-- // listing block end -->
+        </div>
+        <div class="row text-center">
+            <div class="Paging">
+                @*صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) من @Model.PageCount*@
+
+                @Html.PagedListPager(Model.ReqularCompany, page => Url.Action(action,
+    new { Page = page }), new PagedListRenderOptions { LiElementClasses = new List<string> { "Pageitem" } })
+            </div>
+        </div>
+        <!-- latest unit block start -->
+        <div id="divLatestAdded" class="Latest-Prop">
+
+        </div>
+        <!-- // latest unit block end -->
+
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        LoadPropertySearch("list");
+        LoadPageAds();
+        SetActiveMenu("liCompanies");
+        GetPageContent('@Pages.CompanyList');
+    </script>
+}
+@section META{
+    <meta name="title" content="@Model.Name - @General.PageTitle" />
+    <meta name="description" content="@General.SiteDescription" />
+    <meta name="keywords" content="عقارات, خريطة, جوجل إرث, فيلا, بيت, منزل, شقة, أرض, قصر, غرفة, للبيع, شراء, مطلوب, تأجير, الرياض, السعودية, دبي, أبو ظبي, الدوحة, مصر, القاهرة, اسكندرية, شقق للبيع,Real Estate, Map, Google Legacy, Villa, House, House, Apartment, Land, Palace, Room, Sale, Buy, Wanted, Rent, Riyadh, Saudi Arabia, Dubai, Abu Dhabi, Doha, Egypt, Cairo, Alexandria, Apartments for Sale" />
+    <meta name='twitter:card' content="summary" />
+    <meta name='twitter:title' content="@Model.Name - @General.PageTitle" />
+    <meta name='twitter:url' content="@this.Request.Url" />
+    <meta name='twitter:description' content="@General.SiteDescription" />
+    <meta name='twitter:image' content="http://www.aqarstock.com/Content/_ui/img/Aqar-Stock-Sociallogo-1.png" />
+    <meta name='og:type' content="article" />
+    <meta name='og:title' content="@Model.Name - @General.PageTitle" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-1.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-2.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-3.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-4.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-5.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-6.png" />
+    <meta name='og:url' content="@this.Request.Url" />
+    <meta name='og:description' content="@General.SiteDescription" />
+}
+

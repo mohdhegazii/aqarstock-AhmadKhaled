@@ -1,0 +1,822 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Activate" xml:space="preserve">
+    <value>تفعيل</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>اضف</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>الرجوع للقائمة</value>
+  </data>
+  <data name="BasicData" xml:space="preserve">
+    <value>البيانات الأساسية</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>الفئة</value>
+  </data>
+  <data name="Cities" xml:space="preserve">
+    <value>قائمة المحافظات</value>
+  </data>
+  <data name="CityName" xml:space="preserve">
+    <value>المحافظة</value>
+  </data>
+  <data name="Codes" xml:space="preserve">
+    <value>الاكواد</value>
+  </data>
+  <data name="Companies" xml:space="preserve">
+    <value>الشركات العقارية</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>اسم الشركة</value>
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value>قائمة البلاد</value>
+  </data>
+  <data name="CountryName" xml:space="preserve">
+    <value>البلد</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>اضف جديد</value>
+  </data>
+  <data name="Currencies" xml:space="preserve">
+    <value>قائمة العملات</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>وصف كامل</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>تفاصيل</value>
+  </data>
+  <data name="Districts" xml:space="preserve">
+    <value>الاحياء</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الالكترونى</value>
+  </data>
+  <data name="EnDescription" xml:space="preserve">
+    <value>وصف كامل باللغة الانجليزية</value>
+  </data>
+  <data name="EnglishName" xml:space="preserve">
+    <value>الاسم باللغة الانجليزية</value>
+  </data>
+  <data name="EnSummary" xml:space="preserve">
+    <value>وصف مختصر باللغة الانجليزية</value>
+  </data>
+  <data name="Icon" xml:space="preserve">
+    <value>أيقونة</value>
+  </data>
+  <data name="keyword" xml:space="preserve">
+    <value>كلمة البحث</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>اللوجو</value>
+  </data>
+  <data name="MainKeyWord" xml:space="preserve">
+    <value>كلمة البحث الأساسية</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>القائمة</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم بالغة العربية</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="RealestateCategory" xml:space="preserve">
+    <value>فئة العقارات</value>
+  </data>
+  <data name="RealestateCriteria" xml:space="preserve">
+    <value>خصائص العقارات</value>
+  </data>
+  <data name="RealestateStatusList" xml:space="preserve">
+    <value>حالات العقارات</value>
+  </data>
+  <data name="RealestateType" xml:space="preserve">
+    <value>نوع العقار</value>
+  </data>
+  <data name="RealestateTypes" xml:space="preserve">
+    <value>قائمة  أنواع العقارات</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="SearchKeyword" xml:space="preserve">
+    <value>كلمات البحث</value>
+  </data>
+  <data name="SiteName" xml:space="preserve">
+    <value>عقار ستوك</value>
+  </data>
+  <data name="Sort" xml:space="preserve">
+    <value>الاهمية</value>
+  </data>
+  <data name="Special" xml:space="preserve">
+    <value>مميز</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>وصف مختصر</value>
+  </data>
+  <data name="Suspend" xml:space="preserve">
+    <value>إيقاف</value>
+  </data>
+  <data name="URL" xml:space="preserve">
+    <value>الرابط</value>
+  </data>
+  <data name="ValueType" xml:space="preserve">
+    <value>نوع القيمة</value>
+  </data>
+  <data name="Map" xml:space="preserve">
+    <value>الخريطة</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="AvailableProjects" xml:space="preserve">
+    <value>إجمالي عدد المشروعات المتوفر</value>
+  </data>
+  <data name="AvailableUsers" xml:space="preserve">
+    <value>إجمالي عدد المستخدمين المتوفر</value>
+  </data>
+  <data name="CompanyData" xml:space="preserve">
+    <value>بيانات الشركة</value>
+  </data>
+  <data name="CurrentProjects" xml:space="preserve">
+    <value>عدد المشروعات الحالية</value>
+  </data>
+  <data name="CurrentUsers" xml:space="preserve">
+    <value>عدد المستخدمين الحاليين</value>
+  </data>
+  <data name="DefaultImage" xml:space="preserve">
+    <value>الصورة الأساسية</value>
+  </data>
+  <data name="District" xml:space="preserve">
+    <value>الحي</value>
+  </data>
+  <data name="EnSlogan" xml:space="preserve">
+    <value>الشعار باللغة الإنجليزية</value>
+  </data>
+  <data name="EnStreet" xml:space="preserve">
+    <value>اسم الشارع الإنجليزية</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="Images" xml:space="preserve">
+    <value>الصور</value>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>خط العرض</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>خط الطول</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>الرسالة</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>المزيد</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>غير مميز</value>
+  </data>
+  <data name="Precious" xml:space="preserve">
+    <value>أكثر تميز</value>
+  </data>
+  <data name="ProjectList" xml:space="preserve">
+    <value>مشروعات عقارية</value>
+  </data>
+  <data name="ProjectName" xml:space="preserve">
+    <value>اسم المشروع</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>المنصب</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>اختار</value>
+  </data>
+  <data name="Slogan" xml:space="preserve">
+    <value>الشعار</value>
+  </data>
+  <data name="Street" xml:space="preserve">
+    <value>اسم الشارع</value>
+  </data>
+  <data name="SubscriberData" xml:space="preserve">
+    <value>بيانات المشترك</value>
+  </data>
+  <data name="Suspended" xml:space="preserve">
+    <value>موقوف</value>
+  </data>
+  <data name="SuspendReason" xml:space="preserve">
+    <value>سبب الإيقاف</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>المستخدمين</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>الصورة</value>
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value>المساحة</value>
+  </data>
+  <data name="EmbedCode" xml:space="preserve">
+    <value>رمز التضمين</value>
+  </data>
+  <data name="Meter" xml:space="preserve">
+    <value>متر</value>
+  </data>
+  <data name="Models" xml:space="preserve">
+    <value>النماذج</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>السعر</value>
+  </data>
+  <data name="Realestates" xml:space="preserve">
+    <value>العقارات</value>
+  </data>
+  <data name="VideoName" xml:space="preserve">
+    <value>اسم الفيديو</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>الفيديوهات</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>قيد الانتظار</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="AccountData" xml:space="preserve">
+    <value>بيانات الحساب</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمه السر</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>استرجاع كلمة المرور</value>
+  </data>
+  <data name="SubscriberRealestateNo" xml:space="preserve">
+    <value>عدد العقارات</value>
+  </data>
+  <data name="SupscriptionType" xml:space="preserve">
+    <value>نوع الاشتراك</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>متوفر</value>
+  </data>
+  <data name="Sold" xml:space="preserve">
+    <value>تم البيع</value>
+  </data>
+  <data name="ActionType" xml:space="preserve">
+    <value>نوع الاجراء</value>
+  </data>
+  <data name="AdTitle" xml:space="preserve">
+    <value>عنوان الإعلان</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>الرجوع</value>
+  </data>
+  <data name="CantAddProject" xml:space="preserve">
+    <value>عذرا، لا يمكنك إضافة مشروع جديد</value>
+  </data>
+  <data name="CantAddUser" xml:space="preserve">
+    <value>عذرا، لا يمكنك إضافة موظف الجديد للشركة</value>
+  </data>
+  <data name="ChangeRole" xml:space="preserve">
+    <value>تغيير المنصب</value>
+  </data>
+  <data name="CompanyAdmin" xml:space="preserve">
+    <value>المسؤول عن حساب الشركة</value>
+  </data>
+  <data name="Complains" xml:space="preserve">
+    <value>الشكاوى</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+  </data>
+  <data name="Criteria" xml:space="preserve">
+    <value>الخصائص</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>العمله</value>
+  </data>
+  <data name="CustomerInquiries" xml:space="preserve">
+    <value>استفسارات العملاء</value>
+  </data>
+  <data name="CustomerInquiriesNo" xml:space="preserve">
+    <value>عدد استفسارات العملاء الجديدة</value>
+  </data>
+  <data name="DashBoard" xml:space="preserve">
+    <value>الصفحة الرئيسية</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="Downgrade" xml:space="preserve">
+    <value>تغيير الاشتراك الى موظف</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>الموظف</value>
+  </data>
+  <data name="EnAdTitle" xml:space="preserve">
+    <value>عنوان الإعلان باللغة الإنجليزية</value>
+  </data>
+  <data name="Here" xml:space="preserve">
+    <value>هنا</value>
+  </data>
+  <data name="LatestAdded" xml:space="preserve">
+    <value>آخر الوحدات المضافة</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>الرسائل</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="NotificationNos" xml:space="preserve">
+    <value>عدد الإشعارات الجديدة</value>
+  </data>
+  <data name="Notifications" xml:space="preserve">
+    <value>الإشعارات</value>
+  </data>
+  <data name="OwnerData" xml:space="preserve">
+    <value>بيانات المالك</value>
+  </data>
+  <data name="PaymentType" xml:space="preserve">
+    <value>طريقة الدفع</value>
+  </data>
+  <data name="ProjectData" xml:space="preserve">
+    <value>بيانات المشروع</value>
+  </data>
+  <data name="PurchaseRequestNos" xml:space="preserve">
+    <value>عدد طلبات الشراء الجديدة</value>
+  </data>
+  <data name="PurchaseRequests" xml:space="preserve">
+    <value>طلبات الشراء</value>
+  </data>
+  <data name="PurchaseRequestsReport" xml:space="preserve">
+    <value>تقرير بطلبات الشراء الجديدة</value>
+  </data>
+  <data name="RealEstate" xml:space="preserve">
+    <value>العقار</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>تقارير</value>
+  </data>
+  <data name="ResendCode" xml:space="preserve">
+    <value>إعادة إرسال كود التفعيل</value>
+  </data>
+  <data name="SaleType" xml:space="preserve">
+    <value>العقار معروض</value>
+  </data>
+  <data name="Signin" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="Signout" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="SuspendedAccount" xml:space="preserve">
+    <value>تم إيقاف الحساب</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>النوع</value>
+  </data>
+  <data name="Upgrade" xml:space="preserve">
+    <value>تغيير الاشتراك الى مدير</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>مستخدم</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>القيمة</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>عرض</value>
+  </data>
+  <data name="AdData" xml:space="preserve">
+    <value>بيانات الإعلان</value>
+  </data>
+  <data name="AdditionalData" xml:space="preserve">
+    <value>بيانات إضافية</value>
+  </data>
+  <data name="CompanyAccount" xml:space="preserve">
+    <value>حساب الشركة</value>
+  </data>
+  <data name="CompanyProjects" xml:space="preserve">
+    <value>مشروعات الشركة</value>
+  </data>
+  <data name="CompanyPurchaseRequests" xml:space="preserve">
+    <value>طلبات شراء لعقارات الشركة</value>
+  </data>
+  <data name="CompanyRealestates" xml:space="preserve">
+    <value>عقارات الشركة</value>
+  </data>
+  <data name="Employees" xml:space="preserve">
+    <value>الموظفين</value>
+  </data>
+  <data name="FavouriteRealestates" xml:space="preserve">
+    <value>العقارات المفضلة</value>
+  </data>
+  <data name="FeaturesData" xml:space="preserve">
+    <value>المواصفات</value>
+  </data>
+  <data name="FinancialData" xml:space="preserve">
+    <value>البيانات المالية</value>
+  </data>
+  <data name="InCompleteRealestate" xml:space="preserve">
+    <value>عقارات غير مكتملة</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>نقل</value>
+  </data>
+  <data name="MoveRealestate" xml:space="preserve">
+    <value>نقل العقارات لموظف أخر</value>
+  </data>
+  <data name="MoveTo" xml:space="preserve">
+    <value>نقل إلى</value>
+  </data>
+  <data name="MyProjects" xml:space="preserve">
+    <value>مشروعاتي</value>
+  </data>
+  <data name="MyRealestates" xml:space="preserve">
+    <value>عقاراتي</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>مشروع</value>
+  </data>
+  <data name="UseContactData" xml:space="preserve">
+    <value>استخدم بيانات الاتصال الخاصة بى</value>
+  </data>
+  <data name="AdContentSideImage" xml:space="preserve">
+    <value>صورة اعلان جميع الصفحات</value>
+  </data>
+  <data name="AdHomePageMainLarge" xml:space="preserve">
+    <value>الاعلان الرئيسى للصفحة الرئيسية</value>
+  </data>
+  <data name="AdHomePageMainSmall" xml:space="preserve">
+    <value>الاعلان الرئيسى للصفحة الرئيسية للموبيل</value>
+  </data>
+  <data name="AdHomePageSide" xml:space="preserve">
+    <value>صورة اعلان الصفحة الرئيسة</value>
+  </data>
+  <data name="Advertisements" xml:space="preserve">
+    <value>ادارة الاعلانات</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>من</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="StaticPages" xml:space="preserve">
+    <value>محتوى صفحات الموقع</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>إلى</value>
+  </data>
+  <data name="ComplainTitle" xml:space="preserve">
+    <value>عنوان الشكوى</value>
+  </data>
+  <data name="RequestedRealestates" xml:space="preserve">
+    <value>العقارات المطلوبة</value>
+  </data>
+  <data name="Catalog" xml:space="preserve">
+    <value>كتالوجات</value>
+  </data>
+  <data name="CatalogCategories" xml:space="preserve">
+    <value>فئات الكتالوجات</value>
+  </data>
+  <data name="Management" xml:space="preserve">
+    <value>الإدارة</value>
+  </data>
+  <data name="ManagementMessages" xml:space="preserve">
+    <value>رسائل الإدارة</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>إرسال الرد</value>
+  </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>راسل الادارة</value>
+  </data>
+  <data name="SuspendedRealestates" xml:space="preserve">
+    <value>العقارات المحجوبة</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>كود</value>
+  </data>
+  <data name="AddRealestate" xml:space="preserve">
+    <value>إضافة عقار جديد</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>اغلاق</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="LatestAddedForRent" xml:space="preserve">
+    <value>آخر الوحدات المضافة للإيجار</value>
+  </data>
+  <data name="LatestAddedForSale" xml:space="preserve">
+    <value>آخر الوحدات المضافة للبيع</value>
+  </data>
+  <data name="Less" xml:space="preserve">
+    <value>اقل من</value>
+  </data>
+  <data name="location" xml:space="preserve">
+    <value>موقع</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>دخول</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>عقار ستوك | محرك بحث عقارى | شقق وفيلات واراضى | للبيع والإيجار</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>تسجيل</value>
+  </data>
+  <data name="Resedintial" xml:space="preserve">
+    <value>وحدات سكنية</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>رجوع</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="SpecialPropList" xml:space="preserve">
+    <value>عروض عقار ستوك المميزة</value>
+  </data>
+  <data name="Compare" xml:space="preserve">
+    <value>قارن</value>
+  </data>
+  <data name="CompareList" xml:space="preserve">
+    <value>قائمة قارن</value>
+  </data>
+  <data name="SendComplain" xml:space="preserve">
+    <value>تقديم الشكوي</value>
+  </data>
+  <data name="AddFavorite" xml:space="preserve">
+    <value>أضف الي المضلة</value>
+  </data>
+  <data name="Advertiser" xml:space="preserve">
+    <value>المعلن</value>
+  </data>
+  <data name="AboutCompany" xml:space="preserve">
+    <value>عن الشركة</value>
+  </data>
+  <data name="AboutProject" xml:space="preserve">
+    <value>عن المشروع</value>
+  </data>
+  <data name="AccountType" xml:space="preserve">
+    <value>نوع الحساب</value>
+  </data>
+  <data name="Commercial" xml:space="preserve">
+    <value>وحدات تجارية</value>
+  </data>
+  <data name="ConditionAgree" xml:space="preserve">
+    <value>أوافق على الشروط والبيانات</value>
+  </data>
+  <data name="ContactData" xml:space="preserve">
+    <value>بيانات الاتصال</value>
+  </data>
+  <data name="ForRent" xml:space="preserve">
+    <value>الايجار</value>
+  </data>
+  <data name="Lands" xml:space="preserve">
+    <value>اراضى</value>
+  </data>
+  <data name="Must" xml:space="preserve">
+    <value>قم</value>
+  </data>
+  <data name="PersonalAccount" xml:space="preserve">
+    <value>حساب شخصي</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>سجل بياناتك للإشتراك في موقع عقار ستوك</value>
+  </data>
+  <data name="SearchProjects" xml:space="preserve">
+    <value>البحث عن مشاريع عقارية</value>
+  </data>
+  <data name="SearchProperties" xml:space="preserve">
+    <value>البحث عن عقارات</value>
+  </data>
+  <data name="SearchResult" xml:space="preserve">
+    <value>نتيجة البحث</value>
+  </data>
+  <data name="SendCompanyMessage" xml:space="preserve">
+    <value>او راسل الشركة</value>
+  </data>
+  <data name="SiteDescription" xml:space="preserve">
+    <value>محرك بحث عقارى يوفر لكل فرصة لبيع وإيجار الشقق والاراضى والفيلل والدوبلكس وغيرها ..  بكل سهولة أون لاين مجانا بدون وسيط</value>
+  </data>
+  <data name="TechnicalSupport" xml:space="preserve">
+    <value>الدعم الفني</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>مرحبا </value>
+  </data>
+  <data name="MyAccount" xml:space="preserve">
+    <value>حسابي</value>
+  </data>
+  <data name="AdvertiserData" xml:space="preserve">
+    <value>بيانات المعلن</value>
+  </data>
+  <data name="Backend" xml:space="preserve">
+    <value>إدارة الموقع</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>التالى</value>
+  </data>
+  <data name="AqarstockServices" xml:space="preserve">
+    <value>خدمات عقار ستوك</value>
+  </data>
+  <data name="CatalogsNames" xml:space="preserve">
+    <value>أسماء الكتالوجات</value>
+  </data>
+  <data name="Desktop" xml:space="preserve">
+    <value>نسخة اكمبيوتر</value>
+  </data>
+  <data name="GeneralLink" xml:space="preserve">
+    <value>رابط عام</value>
+  </data>
+  <data name="GenerateCatalogs" xml:space="preserve">
+    <value>إنشاء كتالوجات</value>
+  </data>
+  <data name="KeywordLink" xml:space="preserve">
+    <value>رابط الكلمة الرئيسية</value>
+  </data>
+  <data name="MarketingServices" xml:space="preserve">
+    <value>خدمات تسويقية اخرى</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>نسخة الموبيل</value>
+  </data>
+  <data name="OccuranceNo" xml:space="preserve">
+    <value>عدد التكرار</value>
+  </data>
+  <data name="OldCatalogs" xml:space="preserve">
+    <value>كتالوجات سابقة</value>
+  </data>
+  <data name="ParagraphHeaders" xml:space="preserve">
+    <value>عناوين الفقرات</value>
+  </data>
+  <data name="ParagraphNo" xml:space="preserve">
+    <value>عدد الفقرات</value>
+  </data>
+  <data name="SupscriptionTypes" xml:space="preserve">
+    <value>الاشتراكات المميزة</value>
+  </data>
+  <data name="WordsNo" xml:space="preserve">
+    <value>عدد كلمات المحتوى</value>
+  </data>
+  <data name="InqueryAbout" xml:space="preserve">
+    <value>الاستفسار عن</value>
+  </data>
+  <data name="CompleteRegistration" xml:space="preserve">
+    <value>اكمل تسجل بياناتك للإشتراك في موقع عقار ستوك</value>
+  </data>
+  <data name="ForgetPassword" xml:space="preserve">
+    <value>نسيت كلمة المرور</value>
+  </data>
+  <data name="UserNameEmailMobilNo" xml:space="preserve">
+    <value>اسم المستخدم او البريد الالكتروني او رقم الموبايل</value>
+  </data>
+  <data name="UserNameForRegister" xml:space="preserve">
+    <value>اسم المستخدم بالانجليزية وبدون مسافات</value>
+  </data>
+</root>

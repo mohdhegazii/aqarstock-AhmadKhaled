@@ -1,0 +1,49 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstateCriteria>
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <div class="panel-title" role="button" data-toggle="collapse" href="#divRealCriteria" aria-expanded="false" aria-controls="divRealCriteria">
+            <h4 class="col-md-8 pull-right">
+                <i class="fa fa-angle-down"></i>
+                <i class="fa fa-flag-checkered" aria-hidden="true"></i>
+                @General.Criteria
+            </h4>
+
+        </div>
+        <a class=" btn btn-sm btn-warning" rel="@General.Add" href="@Url.Action("AddCriterias","RealEstates",new{id=ViewBag.RealEstateID })">
+            <i class="fa fa-plus"></i>
+        </a>
+        <button type="button" onclick="EditRealEstateCriteria(@ViewBag.RealEstateID)" rel="@General.Add" class=" btn btn-sm btn-warning" data-target="#divModal" data-toggle="modal">
+            <i class="fa fa-edit"></i>
+        </button>
+    </div>
+    <div id="divRealCriteria" class="panel panel-body collapse in ">
+@if (Model.Count() > 0)
+{
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 list-item thumbnail pull-right">
+                    @*<strong>*@
+                    <span>  @item.RealEstateTypeCriteria.Title</span>
+                    @if (item.Value == "true")
+                    {
+                        <i class="fa fa-check pull-left text-danger" aria-hidden="true"></i>
+                    }
+                    else
+                    {
+                        <span class="label label-danger pull-left">@item.Value</span>
+                    }
+                    @*</strong>*@
+                    <br />
+                    <a href='@Url.Action("DeleteCriteria", "RealEstates", new { id = item.ID })' class=" Deleteconfirm pull-left"><i class="fa fa-trash"></i></a>
+                </div>
+            }
+        </div>
+}
+else
+{
+    @Html.Partial("_EmptyMessage")
+}
+    </div>
+</div>

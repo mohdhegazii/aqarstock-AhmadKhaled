@@ -1,0 +1,294 @@
+﻿body {
+    padding-top: 70px;
+}
+
+header {
+    margin: 5px 0px 0px 0px;
+    padding: 5px;
+    /*background-color: #2c3e50;*/
+}
+
+    header .navbar {
+        min-height: 76px;
+    }
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    direction: rtl;
+}
+
+.container {
+}
+.Deleteconfirm{
+
+}
+header ul {
+    float: right !important;
+}
+
+header .navbar-nav {
+    padding-right: 0px;
+}
+
+    header .navbar-nav > li {
+        float: right !important;
+        font-size: 19px;
+    }
+
+header.navbar {
+    margin-bottom: 10px;
+}
+
+.dropdown-menu > li {
+    float: right;
+    display: block;
+    width: 100%;
+}
+
+    .dropdown-menu > li a {
+        width: 100%;
+    }
+
+        .dropdown-menu > li a:hover {
+            height: 26px;
+        }
+
+        .dropdown-menu > li a span {
+            float: right;
+        }
+
+.menu {
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+.panel-heading .btn-group {
+    margin: 10px;
+}
+
+.panel-heading a {
+    color: white;
+}
+.panel-heading h2> a {
+    color: #18bc9c;
+}
+.icon-32 {
+    width: 32px;
+}
+
+.icon-200 {
+    width: 200px;
+    float: inherit;
+}
+
+.logo {
+    height: 48px;
+}
+.btn-group-status{
+    width:100%;
+}
+.btn-group-status .btn {
+    /*width: 55px;*/
+}
+
+.btn-small:hover, .btn-small:focus {
+    color: red;
+}
+
+.btn-back {
+    background-color: #18bc9c;
+}
+.btn-suspend {
+    background-color: #fa2712;
+}
+
+.btn-Activate {
+    background-color: #0ed64f;
+}
+
+.btn-Special {
+    background-color: gold;
+}
+
+.Special-icon {
+    color: gold !important;
+}
+
+.btn-Precious {
+    background-color: #0bedbc;
+}
+
+.Precious-icon {
+    color: #0bedbc !important;
+}
+
+.btn-Reset {
+    background-color: lightcoral;
+}
+
+.Reset-icon {
+    color: lightcoral;
+}
+
+.btn-Owner {
+    background-color: mediumpurple;
+}
+
+.Owner-icon {
+    color: mediumpurple;
+}
+
+.btn-Sold {
+    background-color: lightsalmon;
+}
+
+.Sold-icon {
+    color: lightsalmon;
+}
+.btn-Dashboard{
+    background-color:darkorange;
+}
+.Dashboard-icon{
+    color:darkorange;
+}
+/*.tooltip-inner {
+    background-color: #000000;
+}*/
+
+.form-img {
+    width: 40%;
+}
+
+.map-sm {
+    height: 200px;
+    margin: 3px;
+}
+
+.map-md {
+    height: 350px;
+}
+
+.td-colspan {
+    background-color: azure;
+}
+
+    .td-colspan span {
+        overflow-wrap: break-word;
+    }
+
+.fa-ban {
+    color: indianred;
+}
+
+.btn-close {
+    background-color: orange;
+    color: white;
+    padding: 4px;
+    font-size: 15px;
+    width: 32px;
+    font-weight: bold;
+}
+
+.carousel-inner-slide img {
+    min-height: 250px;
+    max-height: 250px;
+    width: 335px;
+}
+
+.carousel-control {
+    top: 110px;
+    bottom: 110px;
+}
+
+.carousel-caption {
+    background-color: orange;
+    opacity: 0.8;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*color:#2c3e50;*/
+}
+
+.img-list {
+    height: 200px;
+    width: 100%;
+}
+
+.list-controls {
+    padding-left: 3px;
+}
+
+.title-opcity {
+    position: absolute;
+    padding-right: 113px;
+    background-color: orange;
+    opacity: 0.8;
+    width: 97%;
+    height: 30px;
+    margin-right: -10px;
+    margin-top: 6px;
+}
+
+.div-Empty {
+    text-align: center;
+    color: red;
+    font-size: large;
+}
+
+.tr-colspan {
+    border-style: inset;
+    border-color: mediumturquoise;
+    border-width: thin;
+}
+
+    .tr-colspan td {
+        padding-right: 30px;
+    }
+
+.paneltitle {
+    position: relative;
+    display: inline-flex;
+    width: 75%;
+}
+
+.warning {
+    background-color: blanchedalmond;
+    border-color: red;
+    color: red;
+}
+
+.list-item {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.list-group-item-Delete{
+    border:0;
+}
+.alert-message{
+        background-color: #009688;
+    border-color: #4CAF50;
+    color: white;
+}
+/*.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #0cf5c7;
+    color:white;
+}*/
+.btn-group-XL{
+    margin-bottom:10px;
+}
+.panel-primary > .panel-heading {
+     color: #2c3e50; 
+     background-color: transparent; 
+     border-color: transparent; 
+    border-bottom: 1px solid orange;
+}
+.panel-primary {
+     border-color: transparent; 
+}
+@media (min-width: 1200px)
+{
+    .container {
+    width: auto;
+}
+}

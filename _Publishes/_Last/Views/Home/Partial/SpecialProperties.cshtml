@@ -1,0 +1,97 @@
+﻿@model BrokerMVC.Models.ViewModel.HorizonatlPropertyListView
+<div class="block offers">
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="block-title">
+                <h1>@General.SpecialPropList</h1>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-4">
+            <div itemscope itemtype="http://schema.org/Product" class="thumbnail no-border no-padding thumbnail-property special-thumbnail-blue">
+                <div class="label-badge banner-special">
+                    <span class="text"><i class="fa fa-gift" aria-hidden="true"></i></span>
+                </div>
+                <div class="media">
+                    <a class="media-link" href="~/Details/@Model.SpecailProperty.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(Model.SpecailProperty.Title):Commons.EncodeText(Model.SpecailProperty.EnTitle))">
+                        <img itemprop="image" src="@Url.Content(Model.SpecailProperty.DefaultImage.PhotoName)" alt="@Model.SpecailProperty.Title - @Model.SpecailProperty.EnTitle">
+                        <span class="icon-view"><strong><i class="fa fa-arrows-alt"></i></strong></span>
+                    </a>
+                </div>
+                <div class="caption text-center">
+                    <h4 itemprop="name" class="caption-title"><a href="#">@(Commons.Culture.Contains("ar") ? Model.SpecailProperty.RealEstateType.Title : Model.SpecailProperty.RealEstateType.EnTitle)  @Model.SpecailProperty.Area @General.Meter</a></h4>
+                    <p itemprop="address" class="caption-text">@(Commons.Culture.Contains("ar") ? Model.SpecailProperty.District.Name + "-" + Model.SpecailProperty.City.Name : Model.SpecailProperty.District.EnName + "-" + Model.SpecailProperty.City.EnName)</p>
+                    <div class="buttons">
+                        <a itemprop="url" class="btn btn-theme" href="~/Details/@Model.SpecailProperty.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(Model.SpecailProperty.Title):Commons.EncodeText(Model.SpecailProperty.EnTitle))">@General.More</a>
+                    </div>
+                    <span itemprop="description" class="p-price bottom-price">
+                    @Model.SpecailProperty.Price
+                    @if (Model.SpecailProperty.CurrencyID > 0)
+                    { 
+                     @(Commons.Culture.Contains("ar") ? Model.SpecailProperty.Currency.Name : Model.SpecailProperty.Currency.EnName)
+                    }
+                    </span>
+                    @*<table class="table">
+                            <tbody>
+                                <tr>
+                                    <td><i class="fa fa-expand"></i> 167 م </td>
+                                    <td><i class="fa fa-bed"></i> 1 غرف نوم</td>
+                                    <td><i class="fa fa-tint"></i> 1 حمام</td>
+                                </tr>
+                            </tbody>
+                        </table>*@
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 col-sm-8 swiper-SpecialProp">
+            <!-- Swiper -->
+            <div id="divSpecialProp" class="swiper-container" dir="rtl">
+                <div class="swiper-wrapper" itemscope itemtype="http://schema.org/ItemList">
+                    @foreach (var item in Model.ReqularProperties)
+                    {
+                        <div class="swiper-slide" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <div class="thumbnail no-border no-padding thumbnail-property special-thumbnail">
+                                <div class="label-badge banner-special">
+                                    <span class="text"><i class="fa fa-gift" aria-hidden="true"></i></span>
+                                </div>
+                                <div class="media">
+                                    <a itemprop="url" class="media-link" href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">
+                                        <img itemprop="image" src="@Url.Content(item.DefaultImage.PhotoName)" alt="@item.Title - @item.EnTitle">
+                                        <span class="icon-view"><strong><i class="fa fa-arrows-alt"></i></strong></span>
+                                    </a>
+                                </div>
+                                <div class="caption text-center">
+                                    <h4 itemprop="name" class="caption-title"><a href="#">@(Commons.Culture.Contains("ar") ? item.RealEstateType.Title : item.RealEstateType.EnTitle)  @item.Area @General.Meter</a></h4>
+                                    <p itemprop="address" class="caption-text">@(Commons.Culture.Contains("ar") ? item.District.Name + "-" + item.City.Name : item.District.EnName + "-" + item.City.EnName)</p>
+                                    <div class="buttons">
+                                        <a class="btn btn-theme" href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">@General.More</a>
+                                    </div>
+                                    <span itemprop="description" class="p-price bottom-price">
+                                        @item.Price
+                                        @if (item.CurrencyID > 0)
+                                        {@(Commons.Culture.Contains("ar") ? item.Currency.Name : item.Currency.EnName)
+                                        }
+                                    </span>
+                                    @*<table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td><i class="fa fa-expand"></i> 167 م </td>
+                                                    <td><i class="fa fa-bed"></i> 1 غرف نوم</td>
+                                                    <td><i class="fa fa-tint"></i> 1 حمام</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>*@
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

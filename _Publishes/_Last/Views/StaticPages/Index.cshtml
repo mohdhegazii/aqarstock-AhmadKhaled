@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BrokerMVC.Models.StaticPage>
+
+@{
+    ViewBag.Title = General.SiteName + " - " + General.StaticPages;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2><i class="fa fa-wpforms fa-fw"></i>@General.StaticPages</h2>
+            </div>
+            @*<div class="btn-group pull-left">
+                <a href='@Url.Action("Create")' class="btn btn-group-lg btn-success">
+                    <i class="fa fa-plus-square"></i>
+                    @General.CreateNew
+                </a>
+            </div>*@
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+
+            @*<i class="fa fa-plus-square fa-fw"></i>
+                @Html.ActionLink(General.CreateNew, "Create")*@
+        </div>
+        <div class="row">
+            <table class="table table-responsive table-bordered table-striped table-hover">
+                <tr class="warning">
+                    <th class="text-center">
+                        @General.FullName
+                    </th>
+                    <th class="text-center">@General.Edit</th>
+                </tr>
+
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td class="text-center">
+                            <a href='@Url.Action("Edit", new { id = item.ID })' class="btn btn-small">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+ 
+    </div>
+</div>

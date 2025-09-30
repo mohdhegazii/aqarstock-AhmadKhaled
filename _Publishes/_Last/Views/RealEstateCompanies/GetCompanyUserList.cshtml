@@ -1,0 +1,106 @@
+﻿@model IEnumerable<BrokerMVC.Models.Subscriber>
+<div class="row">
+    <div class="col-md-8 pull-right">
+        <span>@General.AvailableUsers</span>
+    </div>
+    <div class="col-md-pull-4 pull-right">
+        <strong class="label label-danger"> @ViewBag.AvailableUsers</strong>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 pull-right">
+        <span>@General.CurrentUsers</span>
+    </div>
+    <div class="col-md-pull-4 pull-right">
+        <strong class="label label-danger"> @ViewBag.CurrenrUsers</strong>
+    </div>
+</div>
+<div class="row">
+    <table class="table table-responsive table-bordered table-striped table-hover">
+        <tr class="success">
+            <th class="text-center">
+                @General.FullName
+            </th>
+            @if (Security.IsUserInRole(BrokerMVC.Roles.Admin))
+            {
+                <th class="text-center">@General.Edit</th>
+            }
+            else
+            {
+                <th class="text-center">@General.ChangeRole</th>
+            }
+            <th class="text-center">@General.Delete</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    <div data-toggle="collapse" data-target="#divContact-@item.ID" aria-expanded="false" aria-controls="divContact-@item.ID">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </div>
+
+                </td>
+                @if (Security.IsUserInRole(BrokerMVC.Roles.Admin))
+                {
+                    <td class="text-center">
+                        <a href='@Url.Action("Edit","Subscribers", new { id = item.ID })' class="btn btn-small">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td class="text-center">
+                        @if (item.IsCompanyAdmin == true)
+                        {
+                            <a href='@Url.Action("DowndgradeUser","Subscribers", new { id = item.ID })' class="btn btn-small" data-toggle="tooltip" data-placement="bottom" title="@General.Downgrade" data-original-title="@General.Downgrade">
+                                <i class="fa fa-arrow-circle-down fa-lg"></i>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href='@Url.Action("UpgradeUser","Subscribers", new { id = item.ID })' class="btn btn-small" data-toggle="tooltip" data-placement="bottom" title="@General.Upgrade" data-original-title="@General.Upgrade">
+                                <i class="fa fa-arrow-circle-up fa-lg"></i>
+                            </a>
+                        }
+                    </td>
+                }
+
+                <td class="text-center">
+                    <a href='@Url.Action("RemoveUser", new { id = item.ID })' class="btn btn-small Deleteconfirm">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        <tr id="divContact-@item.ID" class="collapse">
+            <td colspan="3" class="td-colspan">
+                <div class="row">
+                    <div class="col-md-2 pull-right"><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i></div>
+                    <div class="col-md-10">@item.MobileNo</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 pull-right"><i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i></div>
+                        <div class="col-md-10">
+                            <span>
+                                @item.Email
+                            </span>
+                        </div>
+                    </div>
+            </td>
+            
+        </tr>
+        }
+        @*@if(ViewBag.CurrenrUsers>5)
+        { 
+        <tfoot>
+            <tr>
+                <td colspan="2">
+                    <a href="@Url.Action("Index","Subscribers", new { CompanyID = ViewBag.CompanyID })" class="btn btn-block btn-success">@General.More</a>
+                </td>
+            </tr>
+        </tfoot>
+        }*@
+    </table>
+</div>

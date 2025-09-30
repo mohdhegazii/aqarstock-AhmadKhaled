@@ -1,0 +1,63 @@
+﻿<div class="col-md-8 pull-right">
+<form name="ContactForm" id="ContactForm" ng-submit="SendMessage()" novalidate>
+<div class="contactArea" ng-class="{true: 'error'}[submitted && ContactForm.$invalid]">
+    <div class="Title">
+        <h4>
+            <a class="back" detail-backbutton href="javascript:void(0);">رجوع</a><span>{{Name}}</span></h4>
+    </div>
+    <div class="contactForm">
+        <div class="item">
+            <span class="title">الإسم</span></br>
+            <input type="text" id="contactusName" ng-model="Contactus.Name" name="name" required />
+            <span ng-show="submitted && ContactForm.name.$error.required" class="Error">الإسم مطلوب</span>
+            <br />
+        </div>
+        <div class="item left">
+            <span class="title">رقم التليفون</span></br>
+            <input type="phone" id="contactusPhone" ng-model="Contactus.Phone" name="phone" required  data-container="body" data-toggle="popover" data-placement="bottom" data-content="  الرجاء ادخال كود البلد المقيم بها"/>
+            <span ng-show="submitted && ContactForm.phone.$error.required" class="Error">رقم التليفون
+                مطلوب</span><br />
+        </div>
+        <div class="item">
+            <span class="title">البريد الإلكتروني</span></br>
+            <input type="email" id="contactusEmail" ng-model="Contactus.Email" name="email" required />
+            <span ng-show="submitted && ContactForm.email.$error.required" class="Error">البريد
+                الإلكتروني مطلوب</span> <span ng-show="submitted && ContactForm.email.$error.email"
+                    class="Error">البريد الإلكتروني غير صحيح</span> </br>
+        </div>
+        <div class="item left">
+            <span class="title">رسالتك</span></br>
+            <textarea id="contactusMsg" ng-model="Contactus.Message" name="message" required></textarea>
+            <span ng-show="submitted && ContactForm.message.$error.required" class="Error">الرسالة
+                مطلوب</span><br />
+        </div>
+        <div class="item">
+        </div>
+        <div class="clear">
+        </div>
+        <div class="actions">
+            <div class="saveBtn">
+                <button id="btnSend" class="orang send" type="submit" ng-click="submitted=true">
+                    إرسال</button>
+            </div>
+            <div class="resetBtn">
+                <input class="gray" type="reset" value="مسح" />
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+</div>
+<script>
+    $('#contactusName , #contactusPhone , #contactusEmail , #contactusMsg').keypress(function (event) {
+        if (event.keyCode == 13) {
+            $('#btnSend').click();
+        }
+    });
+    $("#contactusPhone").focusin(function () {
+        $("#contactusPhone").popover('show');
+    });
+    $("#contactusPhone").focusout(function () {
+        $("#contactusPhone").popover('hide');
+    });
+</script>

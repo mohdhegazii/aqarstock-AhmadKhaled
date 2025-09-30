@@ -1,0 +1,64 @@
+﻿<form name="RequestForm" id="RequestForm" ng-submit="SendRequest()" novalidate>
+<div class="contactArea" style="width:100%" ng-class="{true: 'error'}[submitted && RequestForm.$invalid]">
+    <div class="contactForm">
+        <div class="item ">
+            <span class="title">الإسم </span></br>
+            <input type="text" id="requestName" ng-model="Request.Name" name="name" required />
+            <span ng-show="submitted && RequestForm.name.$error.required" class="Error">الإسم مطلوب</span>
+            </br>
+        </div>
+        <div class="item left">
+            <span class="title">البريد الإلكتروني</span></br>
+            <input type="email" id="requestEmail" ng-model="Request.Email" name="email" required />
+            <span ng-show="submitted && RequestForm.email.$error.required" class="Error">البريد الإلكتروني مطلوب</span>
+            <span ng-show="submitted && RequestForm.email.$error.email" class="Error">البريد الإلكتروني
+                غير صحيح</span> </br>
+        </div>
+        <div class="item ">
+            <span class="title">رقم الموبايل</span></br>
+            <input type="phone" id="requestPhone" ng-model="Request.Phone" name="phone" required  data-container="body" data-toggle="popover" data-placement="bottom" data-content="  الرجاء ادخال كود البلد المقيم بها"/>
+            <span ng-show="submitted && RequestForm.phone.$error.required" class="Error">رقم الموبايل مطلوب</span>
+            </br>
+        </div>
+        <div class="item left">
+            <span class="title">الرسالة </span></br>
+            <!--<input type="text" />-->
+            <textarea id="requestMsg" ng-model="Request.Message" name="message" required></textarea>
+            <span ng-show="submitted && RequestForm.message.$error.required" class="Error">الرسالة
+                مطلوب</span> </br>
+        </div>
+        <div class="item ">
+        </div>
+        <div class="clear">
+        </div>
+        <div class="actions">
+            <div class="back">
+                <a href="javascript:void(0);" detail-backbutton>رجوع</a></div>
+            <!--    <div class="resetBtn">
+                <input class="gray" type="reset" value="رجوع" detail-Backbutton />
+            </div>-->
+            <div class="saveBtn">
+                <!--<input class="orang" type="submit" ng-click="submitted=true" value="تسجيل البيانات" />-->
+                <button id="btnSend" class="orang send" type="submit" ng-click="submitted=true">
+                    إرسال</button>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</div>
+</form>
+<script>
+    $('#requestName , #requestEmail , #requestPhone , #requestMsg').keypress(function (event) {
+        if (event.keyCode == 13) {
+            $('#btnSend').click();
+        }
+    });
+    $("#requestPhone").focusin(function () {
+        $("#requestPhone").popover('show');
+    });
+    $("#requestPhone").focusout(function () {
+        $("#requestPhone").popover('hide');
+    });
+</script>
+

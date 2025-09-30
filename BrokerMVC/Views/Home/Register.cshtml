@@ -1,0 +1,208 @@
+﻿@using BrokerMVC.Models
+@model Subscriber
+
+@{
+    ViewBag.Title = General.Register + "- " + General.PageTitle;
+    Layout = "~/Views/Home/_Layout.cshtml";
+    var isCompleteRegistration = false;
+    var sub = (Subscriber)Session["Subscriber"];
+    if (sub != null)
+    {
+        isCompleteRegistration = true;
+        Model.FullName = sub.FullName;
+        Model.EnFullName = sub.EnFullName;
+        Session.Remove("Subscriber");
+    }
+}
+
+<div class="inner-banner">
+    <!-- banner start  -->
+    <span class="full-size-img" style="background:url(../../Content/_ui/img/media/slide-6.jpg) no-repeat center top / cover"></span>
+    <!-- // banner end -->
+    <div class="block-title">
+        <div class="container">
+            <h1>@(isCompleteRegistration ? General.CompleteRegistration : General.RegisterTitle)</h1>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <!-- login form start  -->
+            <div class="login-form">
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        @Html.Partial("_Notifications")
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        @if (!isCompleteRegistration)
+                        {
+                            @Html.Partial("~/Views/Account/_ExternalLoginsListPartial.cshtml", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { action = "/home/register" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="col-md-8">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    @if (isCompleteRegistration)
+                                    {
+                                        <input type="hidden" name="UserName" value="@sub.UserName" />
+                                    }
+                                    else
+                                    {
+                                        <label for="nameRegistration">@General.UserNameForRegister<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                                        <br/>
+                                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    @if (isCompleteRegistration)
+                                    {
+                                        <input type="hidden" name="FullName" value="@sub.FullName" />
+                                    }
+                                    else
+                                    {
+                                        <label for="fullNameRegistration">@General.Name<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                        @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    @if (isCompleteRegistration)
+                                    {
+                                        <input type="hidden" name="EnFullName" value="@sub.EnFullName" />
+                                    }
+                                    else
+                                    {
+                                        <label for="fullNameRegistration">@General.EnglishName<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                        @Html.EditorFor(model => model.EnFullName, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.EnFullName, "", new { @class = "text-danger" })
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    @if (isCompleteRegistration)
+                                    {
+                                        <input type="hidden" name="Password.password" value="@sub.Password.password" />
+                                    }
+                                    else
+                                    {
+                                        <label for="passwordRegistration">@General.Password<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                        @Html.PasswordFor(m => m.Password.password, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Password.password, "", new { @class = "text-danger" })
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    @if (isCompleteRegistration)
+                                    {
+                                        <input type="hidden" name="Password.ConfirmPassword" value="@sub.Password.ConfirmPassword" />
+                                    }
+                                    else
+                                    {
+                                        <label for="passwordVerfRegistration">@General.ConfirmPassword<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                        @Html.PasswordFor(m => m.Password.ConfirmPassword, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Password.ConfirmPassword, "", new { @class = "text-danger" })
+                                    }
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="mobileRegistration">@General.Phone<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                    @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    @if (isCompleteRegistration)
+                                    {
+                                        <input type="hidden" name="Email" value="@sub.Email" />
+                                    }
+                                    else
+                                    {
+                                        <label for="emailRegistration">@General.Email<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8">
+                                <div class="form-group">
+                                    <label for="accountRegistration">@General.AccountType<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                    <div class="checkbox">
+                                        <label>@Html.RadioButton("IsCompanyAdmin", !Model.IsCompanyAdmin, new { @class = "form-control", @checked = "checked" })@General.PersonalAccount</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="terms-check">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="termsRegistration2" value="" checked="checked"><span onclick="ShowConditionForm()">@General.ConditionAgree</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <button type="submit" class="btn btn-03 fs-18">@General.Register</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- // login form end -->
+
+        </div>
+
+
+
+    </div>
+</div>
+
+<div class="modal fade" id="divConditionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="MsgTitle">الشروط و القوانين</h4>
+            </div>
+            <div class="modal-body">
+                <p id="MsgContent">
+                    @Html.Partial("Partial/RegisterConditions")
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-04" data-dismiss="modal">@General.Close</button>
+                @*<button type="button" class="btn btn-03">تأكيد</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+}

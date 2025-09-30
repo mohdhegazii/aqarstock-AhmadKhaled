@@ -1,0 +1,316 @@
+﻿@model BrokerMVC.Models.RealEstate
+
+@{
+    ViewBag.Title = (Commons.Culture.Contains("ar") ? Model.Title : Model.EnTitle) + "- " + General.PageTitle;
+    Layout = "~/Views/Home/_Layout.cshtml";
+    var Complain = new BrokerMVC.Models.RealEstateComplain();
+    var Request = new BrokerMVC.Models.RealEstatePurchaseRequest();
+    Complain.RealEstateID = Request.RealEstateID = Model.ID;
+    var propTitle = Commons.Culture.Contains("ar") ? Model.Title : Model.EnTitle;
+}
+
+<div class="inner-banner">
+    <!-- banner start  -->
+    @if (Model.RealEstateCategoryID == 1)
+    {
+        <span class="full-size-img" style="background:url(@Url.Content("~/Content/_ui/img/media/slide-1.jpg")) no-repeat center center / cover"></span>
+    }
+    else if (Model.RealEstateCategoryID == 2)
+    {
+        <span class="full-size-img" style="background:url(@Url.Content("~/Content/_ui/img/media/slide-3.jpg")) no-repeat center bottom / cover"></span>
+    }
+    else if (Model.RealEstateCategoryID == 3)
+    {
+        <span class="full-size-img" style="background:url(@Url.Content("~/Content/_ui/img/media/slide-4.jpg")) no-repeat center bottom / cover"></span>
+    }
+    @*<span class="full-size-img" style="background:url(@Url.Content("~/Content/_ui/img/media/slide-2.jpg")) no-repeat center center / cover"></span>*@
+    <!-- // banner end -->
+    <div class="block-title">
+        <div class="container">
+            <h1>
+                @if (Model.RealEstateProject != null)
+                {
+                    @(Commons.Culture.Contains("ar") ? Model.RealEstateProject.Title : Model.RealEstateProject.EnTitle)
+                }
+                else
+                {
+                    @(Commons.Culture.Contains("ar") ? Model.RealEstateCategory.Title : Model.RealEstateCategory.EnTitle)
+                }
+            </h1>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container">
+        @Html.Hidden("createdDateYear", Model.CreatedDate.GetValueOrDefault().Year.ToString())
+        <div class="col-md-12 col-sm-12">
+            <!-- Search form start  -->
+            <div id="divSearch"></div>
+            <!-- // Search form end -->
+        </div>
+
+        <!-- project details block start -->
+        <div class="col-md-8">
+            <div class="block project-details-wrapper" itemscope itemtype="http://schema.org/Product">
+                <div class="project-title">
+                    <div class="col-md-8 col-sm-7">
+                        <h1 itemprop="name">@(Commons.Culture.Contains("ar") ? Model.RealEstateType.Title : Model.RealEstateType.EnTitle) @Model.Area @General.Meter<i class="fa fa-building-o" aria-hidden="true"></i></h1>
+                    </div>
+                    <div class="col-md-4 col-sm-5">
+                        <a href="@this.Request.UrlReferrer" class="btn btn-theme btn-back">@General.Return <i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <h3><button type="button" class="slideToMap">@(Commons.Culture.Contains("ar") ? Model.Address : Model.EnAddress)<i class="fa fa-map-marker" aria-hidden="true"></i></button></h3>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <ul class="ico-details">
+                            @foreach (var item in Model.RealEstateCriterias)
+                            {
+                                <li>
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                    @if (item.RealEstateTypeCriteria.ValueType + "_Type" == CriteriaValueType.int_Type.ToString())
+                                    {
+                                        @item.Value
+                                    }
+                                    @(Commons.Culture.Contains("ar") ? item.RealEstateTypeCriteria.Title : item.RealEstateTypeCriteria.EnTitle)
+                                </li>
+                            }
+
+                            @*<li><i class="fa fa-bed" aria-hidden="true"></i> 3 غرف</li>
+                                <li><i class="fa fa-bath" aria-hidden="true"></i> 2 حمام</li>
+                                <li><i class="fa fa-car" aria-hidden="true"></i> 1 جراج</li>*@
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="project-banner-wrapper">
+                    <div class="col-sm-12">
+                        <div class="flex-slider flexslider">
+                            <ul class="slides">
+                                @foreach (var item in Model.RealEstatePhotos)
+                                {
+                                    <li><img itemprop="image" src="@Url.Content(item.PhotoName)" alt="@propTitle" /></li>
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="flex-carousel flexslider">
+                            <ul class="slides">
+                                @foreach (var item in Model.RealEstatePhotos)
+                                {
+                                    <li><img src="@Url.Content(item.PhotoName)" alt="@propTitle" /></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block project-info-wrapper">
+                    <div class="col-sm-12">
+                        <h2>@General.Details @(Commons.Culture.Contains("ar") ? Model.RealEstateType.Title : Model.RealEstateType.EnTitle) @Model.Area @General.Meter <i class="fa fa-map-marker" aria-hidden="true"></i></h2>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <td><h4>@General.AdTitle</h4></td>
+                                    <td itemprop="alternativeHeadline">@(Commons.Culture.Contains("ar") ? Model.Title : Model.EnTitle)</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>@General.Address</h4></td>
+                                    <td itemprop="address">@(Commons.Culture.Contains("ar") ? Model.Address : Model.EnAddress)</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>@General.Category</h4></td>
+                                    <td>@(Commons.Culture.Contains("ar") ? Model.RealEstateCategory.Title : Model.RealEstateCategory.EnTitle)</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>@General.Type</h4></td>
+                                    <td itemprop="category">@(Commons.Culture.Contains("ar") ? Model.RealEstateType.Title : Model.RealEstateType.EnTitle)</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>@General.Status</h4></td>
+                                    <td>@(Commons.Culture.Contains("ar") ? Model.RealEstateStatu.Title : Model.RealEstateStatu.EnTitle)</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>@General.Area</h4></td>
+                                    <td>@(Commons.Culture.Contains("ar") ? Model.Area : Model.Area) @General.Meter</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>@General.SaleType</h4></td>
+                                    <td>@(Commons.Culture.Contains("ar") ? Model.SaleType.Title : Model.SaleType.EnTitle)</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>@General.Price</h4></td>
+                                    <td itemprop="price">@Model.Price</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>@General.Currency</h4></td>
+                                    <td itemprop="priceCurrency">@(Commons.Culture.Contains("ar") ? Model.Currency.Name : Model.Currency.EnName)</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>@General.PaymentType</h4></td>
+                                    <td>@(Commons.Culture.Contains("ar") ? Model.PaymentType.Title : Model.PaymentType.EnTitle)</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>@General.Criteria </h4></td>
+                                    <td>
+                                        <ul class="ico-details">
+                                            @foreach (var item in Model.RealEstateCriterias)
+                                            {
+                                                <li>
+                                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                                    @if (item.RealEstateTypeCriteria.ValueType + "_Type" == CriteriaValueType.int_Type.ToString())
+                                                    {
+                                                        @item.Value
+                                                    }
+                                                    @(Commons.Culture.Contains("ar") ? item.RealEstateTypeCriteria.Title : item.RealEstateTypeCriteria.EnTitle)
+                                                </li>
+                                            }
+
+                                        </ul>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <div class="notes-block">
+                            <div class="col-sm-12">
+                                <h3>@General.Notes</h3>
+                                <p itemprop="description">@(Commons.Culture.Contains("ar") ? Model.Description : Model.EnDescription)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block map-wrapper">
+                    <div class="col-sm-12">
+                        <h2>@General.location @(Commons.Culture.Contains("ar") ? Model.RealEstateType.Title : Model.RealEstateType.EnTitle) @Model.Area @General.Meter<i class="fa fa-map-marker" aria-hidden="true"></i></h2>
+                        <div id="divMap" style="height: 450px">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-action-block">
+                    <div class="col-sm-4"><button class="btn btn-02" id="btnCompare" onclick="AddToCompareList(@Model.ID)"><i class="fa fa-balance-scale" aria-hidden="true"></i> @General.Compare</button></div>
+                    <div class="col-sm-4"><button class="btn btn-03" id="btnFavourite" onclick="AddToFavourite(@Model.ID)"><i class="fa fa-star-o" aria-hidden="true"></i>@General.AddFavorite</button></div>
+                    <div class="col-sm-4"><button class="btn btn-04" onclick="ShowComplainForm()"><i class="fa fa-exclamation" aria-hidden="true"></i>@General.SendComplain</button></div>
+                </div>
+
+                <div class="inner-social">
+
+                    <div class="col-sm-6 social-list">
+
+                        <div class="addthis_sharing_toolbox">
+                        </div>
+                        @*<ul class="social-list">
+                                <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                            </ul>*@
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="@this.Request.UrlReferrer" class="btn btn-theme btn-back">@General.Return <i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 owner-contact-mobile-size">
+            <div class="owner-contact-main">
+                <div class="owner-contact-wrapper">
+                    <button class="btn contact-mass-wrapper-launch"><i class="fa fa-opencart"></i>@General.AdvertiserData</button>
+                    <div class="owner-mass-wrapper">
+                        <div id="divOwnerData"></div>
+                        <div id="divRequest">
+                            @Html.Partial("Partial/Request", Request)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+            <!-- latest unit block start -->
+            <div id="divLatestAdded" class="Latest-Prop">
+
+            </div>
+            <!-- // latest unit block end -->
+        </div>
+        <!-- // project details block block end -->
+    </div>
+</div>
+<input type="hidden" id="hdID" value="@Model.ID" />
+<input type="hidden" id="hdType" value="@InquiryType.PurchaseRequest" />
+<div class="modal fade" id="myModalComplain" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div id="divComplain" class="modal-content">
+            @Html.Partial("Partial/Complain", Complain)
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div id="divLoginForm" class="modal-content">
+            @Html.Partial("Partial/LoginForm", new BrokerMVC.Models.LoginViewModel())
+
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    @Scripts.Render(AppSettingKeysVariables.GoogleMapsKey)
+    @Scripts.Render("//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56de87f91ff9a0c0")
+    @*<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56de87f91ff9a0c0"></script>*@
+    @Scripts.Render("~/Scripts/js/Map.js")
+    <script>
+        LoadPropertySearch("details");
+        GetPropertyowner();
+        initMap();
+        SubmitRequest();
+        if (@Model.Latitude != null && @Model.Longitude != null) {
+            SetLocationWithoutListener('@Model.Latitude', '@Model.Longitude');
+        }
+        $(function () {
+            if (parseInt($("#createdDateYear").val()) < 2020) {
+                showExpiredItemPopUp();
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+        var addthis_share = {
+            url: "@this.Request.Url",
+            title: "@(Commons.Culture.Contains("ar") ? Model.Title : Model.EnTitle)| @General.SiteName",
+            description: "",
+            media:
+                "@(ConfigurationSettings.AppSettings["WebSite"] + "/" + Model?.RealEstatePhotos?.FirstOrDefault()?.PhotoName?.Replace("~/", "").Replace(" ", "%20"))"
+        };
+    </script>
+}
+
+@section META{
+    @*///DESCRIPTION_VALUE and KEYWORD_VALUE - Can be replaced with model values (e.g. @Model.PageDescription) or ViewBag (e.g.@ViewBag.PageDescription)*@
+    <meta name="description" property="og:description" content="@(Commons.Culture.Contains("ar")?Model.Description:Model.EnDescription)" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="@(Commons.Culture.Contains("ar")?Model.Title:Model.EnTitle)| @General.SiteName">
+    <meta property="og:url" content="@this.Request.Url">
+    @foreach (var item in Model.RealEstatePhotos)
+    {
+        <meta property="og:image" content="@(ConfigurationSettings.AppSettings["WebSite"]+ "/"+item.PhotoName.Replace("~/", "").Replace(" ","%20"))">
+    }
+
+
+    <meta property="og:site_name" content="@General.SiteName">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="@Model.Title | @General.SiteName">
+    <meta name="twitter:description" content="@(Commons.Culture.Contains("ar")?Model.Description:Model.EnDescription)">
+    <meta name="twitter:image" content="@(ConfigurationSettings.AppSettings["WebSite"]+ Model.DefaultImage?.PhotoName?.Replace("~/", "").Replace(" ","%20"))">
+    <meta name="twitter:site" content="@this.Request.Url">
+
+}

@@ -1,0 +1,205 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend/SubScriber/SubscriberMaster.Master"
+    AutoEventWireup="true" CodeBehind="ViewRealEstate.aspx.cs" Inherits="BrokerWeb.Backend.SubScriber.ViewRealEstate" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../../scripts/Map.js" type="text/javascript"></script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:HiddenField ID="hdnLat" runat="server" />
+    <asp:HiddenField ID="hdnLng" runat="server" />
+    <asp:HiddenField ID="hdnMapimageURL" runat="server" />
+    <div class="Title row nopadding">
+
+        <div class="row pull-right">
+        <div class="alert alert-warning alert-dismissable">
+
+     <%--       <asp:Image ID="imgSold" CssClass="img-responsive SoldImage" ImageUrl="~/images/sold.jpg"
+            runat="server" />--%>
+        <asp:Image ID="imgLogo" CssClass="img-responsive realestateLoog" runat="server" />
+            <asp:Label ID="lblTitle" runat="server" Text=""></asp:Label>
+        <div class="controls" id="divControls" runat="server">
+        <div class="editRemove"><asp:ImageButton ID="imgDelete" CssClass="DoubleDeleteconfirm" runat="server" ImageUrl="~/images/icons/delete.png" OnClick="imgDelete_Click" /><span>حذف</span></div>
+            <div class="editRemove"><asp:ImageButton ID="imgEdit" runat="server" ImageUrl="~/images/icons/edit.png" OnClick="imgEdit_Click" /><span>تعديل</span></div>
+            
+        </div>
+        </div>
+
+    </div>
+    </div>
+    <div id="divMsg" class="row" runat="server">
+        <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pull-right">
+             <div class="divDetails row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">كود العقار</span></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"><asp:Label CssClass="Detail" ID="lblCode" runat="server" Text="غير متوفر"></asp:Label>  </div>
+            </div>
+            <div class="divDetails divDetailsAlt row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">العقار معروض</span></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"><asp:Label CssClass="Detail" ID="lblSaleType" runat="server" Text="غير متوفر"></asp:Label>  </div>
+            </div>
+            <div class="divDetails row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">فئة العقار</span></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"><asp:Label CssClass="Detail" ID="lblCategory" runat="server" Text="غير متوفر"></asp:Label>  </div>
+            </div>
+            <div class="divDetails divDetailsAlt row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">نوع العقار</span></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"><asp:Label CssClass="Detail" ID="lblType" runat="server" Text="غير متوفر"></asp:Label>  </div>
+            </div>
+            <div class="divDetails row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">حالة العقار</span></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"><asp:Label CssClass="Detail" ID="lblStatus" runat="server" Text="غير متوفر"></asp:Label>  </div>
+            </div>
+            <div class="divDetails divDetailsAlt row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">العنوان</span></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"><asp:Label CssClass="Detail" ID="lblAddress" runat="server" Text="غير متوفر"></asp:Label>  </div>
+            </div>
+            <div class="divDetails row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">وصف العقار</span></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                    <asp:Label ID="lblDescription" CssClass="Detail" runat="server" Text="غير متوفر"></asp:Label>
+                </div>
+            </div>
+            <div class="divDetails divDetailsAlt row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">المساحة</span></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"><asp:Label CssClass="Detail" ID="lblArea" runat="server" Text="غير متوفر"></asp:Label>  </div>
+            </div>
+            <div class="divDetails row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">السعر</span></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"><asp:Label CssClass="Detail" ID="lblPrice" runat="server" Text="غير متوفر"></asp:Label>  </div>
+            </div>
+            <div class="divDetails divDetailsAlt row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">العملة</span></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"><asp:Label CssClass="Detail" ID="lblCurrency" runat="server" Text="غير متوفر"></asp:Label>  </div>
+            </div>
+            <div class="divDetails row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">طريقة الدفع</span></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"><asp:Label CssClass="Detail" ID="lblPaymentType" runat="server" Text="غير متوفر"></asp:Label>  </div>
+            </div>
+            <div class="divDetails divDetailsAlt row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">خصائص العقار</span></div>
+                <div class="keyword col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                    <asp:Repeater ID="rptCriteria" runat="server" OnItemDataBound="rptCriteria_ItemDataBound">
+                        <ItemTemplate>
+                            <%--<asp:Image ID="imgCriteria" ImageUrl="~/images/Exist.png"  runat="server" />--%>
+                            <asp:Label CssClass="Detail" ID="lblCriteria" runat="server"></asp:Label>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>
+       <%--     <div class="divDetails row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">كلمات دالة على العقار</span></div>
+                <div class="keyword col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                    <asp:Repeater ID="rptKeywords" runat="server">
+                        <ItemTemplate>
+                            <span>
+                                <%#Eval("KeywordTitle")%>
+                            </span>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>--%>
+            <div class="divDetails divDetailsAlt row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">اسم المالك</span></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"><asp:Label CssClass="Detail" ID="lblOwnerName" runat="server" Text="غير متوفر"></asp:Label>  </div>
+            </div>
+            <div class="divDetails row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">البريد الالكترونى للمالك</span></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"><asp:Label CssClass="Detail" ID="lblOwnerEmail" runat="server" Text="غير متوفر"></asp:Label>  </div>
+            </div>
+            <div class="divDetails divDetailsAlt row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-right"><span class="DetailTitle">رقم هاتف المالك</span></div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"><asp:Label CssClass="Detail" ID="lblOwnerPhone" runat="server" Text="غير متوفر"></asp:Label>  </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <telerik:RadTabStrip ID="rtsAddBusiness" MultiPageID="rmpAddBusiness" AutoPostBack="true"
+                Align="Justify" runat="server" SelectedIndex="0" CssClass="WizardTabs veiwtab" EnableEmbeddedSkins="true"
+                Skin="Simple">
+                <Tabs>
+                    <telerik:RadTab PageViewID="rpvMap" >
+                        <TabTemplate>
+                            <div class="WizardTab">
+                                <img src="../../images/icons/backend/address.png" />
+                                <asp:Label ID="Label1" runat="server" Text=" الخريطة"></asp:Label>
+                            </div>
+                        </TabTemplate>
+                    </telerik:RadTab>
+                    <telerik:RadTab PageViewID="rpvPhotos">
+                        <TabTemplate>
+                            <div class="WizardTab">
+                                <img src="../../images/icons/backend/images.png" />
+                                <asp:Label ID="Label1" runat="server" Text="الصور"></asp:Label>
+                            </div>
+                        </TabTemplate>
+                    </telerik:RadTab>
+                </Tabs>
+            </telerik:RadTabStrip>
+            <div class="WizardContent">
+                <telerik:RadMultiPage ID="rmpAddBusiness" runat="server" RenderSelectedPageOnly="true"
+                    SelectedIndex="0">
+                    <telerik:RadPageView CssClass="" ID="rpvMap" runat="server" Selected="true">
+                        <div id="MyMap" class="GoogleMap">
+                        </div>
+                    </telerik:RadPageView>
+                    <telerik:RadPageView ID="rpvPhotos" CssClass="" runat="server">
+                        <asp:Image ID="imgCurrentPhoto" CssClass="img-responsive currentimage row" runat="server" />
+                        <div class="unitImages">
+                        <telerik:RadListView ID="rlvPhotos" CssClass="row" runat="server">
+                            <ItemTemplate>
+                                <div class="imageList">
+                                    <asp:Image ID="imgPhoto" runat="server" CssClass="img-responsive" ImageUrl='<%#Eval("PhotoName") %>'
+                                        onclick="ChangeImage(this);" />
+                                </div>
+                            </ItemTemplate>
+                            <EmptyDataTemplate>
+                                <div class="divEmptyData">
+                                    <asp:Image ID="Image2" runat="server" ImageUrl="~/images/Empty.png" />
+                                    <span>لا يوجد صور للعقار </span>
+                                </div>
+                            </EmptyDataTemplate>
+                        </telerik:RadListView>
+                            </div>
+                    </telerik:RadPageView>
+                </telerik:RadMultiPage>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('.DoubleDeleteconfirm').click(function () {
+            //   return confirm('هل أنت متأكد أنك تريد حذفه؟');
+            var confirm1 = confirm('هل أنت متأكد أنك تريد حذف العقار؟');
+            if (confirm1 === true) {
+                return confirm('اذا قمت بحذف العقار ستفقد كل البيانات المتعلقة به, هل ترغب فى الاستمرار؟');
+            }
+            return false;
+        });
+        function ChangeImage(control) {
+            //    alert(control.src);
+            $("#<%= imgCurrentPhoto.ClientID %>").attr("src", control.src);
+        }
+        //  window.onload = loadScript;
+        $(window).load(function () {
+            loadScript();
+            setTimeout(AddLocationtoMap, 3000);
+            setTimeout(RemoveListener, 3000);
+           // RemoveListener
+            //AddLocationtoMap();
+        });
+        function AddLocationtoMap() {
+            var lat = $("#<%= hdnLat.ClientID %>").val();
+            var img = $("#<%= hdnMapimageURL.ClientID %>").val();
+            //  var img = "http://egyptreporter.com/images/Edit.png";
+            //  alert(img);
+            if (lat != "" && lat != null) {
+                var lng = $("#<%= hdnLng.ClientID %>").val();
+                if (lng != "" && lng != null) {
+                    //   alert(lat+","+lng);
+                    AddLocationToMapwithimage(lat, lng, img);
+                }
+            }
+        }
+
+    </script>
+</asp:Content>

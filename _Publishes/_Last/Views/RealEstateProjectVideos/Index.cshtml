@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstateProjectVideo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TiTle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.URL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmedCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealEstateProject.Longitude)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TiTle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.URL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmedCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RealEstateProject.Longitude)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

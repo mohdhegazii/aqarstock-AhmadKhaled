@@ -1,0 +1,2352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendFailedSSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSLang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFailedSSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendFailedSSMSResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFailedWapPush">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrLink" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFailedWapPushResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendFailedWapPushResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSLang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendSMSResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSWithOperator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSLang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OperatorName" type="tns:Operators" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="Operators">
+        <s:restriction base="s:string">
+          <s:enumeration value="Mobinil" />
+          <s:enumeration value="Vodafone" />
+          <s:enumeration value="Etisalat" />
+          <s:enumeration value="International" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SendSMSWithOperatorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendSMSWithOperatorResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneSMSToMany">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSLang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneSMSToManyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendOneSMSToManyResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendOneSMSToManyWithOperator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSLang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OperatorName" type="tns:Operators" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneSMSToManyWithOperatorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendOneSMSToManyWithOperatorResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCredit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCreditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckCreditResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendWapPush">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrLink" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendWapPushResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendWapPushResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendWapPushWithOperator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrLink" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OperatorName" type="tns:Operators" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendWapPushWithOperatorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendWapPushWithOperatorResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneWAPPushToMany_WithDLR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrLink" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneWAPPushToMany_WithDLRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendOneWAPPushToMany_WithDLRResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneWAPPushToMany_WithDLRWithOperator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrLink" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OperatorName" type="tns:Operators" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneWAPPushToMany_WithDLRWithOperatorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendOneWAPPushToMany_WithDLRWithOperatorResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneWAPPushToMany">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrLink" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneWAPPushToManyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendOneWAPPushToManyResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneWAPPushToManyWithOperator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrLink" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OperatorName" type="tns:Operators" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneWAPPushToManyWithOperatorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendOneWAPPushToManyWithOperatorResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS_WithDLR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSLang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS_WithDLRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendSMS_WithDLRResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSWithDLR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSLang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSWithDLRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendSMSWithDLRResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendWapPush_WithDLR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrLink" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendWapPush_WithDLRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendWapPush_WithDLRResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendWapPush_WithDLRWithOperator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrLink" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StrDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OperatorName" type="tns:Operators" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendWapPush_WithDLRWithOperatorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendWapPush_WithDLRWithOperatorResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS_WithDLRWithOperator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSLang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OperatorName" type="tns:Operators" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS_WithDLRWithOperatorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendSMS_WithDLRWithOperatorResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendManySMS_WithDLR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DS">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendManySMS_WithDLRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendManySMS_WithDLRResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendManyWAPPush_WithDLR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendManyWAPPush_WithDLRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendManyWAPPush_WithDLRResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneSMSToMany_WithDLR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSLang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneSMSToMany_WithDLRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendOneSMSToMany_WithDLRResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneSMSToMany_WithDLRWithOperator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSLang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OperatorName" type="tns:Operators" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOneSMSToMany_WithDLRWithOperatorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendOneSMSToMany_WithDLRWithOperatorResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendUnicodeMsgs_WithDLR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DCS" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendUnicodeMsgs_WithDLRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendUnicodeMsgs_WithDLRResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendUnicodeMsgs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DCS" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendUnicodeMsgsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendUnicodeMsgsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendUnicodeMsgsWithOperator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSReceiver" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DCS" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OperatorName" type="tns:Operators" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendUnicodeMsgsWithOperatorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendUnicodeMsgsWithOperatorResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="int" type="s:int" />
+      <s:element name="ArrayOfAnyType" nillable="true" type="tns:ArrayOfAnyType" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendFailedSSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendFailedSSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendFailedSSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendFailedSSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendFailedWapPushSoapIn">
+    <wsdl:part name="parameters" element="tns:SendFailedWapPush" />
+  </wsdl:message>
+  <wsdl:message name="SendFailedWapPushSoapOut">
+    <wsdl:part name="parameters" element="tns:SendFailedWapPushResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithOperatorSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMSWithOperator" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithOperatorSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSWithOperatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToManySoapIn">
+    <wsdl:part name="parameters" element="tns:SendOneSMSToMany" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToManySoapOut">
+    <wsdl:part name="parameters" element="tns:SendOneSMSToManyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToManyWithOperatorSoapIn">
+    <wsdl:part name="parameters" element="tns:SendOneSMSToManyWithOperator" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToManyWithOperatorSoapOut">
+    <wsdl:part name="parameters" element="tns:SendOneSMSToManyWithOperatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckCreditSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckCredit" />
+  </wsdl:message>
+  <wsdl:message name="CheckCreditSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckCreditResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPushSoapIn">
+    <wsdl:part name="parameters" element="tns:SendWapPush" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPushSoapOut">
+    <wsdl:part name="parameters" element="tns:SendWapPushResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPushWithOperatorSoapIn">
+    <wsdl:part name="parameters" element="tns:SendWapPushWithOperator" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPushWithOperatorSoapOut">
+    <wsdl:part name="parameters" element="tns:SendWapPushWithOperatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToMany_WithDLRSoapIn">
+    <wsdl:part name="parameters" element="tns:SendOneWAPPushToMany_WithDLR" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToMany_WithDLRSoapOut">
+    <wsdl:part name="parameters" element="tns:SendOneWAPPushToMany_WithDLRResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToMany_WithDLRWithOperatorSoapIn">
+    <wsdl:part name="parameters" element="tns:SendOneWAPPushToMany_WithDLRWithOperator" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToMany_WithDLRWithOperatorSoapOut">
+    <wsdl:part name="parameters" element="tns:SendOneWAPPushToMany_WithDLRWithOperatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToManySoapIn">
+    <wsdl:part name="parameters" element="tns:SendOneWAPPushToMany" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToManySoapOut">
+    <wsdl:part name="parameters" element="tns:SendOneWAPPushToManyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToManyWithOperatorSoapIn">
+    <wsdl:part name="parameters" element="tns:SendOneWAPPushToManyWithOperator" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToManyWithOperatorSoapOut">
+    <wsdl:part name="parameters" element="tns:SendOneWAPPushToManyWithOperatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_WithDLRSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS_WithDLR" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_WithDLRSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMS_WithDLRResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithDLRSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMSWithDLR" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithDLRSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSWithDLRResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPush_WithDLRSoapIn">
+    <wsdl:part name="parameters" element="tns:SendWapPush_WithDLR" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPush_WithDLRSoapOut">
+    <wsdl:part name="parameters" element="tns:SendWapPush_WithDLRResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPush_WithDLRWithOperatorSoapIn">
+    <wsdl:part name="parameters" element="tns:SendWapPush_WithDLRWithOperator" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPush_WithDLRWithOperatorSoapOut">
+    <wsdl:part name="parameters" element="tns:SendWapPush_WithDLRWithOperatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_WithDLRWithOperatorSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS_WithDLRWithOperator" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_WithDLRWithOperatorSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMS_WithDLRWithOperatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendManySMS_WithDLRSoapIn">
+    <wsdl:part name="parameters" element="tns:SendManySMS_WithDLR" />
+  </wsdl:message>
+  <wsdl:message name="SendManySMS_WithDLRSoapOut">
+    <wsdl:part name="parameters" element="tns:SendManySMS_WithDLRResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendManyWAPPush_WithDLRSoapIn">
+    <wsdl:part name="parameters" element="tns:SendManyWAPPush_WithDLR" />
+  </wsdl:message>
+  <wsdl:message name="SendManyWAPPush_WithDLRSoapOut">
+    <wsdl:part name="parameters" element="tns:SendManyWAPPush_WithDLRResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToMany_WithDLRSoapIn">
+    <wsdl:part name="parameters" element="tns:SendOneSMSToMany_WithDLR" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToMany_WithDLRSoapOut">
+    <wsdl:part name="parameters" element="tns:SendOneSMSToMany_WithDLRResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToMany_WithDLRWithOperatorSoapIn">
+    <wsdl:part name="parameters" element="tns:SendOneSMSToMany_WithDLRWithOperator" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToMany_WithDLRWithOperatorSoapOut">
+    <wsdl:part name="parameters" element="tns:SendOneSMSToMany_WithDLRWithOperatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgs_WithDLRSoapIn">
+    <wsdl:part name="parameters" element="tns:SendUnicodeMsgs_WithDLR" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgs_WithDLRSoapOut">
+    <wsdl:part name="parameters" element="tns:SendUnicodeMsgs_WithDLRResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgsSoapIn">
+    <wsdl:part name="parameters" element="tns:SendUnicodeMsgs" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgsSoapOut">
+    <wsdl:part name="parameters" element="tns:SendUnicodeMsgsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgsWithOperatorSoapIn">
+    <wsdl:part name="parameters" element="tns:SendUnicodeMsgsWithOperator" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgsWithOperatorSoapOut">
+    <wsdl:part name="parameters" element="tns:SendUnicodeMsgsWithOperatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendFailedSSMSHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendFailedSSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendFailedWapPushHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendFailedWapPushHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithOperatorHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithOperatorHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToManyHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToManyHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToManyWithOperatorHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToManyWithOperatorHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="CheckCreditHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckCreditHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPushHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPushHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPushWithOperatorHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPushWithOperatorHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToMany_WithDLRHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToMany_WithDLRHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToMany_WithDLRWithOperatorHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToMany_WithDLRWithOperatorHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToManyHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToManyHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToManyWithOperatorHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToManyWithOperatorHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_WithDLRHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_WithDLRHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithDLRHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithDLRHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPush_WithDLRHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPush_WithDLRHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPush_WithDLRWithOperatorHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPush_WithDLRWithOperatorHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_WithDLRWithOperatorHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_WithDLRWithOperatorHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToMany_WithDLRHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToMany_WithDLRHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToMany_WithDLRWithOperatorHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToMany_WithDLRWithOperatorHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgs_WithDLRHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="DCS" type="s:string" />
+    <wsdl:part name="Data" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgs_WithDLRHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgsHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="DCS" type="s:string" />
+    <wsdl:part name="Data" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgsHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgsWithOperatorHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="DCS" type="s:string" />
+    <wsdl:part name="Data" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgsWithOperatorHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendFailedSSMSHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendFailedSSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendFailedWapPushHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendFailedWapPushHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithOperatorHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithOperatorHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToManyHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToManyHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToManyWithOperatorHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToManyWithOperatorHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="CheckCreditHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckCreditHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPushHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPushHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPushWithOperatorHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPushWithOperatorHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToMany_WithDLRHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToMany_WithDLRHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToMany_WithDLRWithOperatorHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToMany_WithDLRWithOperatorHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToManyHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToManyHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToManyWithOperatorHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneWAPPushToManyWithOperatorHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_WithDLRHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_WithDLRHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithDLRHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithDLRHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPush_WithDLRHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPush_WithDLRHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPush_WithDLRWithOperatorHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StrLink" type="s:string" />
+    <wsdl:part name="StrDescription" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendWapPush_WithDLRWithOperatorHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_WithDLRWithOperatorHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_WithDLRWithOperatorHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToMany_WithDLRHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToMany_WithDLRHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToMany_WithDLRWithOperatorHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSText" type="s:string" />
+    <wsdl:part name="SMSLang" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOneSMSToMany_WithDLRWithOperatorHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgs_WithDLRHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="DCS" type="s:string" />
+    <wsdl:part name="Data" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgs_WithDLRHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgsHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="DCS" type="s:string" />
+    <wsdl:part name="Data" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgsHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgsWithOperatorHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="SMSSender" type="s:string" />
+    <wsdl:part name="SMSReceiver" type="s:string" />
+    <wsdl:part name="DCS" type="s:string" />
+    <wsdl:part name="Data" type="s:string" />
+    <wsdl:part name="OperatorName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendUnicodeMsgsWithOperatorHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="SendFailedSSMS">
+      <wsdl:input message="tns:SendFailedSSMSSoapIn" />
+      <wsdl:output message="tns:SendFailedSSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFailedWapPush">
+      <wsdl:input message="tns:SendFailedWapPushSoapIn" />
+      <wsdl:output message="tns:SendFailedWapPushSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSSoapIn" />
+      <wsdl:output message="tns:SendSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input name="SendSMSWithOperator" message="tns:SendSMSWithOperatorSoapIn" />
+      <wsdl:output name="SendSMSWithOperator" message="tns:SendSMSWithOperatorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany">
+      <wsdl:input message="tns:SendOneSMSToManySoapIn" />
+      <wsdl:output message="tns:SendOneSMSToManySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany">
+      <wsdl:input name="SendOneSMSToManyWithOperator" message="tns:SendOneSMSToManyWithOperatorSoapIn" />
+      <wsdl:output name="SendOneSMSToManyWithOperator" message="tns:SendOneSMSToManyWithOperatorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCredit">
+      <wsdl:input message="tns:CheckCreditSoapIn" />
+      <wsdl:output message="tns:CheckCreditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush">
+      <wsdl:input message="tns:SendWapPushSoapIn" />
+      <wsdl:output message="tns:SendWapPushSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush">
+      <wsdl:input name="SendWapPushWithOperator" message="tns:SendWapPushWithOperatorSoapIn" />
+      <wsdl:output name="SendWapPushWithOperator" message="tns:SendWapPushWithOperatorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany_WithDLR">
+      <wsdl:input message="tns:SendOneWAPPushToMany_WithDLRSoapIn" />
+      <wsdl:output message="tns:SendOneWAPPushToMany_WithDLRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany_WithDLR">
+      <wsdl:input name="SendOneWAPPushToMany_WithDLRWithOperator" message="tns:SendOneWAPPushToMany_WithDLRWithOperatorSoapIn" />
+      <wsdl:output name="SendOneWAPPushToMany_WithDLRWithOperator" message="tns:SendOneWAPPushToMany_WithDLRWithOperatorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany">
+      <wsdl:input message="tns:SendOneWAPPushToManySoapIn" />
+      <wsdl:output message="tns:SendOneWAPPushToManySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany">
+      <wsdl:input name="SendOneWAPPushToManyWithOperator" message="tns:SendOneWAPPushToManyWithOperatorSoapIn" />
+      <wsdl:output name="SendOneWAPPushToManyWithOperator" message="tns:SendOneWAPPushToManyWithOperatorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS_WithDLR">
+      <wsdl:input message="tns:SendSMS_WithDLRSoapIn" />
+      <wsdl:output message="tns:SendSMS_WithDLRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithDLR">
+      <wsdl:input message="tns:SendSMSWithDLRSoapIn" />
+      <wsdl:output message="tns:SendSMSWithDLRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush_WithDLR">
+      <wsdl:input message="tns:SendWapPush_WithDLRSoapIn" />
+      <wsdl:output message="tns:SendWapPush_WithDLRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush_WithDLR">
+      <wsdl:input name="SendWapPush_WithDLRWithOperator" message="tns:SendWapPush_WithDLRWithOperatorSoapIn" />
+      <wsdl:output name="SendWapPush_WithDLRWithOperator" message="tns:SendWapPush_WithDLRWithOperatorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS_WithDLR">
+      <wsdl:input name="SendSMS_WithDLRWithOperator" message="tns:SendSMS_WithDLRWithOperatorSoapIn" />
+      <wsdl:output name="SendSMS_WithDLRWithOperator" message="tns:SendSMS_WithDLRWithOperatorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendManySMS_WithDLR">
+      <wsdl:input message="tns:SendManySMS_WithDLRSoapIn" />
+      <wsdl:output message="tns:SendManySMS_WithDLRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendManyWAPPush_WithDLR">
+      <wsdl:input message="tns:SendManyWAPPush_WithDLRSoapIn" />
+      <wsdl:output message="tns:SendManyWAPPush_WithDLRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany_WithDLR">
+      <wsdl:input message="tns:SendOneSMSToMany_WithDLRSoapIn" />
+      <wsdl:output message="tns:SendOneSMSToMany_WithDLRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany_WithDLR">
+      <wsdl:input name="SendOneSMSToMany_WithDLRWithOperator" message="tns:SendOneSMSToMany_WithDLRWithOperatorSoapIn" />
+      <wsdl:output name="SendOneSMSToMany_WithDLRWithOperator" message="tns:SendOneSMSToMany_WithDLRWithOperatorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgs_WithDLR">
+      <wsdl:input message="tns:SendUnicodeMsgs_WithDLRSoapIn" />
+      <wsdl:output message="tns:SendUnicodeMsgs_WithDLRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgs">
+      <wsdl:input message="tns:SendUnicodeMsgsSoapIn" />
+      <wsdl:output message="tns:SendUnicodeMsgsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgsWithOperator">
+      <wsdl:input message="tns:SendUnicodeMsgsWithOperatorSoapIn" />
+      <wsdl:output message="tns:SendUnicodeMsgsWithOperatorSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpGet">
+    <wsdl:operation name="SendFailedSSMS">
+      <wsdl:input message="tns:SendFailedSSMSHttpGetIn" />
+      <wsdl:output message="tns:SendFailedSSMSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFailedWapPush">
+      <wsdl:input message="tns:SendFailedWapPushHttpGetIn" />
+      <wsdl:output message="tns:SendFailedWapPushHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSHttpGetIn" />
+      <wsdl:output message="tns:SendSMSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input name="SendSMSWithOperator" message="tns:SendSMSWithOperatorHttpGetIn" />
+      <wsdl:output name="SendSMSWithOperator" message="tns:SendSMSWithOperatorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany">
+      <wsdl:input message="tns:SendOneSMSToManyHttpGetIn" />
+      <wsdl:output message="tns:SendOneSMSToManyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany">
+      <wsdl:input name="SendOneSMSToManyWithOperator" message="tns:SendOneSMSToManyWithOperatorHttpGetIn" />
+      <wsdl:output name="SendOneSMSToManyWithOperator" message="tns:SendOneSMSToManyWithOperatorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCredit">
+      <wsdl:input message="tns:CheckCreditHttpGetIn" />
+      <wsdl:output message="tns:CheckCreditHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush">
+      <wsdl:input message="tns:SendWapPushHttpGetIn" />
+      <wsdl:output message="tns:SendWapPushHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush">
+      <wsdl:input name="SendWapPushWithOperator" message="tns:SendWapPushWithOperatorHttpGetIn" />
+      <wsdl:output name="SendWapPushWithOperator" message="tns:SendWapPushWithOperatorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany_WithDLR">
+      <wsdl:input message="tns:SendOneWAPPushToMany_WithDLRHttpGetIn" />
+      <wsdl:output message="tns:SendOneWAPPushToMany_WithDLRHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany_WithDLR">
+      <wsdl:input name="SendOneWAPPushToMany_WithDLRWithOperator" message="tns:SendOneWAPPushToMany_WithDLRWithOperatorHttpGetIn" />
+      <wsdl:output name="SendOneWAPPushToMany_WithDLRWithOperator" message="tns:SendOneWAPPushToMany_WithDLRWithOperatorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany">
+      <wsdl:input message="tns:SendOneWAPPushToManyHttpGetIn" />
+      <wsdl:output message="tns:SendOneWAPPushToManyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany">
+      <wsdl:input name="SendOneWAPPushToManyWithOperator" message="tns:SendOneWAPPushToManyWithOperatorHttpGetIn" />
+      <wsdl:output name="SendOneWAPPushToManyWithOperator" message="tns:SendOneWAPPushToManyWithOperatorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS_WithDLR">
+      <wsdl:input message="tns:SendSMS_WithDLRHttpGetIn" />
+      <wsdl:output message="tns:SendSMS_WithDLRHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithDLR">
+      <wsdl:input message="tns:SendSMSWithDLRHttpGetIn" />
+      <wsdl:output message="tns:SendSMSWithDLRHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush_WithDLR">
+      <wsdl:input message="tns:SendWapPush_WithDLRHttpGetIn" />
+      <wsdl:output message="tns:SendWapPush_WithDLRHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush_WithDLR">
+      <wsdl:input name="SendWapPush_WithDLRWithOperator" message="tns:SendWapPush_WithDLRWithOperatorHttpGetIn" />
+      <wsdl:output name="SendWapPush_WithDLRWithOperator" message="tns:SendWapPush_WithDLRWithOperatorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS_WithDLR">
+      <wsdl:input name="SendSMS_WithDLRWithOperator" message="tns:SendSMS_WithDLRWithOperatorHttpGetIn" />
+      <wsdl:output name="SendSMS_WithDLRWithOperator" message="tns:SendSMS_WithDLRWithOperatorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany_WithDLR">
+      <wsdl:input message="tns:SendOneSMSToMany_WithDLRHttpGetIn" />
+      <wsdl:output message="tns:SendOneSMSToMany_WithDLRHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany_WithDLR">
+      <wsdl:input name="SendOneSMSToMany_WithDLRWithOperator" message="tns:SendOneSMSToMany_WithDLRWithOperatorHttpGetIn" />
+      <wsdl:output name="SendOneSMSToMany_WithDLRWithOperator" message="tns:SendOneSMSToMany_WithDLRWithOperatorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgs_WithDLR">
+      <wsdl:input message="tns:SendUnicodeMsgs_WithDLRHttpGetIn" />
+      <wsdl:output message="tns:SendUnicodeMsgs_WithDLRHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgs">
+      <wsdl:input message="tns:SendUnicodeMsgsHttpGetIn" />
+      <wsdl:output message="tns:SendUnicodeMsgsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgsWithOperator">
+      <wsdl:input message="tns:SendUnicodeMsgsWithOperatorHttpGetIn" />
+      <wsdl:output message="tns:SendUnicodeMsgsWithOperatorHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpPost">
+    <wsdl:operation name="SendFailedSSMS">
+      <wsdl:input message="tns:SendFailedSSMSHttpPostIn" />
+      <wsdl:output message="tns:SendFailedSSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFailedWapPush">
+      <wsdl:input message="tns:SendFailedWapPushHttpPostIn" />
+      <wsdl:output message="tns:SendFailedWapPushHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSHttpPostIn" />
+      <wsdl:output message="tns:SendSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input name="SendSMSWithOperator" message="tns:SendSMSWithOperatorHttpPostIn" />
+      <wsdl:output name="SendSMSWithOperator" message="tns:SendSMSWithOperatorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany">
+      <wsdl:input message="tns:SendOneSMSToManyHttpPostIn" />
+      <wsdl:output message="tns:SendOneSMSToManyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany">
+      <wsdl:input name="SendOneSMSToManyWithOperator" message="tns:SendOneSMSToManyWithOperatorHttpPostIn" />
+      <wsdl:output name="SendOneSMSToManyWithOperator" message="tns:SendOneSMSToManyWithOperatorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCredit">
+      <wsdl:input message="tns:CheckCreditHttpPostIn" />
+      <wsdl:output message="tns:CheckCreditHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush">
+      <wsdl:input message="tns:SendWapPushHttpPostIn" />
+      <wsdl:output message="tns:SendWapPushHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush">
+      <wsdl:input name="SendWapPushWithOperator" message="tns:SendWapPushWithOperatorHttpPostIn" />
+      <wsdl:output name="SendWapPushWithOperator" message="tns:SendWapPushWithOperatorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany_WithDLR">
+      <wsdl:input message="tns:SendOneWAPPushToMany_WithDLRHttpPostIn" />
+      <wsdl:output message="tns:SendOneWAPPushToMany_WithDLRHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany_WithDLR">
+      <wsdl:input name="SendOneWAPPushToMany_WithDLRWithOperator" message="tns:SendOneWAPPushToMany_WithDLRWithOperatorHttpPostIn" />
+      <wsdl:output name="SendOneWAPPushToMany_WithDLRWithOperator" message="tns:SendOneWAPPushToMany_WithDLRWithOperatorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany">
+      <wsdl:input message="tns:SendOneWAPPushToManyHttpPostIn" />
+      <wsdl:output message="tns:SendOneWAPPushToManyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany">
+      <wsdl:input name="SendOneWAPPushToManyWithOperator" message="tns:SendOneWAPPushToManyWithOperatorHttpPostIn" />
+      <wsdl:output name="SendOneWAPPushToManyWithOperator" message="tns:SendOneWAPPushToManyWithOperatorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS_WithDLR">
+      <wsdl:input message="tns:SendSMS_WithDLRHttpPostIn" />
+      <wsdl:output message="tns:SendSMS_WithDLRHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithDLR">
+      <wsdl:input message="tns:SendSMSWithDLRHttpPostIn" />
+      <wsdl:output message="tns:SendSMSWithDLRHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush_WithDLR">
+      <wsdl:input message="tns:SendWapPush_WithDLRHttpPostIn" />
+      <wsdl:output message="tns:SendWapPush_WithDLRHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush_WithDLR">
+      <wsdl:input name="SendWapPush_WithDLRWithOperator" message="tns:SendWapPush_WithDLRWithOperatorHttpPostIn" />
+      <wsdl:output name="SendWapPush_WithDLRWithOperator" message="tns:SendWapPush_WithDLRWithOperatorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS_WithDLR">
+      <wsdl:input name="SendSMS_WithDLRWithOperator" message="tns:SendSMS_WithDLRWithOperatorHttpPostIn" />
+      <wsdl:output name="SendSMS_WithDLRWithOperator" message="tns:SendSMS_WithDLRWithOperatorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany_WithDLR">
+      <wsdl:input message="tns:SendOneSMSToMany_WithDLRHttpPostIn" />
+      <wsdl:output message="tns:SendOneSMSToMany_WithDLRHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany_WithDLR">
+      <wsdl:input name="SendOneSMSToMany_WithDLRWithOperator" message="tns:SendOneSMSToMany_WithDLRWithOperatorHttpPostIn" />
+      <wsdl:output name="SendOneSMSToMany_WithDLRWithOperator" message="tns:SendOneSMSToMany_WithDLRWithOperatorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgs_WithDLR">
+      <wsdl:input message="tns:SendUnicodeMsgs_WithDLRHttpPostIn" />
+      <wsdl:output message="tns:SendUnicodeMsgs_WithDLRHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgs">
+      <wsdl:input message="tns:SendUnicodeMsgsHttpPostIn" />
+      <wsdl:output message="tns:SendUnicodeMsgsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgsWithOperator">
+      <wsdl:input message="tns:SendUnicodeMsgsWithOperatorHttpPostIn" />
+      <wsdl:output message="tns:SendUnicodeMsgsWithOperatorHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendFailedSSMS">
+      <soap:operation soapAction="http://tempuri.org/SendFailedSSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFailedWapPush">
+      <soap:operation soapAction="http://tempuri.org/SendFailedWapPush" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="http://tempuri.org/SendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="http://tempuri.org/SendSMSWithOperator" style="document" />
+      <wsdl:input name="SendSMSWithOperator">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendSMSWithOperator">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany">
+      <soap:operation soapAction="http://tempuri.org/SendOneSMSToMany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany">
+      <soap:operation soapAction="http://tempuri.org/SendOneSMSToManyWithOperator" style="document" />
+      <wsdl:input name="SendOneSMSToManyWithOperator">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendOneSMSToManyWithOperator">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCredit">
+      <soap:operation soapAction="http://tempuri.org/CheckCredit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush">
+      <soap:operation soapAction="http://tempuri.org/SendWapPush" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush">
+      <soap:operation soapAction="http://tempuri.org/SendWapPushWithOperator" style="document" />
+      <wsdl:input name="SendWapPushWithOperator">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendWapPushWithOperator">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany_WithDLR">
+      <soap:operation soapAction="http://tempuri.org/SendOneWAPPushToMany_WithDLR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany_WithDLR">
+      <soap:operation soapAction="http://tempuri.org/SendOneWAPPushToMany_WithDLRWithOperator" style="document" />
+      <wsdl:input name="SendOneWAPPushToMany_WithDLRWithOperator">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendOneWAPPushToMany_WithDLRWithOperator">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany">
+      <soap:operation soapAction="http://tempuri.org/SendOneWAPPushToMany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany">
+      <soap:operation soapAction="http://tempuri.org/SendOneWAPPushToManyWithOperator" style="document" />
+      <wsdl:input name="SendOneWAPPushToManyWithOperator">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendOneWAPPushToManyWithOperator">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS_WithDLR">
+      <soap:operation soapAction="http://tempuri.org/SendSMS_WithDLR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithDLR">
+      <soap:operation soapAction="http://tempuri.org/SendSMSWithDLR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush_WithDLR">
+      <soap:operation soapAction="http://tempuri.org/SendWapPush_WithDLR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush_WithDLR">
+      <soap:operation soapAction="http://tempuri.org/SendWapPush_WithDLRWithOperator" style="document" />
+      <wsdl:input name="SendWapPush_WithDLRWithOperator">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendWapPush_WithDLRWithOperator">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS_WithDLR">
+      <soap:operation soapAction="http://tempuri.org/SendSMS_WithDLRWithOperator" style="document" />
+      <wsdl:input name="SendSMS_WithDLRWithOperator">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendSMS_WithDLRWithOperator">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendManySMS_WithDLR">
+      <soap:operation soapAction="http://tempuri.org/SendManySMS_WithDLR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendManyWAPPush_WithDLR">
+      <soap:operation soapAction="http://tempuri.org/SendManyWAPPush_WithDLR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany_WithDLR">
+      <soap:operation soapAction="http://tempuri.org/SendOneSMSToMany_WithDLR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany_WithDLR">
+      <soap:operation soapAction="http://tempuri.org/SendOneSMSToMany_WithDLRWithOperator" style="document" />
+      <wsdl:input name="SendOneSMSToMany_WithDLRWithOperator">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendOneSMSToMany_WithDLRWithOperator">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgs_WithDLR">
+      <soap:operation soapAction="http://tempuri.org/SendUnicodeMsgs_WithDLR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgs">
+      <soap:operation soapAction="http://tempuri.org/SendUnicodeMsgs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgsWithOperator">
+      <soap:operation soapAction="http://tempuri.org/SendUnicodeMsgsWithOperator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendFailedSSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendFailedSSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFailedWapPush">
+      <soap12:operation soapAction="http://tempuri.org/SendFailedWapPush" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendSMSWithOperator" style="document" />
+      <wsdl:input name="SendSMSWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendSMSWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany">
+      <soap12:operation soapAction="http://tempuri.org/SendOneSMSToMany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany">
+      <soap12:operation soapAction="http://tempuri.org/SendOneSMSToManyWithOperator" style="document" />
+      <wsdl:input name="SendOneSMSToManyWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendOneSMSToManyWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCredit">
+      <soap12:operation soapAction="http://tempuri.org/CheckCredit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush">
+      <soap12:operation soapAction="http://tempuri.org/SendWapPush" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush">
+      <soap12:operation soapAction="http://tempuri.org/SendWapPushWithOperator" style="document" />
+      <wsdl:input name="SendWapPushWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendWapPushWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany_WithDLR">
+      <soap12:operation soapAction="http://tempuri.org/SendOneWAPPushToMany_WithDLR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany_WithDLR">
+      <soap12:operation soapAction="http://tempuri.org/SendOneWAPPushToMany_WithDLRWithOperator" style="document" />
+      <wsdl:input name="SendOneWAPPushToMany_WithDLRWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendOneWAPPushToMany_WithDLRWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany">
+      <soap12:operation soapAction="http://tempuri.org/SendOneWAPPushToMany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany">
+      <soap12:operation soapAction="http://tempuri.org/SendOneWAPPushToManyWithOperator" style="document" />
+      <wsdl:input name="SendOneWAPPushToManyWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendOneWAPPushToManyWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS_WithDLR">
+      <soap12:operation soapAction="http://tempuri.org/SendSMS_WithDLR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithDLR">
+      <soap12:operation soapAction="http://tempuri.org/SendSMSWithDLR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush_WithDLR">
+      <soap12:operation soapAction="http://tempuri.org/SendWapPush_WithDLR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush_WithDLR">
+      <soap12:operation soapAction="http://tempuri.org/SendWapPush_WithDLRWithOperator" style="document" />
+      <wsdl:input name="SendWapPush_WithDLRWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendWapPush_WithDLRWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS_WithDLR">
+      <soap12:operation soapAction="http://tempuri.org/SendSMS_WithDLRWithOperator" style="document" />
+      <wsdl:input name="SendSMS_WithDLRWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendSMS_WithDLRWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendManySMS_WithDLR">
+      <soap12:operation soapAction="http://tempuri.org/SendManySMS_WithDLR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendManyWAPPush_WithDLR">
+      <soap12:operation soapAction="http://tempuri.org/SendManyWAPPush_WithDLR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany_WithDLR">
+      <soap12:operation soapAction="http://tempuri.org/SendOneSMSToMany_WithDLR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany_WithDLR">
+      <soap12:operation soapAction="http://tempuri.org/SendOneSMSToMany_WithDLRWithOperator" style="document" />
+      <wsdl:input name="SendOneSMSToMany_WithDLRWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SendOneSMSToMany_WithDLRWithOperator">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgs_WithDLR">
+      <soap12:operation soapAction="http://tempuri.org/SendUnicodeMsgs_WithDLR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgs">
+      <soap12:operation soapAction="http://tempuri.org/SendUnicodeMsgs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgsWithOperator">
+      <soap12:operation soapAction="http://tempuri.org/SendUnicodeMsgsWithOperator" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpGet" type="tns:ServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SendFailedSSMS">
+      <http:operation location="/SendFailedSSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFailedWapPush">
+      <http:operation location="/SendFailedWapPush" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <http:operation location="/SendSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <http:operation location="/SendSMSWithOperator" />
+      <wsdl:input name="SendSMSWithOperator">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="SendSMSWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany">
+      <http:operation location="/SendOneSMSToMany" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany">
+      <http:operation location="/SendOneSMSToManyWithOperator" />
+      <wsdl:input name="SendOneSMSToManyWithOperator">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="SendOneSMSToManyWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCredit">
+      <http:operation location="/CheckCredit" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush">
+      <http:operation location="/SendWapPush" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush">
+      <http:operation location="/SendWapPushWithOperator" />
+      <wsdl:input name="SendWapPushWithOperator">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="SendWapPushWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany_WithDLR">
+      <http:operation location="/SendOneWAPPushToMany_WithDLR" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany_WithDLR">
+      <http:operation location="/SendOneWAPPushToMany_WithDLRWithOperator" />
+      <wsdl:input name="SendOneWAPPushToMany_WithDLRWithOperator">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="SendOneWAPPushToMany_WithDLRWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany">
+      <http:operation location="/SendOneWAPPushToMany" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany">
+      <http:operation location="/SendOneWAPPushToManyWithOperator" />
+      <wsdl:input name="SendOneWAPPushToManyWithOperator">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="SendOneWAPPushToManyWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS_WithDLR">
+      <http:operation location="/SendSMS_WithDLR" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithDLR">
+      <http:operation location="/SendSMSWithDLR" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush_WithDLR">
+      <http:operation location="/SendWapPush_WithDLR" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush_WithDLR">
+      <http:operation location="/SendWapPush_WithDLRWithOperator" />
+      <wsdl:input name="SendWapPush_WithDLRWithOperator">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="SendWapPush_WithDLRWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS_WithDLR">
+      <http:operation location="/SendSMS_WithDLRWithOperator" />
+      <wsdl:input name="SendSMS_WithDLRWithOperator">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="SendSMS_WithDLRWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany_WithDLR">
+      <http:operation location="/SendOneSMSToMany_WithDLR" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany_WithDLR">
+      <http:operation location="/SendOneSMSToMany_WithDLRWithOperator" />
+      <wsdl:input name="SendOneSMSToMany_WithDLRWithOperator">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="SendOneSMSToMany_WithDLRWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgs_WithDLR">
+      <http:operation location="/SendUnicodeMsgs_WithDLR" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgs">
+      <http:operation location="/SendUnicodeMsgs" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgsWithOperator">
+      <http:operation location="/SendUnicodeMsgsWithOperator" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpPost" type="tns:ServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SendFailedSSMS">
+      <http:operation location="/SendFailedSSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFailedWapPush">
+      <http:operation location="/SendFailedWapPush" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <http:operation location="/SendSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <http:operation location="/SendSMSWithOperator" />
+      <wsdl:input name="SendSMSWithOperator">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="SendSMSWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany">
+      <http:operation location="/SendOneSMSToMany" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany">
+      <http:operation location="/SendOneSMSToManyWithOperator" />
+      <wsdl:input name="SendOneSMSToManyWithOperator">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="SendOneSMSToManyWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCredit">
+      <http:operation location="/CheckCredit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush">
+      <http:operation location="/SendWapPush" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush">
+      <http:operation location="/SendWapPushWithOperator" />
+      <wsdl:input name="SendWapPushWithOperator">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="SendWapPushWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany_WithDLR">
+      <http:operation location="/SendOneWAPPushToMany_WithDLR" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany_WithDLR">
+      <http:operation location="/SendOneWAPPushToMany_WithDLRWithOperator" />
+      <wsdl:input name="SendOneWAPPushToMany_WithDLRWithOperator">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="SendOneWAPPushToMany_WithDLRWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany">
+      <http:operation location="/SendOneWAPPushToMany" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneWAPPushToMany">
+      <http:operation location="/SendOneWAPPushToManyWithOperator" />
+      <wsdl:input name="SendOneWAPPushToManyWithOperator">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="SendOneWAPPushToManyWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS_WithDLR">
+      <http:operation location="/SendSMS_WithDLR" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithDLR">
+      <http:operation location="/SendSMSWithDLR" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush_WithDLR">
+      <http:operation location="/SendWapPush_WithDLR" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWapPush_WithDLR">
+      <http:operation location="/SendWapPush_WithDLRWithOperator" />
+      <wsdl:input name="SendWapPush_WithDLRWithOperator">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="SendWapPush_WithDLRWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS_WithDLR">
+      <http:operation location="/SendSMS_WithDLRWithOperator" />
+      <wsdl:input name="SendSMS_WithDLRWithOperator">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="SendSMS_WithDLRWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany_WithDLR">
+      <http:operation location="/SendOneSMSToMany_WithDLR" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOneSMSToMany_WithDLR">
+      <http:operation location="/SendOneSMSToMany_WithDLRWithOperator" />
+      <wsdl:input name="SendOneSMSToMany_WithDLRWithOperator">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="SendOneSMSToMany_WithDLRWithOperator">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgs_WithDLR">
+      <http:operation location="/SendUnicodeMsgs_WithDLR" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgs">
+      <http:operation location="/SendUnicodeMsgs" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUnicodeMsgsWithOperator">
+      <http:operation location="/SendUnicodeMsgsWithOperator" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="https://smsvas.vlserv.com/KannelSending/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="https://smsvas.vlserv.com/KannelSending/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpGet" binding="tns:ServiceHttpGet">
+      <http:address location="https://smsvas.vlserv.com/KannelSending/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpPost" binding="tns:ServiceHttpPost">
+      <http:address location="https://smsvas.vlserv.com/KannelSending/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

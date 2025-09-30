@@ -1,0 +1,92 @@
+﻿@using ActionMailer.Net
+@model BrokerMVC.Models.NotifyService
+@{
+    Layout = "~/Views/Mail/_EmailLayout.html.cshtml";
+}
+@*<div class="email_banner">
+        طلب شراء جديد
+    </div>
+    <div class="email_body">*@
+
+<div class="caption">
+    <h1>
+        @*عزيزى العميل
+        <br />*@
+        <span>
+            تم ارسال رسالة من احد العملاء 
+        </span>
+    </h1>
+</div>
+<table id="table">
+
+    <tr>
+        <td class="cell primary"><h4>@General.FullName</h4></td>
+        <td class="cell">@Html.DisplayFor(model => model.Name)</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.Phone</h4></td>
+        <td class="cell">@Html.DisplayFor(model => model.Phone)</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.Email</h4></td>
+        <td class="cell">@Html.DisplayFor(model => model.Email)</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.Date</h4></td>
+        <td class="cell">@Model.Date.Value.ToShortDateString()</td>
+    </tr>
+    @if(Model.RealEstateTypeID>0)
+    { 
+    <tr>
+        <td class="cell primary"><h4>@General.Type</h4></td>
+        <td class="cell">@Model.RealEstateType.Title</td>
+    </tr>
+    }
+    @if (Model.SaleTypeID > 0)
+    {
+        <tr>
+            <td class="cell primary"><h4>@General.SaleType</h4></td>
+            <td class="cell">@Model.SaleType.Title</td>
+        </tr>
+    }
+    @if (Model.CountryID > 0)
+    {
+        <tr>
+            <td class="cell primary"><h4>@General.CountryName</h4></td>
+            <td class="cell">@Model.Country.Name</td>
+        </tr>
+    }
+    @if (Model.CityID > 0)
+    {
+        <tr>
+            <td class="cell primary"><h4>@General.CityName</h4></td>
+            <td class="cell">@Model.City.Name</td>
+        </tr>
+    }
+    @if (Model.DistrictID > 0)
+    {
+        <tr>
+            <td class="cell primary"><h4>@General.District</h4></td>
+            <td class="cell">@Model.District.Name</td>
+        </tr>
+    }
+    @if (Model.Price > 0)
+    {
+        <tr>
+            <td class="cell primary"><h4>@General.Price</h4></td>
+            <td class="cell">@Model.Price</td>
+        </tr>
+    }
+    @if (Model.Area > 0)
+    {
+        <tr>
+            <td class="cell primary"><h4>@General.Area</h4></td>
+            <td class="cell">@Model.Area</td>
+        </tr>
+    }
+</table>
+<div class="footer">
+    <a href="@ConfigurationSettings.AppSettings["WebSite"].ToString()"> خدمة عملاء @ConfigurationSettings.AppSettings["Name"].ToString()</a>
+    <br />
+</div>
+

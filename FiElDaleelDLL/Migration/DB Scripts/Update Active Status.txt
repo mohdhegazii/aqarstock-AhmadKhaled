@@ -1,0 +1,3 @@
+﻿ --update RealEstates
+  --set ActiveStatusId=7
+  --where ActiveStatusId=8

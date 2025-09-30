@@ -1,0 +1,199 @@
+﻿<div class="compenyResultInfo col-md-8">
+    <div class="resultTitle">
+        <h4><a class="back" detail-backbutton href="javascript:void(0);">رجوع</a>عقارات {{Name}}</h4>
+    </div>
+
+    <div class="resultItems">
+        <div class="item" ng-repeat="realestate in realEstates" id="{{realestate.ID}}">
+            <div class="wow" ng-if="realestate.IsSpecial == 'True'">
+                <div class="wowText">
+                    عقار مميز
+                </div>
+            </div>
+            <div class="itemImg">
+                <a ng-href="/Details/{{realestate.ID}}/{{realestate.URL}}">
+                    <img src="http://www.aqarstock.com/{{realestate.Logo}}" />
+                </a>
+            </div>
+            <div class="itemDitails">
+                <a ng-href="/Details/{{realestate.ID}}/{{realestate.URL}}">
+                    <div class="itemDesc">
+                        <span>{{realestate.Type}} <b ng-if="realestate.Area != '0' ">{{realestate.Area}} م </b>- {{realestate.District}}, {{realestate.City}}</span>
+                    </div>
+                    <div class="itemPrice">
+                        <span ng-if="realestate.Price != '0' ">السعر: <b>{{realestate.Price}}</b> {{realestate.Currency}}</span>
+                        <span ng-if="realestate.Price == '0' ">السعر: غير متوفر</span>
+                    </div>
+                </a>
+                <div class="itemControls">
+                    <span class="moreDet"><a ng-href="/Details/{{realestate.ID}}/{{realestate.URL}}">عرض التفاصيل</a></span>
+                    <div class="controls">
+                        <div class="delete" value="{{realestate.ID}}" btn-Delete>
+                        </div>
+                        <div class="favorite" value="{{realestate.ID}}" btn-Fav>
+                        </div>
+                        <div class="compare" btn-Compare value="{{realestate.ID}}">
+                            <span>قارن</span>
+                            <input type="hidden" name="unchecked" value="unchecked" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!--<div class="item">
+            <div class="wow"><div class="wowText">للإيجار </div></div>
+            <div class="itemImg">
+                <img src="images/Frontend/offerRes.png" />
+            </div>
+            <div class="itemDitails">
+                <div class="itemDesc"><span>فيلا <b>245</b> م تمليك ، بجنينة  <b>70</b> م - التجمع الخامس بمنطقة القرنفل</span></div>
+                <div class="itemPrice"><span><b>3,000,000</b> جنية مصري</span></div>
+                <div class="itemControls">
+                    <span class="moreDet">عرض التفاصيل</span>
+                    <div class="controls">
+                        <div class="delete"></div>
+                        <div class="favorite"></div>
+                        <div class="compare">
+                            <span>قارن</span>
+                            <input type="hidden" name="unchecked" value="unchecked" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="item">
+            <div class="wow"><div class="wowText">للإيجار </div></div>
+            <div class="itemImg">
+                <img src="images/Frontend/offerRes.png" />
+            </div>
+            <div class="itemDitails">
+                <div class="itemDesc"><span>فيلا <b>245</b> م تمليك ، بجنينة  <b>70</b> م - التجمع الخامس بمنطقة القرنفل</span></div>
+                <div class="itemPrice"><span><b>3,000,000</b> جنية مصري</span></div>
+                <div class="itemControls">
+                    <span class="moreDet">عرض التفاصيل</span>
+                    <div class="controls">
+                        <div class="delete"></div>
+                        <div class="favorite"></div>
+                        <div class="compare">
+                            <span>قارن</span>
+                            <input type="hidden" name="unchecked" value="unchecked" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="item">
+            <div class="wow"><div class="wowText">للإيجار </div></div>
+            <div class="itemImg">
+                <img src="images/Frontend/offerRes.png" />
+            </div>
+            <div class="itemDitails">
+                <div class="itemDesc"><span>فيلا <b>245</b> م تمليك ، بجنينة  <b>70</b> م - التجمع الخامس بمنطقة القرنفل</span></div>
+                <div class="itemPrice"><span><b>3,000,000</b> جنية مصري</span></div>
+                <div class="itemControls">
+                    <span class="moreDet">عرض التفاصيل</span>
+                    <div class="controls">
+                        <div class="delete"></div>
+                        <div class="favorite"></div>
+                        <div class="compare">
+                            <span>قارن</span>
+                            <input type="hidden" name="unchecked" value="unchecked" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="item">
+            <div class="wow"><div class="wowText">للإيجار </div></div>
+            <div class="itemImg">
+                <img src="images/Frontend/offerRes.png" />
+            </div>
+            <div class="itemDitails">
+                <div class="itemDesc"><span>فيلا <b>245</b> م تمليك ، بجنينة  <b>70</b> م - التجمع الخامس بمنطقة القرنفل</span></div>
+                <div class="itemPrice"><span><b>3,000,000</b> جنية مصري</span></div>
+                <div class="itemControls">
+                    <span class="moreDet">عرض التفاصيل</span>
+                    <div class="controls">
+                        <div class="delete"></div>
+                        <div class="favorite"></div>
+                        <div class="compare">
+                            <span>قارن</span>
+                            <input type="hidden" name="unchecked" value="unchecked" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="item">
+            <div class="wow"><div class="wowText">للإيجار </div></div>
+            <div class="itemImg">
+                <img src="images/Frontend/offerRes.png" />
+            </div>
+            <div class="itemDitails">
+                <div class="itemDesc"><span>فيلا <b>245</b> م تمليك ، بجنينة  <b>70</b> م - التجمع الخامس بمنطقة القرنفل</span></div>
+                <div class="itemPrice"><span><b>3,000,000</b> جنية مصري</span></div>
+                <div class="itemControls">
+                    <span class="moreDet">عرض التفاصيل</span>
+                    <div class="controls">
+                        <div class="delete"></div>
+                        <div class="favorite"></div>
+                        <div class="compare">
+                            <span>قارن</span>
+                            <input type="hidden" name="unchecked" value="unchecked" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>-->
+    </div>
+    <div id="divListLoading" class="loader"><img src="images/Frontend/loading2.gif" /></div>
+    <div class="pageController">
+        <div class="prevBtn" ng-click="PreviousPage()">
+        </div>
+        <div class="firstOne" style="display: none">
+            <a href="javascript:void(0);" ng-click="MoveTo(FirstPage)">{{FirstPage}}</a>
+        </div>
+        <div id="divFirstPage" class="dottes" style="display: none">
+            <span>...</span>
+        </div>
+        <div class="numbers">
+            <ul>
+                <li class="number" ng-repeat="page in Pages" id="{{page}}" paging ng-click="MoveTo(page)">
+                    <a href="javascript:void(0);">{{page}}</a>
+                </li>
+            </ul>
+        </div>
+        <div id="divLastPage" class="dottes">
+            <span>...</span>
+        </div>
+        <div class="lastOne">
+            <a href="javascript:void(0);" ng-click="MoveTo(LastPage)">{{LastPage}}</a>
+        </div>
+        <div class="nextBtn" ng-click="NextPage()">
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <!--   <div class="pageController">
+           <div class="prevBtn"></div>
+           <div class="firstOne"><a href="#">1</a></div>
+           <div class="dottes"><span>...</span></div>
+           <div class="numbers">
+               <ul>
+                   <li class="number active"><a href="#">5</a></li>
+                   <li class="number"><a href="#">6</a></li>
+                   <li class="number"><a href="#">7</a></li>
+               </ul>
+           </div>
+           <div class="dottes"><span>...</span></div>
+           <div class="lastOne"><a href="#">255</a></div>
+           <div class="nextBtn"></div>
+          <div class="clear"></div>
+       </div>-->
+</div>

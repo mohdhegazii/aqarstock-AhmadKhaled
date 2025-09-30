@@ -1,0 +1,4 @@
+
+User-agent: *
+Sitemap:http://www.aqarstock.com/sitemap.xml
+host:www.aqarstock.com

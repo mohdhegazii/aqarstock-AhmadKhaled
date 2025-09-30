@@ -1,0 +1,32 @@
+﻿<Properties>
+  <Property>
+    <title></title>
+    <Description></Description>
+    <saleType></saleType>
+    <category></category>
+    <Type></Type>
+    <status></status>
+    <country></country>
+    <City></City>
+    <district></district>
+    <address></address>
+    <longitude></longitude>
+    <latitude></latitude>
+    <area></area>
+    <price></price>
+    <currency></currency>
+    <paymenttype></paymenttype>
+    <photos>
+      <photo>
+      <URL></URL>
+      <default></default>
+      </photo>      
+    </photos>
+    <CriteriaList>
+      <criteria>
+        <name></name>
+        <value></value>
+      </criteria>
+    </CriteriaList>
+  </Property>
+</Properties>

@@ -1,0 +1,59 @@
+﻿@model BrokerMVC.Models.RealEstateProjectVideo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RealEstateProjectVideo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TiTle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TiTle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.URL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.URL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmedCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmedCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstateProject.Longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstateProject.Longitude)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

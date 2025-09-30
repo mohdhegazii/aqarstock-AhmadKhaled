@@ -1,0 +1,432 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstate>
+@{
+    ViewBag.Title = General.CompareList + "- " + General.PageTitle;
+    Layout = "~/Views/Home/_Layout.cshtml";
+}
+<div class="inner-banner">
+    <!-- banner start  -->
+    <span class="full-size-img" style="background:url(@Url.Content("~/Content/_ui/img/media/slide-5.jpg")) no-repeat center center / cover"></span>
+    <!-- // banner end -->
+    <div class="block-title">
+        <div class="container">
+            <h1>مورانو العين السخنة – Murano Ain El Sokhna</h1>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <!-- Search form start  -->
+            <div id="divSearch">
+
+            </div>
+            <!-- // Search form end -->
+        </div>
+        <!-- ads block start -->
+        <div class="block">
+            <div id="divFirstAd">
+
+            </div>
+        </div>
+        <!-- // ads block end -->
+        <!-- project details block start -->
+        <div class="col-md-12">
+            <div class="block project-details-wrapper">
+                <div class="project-title">
+                    <div class="col-md-8 col-sm-7">
+                        <h1>@General.CompareList<i class="fa fa-balance-scale" aria-hidden="true"></i></h1>
+                    </div>
+                    <div class="col-md-4 col-sm-5">
+                        <a href="@this.Request.UrlReferrer" class="btn btn-theme btn-back">@General.Return <i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+
+
+                <div class="block project-info-wrapper">
+                    <div class="col-sm-12">
+                        <div class="comparesion-wrapper desktop-on">
+
+                            <div class="table-responsive float-right">
+                                <table class="table">
+                                    <tr>
+                                        <td><h4>@General.DefaultImage </h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>@General.AdTitle </h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>@General.Address</h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>@General.Category </h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>@General.Type</h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>@General.Status</h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>@General.Area</h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>@General.SaleType</h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4> @General.Price</h4></td>
+                                    </tr>
+                             
+                                    <tr>
+                                        <td><h4>@General.PaymentType </h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>@General.RealestateCriteria </h4></td>
+                                    </tr>
+                              
+                                </table>
+                            </div>
+
+                            @foreach(var item in Model)
+                            { 
+                            <div class="table-responsive float-right">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <a class="details-info-hover" href="~/Details/@item.ID/@(Commons.Culture.Contains("ar")?Commons.EncodeText(item.Title):Commons.EncodeText(item.EnTitle))">
+                                                <span class="hover-img"><i class="fa fa-arrows-alt" aria-hidden="true"></i></span>
+                                                <img src="@Url.Content(item.DefaultImage.PhotoName)" class="compaersion-detail-img" alt="">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>@(Commons.Culture.Contains("ar") ? item.RealEstateType.Title : item.RealEstateType.EnTitle)  @item.Area @General.Meter</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@(Commons.Culture.Contains("ar") ? item.Address : item.EnAddress)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@(Commons.Culture.Contains("ar") ? item.RealEstateCategory.Title : item.RealEstateCategory.EnTitle) </td>
+                                    </tr>
+                                    <tr>
+                                        <td>@(Commons.Culture.Contains("ar") ? item.RealEstateType.Title : item.RealEstateType.EnTitle) </td>
+                                    </tr>
+                                    <tr>
+                                        <td>@(Commons.Culture.Contains("ar") ? item.RealEstateStatu.Title : item.RealEstateStatu.EnTitle) </td>
+                                    </tr>
+                                    <tr>
+                                        <td>@item.Area @General.Meter</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@(Commons.Culture.Contains("ar") ? item.SaleType.Title : item.SaleType.EnTitle) </td>
+                                    </tr>
+                                    <tr>
+                                        <td>@item.Price
+                                        @if (item.CurrencyID > 0)
+                                        {@(Commons.Culture.Contains("ar") ? item.Currency.Name : item.Currency.EnName)
+                                        }</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>@(Commons.Culture.Contains("ar") ? item.PaymentType.Title : item.PaymentType.EnTitle)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @foreach (var ctireia in item.RealEstateCriterias)
+                                            {
+                                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                                    if(ctireia.RealEstateTypeCriteria.ValueType + "_Type" == CriteriaValueType.int_Type.ToString())
+                                                    {
+                                                        @ctireia.Value
+                                                    }
+                                                    @(Commons.Culture.Contains("ar") ? ctireia.RealEstateTypeCriteria.Title : ctireia.RealEstateTypeCriteria.EnTitle)
+                                                <br />
+                                            }
+                                        </td>
+                                    </tr>
+                                   
+                                </table>
+                            </div>
+                            }
+
+
+                        </div>
+						
+						<!-- new for mobile -->
+						<div class="comparesion-wrapper desktop-off">
+                                  <div class="compersion-mobile-wrapper">
+                                    <h4>صورة الاعلان</h4>
+                                    <div class="compaersion-detail-mobile">
+                                      <a class="details-info-hover" href="project-unit-details.html">
+                                          <span class="hover-img"><i class="fa fa-arrows-alt" aria-hidden="true"></i></span>
+                                          <img src="_ui/img/media/challet-02.jpg" class="compaersion-detail-img" alt="">
+                                          <span class="badge badge-primary">1</span>
+                                      </a>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <a class="details-info-hover" href="project-unit-details.html">
+                                          <span class="hover-img"><i class="fa fa-arrows-alt" aria-hidden="true"></i></span>
+                                          <img src="_ui/img/media/challet-02.jpg" class="compaersion-detail-img" alt="">
+                                          <span class="badge badge-secondary">2</span>
+                                      </a>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <a class="details-info-hover" href="project-unit-details.html">
+                                          <span class="hover-img"><i class="fa fa-arrows-alt" aria-hidden="true"></i></span>
+                                          <img src="_ui/img/media/challet-02.jpg" class="compaersion-detail-img" alt="">
+                                          <span class="badge badge-third">3</span>
+                                      </a>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <a class="details-info-hover" href="project-unit-details.html">
+                                          <span class="hover-img"><i class="fa fa-arrows-alt" aria-hidden="true"></i></span>
+                                          <img src="_ui/img/media/challet-02.jpg" class="compaersion-detail-img" alt="">
+                                          <span class="badge badge-fourth">4</span>
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="compersion-mobile-wrapper">
+                                    <h4>عنوان الاعلان</h4>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>دوبلكس للبيع بالعين السخنه بالتقسيط 178م بمنتجع مورانو السخنه دوبلكس للبيع بالعين السخنه بالتقسيط 178م بمنتجع مورانو السخنه <span class="badge badge-primary">1</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>دوبلكس للبيع بالعين السخنه بالتقسيط 178م بمنتجع مورانو السخنه دوبلكس للبيع بالعين السخنه بالتقسيط 178م بمنتجع مورانو السخنه <span class="badge badge-secondary">2<span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>دوبلكس للبيع بالعين السخنه بالتقسيط 178م بمنتجع مورانو السخنه دوبلكس للبيع بالعين السخنه بالتقسيط 178م بمنتجع مورانو السخنه <span class="badge badge-third">3</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>دوبلكس للبيع بالعين السخنه بالتقسيط 178م بمنتجع مورانو السخنه دوبلكس للبيع بالعين السخنه بالتقسيط 178م بمنتجع مورانو السخنه <span class="badge badge-fourth">4</span></p>
+                                    </div>
+                                  </div>
+                                  <div class="compersion-mobile-wrapper">
+                                    <h4>العنوان</h4>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>Murano, العين السخنة, السويس, مصر<span class="badge badge-primary">1</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>Murano, العين السخنة, السويس, مصر <span class="badge badge-secondary">2</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>Murano, العين السخنة, السويس, مصر<span class="badge badge-third">3</span></</p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>Murano, العين السخنة, السويس, مصر<span class="badge badge-fourth">4</span></</p>
+                                    </div>
+                                  </div>
+                                  <div class="compersion-mobile-wrapper">
+                                    <h4>نوع الوحدة</h4>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>وحدات سكنية <span class="badge badge-primary">1</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>وحدات سكنية <span class="badge badge-secondary">2</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>وحدات سكنية <span class="badge badge-third">3</span></</p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>وحدات سكنية <span class="badge badge-fourth">4</span></p>
+                                    </div>
+                                  </div>
+                                  <div class="compersion-mobile-wrapper">
+                                    <h4>النوع</h4>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>شاليه <span class="badge badge-primary">1</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>شاليه <span class="badge badge-secondary">2</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>شاليه <span class="badge badge-third">3</span></</p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>شاليه <span class="badge badge-fourth">4</span></p>
+                                    </div>
+                                  </div>
+                                  <div class="compersion-mobile-wrapper">
+                                    <h4>الحالة</h4>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>تشطيب لوكس <span class="badge badge-primary">1</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>تشطيب لوكس <span class="badge badge-secondary">2</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>تشطيب لوكس <span class="badge badge-third">3</span></</p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>تشطيب لوكس <span class="badge badge-fourth">4</span></p>
+                                    </div>
+                                  </div>
+                                  <div class="compersion-mobile-wrapper">
+                                    <h4>المساحة</h4>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>178 م <span class="badge badge-primary">1</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>178 م <span class="badge badge-secondary">2</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>178 م <span class="badge badge-third">3</span></</p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>178 م <span class="badge badge-fourth">4</span></p>
+                                    </div>
+                                  </div>
+                                  <div class="compersion-mobile-wrapper">
+                                    <h4>النظام</h4>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>للبيع <span class="badge badge-primary">1</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>للبيع <span class="badge badge-secondary">2</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>للبيع <span class="badge badge-third">3</span></</p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>للبيع <span class="badge badge-fourth">4</span></p>
+                                    </div>
+                                  </div>
+                                  <div class="compersion-mobile-wrapper">
+                                    <h4>السعر الأجمالى</h4>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>1900000 جنيه مصري <span class="badge badge-primary">1</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>1900000 جنيه مصري <span class="badge badge-secondary">2</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>1900000 جنيه مصري <span class="badge badge-third">3</span></</p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>1900000 جنيه مصري <span class="badge badge-fourth">4</span></p>
+                                    </div>
+                                  </div>
+                                  <div class="compersion-mobile-wrapper">
+                                    <h4>العملة</h4>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>الجنيه المصرى <span class="badge badge-primary">1</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>الجنيه المصرى <span class="badge badge-secondary">2</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>الجنيه المصرى <span class="badge badge-third">3</span></</p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>الجنيه المصرى <span class="badge badge-fourth">4</span></p>
+                                    </div>
+                                  </div>
+                                  <div class="compersion-mobile-wrapper">
+                                    <h4>طريقة السداد</h4>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>تقسيط <span class="badge badge-primary">1</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>تقسيط <span class="badge badge-secondary">2</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>تقسيط <span class="badge badge-third">3</span></</p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>تقسيط <span class="badge badge-fourth">4</span></p>
+                                    </div>
+                                  </div>
+                                  <div class="compersion-mobile-wrapper">
+                                    <h4>عدد الحمامات</h4>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>2 <span class="badge badge-primary">1</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>2 <span class="badge badge-secondary">2</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>2 <span class="badge badge-third">3</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>2 <span class="badge badge-fourth">4</span></p>
+                                    </div>
+                                  </div>
+                                  <div class="compersion-mobile-wrapper">
+                                    <h4>الحالة</h4>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>3 <span class="badge badge-primary">1</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>3 <span class="badge badge-secondary">2</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>3 <span class="badge badge-third">3</span></p>
+                                    </div>
+                                    <div class="compaersion-detail-mobile">
+                                      <p>3 <span class="badge badge-fourth">4</span></p>
+                                    </div>
+                                  </div>
+                              </div>
+                    </div>
+
+                </div>
+
+
+                <div class="inner-social">
+                    <div class="col-sm-6 social-list">
+
+                        <div class="addthis_sharing_toolbox">
+                        </div>
+                   
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="@this.Request.UrlReferrer" class="btn btn-theme btn-back">@General.Return <i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ads block start -->
+        <div class="block">
+            <div id="divSecondAd">
+
+            </div>
+        </div>
+        <!-- // ads block end -->
+        <div class="col-md-12">
+            <!-- latest unit block start -->
+            <div id="divLatestAdded" class="Latest-Prop">
+
+            </div>
+            <!-- // latest unit block end -->
+        </div>
+        <!-- // project details block block end -->
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        LoadPropertySearch("list");
+        LoadPageAds();
+    </script>
+}
+@section META{
+    <meta name="title" content="@General.CompareList - @General.PageTitle" />
+    <meta name="description" content="@General.SiteDescription" />
+    <meta name="keywords" content="عقارات, خريطة, جوجل إرث, فيلا, بيت, منزل, شقة, أرض, قصر, غرفة, للبيع, شراء, مطلوب, تأجير, الرياض, السعودية, دبي, أبو ظبي, الدوحة, مصر, القاهرة, اسكندرية, شقق للبيع,Real Estate, Map, Google Legacy, Villa, House, House, Apartment, Land, Palace, Room, Sale, Buy, Wanted, Rent, Riyadh, Saudi Arabia, Dubai, Abu Dhabi, Doha, Egypt, Cairo, Alexandria, Apartments for Sale" />
+    <meta name='twitter:card' content="summary" />
+    <meta name='twitter:title' content="@General.CompareList - @General.PageTitle" />
+    <meta name='twitter:url' content="http://www.aqarstock.com/" />
+    <meta name='twitter:url' content="http://www.aqarstock.net/" />
+    <meta name='twitter:description' content="@General.SiteDescription" />
+    <meta name='twitter:image' content="http://www.aqarstock.com/Content/_ui/img/Aqar-Stock-Sociallogo-1.png" />
+    <meta name='og:type' content="article" />
+    <meta name='og:title' content="@General.CompareList - @General.PageTitle" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-1.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-2.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-3.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-4.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-5.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-6.png" />
+    <meta name='og:url' content="http://www.aqarstock.com/" />
+    <meta name='og:url' content="http://www.aqarstock.net/" />
+    <meta name='og:description' content="@General.SiteDescription" />
+}

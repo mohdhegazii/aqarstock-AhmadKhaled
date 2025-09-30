@@ -1,0 +1,81 @@
+﻿@model BrokerMVC.Models.SubscriperMessage
+
+@{
+    ViewBag.Title = General.SiteName + " - " + General.Message;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2><i class="fa fa-envelope-o fa-fw"></i>@Model.Title </h2>
+            </div>
+            @*<div class="btn-group pull-left">
+                    <a href='@Url.Action("Index", "UserDashBoard")' data-toggle="tooltip" data-placement="bottom" title="@General.DashBoard" data-original-title="@General.DashBoard" class="btn btn-group-sm btn-Dashboard">
+                        <span class="fa-stack">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-dashboard fa-stack-1x Dashboard-icon"></i>
+                        </span>
+                    </a>
+                </div>*@
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-responsive table-bordered table-striped table-hover">
+
+            <tr>
+                <td>
+                    @if (Model.FromSubscriber != true)
+                    {
+                        @General.Management
+                    }
+                    else
+                    {
+                        @ViewBag.Subscriber
+                    }
+                    <br />
+                    @Model.CreatedDate.Value.ToShortDateString()
+                </td>
+
+                <td>
+                    @Model.Body
+                </td>
+
+
+            </tr>
+
+            @foreach (var item in Model.ReplyMessages.OrderBy(m=>m.CreatedDate))
+            {
+                <tr>
+                    <td>
+                        @if (item.FromSubscriber != true)
+                        {
+                            @General.Management
+                        }
+                        else
+                        {
+                            @ViewBag.Subscriber
+                        }
+                        <br />
+                        @item.CreatedDate.Value.ToShortDateString()
+                    </td>
+
+                    <td>
+                        @item.Body
+                    </td>
+                </tr>
+            }
+            <tfoot>
+                <tr class="">
+                    <td colspan="2" class="text-center">
+                        <a href="javascript(void)" onclick="SendReplyToManagement(@Model.ID)" data-target="#divModal" data-toggle="modal" class="btn btn-group-lg btn-success">
+                            @General.Reply
+                        </a>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+</div>

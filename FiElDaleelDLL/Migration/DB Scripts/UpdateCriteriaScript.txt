@@ -1,0 +1,13 @@
+﻿/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT *
+  FROM [RealEstateBroker].[dbo].[RealEstateTypeCriterias]
+  inner join MigratedRealEstates.dbo.PropertyFinderRealEstatesSchema
+  on RealEstateBroker.dbo.RealEstateTypeCriterias.RealEstateTypeID =MigratedRealEstates.dbo.PropertyFinderRealEstatesSchema.typeID 
+   where [Title] = 'عدد الغرف'
+   
+--   update MigratedRealEstates.dbo.PropertyFinderRealEstatesSchema
+--   set BathroomCriteriaID= (select ID from RealEstateBroker.dbo.RealEstateTypeCriterias
+--where PropertyFinderRealEstatesSchema.TypeId=RealEstateBroker.dbo.RealEstateTypeCriterias.[RealEstateTypeID]
+--and 
+--RealEstateBroker.dbo.RealEstateTypeCriterias.Title='عدد  الحمامات  ')
+--where RoomCriteriaId is null

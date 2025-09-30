@@ -1,0 +1,28 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstateProjectVideo>
+@if (Model.Count() > 0)
+{
+<div class="block project-info-wrapper">
+    <div class="col-sm-12">
+        <div class="notes-block">
+            <div class="col-sm-12">
+                <h3>@General.Videos</h3>
+            </div>
+            @foreach (var item in Model)
+            {
+            <div class="col-md-6 col-sm-6">
+                <div class="thumbnail no-border no-padding thumbnail-property thumbnail-project-unit">
+                    <div class="media">
+                        <video id="player1" width="100%" height="160" >
+                            <source src="@item.URL" type="video/youtube" />
+                        </video>
+                    </div>
+                    <div class="caption text-center">
+                        <span class="album-date">@item.TiTle</span>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+}

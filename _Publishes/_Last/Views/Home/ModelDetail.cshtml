@@ -1,0 +1,221 @@
+﻿@model BrokerMVC.Models.RealEstateProjectModel
+
+@{
+    ViewBag.Title = (Commons.Culture.Contains("ar") ? Model.RealEstateProject.Title : Model.RealEstateProject.EnTitle) + "- " + (Commons.Culture.Contains("ar") ? Model.Title : Model.EnTitle) + " - " + General.PageTitle;
+    Layout = "~/Views/Home/_Layout.cshtml";
+    var CompanyMessage = new BrokerMVC.Models.CompanyMessage();
+    CompanyMessage.ProjectID = Model.RealEstateProject.ID;
+    CompanyMessage.CompanyID = Model.RealEstateProject.CompanyID;
+}
+
+<div class="inner-banner">
+    <!-- banner start  -->
+    <span class="full-size-img" style="background:url(@Url.Content(Model.RealEstateProject.DefaultPhotoURL)) no-repeat center center / cover"></span>
+    <!-- // banner end -->
+    <div class="block-title">
+        <div class="container">
+            <h1>@(Commons.Culture.Contains("ar") ? Model.RealEstateProject.Title : Model.RealEstateProject.EnTitle)</h1>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <!-- Search form start  -->
+            <div id="divSearch">
+
+            </div>
+            <!-- // Search form end -->
+        </div>
+
+        <!-- project details block start -->
+        <div class="col-md-8">
+            <div class="block project-details-wrapper" itemscope itemtype="http://schema.org/Product">
+                <div class="project-title">
+                    <div class="col-md-8 col-sm-7">
+                        <h1 itemprop="name">
+                            @(Commons.Culture.Contains("ar") ? Model.Title : Model.EnTitle)
+                            -@(Commons.Culture.Contains("ar") ? Model.RealEstateType.Title : Model.RealEstateType.EnTitle) @Model.Area @General.Meter
+                            <i class="fa fa-building-o" aria-hidden="true"></i>
+                        </h1>
+                    </div>
+                    <div class="col-md-4 col-sm-5">
+                        <a href="@this.Request.UrlReferrer" class="btn btn-theme btn-back">@General.Back <i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    </div>
+
+                    @*<div class="col-md-12 col-sm-12">
+                            <ul class="ico-details">
+                                <li><i class="fa fa-bed" aria-hidden="true"></i> 3 غرف</li>
+                                <li><i class="fa fa-bath" aria-hidden="true"></i> 2 حمام</li>
+                                <li><i class="fa fa-car" aria-hidden="true"></i> 1 جراج</li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-info-block">
+                            <div class="col-sm-4"><a href="#" class="btn btn-03"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> راسل المالك</a></div>
+                            <div class="col-sm-4"><a href="#" class="btn btn-05"><i class="fa fa-database" aria-hidden="true"></i>بيانات المالك</a></div>
+                            <div class="col-sm-4"><a href="#" class="btn btn-04"><i class="fa fa-exclamation" aria-hidden="true"></i>تقديم شكوى</a></div>
+                        </div>*@
+                </div>
+
+                <div class="project-banner-wrapper">
+                    <div class="col-sm-12">
+                        <div class="flex-slider flexslider">
+                            <ul class="slides">
+                                <li><img itemprop="image" src="@Url.Content(Model.PlanImgURL)" /></li>
+                            </ul>
+                        </div>
+
+                        <!--<div class="flex-carousel flexslider">
+                            <ul class="slides">
+                                <li><img src="_ui/img/media/model-01.jpg" /></li>
+                            </ul>
+                        </div>-->
+                    </div>
+                </div>
+
+                <div class="block project-info-wrapper">
+                    <div class="col-sm-12">
+                        <h2>@General.Details @(Commons.Culture.Contains("ar") ? Model.RealEstateType.Title : Model.RealEstateType.EnTitle)  @Model.Area @General.Meter <i class="fa fa-map-marker" aria-hidden="true"></i></h2>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <td><h4>@General.FullName </h4></td>
+                                    <td>@(Commons.Culture.Contains("ar") ? Model.Title : Model.EnTitle)</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>@General.Address</h4></td>
+                                    <td itemprop="address">@(Commons.Culture.Contains("ar") ? Model.RealEstateProject.Address : Model.RealEstateProject.EnAddress)</td>
+                                </tr>
+
+                                <tr>
+                                    <td><h4>@General.Type</h4></td>
+                                    <td itemprop="category">@(Commons.Culture.Contains("ar") ? Model.RealEstateType.Title : Model.RealEstateType.EnTitle)</td>
+                                </tr>
+
+                                <tr>
+                                    <td><h4>@General.Area</h4></td>
+                                    <td>@(Commons.Culture.Contains("ar") ? Model.Area : Model.Area) @General.Meter</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>السعر الأجمالى</h4></td>
+                                    <td>1900000 جنيه مصري</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>@General.Price</h4></td>
+                                    <td itemprop="price">@Model.Price</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="notes-block">
+                            <div class="col-sm-12">
+                                <h3>@General.Notes</h3>
+                                <p itemprop="description">@(Commons.Culture.Contains("ar") ? Model.Description : Model.EnDescription)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @*<div class="btn-action-block">
+                        <div class="col-sm-4"><button class="btn btn-02"><i class="fa fa-balance-scale" aria-hidden="true"></i> قارن</button></div>
+                        <div class="col-sm-4"><button class="btn btn-03"><i class="fa fa-star-o" aria-hidden="true"></i> أضف الي المضلة</button></div>
+                        <div class="col-sm-4"><button class="btn btn-04"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>
+                    </div>*@
+
+                <div class="inner-social">
+
+                    <div class="col-sm-6 social-list">
+
+                        <div class="addthis_sharing_toolbox">
+                        </div>
+                        @*<ul class="social-list">
+                                <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                            </ul>*@
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="@this.Request.UrlReferrer" class="btn btn-theme btn-back">@General.Return <i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 owner-contact-mobile-size">
+            <div class="owner-contact-main">
+                <div class="owner-contact-wrapper">
+                    <button class="btn contact-mass-wrapper-launch"><i class="fa fa-opencart"></i>@General.AdvertiserData</button>
+                    <div class="owner-mass-wrapper">
+                        @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                        {
+                            @Html.Partial("Partial/CompanyData", Model.RealEstateProject.RealEstateCompany)
+                        }
+                        else
+                        {
+                            @Html.Partial("Partial/LoginRequired")
+                        }
+                        <div id="divCompanyMessage">
+                            @Html.Partial("Partial/CompanyMessage", CompanyMessage)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+            <!-- latest unit block start -->
+            <div id="divLatestAdded" class="Latest-Prop">
+
+            </div>
+            <!-- // latest unit block end -->
+        </div>
+        <!-- // project details block block end -->
+    </div>
+</div>
+<input type="hidden" id="hdProjectID" value="@Model.RealEstateProject.ID" />
+<input type="hidden" id="hdCompanyID" value="@Model.RealEstateProject.CompanyID" />
+<input type="hidden" id="hdType" value="@InquiryType.CompanyMessage" />
+<div class="modal fade" id="myModalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div id="divLoginForm" class="modal-content">
+            @Html.Partial("Partial/LoginForm", new BrokerMVC.Models.LoginViewModel())
+
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    @Scripts.Render("//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56de87f91ff9a0c0")
+    <script>
+        LoadPropertySearch("list");
+        //LoadPageAds();
+    </script>
+    <script type="text/javascript">
+        var addthis_share = {
+            url: "@this.Request.Url",
+            title:
+                "@(Commons.Culture.Contains("ar")?Model.RealEstateProject.Title:Model.RealEstateProject.EnTitle) - @(Commons.Culture.Contains("ar")?Model.Title:Model.EnTitle) - @General.PageTitle",
+            description: "@General.SiteDescription",
+            media: "@Url.Content(Model.PlanImgURL)"
+        };
+    </script>
+}
+@section META{
+    <meta name="title" content="@(Commons.Culture.Contains("ar")?Model.RealEstateProject.Title:Model.RealEstateProject.EnTitle) - @(Commons.Culture.Contains("ar")?Model.Title:Model.EnTitle) - @General.PageTitle " />
+    <meta name="description" content="@General.SiteDescription" />
+    <meta name="keywords" content="عقارات, خريطة, جوجل إرث, فيلا, بيت, منزل, شقة, أرض, قصر, غرفة, للبيع, شراء, مطلوب, تأجير, الرياض, السعودية, دبي, أبو ظبي, الدوحة, مصر, القاهرة, اسكندرية, شقق للبيع,Real Estate, Map, Google Legacy, Villa, House, House, Apartment, Land, Palace, Room, Sale, Buy, Wanted, Rent, Riyadh, Saudi Arabia, Dubai, Abu Dhabi, Doha, Egypt, Cairo, Alexandria, Apartments for Sale" />
+    <meta name='twitter:card' content="summary" />
+    <meta name='twitter:title' content="@(Commons.Culture.Contains("ar")?Model.RealEstateProject.Title:Model.RealEstateProject.EnTitle) - @(Commons.Culture.Contains("ar")?Model.Title:Model.EnTitle) - @General.PageTitle" />
+    <meta name='twitter:url' content="@this.Request.Url" />
+    <meta name='twitter:description' content="@General.SiteDescription" />
+    <meta name='twitter:image' content="@Url.Content(Model.PlanImgURL)" />
+    <meta name='og:type' content="article" />
+    <meta name='og:title' content=" @(Commons.Culture.Contains("ar")?Model.RealEstateProject.Title:Model.RealEstateProject.EnTitle) - @(Commons.Culture.Contains("ar")?Model.Title:Model.EnTitle) - @General.PageTitle" />
+    <meta name="og:image" content="@Url.Content(Model.PlanImgURL)" />
+    <meta name='og:url' content="@this.Request.Url" />
+    <meta name='og:description' content="@General.SiteDescription" />
+}

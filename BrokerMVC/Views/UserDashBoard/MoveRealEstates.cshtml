@@ -1,0 +1,100 @@
+﻿@model BrokerMVC.Models.ViewModel.MoveRealestates
+@{
+    ViewBag.Title = General.SiteName + " - " + General.MoveRealestate;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2>
+                    <i class="fa fa-exchange fa-fw"></i>
+
+                    @General.MoveRealestate
+
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("MoveRealEstates", "UserDashboard", FormMethod.Get))
+        {
+            <div class="">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <span class="control-label col-md-1 pull-right">@General.Employee</span>
+                        <div class="col-md-11">
+                            @Html.DropDownList("OldOwnerID", null, General.Select, htmlAttributes: new { @class = "form-control" })
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-group-lg btn-success" value="@General.Search" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        @using (Html.BeginForm("MoveRealEstates", "UserDashboard", FormMethod.Post))
+        {
+            if (Model.Realestates.Count > 0)
+            {
+                @Html.HiddenFor(m => m.OldOwnerID)
+        <div class="row">
+            <table class=" table table-bordered table-striped table-hover">
+                <tr class="warning">
+                    <th class="text-center">
+                        @General.Realestates
+                    </th>
+                    <th class="text-center">@General.Move</th>
+                    <th class="text-center">@General.Edit</th>
+                </tr>
+                @for (int i = 0; i < Model.Realestates.Count; i++)
+                {
+                <tr>
+                    <td class="text-center">
+
+                        @Model.Realestates[i].Text
+                        @Html.HiddenFor(m => Model.Realestates[i].Value)
+                        @Html.HiddenFor(m => Model.Realestates[i].Text)
+                    </td>
+                    <td class="text-center">
+                        @Html.CheckBoxFor(m => Model.Realestates[i].Selected)
+                    </td>
+                    <td class="text-center">
+                        <a href='@Url.Action("Edit","RealEstates", new { id = Model.Realestates[i].Value })' class="btn btn-small">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    </td>
+
+                </tr>
+                }
+                <tfoot>
+                    <tr class="warning">
+                        <td colspan="3">
+                            <div class="form-group">
+                                <span class="control-label col-md-1 pull-right"><strong> @General.MoveTo</strong></span>
+                                <div class="col-md-11">
+                                    @Html.DropDownList("NewOwnerID", null, General.Select, htmlAttributes: new { @class = "form-control" })
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tfoot>
+            </table>
+        </div>
+     
+        <div class="row">
+            <div class="col-md-offset-2 col-md-9">
+                <input type="submit" value="@General.Move" class="btn btn-success btn-lg btn-block" />
+            </div>
+        </div>
+            }
+        }
+    </div>
+

@@ -1,0 +1,84 @@
+﻿@model BrokerMVC.Models.CompanyMessage
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2 class="btn btn-lg">
+                    <i class="fa fa-question-circle"></i> @General.CustomerInquiries
+                    @*@General.Notifications
+                        /@General.View*@
+                </h2>
+            </div>
+            <div class="btn-group pull-left">
+
+                <button type="button" class="btn btn-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidiven="true">&times;</span>
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="pull-right col-md-2">
+                @General.FullName
+            </div>
+
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Name)
+            </div>
+        </div>
+        @if (Model.RealEstateProject != null)
+        {
+            <div class="row">
+                <div class="pull-right col-md-2">
+                    @General.ProjectName
+                </div>
+
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.RealEstateProject.Title)
+                </div>
+            </div>
+        }
+        <div class="row">
+            <div class="pull-right col-md-2">
+                @General.Phone
+            </div>
+
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Phone)
+            </div>
+        </div>
+        <div class="row">
+            <div class="pull-right col-md-2">
+                @General.Email
+            </div>
+
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Email)
+            </div>
+        </div>
+        <div class="row">
+            <div class="pull-right col-md-2">
+                @General.Date
+            </div>
+
+            <div class="col-md-10">
+                @Model.CreatedDate.Value.ToShortDateString()
+            </div>
+        </div>
+        <div class="row">
+            <div class="pull-right col-md-2">
+                @General.Message
+            </div>
+
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Message)
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

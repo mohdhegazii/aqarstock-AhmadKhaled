@@ -1,0 +1,26 @@
+﻿//function get_realestate_items() {
+//    var url = '/Services/RealEstate.asmx/GetRealEstateCategories';
+//    $.ajax({
+//        dataType: "json",
+//        url: 'http://localhost/Broker/Services/RealEstate.asmx/GetRealEstateCategories',
+//        type: "POST",
+//        contentType: "application/json; charset=utf-8",
+//        success: function (data) {
+//            //GET OBJECT'S ATTRIBUTES VALUE
+//            alert($("#category option:first").text());
+//          //   $("#category").append("<option value='1'> 500 </option>");
+//            //            console.log(data);
+//            //GET OBJECT'S ATTRIBUTES NAME
+//            var C = JSON.parse(data.d);
+//            for (i = 0; i < C.length; i++) {
+//                $("#category").append("<option value='" + C[i].ID + "'>" + C[i].Title + "</option>");
+//               // $("#category").append("<option value='1'>Some oranges</option>");
+//                //  alert(C[i].Title);
+//                //  $('.view').append(value + '<br/>');
+//            }
+//        },
+//        error: function (data) {
+//        alert(data.toString());
+//        }
+//    });
+//}

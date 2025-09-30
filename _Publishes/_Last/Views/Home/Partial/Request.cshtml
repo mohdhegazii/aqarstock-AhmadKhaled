@@ -1,0 +1,17 @@
+﻿@model BrokerMVC.Models.RealEstatePurchaseRequest
+
+@using (Html.BeginForm("SendRequest", "home", FormMethod.Post, htmlAttributes: new { @id = "RequestForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.RealEstateID)
+    @Html.EditorFor(model => model.PurchaserName, new { htmlAttributes = new { @class = "form-control", placeholder = General.FullName } })
+    @Html.ValidationMessageFor(model => model.PurchaserName, "", new { @class = "text-danger" })
+    @Html.EditorFor(model => model.PurchaserPhone, new { htmlAttributes = new { @class = "form-control", placeholder = General.Phone } })
+    @Html.ValidationMessageFor(model => model.PurchaserPhone, "", new { @class = "text-danger" })
+    @Html.EditorFor(model => model.PurchaserEmail, new { htmlAttributes = new { @class = "form-control", placeholder = General.Email } })
+    @Html.ValidationMessageFor(model => model.PurchaserEmail, "", new { @class = "text-danger" })
+    @Html.TextAreaFor(model => model.Message, new { @class = "form-control", @type = "text", placeholder = General.Message })
+    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+    <button id="btnSendRequest" class="btn btn-send">@General.Send <i class="fa fa-paper-plane-o"></i></button>
+
+}

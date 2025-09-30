@@ -1,0 +1,31 @@
+<div class="unitsInfo">
+    <p>المعروض هو : {{SearchType}}</p>
+</div>
+<div class="unit"  ng-repeat="realEstate in realEstates">
+<div ng-click="ShowDetails(realEstate.ID,realEstate.Name)">
+    <div class="unitImg">
+        <img ng-src="http://www.aqarstock.com/{{realEstate.Logo}}" alt="عقار ستوك - {{realEstate.Name}}" />
+    </div>
+    <div class="unitData">
+        <span class="area"><img src="/images/icons/homeSearch/area.png" /><span >{{realEstate.Area}}  م²</span></span>
+        <span class="payment"><img src="/images/icons/homeSearch/payment.png" /><span >{{realEstate.SaleType}}</span></span>
+        <span class="type"><img src="/images/icons/homeSearch/type.png" /><span>{{realEstate.Type}}</span></span>
+    </div>
+    </div>
+    <div class="unitExtraData">
+        <span class="price" ng-if="realEstate.Price != '0' "><img src="/images/icons/homeSearch/price.png" />{{realEstate.Price}}</span>
+        <span class="price" ng-if="realEstate.Price == '0' "><img src="/images/icons/homeSearch/price.png" />غير متوفر</span>
+        <span class="place">{{realEstate.District}}, {{realEstate.City}}</span>
+         <a ng-click="ShowDetails(realEstate.ID,realEstate.Name)">مزيد من التفاصيل</a>   
+         <a ng-href="/Details/{{realEstate.ID}}/{{realEstate.Name}}" target="_blank"  style="width: 0px;margin-right: -29px;margin-bottom: 2px; display:-webkit-inline-box"><img src="../images/newtab.png"/> </a>
+     
+      
+    </div>
+</div>
+<div id="divEmpty" style="display:none">لا توجد وحدات بهذة المواصفات</div>
+<div class="clear"></div>
+<p class="pagination">
+<a href="javascript:void(0);" ng-repeat="page in Pages" id="{{page}}" paging ng-click="MoveTo(page)">{{page}}</a>
+<!--<a href="javascript:void(0);" class="selected">2</a>
+<a href="javascript:void(0);">3</a>-->
+</p>

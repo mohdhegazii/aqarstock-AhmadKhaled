@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ConfirmDelete" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="DeletedSuccessfully" xml:space="preserve">
+    <value>Deleted Successfully</value>
+  </data>
+  <data name="DescriptionRequired" xml:space="preserve">
+    <value>Arabic Description is Required</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Email is Required</value>
+  </data>
+  <data name="EnglishDescriptionRequired" xml:space="preserve">
+    <value>English Description is Required</value>
+  </data>
+  <data name="EnglishNameRequired" xml:space="preserve">
+    <value>English Name is Required</value>
+  </data>
+  <data name="EnSummaryRequired" xml:space="preserve">
+    <value>English Summary is Required</value>
+  </data>
+  <data name="IconToolTip" xml:space="preserve">
+    <value>The Dimensions must be 32*32</value>
+  </data>
+  <data name="KeywordRequired" xml:space="preserve">
+    <value>Keyword is Required</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>Arabic Name is Required</value>
+  </data>
+  <data name="PhoneRequired" xml:space="preserve">
+    <value>Phone Number is Required</value>
+  </data>
+  <data name="PhotoRequired" xml:space="preserve">
+    <value>Please Enter Photo</value>
+  </data>
+  <data name="SavedSuccessfully" xml:space="preserve">
+    <value>Saved Successfully</value>
+  </data>
+  <data name="SummaryRequired" xml:space="preserve">
+    <value>Summary is Required </value>
+  </data>
+  <data name="UpdatedSuccessfully" xml:space="preserve">
+    <value>Updated Successfully</value>
+  </data>
+  <data name="URLRequired" xml:space="preserve">
+    <value>URL is Required</value>
+  </data>
+  <data name="ValidDescription" xml:space="preserve">
+    <value>Must be more than 10 letter</value>
+  </data>
+  <data name="ValidEmail" xml:space="preserve">
+    <value>Email is not correct</value>
+  </data>
+  <data name="ValidImage" xml:space="preserve">
+    <value>Please choose either a GIF, JPG or PNG image.</value>
+  </data>
+  <data name="ValidImageDimension" xml:space="preserve">
+    <value>The Image Dimensions is not correct</value>
+  </data>
+  <data name="ValidName" xml:space="preserve">
+    <value>Please Enter Valid Name</value>
+  </data>
+  <data name="ActivatedSuccessfully" xml:space="preserve">
+    <value>Activated Successfully</value>
+  </data>
+  <data name="EnglishSloganRequired" xml:space="preserve">
+    <value>English Slogan is Required</value>
+  </data>
+  <data name="EnglishStreetNameRequired" xml:space="preserve">
+    <value>English Street Name is Required</value>
+  </data>
+  <data name="LatitudeRequired" xml:space="preserve">
+    <value>Latitude is Required</value>
+  </data>
+  <data name="LogoToolTip" xml:space="preserve">
+    <value>The Dimensions must be 367*367</value>
+  </data>
+  <data name="LongitudeRequired" xml:space="preserve">
+    <value>Longitude is Required</value>
+  </data>
+  <data name="SloganRequired" xml:space="preserve">
+    <value>Slogan is Required</value>
+  </data>
+  <data name="StreetNameRequired" xml:space="preserve">
+    <value>Arabic Street Name is Required</value>
+  </data>
+  <data name="SuspendedSuccessfully" xml:space="preserve">
+    <value>Suspended Successfully</value>
+  </data>
+  <data name="SuspendMsg" xml:space="preserve">
+    <value>this was suspended for the following reason: </value>
+  </data>
+  <data name="TotalNumberRequired" xml:space="preserve">
+    <value>you must enter the total number</value>
+  </data>
+  <data name="ValidationError" xml:space="preserve">
+    <value>Some fields values is not correct</value>
+  </data>
+  <data name="AreaRequired" xml:space="preserve">
+    <value>Area is Required</value>
+  </data>
+  <data name="EmptyMsg" xml:space="preserve">
+    <value>No Data Exist</value>
+  </data>
+  <data name="PriceRequired" xml:space="preserve">
+    <value>Price is Required</value>
+  </data>
+  <data name="ValidImageSize" xml:space="preserve">
+    <value>Image size must be less than 1 MB</value>
+  </data>
+  <data name="PendingAccount" xml:space="preserve">
+    <value>the account is not activated yet</value>
+  </data>
+  <data name="AddAditionalDataMsg" xml:space="preserve">
+    <value>Remember that the accuracy of the data increases the chances of selling</value>
+  </data>
+  <data name="AdPlaceHolder" xml:space="preserve">
+    <value>Apartment / Villa / Land (type) for sale / for rent [installment / Cash] ( District Name) - (most important areas nearby)</value>
+  </data>
+  <data name="AdTooltip" xml:space="preserve">
+    <value>Please write brief title for the advertisement which contains common words used in search on google</value>
+  </data>
+  <data name="AreaToolTip" xml:space="preserve">
+    <value>The area in square meters</value>
+  </data>
+  <data name="CantAddMsg" xml:space="preserve">
+    <value>You Can't Add More Than</value>
+  </data>
+  <data name="CategoryTooltip" xml:space="preserve">
+    <value>Example: If you want to sell your property Select Residential</value>
+  </data>
+  <data name="CodeNotMatch" xml:space="preserve">
+    <value>The code you entered is not match the Activation code</value>
+  </data>
+  <data name="CodeSentSuccessfuly" xml:space="preserve">
+    <value>A New activation code has been sent to your email and phone</value>
+  </data>
+  <data name="CompanyDataRequired" xml:space="preserve">
+    <value>You Must Enter your company data first</value>
+  </data>
+  <data name="ConfirmChangeSubscription" xml:space="preserve">
+    <value>Are you sure you want to change subscription into Company Administriator?</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Please Confirm the Password</value>
+  </data>
+  <data name="ContactAdmin" xml:space="preserve">
+    <value>for more information you can contact us </value>
+  </data>
+  <data name="CreateNewMsg" xml:space="preserve">
+    <value>Please remember that data accuracy will increases your chances of selling or leasing your property</value>
+  </data>
+  <data name="DeleteProjectRelatedData" xml:space="preserve">
+    <value>The data related to the project will be deleted which is:</value>
+  </data>
+  <data name="DeleteRealestateRelatedData" xml:space="preserve">
+    <value>The data related to the real estate will be deleted which is:</value>
+  </data>
+  <data name="DescriptionTooltip" xml:space="preserve">
+    <value>Please Write full description of the property ,its features ,advantages of its location and the available services , such as schools, hospitals and so on - only 500 characters.</value>
+  </data>
+  <data name="InCompleteAddress" xml:space="preserve">
+    <value> Please enter The Address</value>
+  </data>
+  <data name="IncompleteMsg" xml:space="preserve">
+    <value>The Data is not Complete</value>
+  </data>
+  <data name="InCompletePhotos" xml:space="preserve">
+    <value>Please Enter Photos of your RealEstate</value>
+  </data>
+  <data name="InCompleteRealestateMsg" xml:space="preserve">
+    <value>Incomplete real estates will not appear on the site</value>
+  </data>
+  <data name="InValidEmail" xml:space="preserve">
+    <value>Email already exists</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>Password is not correct</value>
+  </data>
+  <data name="InValidUserName" xml:space="preserve">
+    <value>Username already exists</value>
+  </data>
+  <data name="MovetoRequired" xml:space="preserve">
+    <value>You must select the employee whose the estates will be transferred to him</value>
+  </data>
+  <data name="PasswordNotMatch" xml:space="preserve">
+    <value>the password confirmation not matched with the password</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Password is Required</value>
+  </data>
+  <data name="PendingUserMsg" xml:space="preserve">
+    <value>Your Account is not activated yet Please Enter The Activation Code</value>
+  </data>
+  <data name="PhotosToolTip" xml:space="preserve">
+    <value>Add photos improve your chances of selling your real estate</value>
+  </data>
+  <data name="PriceTooltip" xml:space="preserve">
+    <value>What is the estimated  total price for selling?</value>
+  </data>
+  <data name="SigninMessage" xml:space="preserve">
+    <value>Sign in to the website</value>
+  </data>
+  <data name="SuspendedCompanyMsg" xml:space="preserve">
+    <value>The Company data was suspended for the following reason:</value>
+  </data>
+  <data name="SuspendedUserMessage" xml:space="preserve">
+    <value>Your Account was Suspended for the following Reason</value>
+  </data>
+  <data name="UserCreated" xml:space="preserve">
+    <value>User account was Created Successfully, A temp password will be sent to the user's email and mobile</value>
+  </data>
+  <data name="UserNameNotExsit" xml:space="preserve">
+    <value>UserName Not Exist</value>
+  </data>
+  <data name="SendSuccessfully" xml:space="preserve">
+    <value>Sent Successfully</value>
+  </data>
+  <data name="CodesTooltip" xml:space="preserve">
+    <value>Enter realestates codes seperated by ','</value>
+  </data>
+  <data name="AddUserDataMsg" xml:space="preserve">
+    <value>Please Add your contact data</value>
+  </data>
+  <data name="ErrorMsg" xml:space="preserve">
+    <value>An Error has been occurred, Please try again</value>
+  </data>
+  <data name="ErrorTitleMsg" xml:space="preserve">
+    <value>Sorry,</value>
+  </data>
+  <data name="NotifyTitle" xml:space="preserve">
+    <value>Notify Service: send to us your desired real estate features and we will tell you when we find it</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Password Changed Successfully</value>
+  </data>
+  <data name="ThanksTitleMsg" xml:space="preserve">
+    <value>Thank you</value>
+  </data>
+  <data name="AddingCompareFailed" xml:space="preserve">
+    <value>You Can't Compare More than 4 Properties</value>
+  </data>
+  <data name="FavoritePropErrorMsg" xml:space="preserve">
+    <value>You must log in before you add the property to your favorite properties</value>
+  </data>
+  <data name="FavoritePropMsg" xml:space="preserve">
+    <value>This property has been added to your Favorites list</value>
+  </data>
+  <data name="GeneratePasswordMsg" xml:space="preserve">
+    <value>The password has been sent to your phone number and e-mail. Please login</value>
+  </data>
+  <data name="SuspendInfoMsg" xml:space="preserve">
+    <value>For More Information Please Contact Our </value>
+  </data>
+  <data name="UserNameRequired" xml:space="preserve">
+    <value>User Name is Required</value>
+  </data>
+  <data name="ValidPassword" xml:space="preserve">
+    <value>Password must be more than 6 letter</value>
+  </data>
+  <data name="ViewCompanyData" xml:space="preserve">
+    <value>To view Company Contact Data</value>
+  </data>
+  <data name="ResultNotFound" xml:space="preserve">
+    <value>Sorry, No data exist</value>
+  </data>
+  <data name="CatalogNamesTooltip" xml:space="preserve">
+    <value>Please write each name in new line</value>
+  </data>
+  <data name="HeadersTooltip" xml:space="preserve">
+    <value>please write each header in new line</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>this field is Required</value>
+  </data>
+  <data name="ErrorInvalidEmailOrPhoneNumber" xml:space="preserve">
+    <value>Invalid email or phone number</value>
+  </data>
+  <data name="ErrorUserNameExist" xml:space="preserve">
+    <value>Email or phone number already exist</value>
+  </data>
+  <data name="ErrorUserNameNotExist" xml:space="preserve">
+    <value>Email or phone number not exist</value>
+  </data>
+  <data name="ForgetPasswordTitle" xml:space="preserve">
+    <value>Password recovery code</value>
+  </data>
+  <data name="ForgetPasswordRecover" xml:space="preserve">
+    <value>Recover password</value>
+  </data>
+  <data name="ForgetPasswordRecoverTitle" xml:space="preserve">
+    <value>The password recovery code has been successfully sent to</value>
+  </data>
+  <data name="DeleteSubscriberRelatedData" xml:space="preserve">
+    <value>The data related to the user will be deleted which is:</value>
+  </data>
+  <data name="InValidMobileNo" xml:space="preserve">
+    <value>Mobile number already exists</value>
+  </data>
+  <data name="ErrorInvalidMobileNo" xml:space="preserve">
+    <value>Invalid mobile number</value>
+  </data>
+  <data name="ErrorInvalidUsername" xml:space="preserve">
+    <value>Invalid username</value>
+  </data>
+</root>

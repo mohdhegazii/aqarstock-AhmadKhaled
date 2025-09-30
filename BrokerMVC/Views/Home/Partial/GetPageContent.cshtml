@@ -1,0 +1,6 @@
+﻿@model BrokerMVC.Models.StaticPage
+@if(Commons.Culture.Contains("ar"))
+{ @Html.Raw(Model.Content)}
+else
+{@Html.Raw(Model.EngContent) }
+

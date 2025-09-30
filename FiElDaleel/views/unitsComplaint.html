@@ -1,0 +1,41 @@
+<form name="ComplainForm"  id="ComplainForm" ng-submit="SendComplain()" novalidate>
+<div class="property globalFormHolder" ng-class="{true: 'error'}[submitted && ComplainForm.$invalid]">
+    <div class="propertyTitle">
+        <h1>شكوى بخصوص {{Title}}</h1>
+    </div>
+    <div id="divMessage"><span></span> </div>
+    <div class="propertyDesc globalForm">
+        <div class="globalFormRow">
+            <div class="globalFormLabel"><p>الإسم</p></div>
+            <div class="globalFormField"><input type="text" ng-model="Complain.Name" name="name" required/>
+            <span  ng-show="submitted && ComplainForm.name.$error.required" class="req"><span>هذا الحقل مطلوب</span></span></div>
+        </div>
+        <div class="globalFormRow">
+            <div class="globalFormLabel"><p>التليفون</p></div>
+            <div class="globalFormField"><input type="text" ng-model="Complain.Phone" name="phone" required/>
+             <span  ng-show="submitted && ComplainForm.phone.$error.required" class="req"><span>هذا الحقل مطلوب</span></span></div>
+        </div>
+        <div class="globalFormRow">
+            <div class="globalFormLabel"><p>الاميل</p></div>
+            <div class="globalFormField"><input type="email" ng-model="Complain.Email" name="email" required/>
+                  <span  ng-show="submitted && ComplainForm.email.$error.required" class="req"><span>هذا الحقل مطلوب</span></span></div>
+                 <span  ng-show="submitted && ComplainForm.email.$error.email" class="fieldError"><span>!البريد الإلكتروني غير صحيح</span></span>
+        </div>
+          <div class="globalFormRow">
+            <div class="globalFormLabel"><p>عنوان الشكوى</p></div>
+            <div class="globalFormField"><input type="text" ng-model="Complain.ComplainTitle" name="title" required/>
+            <span  ng-show="submitted && ComplainForm.title.$error.required" class="req"><span>هذا الحقل مطلوب</span></span></div>
+        </div>
+        <div class="globalFormRow">
+            <div class="globalFormLabel"><p>التفاصيل</p></div>
+            <div class="globalFormField"><textarea ng-model="Complain.Message" name="message" required></textarea>
+            <span  ng-show="submitted && ComplainForm.message.$error.required" class="req"><span>هذا الحقل مطلوب</span></span></div>
+        </div>
+    </div>
+    <div class="propertyLinks">
+        <button type="submit" ng-click="submitted=true">إرسال</button>
+        <a detailbackbutton href>رجوع</a>
+    </div>
+
+</div>
+</form>

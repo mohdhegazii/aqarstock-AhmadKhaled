@@ -1,0 +1,55 @@
+﻿@using ActionMailer.Net
+@model BrokerMVC.Models.RealEstatePurchaseRequest
+@{
+    Layout = "~/Views/Mail/_EmailLayout.html.cshtml";
+}
+@*<div class="email_banner">
+        طلب شراء جديد
+    </div>
+    <div class="email_body">*@
+
+<div class="caption">
+    <h1>
+        عزيزى العميل
+        <br />
+        <span>
+            تم ارسال طلب شراء لاحد عقاراتك المسجلة على النظام
+        </span>
+    </h1>
+</div>
+<table id="table">
+    @*<tr class="header-row row">
+            <td class="cell primary">Vehcile</td>
+            <td class="cell">Exterior</td>
+        </tr>*@
+    <tr>
+        <td class="cell primary"><h4>@General.RealEstate</h4></td>
+        <td class="cell"><a href="@ViewBag.URL">@ViewBag.Realestate</a></td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.FullName</h4></td>
+        <td class="cell">@Html.DisplayFor(model => model.PurchaserName)</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.Phone</h4></td>
+        <td class="cell">@Html.DisplayFor(model => model.PurchaserPhone)</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.Email</h4></td>
+        <td class="cell">@Html.DisplayFor(model => model.PurchaserEmail)</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.Date</h4></td>
+        <td class="cell">@Model.Date.Value.ToShortDateString()</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.Message</h4></td>
+        <td class="cell">@Html.Raw(Model.Message)</td>
+    </tr>
+
+</table>
+<div class="footer">
+    <a href="@ConfigurationSettings.AppSettings["WebSite"].ToString()"> خدمة عملاء @ConfigurationSettings.AppSettings["Name"].ToString()</a>
+<br />
+</div>
+

@@ -1,0 +1,23 @@
+﻿@model BrokerMVC.Models.ViewModel.Contactus
+@using (Html.BeginForm("Contactus", "home", FormMethod.Post, htmlAttributes: new { @id = "ContactusForm" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="technical-support-contact-wrapper">
+        <h1>راسل عقار ستوك</h1>
+        <form class="">
+            @Html.EditorFor(model => model.SenderName, new { htmlAttributes = new { @class = "form-control", placeholder = General.FullName } })
+            @Html.ValidationMessageFor(model => model.SenderName, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.SenderPhone, new { htmlAttributes = new { @class = "form-control", placeholder = General.Phone } })
+            @Html.ValidationMessageFor(model => model.SenderPhone, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.SenderEmail, new { htmlAttributes = new { @class = "form-control", placeholder = General.Email } })
+            @Html.ValidationMessageFor(model => model.SenderEmail, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.SenderCountry, new { htmlAttributes = new { @class = "form-control", placeholder = General.CountryName } })
+            @Html.ValidationMessageFor(model => model.SenderCountry, "", new { @class = "text-danger" })
+            @Html.TextAreaFor(model => model.Message, new { @class = "form-control", @type = "text", placeholder = General.Message })
+            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+
+
+            <button type="submit" id="btnSendMsg" class="btn btn-send"><i class="fa fa-paper-plane-o"></i> @General.Send</button>
+        </form>
+    </div>
+}

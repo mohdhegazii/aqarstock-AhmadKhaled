@@ -1,0 +1,113 @@
+﻿@model BrokerMVC.Models.ViewModel.StaticContactPage
+@{
+    ViewBag.Title = Model.Title + "- " + General.PageTitle;
+    Layout = "~/Views/Home/_Layout.cshtml";
+}
+<div class="inner-banner">
+    <!-- banner start  -->
+    <span class="full-size-img" style="background:url(@Url.Content("~/Content/_ui/img/media/slide-1.jpg")) no-repeat center center / cover"></span>
+    <!-- // banner end -->
+    <div class="block-title">
+        <div class="container">
+            <h1>@Model.Title</h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <!-- Search form start  -->
+            <div id="divSearch">
+
+            </div>
+            <!-- // Search form end -->
+        </div>
+        <!-- ads block start -->
+        <div class="block">
+            <div id="divFirstAd">
+
+            </div>
+        </div>
+        <!-- // ads block end -->
+        <div class="col-md-12 col-sm-12">
+            <!-- listing block start -->
+            <div class="block listing-wrapper static-pages">
+                <div class="block project-details-wrapper">
+                    <div class="col-md-8 col-sm-7">
+                        <div class="project-title">
+                            <h1>@Model.Title</h1>
+                        </div>
+                    </div>
+                    @*<div class="col-md-4 col-sm-5">
+                        <a class="btn btn-theme btn-back" href="#">
+                            @General.Back <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                        </a>
+                    </div>*@
+
+                    <div class="block project-info-wrapper technical-support-info">
+                        <div id="divDynamicContent" class="col-md-8 col-sm-7">
+							<div class="table-responsive staticPageTable">
+								<div class="table">
+									@Html.Raw(Model.Content)
+								</div>
+							</div>
+						</div>
+
+                        <div class="col-md-4 col-sm-5">
+                            @Html.Partial("Partial/Contactus", new BrokerMVC.Models.ViewModel.Contactus())
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- // listing block end -->
+        </div>
+
+        <!-- ads block start -->
+        <div class="block">
+            <div id="divSecondAd">
+
+            </div>
+        </div>
+        <!-- // ads block end -->
+        <!-- latest unit block start -->
+        <div id="divLatestAdded" class="Latest-Prop">
+
+        </div>
+        <!-- // latest unit block end -->
+
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        LoadPropertySearch("list");
+        LoadPageAds();
+        SetActiveMenu("liAqarServices");
+    </script>
+}
+@section META{
+    <meta name="title" content="@Model.Title - @General.PageTitle" />
+    <meta name="description" content="@General.SiteDescription" />
+    <meta name="keywords" content="عقارات, خريطة, جوجل إرث, فيلا, بيت, منزل, شقة, أرض, قصر, غرفة, للبيع, شراء, مطلوب, تأجير, الرياض, السعودية, دبي, أبو ظبي, الدوحة, مصر, القاهرة, اسكندرية, شقق للبيع,Real Estate, Map, Google Legacy, Villa, House, House, Apartment, Land, Palace, Room, Sale, Buy, Wanted, Rent, Riyadh, Saudi Arabia, Dubai, Abu Dhabi, Doha, Egypt, Cairo, Alexandria, Apartments for Sale" />
+    <meta name='twitter:card' content="summary" />
+    <meta name='twitter:title' content="@Model.Title - @General.PageTitle" />
+    <meta name='twitter:url' content="http://www.aqarstock.com/" />
+    <meta name='twitter:url' content="http://www.aqarstock.net/" />
+    <meta name='twitter:description' content="@General.SiteDescription" />
+    <meta name='twitter:image' content="http://www.aqarstock.com/Content/_ui/img/Aqar-Stock-Sociallogo-1.png" />
+    <meta name='og:type' content="article" />
+    <meta name='og:title' content="@Model.Title - @General.PageTitle" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-1.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-2.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-3.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-4.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-5.png" />
+    <meta name="og:image" content="http://www.aqarstock.com/Content/_ui/img/RealEstateSocial/Aqar-Stock-Sociallogo-6.png" />
+    <meta name='og:url' content="http://www.aqarstock.com/" />
+    <meta name='og:url' content="http://www.aqarstock.net/" />
+    <meta name='og:description' content="@General.SiteDescription" />
+}

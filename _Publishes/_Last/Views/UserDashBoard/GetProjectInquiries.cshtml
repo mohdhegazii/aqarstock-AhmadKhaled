@@ -1,0 +1,71 @@
+﻿@model IEnumerable<BrokerMVC.Models.CompanyMessage>
+
+@if (Model.Count() > 0)
+            {
+    <div class="col-md-12">
+        <div class="panel panel-warning ">
+            <div class="panel-heading">
+                <div class="panel-title paneltitle" role="button" data-toggle="collapse" href="#divInquireis" aria-expanded="false" aria-controls="divInquireis">
+                    <h4 class="col-md-11 pull-right">
+                        <i class="fa fa-angle-down"></i>
+                        <i class="fa fa-question-circle fa-fw"></i>
+                        @*<span class="fa-stack">
+                            <i class="fa fa-square-o fa-stack-1x fa-lg"></i>
+                            <i class="fa fa-question fa-stack-1x"></i>
+                        </span>*@
+                        @General.CustomerInquiries
+                    </h4>
+                </div>
+            </div>
+            <div id="divInquireis" class="panel panel-body collapse in">
+                <div class="row">
+                    <div class="col-md-7 pull-right">
+                        <span><strong>@General.CustomerInquiriesNo</strong></span>
+                    </div>
+                    <div class="col-md-pull-3 pull-right">
+                        <strong class="label label-danger"> @ViewBag.InquiriesNo</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table table-responsive table-bordered table-striped table-hover">
+                        <tr class="success">
+                            <th class="text-center">
+                                @General.FullName
+                            </th>
+
+                            <th class="text-center">@General.View</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                {
+                            <tr>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+
+                                <td class="text-center">
+                                    <a href="javascript(void)" onclick="ViewCuromerInquiry(@item.ID)" data-target="#divModal" data-toggle="modal" class="btn btn-sm btn-small">
+                                        <i class="fa fa-folder-open"></i>
+                                    </a>
+                                </td>
+                            </tr>
+
+                        }
+                        @if (ViewBag.NotificationsNo > 5)
+                {
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2">
+                                        <a href="@Url.Action("Index", "CompanyMessages")" class="btn btn-block btn-success">@General.More</a>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        }
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+

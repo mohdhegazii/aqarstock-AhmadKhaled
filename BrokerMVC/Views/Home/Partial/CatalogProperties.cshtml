@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstate>
+
+<div class="notes-block" itemscope itemtype="http://schema.org/ItemList">
+    <div class="col-sm-12">
+        <div class="col-md-8 col-sm-7">
+            <h3>@General.Realestates</h3>
+        </div>
+        @*<div class="col-md-4 col-sm-5">
+                <a href="~/@ViewBag.URL" class="btn btn-theme btn-back">@General.More <i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+            </div>*@
+    </div>
+    @foreach (var item in Model)
+            {
+        <div class="col-md-6 col-sm-6">
+            <div class="thumbnail no-border no-padding thumbnail-property thumbnail-project-unit">
+                <div class="media">
+                    <a itemprop="url" class="media-link" href="~/Details/@item.ID/@(Commons.Culture.Contains("ar") ? Commons.EncodeText(item.Title) : Commons.EncodeText(item.EnTitle))">
+                        <img itemprop="image" src="@Url.Content(item.DefaultImage.PhotoName)" alt="@item.Title - @item.EnTitle">
+                        <span class="icon-view"><strong><i class="fa fa-arrows-alt"></i></strong></span>
+                    </a>
+                </div>
+                <div class="caption text-center">
+                    <h4 class="caption-title"><a href="project-unit-details.html">@(Commons.Culture.Contains("ar") ? item.RealEstateType.Title : item.RealEstateType.EnTitle)</a></h4>
+                    <p itemprop="name" class="caption-text">
+                        @(Commons.Culture.Contains("ar") ? item.RealEstateType.Title : item.RealEstateType.EnTitle)  @item.Area @General.Meter
+                        -
+                        @(Commons.Culture.Contains("ar") ? item.District.Name + "-" + item.City.Name : item.District.EnName + "-" + item.City.EnName)
+                    </p>
+                    <div class="buttons">
+                        <a class="btn btn-theme" href="~/Details/@item.ID/@(Commons.Culture.Contains("ar") ? Commons.EncodeText(item.Title) : Commons.EncodeText(item.EnTitle))">@General.More</a>
+                    </div>
+                    <span itemprop="description" class="p-price bottom-price">
+                        @item.Price
+                        @if (item.CurrencyID > 0)
+                        {@(Commons.Culture.Contains("ar") ? item.Currency.Name : item.Currency.EnName)
+                        }
+                    </span>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

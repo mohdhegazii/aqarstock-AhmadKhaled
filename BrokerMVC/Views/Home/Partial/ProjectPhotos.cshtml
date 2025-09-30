@@ -1,0 +1,29 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstateProjectPhoto>
+@if (Model.Count() > 0)
+{
+<div class="block project-info-wrapper">
+    <div class="col-sm-12">
+        <div class="notes-block">
+            <div class="col-sm-12">
+                <h3>@General.Images</h3>
+            </div>
+            @foreach (var item in Model)
+            {
+            <div class="col-md-6 col-sm-6">
+                <div class="thumbnail no-border no-padding thumbnail-property thumbnail-project-unit">
+                    <div class="media">
+                        <a href="javascript:void(0)" class="media-link gallery-album">
+                            <img itemprop="image" src="@Url.Content(item.PhotoURL)" alt="@item.RealEstateProject.Title - @item.RealEstateProject.EnTitle">
+                            <span class="icon-view"><strong><i class="fa fa-arrows-alt"></i></strong></span>
+                        </a>
+                    </div>
+                    @*<div class="caption text-center">
+                        <span class="album-date">@item.Date.Value.ToShortDateString()</span>
+                    </div>*@
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+}

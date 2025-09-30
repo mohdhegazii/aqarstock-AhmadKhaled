@@ -1,0 +1,432 @@
+/*----------------------------
+           DEFAULT
+----------------------------*/
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
+
+body {
+    font-family: 'Droid Arabic Naskh', Arial;
+}
+
+body, ul, li, h1, h2, h3, h4, h5, h6, p, div {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.no_padding {
+    padding: 0;
+}
+
+/*----------------------------
+           HEADER
+----------------------------*/
+header {
+    background-color: #474747;
+}
+
+header .content {
+    max-width: 1000px;
+    margin: 0 auto;
+    direction: rtl;
+    overflow: hidden;
+}
+
+.menu {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #4acaff;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: black;
+    background-image: none;
+    background-color: #4acaff;
+}
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin: 0;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-brand + a {
+    background: url("../images/sep.png") left no-repeat;
+    padding-left: 5px;
+}
+
+.nav > li > a {
+    padding: 15px 7px;
+    font-size: 13px;
+}
+
+.logo {
+    float: right;
+    margin-left: 30px;
+    padding-top: 8px;
+}
+
+.navbar-collapse {
+    overflow: hidden;
+    max-height: 100%;
+}
+
+/*  DIFFERENT SIZES OF SCREEN  */
+@media (max-width: 1010px) {
+    .tabs_header li:nth-last-of-type(1) {
+        display: none;
+    }
+}
+
+@media (min-width: 917px) {
+    .navbar-nav > li {
+        float: right;
+    }
+}
+
+@media (max-width: 917px) {
+    .logo {
+        float: none;
+        display: block;
+        margin: 0 auto -40px auto;
+    }
+
+    .navbar > .container-fluid .navbar-brand {
+        font-size: 12px;
+        padding: 15px 2px;
+    }
+
+    .navbar > .container-fluid .navbar-brand:nth-of-type(1) {
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .container .content {
+        padding: 90px 0 !important;
+    }
+
+    .container .content .search .btn, .more_search select {
+        margin: 10px 0;
+        min-height: 55px;
+    }
+
+    .city_dropdown_container {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 715px) {
+    .item {
+        max-width: 100% !important;
+        width: 95%;
+        min-width: 325px;
+        margin: 0 auto;
+        float: none;
+    }
+}
+
+@media (max-width: 696px) {
+    .tabs_header li:nth-last-of-type(1) {
+        display: none;
+    }
+}
+
+/*----------------------------
+           CONTENT
+----------------------------*/
+.container {
+    padding: 0;
+    width: 100%;
+    min-width: 350px;
+    background: url("../images/bg.jpg") center/cover;
+}
+
+.container .content {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 150px 0;
+    overflow: hidden;
+}
+
+.container .content .title {
+    overflow: hidden;
+
+    margin-bottom: 5px;
+}
+
+.container .content .title p {
+    float: right;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.container .content .social {
+    float: left;
+}
+
+.container .content .search {
+    text-align: center;
+}
+
+.container .content .search .txt {
+    width: 100%;
+    vertical-align: top;
+    height: 55px;
+    border-radius: 3px;
+    border: none;
+    text-align: right;
+    padding: 5px 10px 0 10px;
+}
+
+.container .content .left_side .btn {
+    width: 140px;
+    height: 54px;
+    color: #ffffff;
+    font-size: 23px;
+    background: url("../images/search.png") no-repeat 20px 19px, url("../images/bg_btn.png") no-repeat;
+}
+
+.more_search {
+    clear: both;
+    margin-top: 15px;
+    text-align: right;
+}
+
+.more_search select {
+    border: none;
+    border-radius: 3px;
+    height: 35px;
+}
+
+.more_search label {
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.right_side .checkboxes {
+    color: #ffffff;
+    font-size: 13px;
+    margin: 15px 0;
+    direction: rtl;
+}
+
+.right_side .checkboxes label {
+    margin-left: 10px;
+}
+
+.right_side .more_search .dropdown_list {
+    direction: rtl;
+}
+
+/*----------------------------
+          TABS CONTAINER
+----------------------------*/
+.tabs_container {
+    overflow: hidden;
+    clear: both;
+    padding-top: 5px;
+    border-top: 3px solid #6e6e6e;
+    background: url("../images/tabs_icons/tabs_bg.png") repeat-x;
+}
+
+.tabs_container .content {
+    margin: 0 auto;
+    max-width: 1000px;
+    overflow: hidden;
+}
+
+.tabs_header {
+    background-color: #f0f0f0;
+    text-align: center;
+    height: 50px;
+}
+
+.tabs_header > li {
+    float: right;
+    height: 50px;
+    overflow: hidden;
+}
+
+.tabs_header > li:last-child {
+    float: left;
+    overflow: visible;
+}
+
+.tabs_header li a {
+    color: #9197a8;
+}
+
+.nav-tabs > li > a {
+    border-radius: 0;
+}
+
+.tabs_header li a img {
+    margin-left: 5px;
+    vertical-align: top;
+}
+
+.tabs_header .jobs a img {
+    margin-top: -5px;
+}
+
+.tabs_header .companies a img {
+    margin-top: -4px;
+}
+
+#myTabContent {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.tabs_container .content .tabs_header .txt {
+    border-radius: 3px;
+    border: none;
+    text-align: right;
+    padding: 10px 5px 0 0;
+    margin-top: 5px;
+    height: 35px;
+    outline: none;
+}
+
+.tabs_container .content .tabs_header .btn {
+    background: url("../images/tabs_icons/search.png") no-repeat center #e5e5e6;
+    vertical-align: top;
+    margin-top: 5px;
+    border-radius: 0;
+    width: 24px;
+    height: 24px;
+    padding: 17px;
+    margin-right: -38px;
+    position: relative;
+}
+
+.tabs_container .content .tabs_header .chosen-container {
+    vertical-align: top;
+    margin-top: 5px;
+    width: 100px !important;
+    text-align: right;
+
+}
+
+.tabs_container .content .tabs_header .chosen-container span {
+    color: #9197a8;
+}
+
+.item {
+    background: url("../images/item_bg.jpg") repeat-x;
+    height: 124px;
+    overflow: hidden;
+    text-align: right;
+    max-width: 325px;
+    padding: 0 10px;
+    border-bottom: 1px solid lightgray;
+    margin: 0 0 10px 8px;
+}
+
+.item .img {
+    float: right;
+    width: 144px;
+    padding: 14px 0 0 0;
+}
+
+.item .txt {
+    float: right;
+    padding: 30px 10px 0 0;
+    width: 161px;
+}
+
+.item .txt h4 {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.item .txt p {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.more_lnk {
+    margin: 10px;
+    text-align: center;
+    overflow: hidden;
+    padding: 10px;
+    background-color: lightgray;
+    color: #5E5E5E;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.panel-group .panel {
+    text-align: center;
+}
+
+.loading_search_result {
+    margin: 100px 0;
+    display: none;
+}
+
+.loading_new_items {
+    margin: 0 auto;
+    display: none;
+}
+
+.items_container {
+    margin-bottom: 50px;
+}
+
+/* BOOTSTRAP STYLES */
+
+.nav-tabs > li > a:hover {
+    border-bottom: none;
+    border-color: #F0F0F0;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: transparent;
+}
+
+/*----------------------------
+           FOOTER
+----------------------------*/
+footer {
+    background-color: #f5f5f5;
+    border-top: 1px solid lightgray;
+}
+
+footer .content {
+    clear: both;
+    margin: 0 auto;
+    max-width: 1000px;
+    height: 75px;
+    overflow: hidden;
+}
+
+footer .content .mail {
+    margin: 20px 0;
+}
+
+footer .content p {
+    font-size: 11px;
+    font-weight: bold;
+}

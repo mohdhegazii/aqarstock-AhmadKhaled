@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""/>
+    <link rel="stylesheet" href="styles/normalize.css"/>
+    <link rel="stylesheet" href="styles/chosen.css"/>
+    <link rel="stylesheet" href="styles/bootstrap.css"/>
+    <link rel="stylesheet" href="styles/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="styles/layout.css"/>
+    <!--[if lt IE 9]>
+    <script src="scripts/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <p class="browsehappy">
+        You are using an
+        <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a>
+        to improve your experience.
+    </p>
+    <![endif]-->
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="content">
+        <!-- NAV BAR -->
+        <nav class="navbar navbar-default menu" role="navigation">
+            <div class="container-fluid">
+                <img class="logo" src="images/logo.png" alt="logo" width="120"/>
+                <!-- SIGN IN -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        دخول
+                    </a>
+                    <a class="navbar-brand" href="#">
+                        تسجيل
+                    </a>
+                </div>
+
+                <!-- LINKS -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right links">
+                        <li class="active"><a href="#">
+                            الرئيسية
+                        </a></li>
+                        <li><a href="#">
+                            الخريطة
+                        </a></li>
+                        <li><a href="#tabs_control" data-target="companies">
+                            شركات
+                        </a></li>
+                        <li><a href="#tabs_control" data-target="real_estates">
+                            عقارات
+                        </a></li>
+                        <li><a href="#tabs_control" data-target="tools">
+                            أدوات
+                        </a></li>
+                        <li><a href="#tabs_control" data-target="sales">
+                            عروض وتخفيضات
+                        </a></li>
+                        <li><a href="#tabs_control" data-target="travel">
+                            سفر و رحلات
+                        </a></li>
+                        <li><a href="#tabs_control" data-target="jobs">
+                            وظائف خالية
+                        </a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+</header>
+
+<!-- CONTAINER -->
+<div class="container">
+    <div class="content">
+        <!-- TITLE -->
+        <div class="title col-sm-8 col-xs-12 pull-right col-sm-pull-1">
+            <p>
+                ... أنا أبحث عن
+            </p>
+
+            <div class="social">
+                <a href="#">
+                    <img src="images/google.png" alt="google" width="30"/>
+                </a>
+                <a href="#">
+                    <img src="images/twitter.png" alt="twitter" width="30"/>
+                </a>
+                <a href="#">
+                    <img src="images/fb.png" alt="facebook" width="30"/>
+                </a>
+            </div>
+        </div>
+        <!-- RIGHT SIDE -->
+        <div class="right_side col-sm-8 col-xs-12 pull-right col-sm-pull-1">
+            <!-- FIRST ROW SEARCH -->
+            <div class="search">
+                <div class="col-xs-12 pull-right no_padding">
+                    <input class="txt" type="text" placeholder="....أدخل الوظيفة المراد البحث عنها"/>
+                </div>
+            </div>
+            <!-- SECOND ROW SEARCH -->
+            <div class="more_search col-xs-12 pull-right no_padding">
+                <div class="col-sm-5 col-xs-12 no_padding pull-right">
+                    <select name="category" class="category_dropdown col-xs-12">
+                        <option value="">X1</option>
+                        <option value="">X2</option>
+                        <option value="">X3</option>
+                    </select>
+                </div>
+                <div class="city_dropdown_container col-sm-5 col-xs-12 no_padding pull-right col-sm-pull-1">
+                    <select name="city" class="city_dropdown col-xs-12">
+                        <option value="">X2</option>
+                        <option value="">X2</option>
+                        <option value="">X2</option>
+                    </select>
+                </div>
+            </div>
+            <!-- THIRD ROW SEARCH -->
+            <div class="checkboxes col-xs-12 pull-right clearfix no_padding">
+                <div class="pull-right col-xs-offset-1">
+                    <input type="checkbox" id="part"/>
+                    <label for="part">
+                        دوام كامل
+                    </label>
+                </div>
+                <div class="pull-right">
+                    <input type="checkbox" id="full"/>
+                    <label for="full">
+                        دوام جزئى
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- LEFT SIDE -->
+        <div class="left_side col-sm-3 col-xs-12 pull-right col-sm-pull-1">
+            <div class="text-center no_padding">
+                <input class="btn big_search" type="button" value="بحث"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs_container">
+<div class="content">
+<!-- TAB HEADER -->
+<ul id="tabs_control" class="tabs_header nav nav-tabs">
+    <li class="active companies"><a href="#home" data-toggle="tab">
+        شركات
+        <img src="images/tabs_icons/companies.png" alt="img"/>
+    </a></li>
+    <li class="real_estates"><a href="#profile" data-toggle="tab">
+        عقارات
+        <img src="images/tabs_icons/realestate.png" alt="img"/>
+    </a></li>
+    <li class="tools"><a href="#messages" data-toggle="tab">
+        أدوات
+        <img src="images/tabs_icons/tools.png" alt="img"/>
+    </a></li>
+    <li class="sales"><a href="#settings" data-toggle="tab">
+تخفيضات
+        <img src="images/tabs_icons/sales.png" alt="img"/>
+    </a></li>
+    <li class="travel"><a href="#" data-toggle="tab">
+رحلات
+        <img src="images/tabs_icons/travel.png" alt="img"/>
+    </a></li>
+    <li class="jobs"><a href="#" data-toggle="tab">
+وظائف
+    <img src="images/tabs_icons/jobs.png" alt="img"/>
+</a></li>
+    <li class="search_tab" style="display: none"><a href="#search_results" data-toggle="tab">
+نتيجة البحث
+        <img src="images/tabs_icons/search.png" alt="img" width="15"/>
+    </a></li>
+    <li>
+        <input class="btn small_search" type="button"/>
+        <input class="txt" type="text" placeholder="...أدخل كلمة البحث"/>
+        <select class="category_selector" name="category">
+            <option value="x1">x1</option>
+            <option value="x2">x2</option>
+            <option value="x3">x3</option>
+        </select>
+    </li>
+</ul>
+<!-- TAB CONTENT -->
+<div id="myTabContent" class="tab-content">
+<div class="tab-pane fade active in" id="home">
+    <div class="col-xs-12 no_padding items_container">
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <!-- ADS -->
+        <div class="clearfix"></div>
+        <img src="images/Watches-ar.gif" alt="Ads" style="display: block;margin: 0 auto"/>
+        <!-- END ADS -->
+    </div>
+    <img class="loading_new_items" src="images/loading_items.gif"/>
+    <div class="more_lnk">
+        المزيد
+    </div>
+    <!--<h4 class="more_lnk">
+        <a>
+            ... المزيد
+        </a>
+    </h4>-->
+</div>
+<div class="tab-pane fade" id="profile">
+    <div class="col-xs-12 no_padding items_container">
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <!-- ADS -->
+        <div class="clearfix"></div>
+        <img src="images/Watches-ar.gif" alt="Ads" style="display: block;margin: 0 auto"/>
+        <!-- END ADS -->
+    </div>
+    <img class="loading_new_items" src="images/loading_items.gif"/>
+    <div class="more_lnk">
+        المزيد
+    </div>
+    <!--<h4 class="more_lnk">
+        <a>
+            ... المزيد
+        </a>
+    </h4>-->
+</div>
+<div class="tab-pane fade" id="messages">
+    <div class="col-xs-12 no_padding items_container">
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <!-- ADS -->
+        <div class="clearfix"></div>
+        <img src="images/Watches-ar.gif" alt="Ads" style="display: block;margin: 0 auto"/>
+        <!-- END ADS -->
+    </div>
+    <img class="loading_new_items" src="images/loading_items.gif"/>
+    <div class="more_lnk">
+        المزيد
+    </div>
+    <!--<h4 class="more_lnk">
+        <a>
+            ... المزيد
+        </a>
+    </h4>-->
+</div>
+<div class="tab-pane fade" id="settings">
+    <div class="col-xs-12 no_padding items_container">
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <div class="item  pull-right no_padding">
+            <div class="img">
+                <img src="images/test.jpg" alt="item"/>
+            </div>
+            <div class="txt">
+                <h4>
+                    مهندس ميكانيكا بالرياض
+                </h4>
+
+                <p>
+                    مطلوب مهندس ميكانيكا للعمل
+                    ... بالرياض بدوام كامل يرجى
+                </p>
+            </div>
+        </div>
+        <!-- ADS -->
+        <div class="clearfix"></div>
+        <img src="images/Watches-ar.gif" alt="Ads" style="display: block;margin: 0 auto"/>
+        <!-- END ADS -->
+    </div>
+    <img class="loading_new_items" src="images/loading_items.gif"/>
+    <div class="more_lnk">
+        المزيد
+    </div>
+    <!--<h4 class="more_lnk">
+        <a>
+            ... المزيد
+        </a>
+    </h4>-->
+</div>
+<div class="tab-pane fade" id="search_results">
+    <div class="col-xs-12 no_padding items_container">
+    </div>
+    <img class="loading_search_result" src="images/loading.gif"/>
+    <img class="loading_new_items" src="images/loading_items.gif"/>
+    <div class="more_lnk" style="display: none" >
+        المزيد
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="content">
+        <div class="mail">
+            <img src="images/mail.png" alt="mail"/>
+            info@fildaleel.com.au
+        </div>
+        <p>
+            Copyright © 2014 powered by MasteryIT
+        </p>
+    </div>
+</footer>
+
+<!-- INITIALIZE JS -->
+<script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="scripts/chosen.jquery.js"></script>
+<script type="text/javascript" src="scripts/bootstrap-tabcollapse.js"></script>
+<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="scripts/jquery.localscroll-1.2.7-min.js"></script>
+<script type="text/javascript" src="scripts/scripts.js"></script>
+<script>
+    $(function(){
+        $('.links').localScroll();
+        $(".category_dropdown").chosen();
+        $(".city_dropdown").chosen();
+        $(".category_selector").chosen();
+        $('.tabs_header').tabCollapse();
+        buttons_events();
+    });
+</script>
+</body>
+</html>

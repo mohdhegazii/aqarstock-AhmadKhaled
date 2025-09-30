@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="@CultureHelper.GetCurrentNeutralCulture()" dir="@(CultureHelper.IsRighToLeft() ? "rtl" : "ltr")">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Backend/css")
+    @Styles.Render("~/Content/PagedList")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="description" content="The description of my page" />
+</head>
+@using ResourcesFiles;
+<body class="container body-content">
+    <header>
+        @*<div class="row">
+                <div class="col-md-2 col-xs-2 pull-right">
+                <img class="img-responsive img-thumbnail pull-right" src="~/Content/Backend/images/logo.jpg" />
+            </div>
+            <div class="col-md-10 col-xs-10 pull-right">
+                <ul class="nav nav-pills pull-right">
+                    <li  class="text-warning"><h3> Welcome </h3></li>
+                    <li role="presentation"><a href="#">Messages</a></li>
+                </ul>
+
+            </div>
+            </div>*@
+        <div class="row">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header pull-right">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span>@General.Menu</span>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <img class="img-responsive img-thumbnail logo" src="~/Content/Backend/images/logo.jpg" />
+                        </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            @*<li><a href="/AdminDashBoard"><i class="fa fa-list fa-fw"></i>@General.LatestAdded</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-search fa-fw"></i>@General.Search <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/RealEstates"><i class="fa fa-building fa-fw"></i>@General.Realestates</a></li>
+                                    <li><a href="/RealEstateProjects"><i class="fa fa-industry fa-fw"></i>@General.ProjectList</a></li>
+                                    <li><a href="/RealEstateCompanies"><i class="fa fa-university fa-fw"></i>@General.Companies</a></li>
+                                    <li><a href="/Subscribers"><i class="fa fa-user fa-fw"></i>@General.Users</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-cogs fa-fw"></i>@General.Codes <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/RealEstateTypes"><i class="fa fa-object-group fa-fw"></i>@General.RealestateTypes</a></li>
+                                    <li><a href="/RealEstateStatus"><i class="fa fa-star-half-o fa-fw"></i>@General.RealestateStatusList</a></li>
+                                    <li><a href="/RealEstateTypeCriterias"><i class="fa fa-filter fa-fw"></i>@General.RealestateCriteria</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="/Countries"><i class="fa fa-globe fa-fw"></i>@General.Countries</a></li>
+                                    <li><a href="/Cities"><i class="fa fa-train fa-fw"></i>@General.Cities</a></li>
+                                    <li><a href="/Districts"><i class="fa fa-subway fa-fw"></i>@General.Districts</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="/Currencies"><i class="fa fa-money fa-fw"></i>@General.Currencies</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="/SearchKeywords"><i class="fa fa-search fa-fw"></i>@General.SearchKeyword</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/GetMessages">
+                                    <i class="fa fa-envelope-o fa-fw"></i>
+                                    @General.Messages
+                                    <span class="label label-danger" id="spanMessageNo">
+
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/GetComplains">
+                                    <i class="fa fa-file-text-o fa-fw"></i>
+                                    @General.Complains
+                                    <span class="label label-danger" id="spanComplainNo">
+
+                                    </span>
+                                </a>
+                            </li>
+                            <li><a href='@Url.Action("LogOff","Account")'><i class="fa fa-sign-out fa-fw"></i>@General.Signout</a></li>*@
+
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </header>
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            @Html.Partial("_Notifications")
+            @RenderBody()
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/Backend")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

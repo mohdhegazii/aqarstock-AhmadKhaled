@@ -1,0 +1,80 @@
+﻿@model BrokerMVC.Models.ViewModel.AddRealEstateToProject
+@{
+    ViewBag.Title = General.SiteName + " - " + Model.ProjectName + " - " + General.Add + " " + General.Realestates;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-lg-1 col-xs-4 pull-right">
+                <img class="img-responsive img-thumbnail logo" src="~/@Model.ProjectLogo.Replace("~/","")" />
+
+            </div>
+            <div class="col-md-7 col-xs-8 pull-right">
+                <h2>@Model.ProjectName / @General.Add - @General.Realestates</h2>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <div class="btn-group btn-group-status pull-left">
+                    <a href='@Url.Action("Edit",new{id=Model.ProjectID })' data-toggle="tooltip" data-placement="bottom" title="@General.BackToList" data-original-title="@General.BackToList" class="btn btn-group-sm btn-back">
+                        <strong> <i class="fa fa-arrow-circle-left fa-2x"></i></strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-body">
+        <div class="panel-body">
+           @if (Model.Realestates.Count() > 0)
+        {
+
+        using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.ProjectID)
+            @Html.HiddenFor(m => m.ProjectName)
+            @Html.HiddenFor(m => m.ProjectLogo)
+                <div class="row">
+                    <table class=" table table-bordered table-striped table-hover">
+                        <tr class="warning">
+                            <th class="text-center">
+                                @General.Name
+                            </th>
+                            <th class="text-center">@General.Add</th>
+                            <th class="text-center">@General.Edit</th>
+                        </tr>
+                        @for (int i = 0; i < Model.Realestates.Count; i++)
+                        {
+    <tr>
+        <td class="text-center">
+
+            @Model.Realestates[i].Text
+            @Html.HiddenFor(m => Model.Realestates[i].Value)
+            @Html.HiddenFor(m => Model.Realestates[i].Text)
+        </td>
+        <td class="text-center">
+            @Html.CheckBoxFor(m => Model.Realestates[i].Selected)
+        </td>
+        <td class="text-center">
+            <a href='@Url.Action("Edit","", new { id = Model.Realestates[i].Value })' class="btn btn-small">
+                <i class="fa fa-edit"></i>
+            </a>
+        </td>
+
+    </tr>
+            }
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-9">
+                        <input type="submit" value="@General.Save" class="btn btn-success btn-lg btn-block" />
+                    </div>
+                </div>
+               }
+           }
+           else
+           {
+    @Html.Partial("_EmptyMessage")
+}
+</div>
+</div>

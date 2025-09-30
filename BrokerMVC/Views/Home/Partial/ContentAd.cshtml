@@ -1,0 +1,9 @@
+﻿@model BrokerMVC.Models.Advertisement
+<div class="col-sm-12">
+    <div class="ads-wrapper">
+        <a href="@Model.URL">
+            <img src="@Url.Content(Model.HomePageMainLarge)" class="img-responsive hidden-sm hidden-xs" alt="@Model.Name">
+            <img src="@Url.Content(Model.HomePageSide)" class="img-responsive hidden-lg hidden-md" alt="@Model.Name">
+        </a>
+    </div>
+</div>

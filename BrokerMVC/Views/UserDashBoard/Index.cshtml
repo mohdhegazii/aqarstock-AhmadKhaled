@@ -1,0 +1,204 @@
+﻿@model BrokerMVC.Models.ViewModel.UserViewData
+@{
+    ViewBag.Title = General.SiteName + " - " + General.DashBoard;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@helper selected(string c, string culture)
+{
+if (c == culture)
+{
+        @:checked="checked"
+    }
+}
+
+<div class="panel">
+        @*<div class="panel-heading">
+          <div class="row">
+                <div class="col-md-7 col-xs-8 pull-right">
+                    <h2>@General.DashBoard</h2>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="btn-group pull-left">
+                        <a href='@Url.Action("Create","RealEstateProjects")' data-toggle="tooltip" data-placement="bottom" title="@General.CreateNew" data-original-title="@General.CreateNew" class="btn btn-success">
+                            <strong>
+                                <i class="fa fa-plus"></i>
+                                @General.Project
+                            </strong>
+
+                        </a>
+                        <a href='@Url.Action("Add","RealEstates")' data-toggle="tooltip" data-placement="bottom" title="@General.CreateNew" data-original-title="@General.CreateNew" class="btn btn-success">
+                            <strong>
+                                <i class="fa fa-plus"></i>
+                                @General.RealEstate
+                            </strong>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <div class="panel panel-body">
+   
+        @if (Model.SuspendData != null)
+        {
+            <div class="col-md-12">
+                <div class="alert alert-danger">
+                    <div data-toggle="collapse" href="#divSuspendMsg" aria-expanded="false" aria-controls="divSuspendMsg">
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                        @Messages.SuspendedCompanyMsg <strong>@Model.SuspendData.SuspendReason</strong>
+                    </div>
+                    <div id="divSuspendMsg" class="collapse in">
+                        <span class="">@Model.SuspendData.Message</span>
+                    </div>
+                </div>
+            </div>
+        }
+        
+  
+        <div class="row">
+            <div class="col-md-8">
+                <div id="divIncompleteRealEstates">
+
+                </div>
+                <div id="divSubscriberRequests">
+
+                </div>
+                @*<div id="divSubscriberCompanyRequests">
+
+                    </div>*@
+                @if (Security.IsUserInRole(BrokerMVC.Roles.CompanyAdmin))
+                {
+                    <div id="divSubscriberCompanyInquiries">
+
+                    </div>
+                }
+          
+                <div id="divSubscriberNotifications">
+
+                </div>
+            </div>
+            @*<div class="col-md-4 "></div>*@
+            <div class="col-md-4">
+                <div class="col-md-12 col-xs-12">
+              
+                    <div class="btn-group-vertical btn-group-justified btn-group-XL">
+                        <a href='@Url.Action("Add","RealEstates")' role="button"  class="btn btn-lg btn-success">
+                            <strong>
+                                <i class="fa fa-plus-square"></i>
+                                @General.AddRealestate
+                            </strong>
+
+                        </a>
+                        @*<a href='@Url.Action("Create","RealEstateProjects")' class="btn btn-success">
+                            <strong>
+                                <i class="fa fa-plus-square"></i>
+                               @General.Add @General.Project
+                            </strong>
+
+                        </a>*@
+             
+        </div>
+                    @*<ul class="nav nav-pills nav-stacked">
+            <li>
+
+            </li>
+            <li>
+
+            </li>
+        </ul>*@   
+                    @*<div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="panel-title" role="button" data-toggle="collapse" href="#divAdd" aria-expanded="false" aria-controls="divAccount">
+                                <h4 class="col-md-9 pull-right">
+                                    <i class="fa fa-angle-down"></i>
+                                    <i class="fa fa-plus-square"></i>
+                                    @General.Add
+                                </h4>
+
+                            </div>
+                        </div>
+                        <div id="divAdd" class="panel panel-body collapse in">
+                   
+                        </div>
+                    </div>*@
+             
+                </div>
+                <div class="col-md-12 ">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="panel-title" role="button" data-toggle="collapse" href="#divAccount" aria-expanded="false" aria-controls="divAccount">
+                                <h4 class="col-md-9 pull-right">
+                                    <i class="fa fa-angle-down"></i>
+                                    <i class="fa fa-user-secret"></i>
+                                    @General.AccountData
+                                </h4>
+
+                            </div>
+                            <a class=" btn btn-sm btn-warning" href="@Url.Action("Edit","Subscribers",new{id=Model.ID })">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            @if (Model.Subscriptiontype == SupscriptionType.Individual)
+                            {
+                                <a id="aUpgradeUser" class=" btn btn-sm btn-warning" data-toggle="tooltip" data-placement="bottom" title="@General.Upgrade" data-original-title="@General.Upgrade" href="#">
+                                    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                                </a>
+                            }
+                        </div>
+                        <div id="divAccount" class="panel panel-body collapse in">
+                            <span class="col-md-12">@General.UserName: <strong>@Model.UserName</strong></span>
+                            <span class="col-md-12">
+                                @General.SupscriptionType: <strong>@Model.Subscriptiontype.GetValue()</strong>
+                            </span>
+                            <h4 class="col-md-12"><a class="alert alert-light" role="alert" href="~/@Menu.SupscriptionTypes.GetValue()"target="_blank">تعرف على الاشتراكات المميزة</a></h4>
+</div>
+                    </div>
+                </div>
+                @if (Model.Subscriptiontype != SupscriptionType.Individual)
+                {
+                    <div class="col-md-12 ">
+                        <div class="panel panel-warning">
+                            <div class="panel-heading">
+                                <div class="panel-title paneltitle" role="button" data-toggle="collapse" href="#divCompany" aria-expanded="false" aria-controls="divCompany">
+                                    <h4 class="col-md-10 pull-right">
+                                        <i class="fa fa-angle-down"></i>
+                                        <i class="fa fa-university"></i>
+                                        @General.CompanyData
+                                    </h4>
+
+                                </div>
+                                @if (Model.Subscriptiontype == SupscriptionType.CompanyAdmin)
+                                {
+                                    <a class=" btn btn-sm btn-warning" href="@Url.Action("Edit","RealEstateCompanies",new{id=Model?.Company?.ID })">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                }
+                            </div>
+                            <div id="divCompany" class="panel panel-body collapse in">
+                                <h4>@Html.Raw(Model?.Company?.Title)</h4>
+                                <div class=""><i class="fa fa-phone-square fa-1x" aria-hidden="true"></i> @Html.Raw(Model?.Company?.Phone)</div>
+                                <div class=""><i class="fa fa-envelope-square fa-1x" aria-hidden="true"></i> @Html.Raw(Model?.Company?.Email)</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+        LoadUserNotifications();
+        LoadProjectsInquireis();
+        LoadUserPurchaseRequests();
+        LoadIncompleteRealEstate();
+        //LoadCompanyPurchaseRequests();
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+}

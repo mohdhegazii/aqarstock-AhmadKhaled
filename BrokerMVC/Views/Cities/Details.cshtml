@@ -1,0 +1,51 @@
+﻿@model BrokerMVC.Models.City
+@using Resources;
+@{
+    ViewBag.Title = General.SiteName + " - " + General.Cities + " - " + General.Details ;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@General.Cities/@General.Details</h2>
+
+<div>
+    @*<h4>City</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.LabelFor(model => model.Name, General.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.EnName, General.EnglishName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnName)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.Sort, General.Sort)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sort)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.Country.Name, General.CountryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink(General.Edit, "Edit", new { id = Model.ID }) |
+    @Html.ActionLink(General.BackToList, "Index")
+</p>

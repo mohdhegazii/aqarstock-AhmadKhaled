@@ -1,0 +1,275 @@
+﻿@model BrokerMVC.Models.RealEstate
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RealEstate</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnStreet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnStreet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerMobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerMobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSold)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsSold)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActiveStatusId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActiveStatusId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UseContactInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UseContactInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsMigrated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsMigrated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSpecialOffer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsSpecialOffer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChangeActiveStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChangeActiveStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Currency.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Currency.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.District.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.District.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstateCategory.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstateCategory.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstateProject.Longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstateProject.Longitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstateStatu.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstateStatu.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RealEstateType.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RealEstateType.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subscriber.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subscriber.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentType.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentType.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleType.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaleType.Title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

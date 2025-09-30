@@ -1,0 +1,20 @@
+﻿@model BrokerMVC.Models.RealEstateCompany
+
+<div class="owner-contact-header">
+    <h1>
+        <a href="~/@Menu.Companys.GetValue()/@Model.ID/@Commons.EncodeText(Commons.Culture.Contains("ar")?Model.Title:Model.EnTitle)">
+            <i class="fa fa-bell"></i>
+            @General.Advertiser @(Commons.Culture.Contains("ar") ? Model.Title : Model.EnTitle)
+            
+        </a>
+    </h1>
+</div>
+@*<div class="owner-contact-price">
+    <h1><i class="fa fa-gift"></i>@Model.Price  @(Commons.Culture.Contains("ar") ? Model.Currency.Name : Model.Currency.EnName) </h1>
+</div>*@
+
+<div class="owner-contact-phone">
+    <h1><a href="mailto:@Model.Email"><i class="fa fa fa-envelope"></i> @Model.Email</a></h1>
+    <h1><a href="tel:@Model.Phone"><i class="fa fa fa-volume-control-phone"></i> @Model.Phone</a></h1>
+</div>
+

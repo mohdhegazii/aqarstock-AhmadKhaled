@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6BA14119-335E-4C70-B4B6-E28D99341788}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BrokerDLL</RootNamespace>
+    <AssemblyName>BrokerDLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\FiElDaleel\ExternalDependancies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Backend\Controllers\ActivateSubscriberAccountController.cs" />
+    <Compile Include="Backend\Controllers\AdminDashBoardController.cs" />
+    <Compile Include="Backend\Controllers\AdminHeaderController.cs" />
+    <Compile Include="Backend\Controllers\AdminMessageListController.cs" />
+    <Compile Include="Backend\Controllers\AdminProjectListController.cs" />
+    <Compile Include="Backend\Controllers\AdminRealEstateViewController.cs" />
+    <Compile Include="Backend\Controllers\AdminRealEstateListController.cs" />
+    <Compile Include="Backend\Controllers\AdminViewCompanyController.cs" />
+    <Compile Include="Backend\Controllers\AdminViewProjectController.cs" />
+    <Compile Include="Backend\Controllers\AdvertisementController.cs" />
+    <Compile Include="Backend\Controllers\CatalogCategoryController.cs" />
+    <Compile Include="Backend\Controllers\CatalogController.cs" />
+    <Compile Include="Backend\Controllers\CatalogListController.cs" />
+    <Compile Include="Backend\Controllers\ChangeRealEstateSubscriberController.cs" />
+    <Compile Include="Backend\Controllers\CityController.cs" />
+    <Compile Include="Backend\Controllers\CompanyListController.cs" />
+    <Compile Include="Backend\Controllers\CompanyMessageController.cs" />
+    <Compile Include="Backend\Controllers\CompanyPurchaseRequestsController.cs" />
+    <Compile Include="Backend\Controllers\CompanyUserController.cs" />
+    <Compile Include="Backend\Controllers\CompanyUserListController.cs" />
+    <Compile Include="Backend\Controllers\CountryController.cs" />
+    <Compile Include="Backend\Controllers\CurrencyController.cs" />
+    <Compile Include="Backend\Controllers\DistrictController.cs" />
+    <Compile Include="Backend\Controllers\AdminViewMessageController.cs" />
+    <Compile Include="Backend\Controllers\FavouriteRealEstatesController.cs" />
+    <Compile Include="Backend\Controllers\GenerateCatalogController.cs" />
+    <Compile Include="Backend\Controllers\KeywordController.cs" />
+    <Compile Include="Backend\Controllers\LoginController.cs" />
+    <Compile Include="Backend\Controllers\MessageListController.cs" />
+    <Compile Include="Backend\Controllers\MessageViewController.cs" />
+    <Compile Include="Backend\Controllers\NewMessageController.cs" />
+    <Compile Include="Backend\Controllers\NotifyReportController.cs" />
+    <Compile Include="Backend\Controllers\PartnerController.cs" />
+    <Compile Include="Backend\Controllers\PartnerListController.cs" />
+    <Compile Include="Backend\Controllers\ProjectListController.cs" />
+    <Compile Include="Backend\Controllers\ProjectModelController.cs" />
+    <Compile Include="Backend\Controllers\ProjectPhotoController.cs" />
+    <Compile Include="Backend\Controllers\ProjectRealestateController.cs" />
+    <Compile Include="Backend\Controllers\ProjectVedioController.cs" />
+    <Compile Include="Backend\Controllers\PurchaseRequestReportController.cs" />
+    <Compile Include="Backend\Controllers\RealEstateCategoryController.cs" />
+    <Compile Include="Backend\Controllers\RealEstateCompanyController.cs" />
+    <Compile Include="Backend\Controllers\RealEstateComplainsController.cs" />
+    <Compile Include="Backend\Controllers\RealEstateListController.cs" />
+    <Compile Include="Backend\Controllers\RealEstatePhotoController.cs" />
+    <Compile Include="Backend\Controllers\RealEstateDataController.cs" />
+    <Compile Include="Backend\Controllers\RealEstateProjectController.cs" />
+    <Compile Include="Backend\Controllers\RealEstatePurchaseRequestController.cs" />
+    <Compile Include="Backend\Controllers\RealEstateStatusController.cs" />
+    <Compile Include="Backend\Controllers\RealEstateTypeController.cs" />
+    <Compile Include="Backend\Controllers\RealEstateTypeCriteriaController.cs" />
+    <Compile Include="Backend\Controllers\RealEstateViewController.cs" />
+    <Compile Include="Backend\Controllers\RemoveSuspendedRealestatesController.cs" />
+    <Compile Include="Backend\Controllers\SearchKeywordController.cs" />
+    <Compile Include="Backend\Controllers\SubscriberNotificationController.cs" />
+    <Compile Include="Backend\Controllers\SubscriberReportController.cs" />
+    <Compile Include="Backend\Controllers\SubscriberDashBoardController.cs" />
+    <Compile Include="Backend\Controllers\SubscriberHeaderController.cs" />
+    <Compile Include="Backend\Controllers\SubscriberProfileController.cs" />
+    <Compile Include="Backend\Controllers\SuspendedRealEstateReportController.cs" />
+    <Compile Include="Backend\Controllers\TagController.cs" />
+    <Compile Include="Backend\Views\IActivateSubscriberAccount.cs" />
+    <Compile Include="Backend\Views\IAdminProjectList.cs" />
+    <Compile Include="Backend\Views\IAdminViewCompany.cs" />
+    <Compile Include="Backend\Views\IAdvertisment.cs" />
+    <Compile Include="Backend\Views\ICatalog.cs" />
+    <Compile Include="Backend\Views\ICatalogCategory.cs" />
+    <Compile Include="Backend\Views\ICatalogList.cs" />
+    <Compile Include="Backend\Views\IChangeRealEstateSubscriber.cs" />
+    <Compile Include="Backend\Views\ICompanyList.cs" />
+    <Compile Include="Backend\Views\ICompanyMessage.cs" />
+    <Compile Include="Backend\Views\ICompanyPurchaseRequests.cs" />
+    <Compile Include="Backend\Views\ICompanyUser.cs" />
+    <Compile Include="Backend\Views\IAdminDashboard.cs" />
+    <Compile Include="Backend\Views\IAdminHeader.cs" />
+    <Compile Include="Backend\Views\IAdminMessageList.cs" />
+    <Compile Include="Backend\Views\IAdminRealEstateList.cs" />
+    <Compile Include="Backend\Views\IAdminRealEstateView.cs" />
+    <Compile Include="Backend\Views\IAdminViewMessage.cs" />
+    <Compile Include="Backend\Views\ICity.cs" />
+    <Compile Include="Backend\Views\ICompanyUserList.cs" />
+    <Compile Include="Backend\Views\ICountry.cs" />
+    <Compile Include="Backend\Views\ICurrency.cs" />
+    <Compile Include="Backend\Views\IDistrict.cs" />
+    <Compile Include="Backend\Views\IFavouriteRealEstates.cs" />
+    <Compile Include="Backend\Views\IGenerateCatalogs.cs" />
+    <Compile Include="Backend\Views\IKeyword.cs" />
+    <Compile Include="Backend\Views\ILogin.cs" />
+    <Compile Include="Backend\Views\IMessageList.cs" />
+    <Compile Include="Backend\Views\IMessageView.cs" />
+    <Compile Include="Backend\Views\INewMessage.cs" />
+    <Compile Include="Backend\Views\IAdminViewProject.cs" />
+    <Compile Include="Backend\Views\INotifyReport.cs" />
+    <Compile Include="Backend\Views\IPartner.cs" />
+    <Compile Include="Backend\Views\IPartnerList.cs" />
+    <Compile Include="Backend\Views\IProjectList.cs" />
+    <Compile Include="Backend\Views\IProjectModel.cs" />
+    <Compile Include="Backend\Views\IProjectPhoto.cs" />
+    <Compile Include="Backend\Views\IProjectRealestates.cs" />
+    <Compile Include="Backend\Views\IProjectVedio.cs" />
+    <Compile Include="Backend\Views\IPurchaseRequestReport.cs" />
+    <Compile Include="Backend\Views\IRealEstateCategory.cs" />
+    <Compile Include="Backend\Views\IRealEstateCompany.cs" />
+    <Compile Include="Backend\Views\IRealEstateComplains.cs" />
+    <Compile Include="Backend\Views\IRealEstateList.cs" />
+    <Compile Include="Backend\Views\IRealEstatePhotos.cs" />
+    <Compile Include="Backend\Views\IRealEstateProject.cs" />
+    <Compile Include="Backend\Views\IRealEstatePurchaseRequest.cs" />
+    <Compile Include="Backend\Views\IRealEstateStatus.cs" />
+    <Compile Include="Backend\Views\IRealEstateType.cs" />
+    <Compile Include="Backend\Views\IRealEstateTypeCriteria.cs" />
+    <Compile Include="Backend\Views\IRealEstateView.cs" />
+    <Compile Include="Backend\Views\IRemoveSuspendedRealEstates.cs" />
+    <Compile Include="Backend\Views\ISearchKeyword.cs" />
+    <Compile Include="Backend\Views\ISubscriberDashboard.cs" />
+    <Compile Include="Backend\Views\IRealEstateData.cs" />
+    <Compile Include="Backend\Views\ISubscriberHeader.cs" />
+    <Compile Include="Backend\Views\ISubscriberNotification.cs" />
+    <Compile Include="Backend\Views\ISubscriberProfile.cs" />
+    <Compile Include="Backend\Views\ISubscriberReport.cs" />
+    <Compile Include="Backend\Views\ISuspendedRealEstatesReport.cs" />
+    <Compile Include="Backend\Views\ITag.cs" />
+    <Compile Include="BrokerContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BrokerContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Commons.cs" />
+    <Compile Include="Backend\Controllers\IController.cs" />
+    <Compile Include="Backend\Views\IView.cs" />
+    <Compile Include="General\AqarPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="General\ContentGenerator.cs" />
+    <Compile Include="General\HtmlPageGenerator.cs" />
+    <Compile Include="General\ImageCompress.cs" />
+    <Compile Include="General\RealEstateSearchCriteria.cs" />
+    <Compile Include="General\Search.cs" />
+    <Compile Include="General\SiteMapGenerator.cs" />
+    <Compile Include="General\SMS.cs" />
+    <Compile Include="Migration\Classes\Enums.cs" />
+    <Compile Include="Migration\Classes\IMigrateFromXML.cs" />
+    <Compile Include="Migration\Classes\PropertyFinderXMLMigration.cs" />
+    <Compile Include="Migration\MigratedRealEstates.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MigratedRealEstates.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Partial Classes\CompanyMessage.cs" />
+    <Compile Include="Partial Classes\NotifyService.cs" />
+    <Compile Include="Partial Classes\RealEstateCatalog.cs" />
+    <Compile Include="Partial Classes\RealestateCatalogProperty.cs" />
+    <Compile Include="Partial Classes\RealestateCatalogTag.cs" />
+    <Compile Include="Partial Classes\RealEstateProject.cs" />
+    <Compile Include="Partial Classes\RealEstateProjectModel.cs" />
+    <Compile Include="Partial Classes\RealEstatePurchaseRequest.cs" />
+    <Compile Include="Partial Classes\RealEstate.cs" />
+    <Compile Include="Partial Classes\RealEstateSuspended.cs" />
+    <Compile Include="Partial Classes\SearchKeyword.cs" />
+    <Compile Include="Partial Classes\SubscriberNotification.cs" />
+    <Compile Include="Partial Classes\Tag.cs" />
+    <Compile Include="Serializable\Advertisement.cs" />
+    <Compile Include="Serializable\Catalog.cs" />
+    <Compile Include="Serializable\City.cs" />
+    <Compile Include="Serializable\Company.cs" />
+    <Compile Include="Serializable\Contacts.cs" />
+    <Compile Include="Serializable\Country.cs" />
+    <Compile Include="Serializable\CompanyMessage.cs" />
+    <Compile Include="Serializable\Login.cs" />
+    <Compile Include="Serializable\ProjectModel.cs" />
+    <Compile Include="Serializable\ProjectPhotos.cs" />
+    <Compile Include="Serializable\ProjectVedio.cs" />
+    <Compile Include="Serializable\SearchKeyword.cs" />
+    <Compile Include="Serializable\NotifyRequest.cs" />
+    <Compile Include="Serializable\Project.cs" />
+    <Compile Include="Serializable\PurchaseRequest.cs" />
+    <Compile Include="Serializable\Complain.cs" />
+    <Compile Include="Serializable\ContactUsMail.cs" />
+    <Compile Include="Serializable\Currency.cs" />
+    <Compile Include="Serializable\District.cs" />
+    <Compile Include="General\Email.cs" />
+    <Compile Include="General\LogAction.cs" />
+    <Compile Include="General\SearchCriteria.cs" />
+    <Compile Include="General\Lookups.cs" />
+    <Compile Include="General\EnumValue.cs" />
+    <Compile Include="Partial Classes\City.cs" />
+    <Compile Include="Partial Classes\District.cs" />
+    <Compile Include="Partial Classes\RealEstateKeyword.cs" />
+    <Compile Include="Partial Classes\RealEstateStatus.cs" />
+    <Compile Include="Partial Classes\RealEstateType.cs" />
+    <Compile Include="Partial Classes\RealEstateTypeCriteria.cs" />
+    <Compile Include="Partial Classes\Subscriber.cs" />
+    <Compile Include="Partial Classes\SubscriperMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Routing.cs" />
+    <Compile Include="General\SavePhotoThump.cs" />
+    <Compile Include="Serializable\PaymentType.cs" />
+    <Compile Include="Serializable\RealEstate.cs" />
+    <Compile Include="Serializable\RealEstateCategory.cs" />
+    <Compile Include="Serializable\RealEstateCriteria.cs" />
+    <Compile Include="Serializable\RealEstateKeyword.cs" />
+    <Compile Include="Serializable\RealEstatePhoto.cs" />
+    <Compile Include="Serializable\RealEstateStatus.cs" />
+    <Compile Include="Serializable\RealEstateType.cs" />
+    <Compile Include="Serializable\SaleType.cs" />
+    <Compile Include="Serializable\Subscriber.cs" />
+    <Compile Include="Serializable\Tag.cs" />
+    <Compile Include="Service References\SMSServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="BrokerContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BrokerContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Migration\MigratedRealEstates.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MigratedRealEstates.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\BrokerEntities.datasource" />
+    <None Include="Service References\SMSServiceReference\service.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Migration\DB Scripts\Select Valid RealEstates.txt" />
+    <Content Include="Migration\DB Scripts\Update Active Status.txt" />
+    <Content Include="Migration\DB Scripts\UpdateCriteriaScript.txt" />
+    <Content Include="Migration\DB Scripts\UpdateSaleType.txt" />
+    <None Include="Service References\SMSServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SMSServiceReference\configuration.svcinfo" />
+    <None Include="Service References\SMSServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\SMSServiceReference\service.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SMSServiceReference\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

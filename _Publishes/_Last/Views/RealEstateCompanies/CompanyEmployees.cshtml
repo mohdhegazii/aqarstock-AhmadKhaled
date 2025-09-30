@@ -1,0 +1,125 @@
+﻿@model IEnumerable<BrokerMVC.Models.Subscriber>
+@{
+    ViewBag.Title = General.SiteName + " - " + General.Employees;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+@helper selected(string c, string culture)
+{
+if (c == culture)
+{
+        @:checked="checked"
+    }
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2>
+                    <i class="fa fa-users fa-fw"></i>
+
+               @General.Employees 
+                    
+                </h2>
+            </div>
+            <div class="btn-group pull-left">
+                <a href='@Url.Action("AddNewUser",new{id=ViewBag.CompanyID})' class="btn btn-group-lg btn-success">
+                    <i class="fa fa-plus-square"></i>
+                    @General.Add
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <table class="table table-responsive table-bordered table-striped table-hover">
+                <tr class="success">
+                    <th class="text-center">
+                        @General.FullName
+                    </th>
+                    @if (Security.IsUserInRole(BrokerMVC.Roles.Admin))
+            {
+                        <th class="text-center">@General.Edit</th>
+                    }
+                    else
+                    {
+                        <th class="text-center">@General.ChangeRole</th>
+                    }
+                    <th class="text-center">@General.Delete</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <div data-toggle="collapse" data-target="#divContact-@item.ID" aria-expanded="false" aria-controls="divContact-@item.ID">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.FullName)
+                            </div>
+
+                        </td>
+                        @if (Security.IsUserInRole(BrokerMVC.Roles.Admin))
+                {
+                            <td class="text-center">
+                                <a href='@Url.Action("Edit","Subscribers", new { id = item.ID })' class="btn btn-small">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="text-center">
+                                @if (item.IsCompanyAdmin == true)
+                                {
+                                    <a href='@Url.Action("DowndgradeUser","Subscribers", new { id = item.ID })' class="btn btn-small" data-toggle="tooltip" data-placement="bottom" title="@General.Downgrade" data-original-title="@General.Downgrade">
+                                        <i class="fa fa-arrow-circle-down fa-lg"></i>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href='@Url.Action("UpgradeUser","Subscribers", new { id = item.ID })' class="btn btn-small" data-toggle="tooltip" data-placement="bottom" title="@General.Upgrade" data-original-title="@General.Upgrade">
+                                        <i class="fa fa-arrow-circle-up fa-lg"></i>
+                                    </a>
+                                }
+                            </td>
+                        }
+
+                        <td class="text-center">
+                            <a href='@Url.Action("RemoveUser", new { id = item.ID })' class="btn btn-small Deleteconfirm">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="divContact-@item.ID" class="collapse">
+                        <td colspan="3" class="td-colspan">
+                            <div class="row">
+                                <div class="col-md-2 pull-right">
+                                    <i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-md-10">@item.MobileNo</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 pull-right"><i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i></div>
+                                <div class="col-md-10">
+                                    <span>
+                                        @item.Email
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    }
+}

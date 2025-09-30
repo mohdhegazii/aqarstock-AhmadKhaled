@@ -1,0 +1,62 @@
+<nav class="top">
+    <div class="navCore">
+        <a class="payment" href="javascript:void(0);" top-search-link><span>إبحث </span>بالنظام</a>
+        <a class="type" href="" top-search-link><span>إبحث </span>بالنوع</a>
+        <a class="location" href="" top-search-link><span>إبحث </span>بالمكان</a>
+        <a class="price" href="" top-search-link><span>إبحث </span>بالسعر</a>
+        <a class="area" href="" top-search-link><span>إبحث </span>بالمساحة</a>
+        <a class="advanced" ui-sref="units.advancedSearch"><span>إبحث </span>المفصل</a>
+        <a class="miniMenu" href="javascript:void(0);" ng-click="miniMenu()">القائمة</a>
+    </div>
+</nav>
+<div class="unitsInfo">
+    <p>المعروض هو : {{SearchType}}</p>
+</div>
+<aside>
+    <a class="logo" href="index.html">
+        <img src="images/logo.png" /></a>
+      <div class="topSocial">
+                <div class="topSocialUnit">
+                    <div class="fb-like" data-href="https://www.facebook.com/aqarstock" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                </div>
+                <div class="topSocialUnit">
+                    <a href="https://www.twitter.com/aqar_stock" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @aqar_stock</a>
+                </div>
+                <div class="topSocialUnit">
+                   
+                    <!--<div class="g-follow" data-href="https://plus.google.com/u/1/b/117363535775361161714" data-annotation="bubble" data-height="15" data-rel="publisher"></div>-->
+      <g:follow href="https://plus.google.com/117363535775361161714" data-height="15" rel="publisher"></g:follow>
+<!--<div class="g-follow" data-annotation="bubble" data-height="20" data-href="//plus.google.com/u/1/b/117363535775361161714" data-rel="publisher"></div>-->
+                </div>
+            </div>
+    <nav>
+        <a ng-click="GoHome()">الرئيسية</a>
+        <a href="/login" class="addYourProperty">أضف عقارك</a>
+        <a ng-click="Aboutus()">تعرف على عقار ستوك</a>
+        <a ng-click="SearchByCategory(1,'وحدات سكنية')">وحدات سكنية</a>
+        <a ng-click="SearchByCategory(2,'وحدات تجارية')">وحدات تجارية</a>
+        <a ng-click="SearchByCategory(3,'اراضى')">اراضى</a>
+        <a ng-click="SearchByNew()">أخر الوحدات المضافة</a>
+        <a ui-sref="units.advancedSearch">البحث المفصل</a>
+        <!--<a href="">الخريطة</a>-->
+        <a ng-click="ContactUs()">اتصل بنا</a>
+        <div class="copyrights">
+            <p>جميع الحقوق محفوظة لعقار ستوك 2014</p>
+            <p>
+                تطوير <a href="http://masteryit.com/" target="_blank">
+                    <img src="images/icons/masteryIT.png" /></a>
+            </p>
+        </div>
+    </nav>
+</aside>
+<div class="core">
+    <div class="units">
+        <div class="innerView" ui-view>
+            <div ng-include src="'parts/loading.html'"></div>
+
+        </div>
+        <div class="clear"></div>
+
+    </div>
+</div>
+ 

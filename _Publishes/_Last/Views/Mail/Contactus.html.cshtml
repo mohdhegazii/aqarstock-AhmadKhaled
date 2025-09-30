@@ -1,0 +1,48 @@
+﻿@using ActionMailer.Net
+@model BrokerMVC.Models.ViewModel.Contactus
+@{
+    Layout = "~/Views/Mail/_EmailLayout.html.cshtml";
+}
+@*<div class="email_banner">
+        طلب شراء جديد
+    </div>
+    <div class="email_body">*@
+
+<div class="caption">
+    <h1>
+        @*عزيزى العميل
+        <br />*@
+        <span>
+            تم ارسال رسالة من احد العملاء
+        </span>
+    </h1>
+</div>
+<table id="table">
+
+    <tr>
+        <td class="cell primary"><h4>@General.FullName</h4></td>
+        <td class="cell">@Html.DisplayFor(model => model.SenderName)</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.Phone</h4></td>
+        <td class="cell">@Html.DisplayFor(model => model.SenderPhone)</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.Email</h4></td>
+        <td class="cell">@Html.DisplayFor(model => model.SenderEmail)</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.CountryName</h4></td>
+        <td class="cell">@Html.DisplayFor(model => model.SenderCountry)</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>@General.Message</h4></td>
+        <td class="cell">@Html.Raw(Model.Message)</td>
+    </tr>
+
+</table>
+<div class="footer">
+    <a href="@ConfigurationSettings.AppSettings["WebSite"].ToString()"> خدمة عملاء @ConfigurationSettings.AppSettings["Name"].ToString()</a>
+    <br />
+</div>
+

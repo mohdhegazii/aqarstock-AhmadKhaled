@@ -1,0 +1,137 @@
+﻿@model BrokerMVC.Models.Catalog
+
+@{
+    ViewBag.Title = Model.Title + "- " + General.PageTitle;
+    Layout = "~/Views/Home/_Layout.cshtml";
+}
+<div class="inner-banner">
+    <!-- banner start  -->
+    <span class="full-size-img" style="background:url(@Url.Content("~/Content/_ui/img/media/slide-4.jpg")) no-repeat center center / cover"></span>
+    <!-- // banner end -->
+    <div class="block-title">
+        <div class="container">
+            <h1> @Model.Title</h1>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <!-- Search form start  -->
+            <div id="divSearch">
+
+            </div>
+            <!-- // Search form end -->
+        </div>
+
+        <!-- project details block start -->
+        <div class="col-md-12">
+            <div class="block project-details-wrapper" itemscope itemtype="http://schema.org/Product">
+                <div class="project-title">
+                    <div class="col-md-8 col-sm-7">
+                        <h1 itemprop="name">@Model.Title<i class="fa fa-building-o" aria-hidden="true"></i></h1>
+                    </div>
+                    <div class="col-md-4 col-sm-5">
+                        <a href="@this.Request.UrlReferrer" class="btn btn-theme btn-back">@General.Back <i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    </div>
+                    @*<div class="col-md-12 col-sm-12">
+                        <h3 itemprop="address"><button type="button" class="slideToMap">@(Commons.Culture.Contains("ar") ? Model.Address : Model.EnAddress)<i class="fa fa-map-marker" aria-hidden="true"></i></button></h3>
+                    </div>*@
+                    @*<div class="btn-info-block">
+                            <div class="col-sm-4"><a href="#" class="btn btn-03"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> راسل المالك</a></div>
+                            <div class="col-sm-4"><a href="#" class="btn btn-05"><i class="fa fa-database" aria-hidden="true"></i>بيانات المالك</a></div>
+                            <div class="col-sm-4"><a href="#" class="btn btn-04"><i class="fa fa-exclamation" aria-hidden="true"></i>تقديم شكوى</a></div>
+                        </div>*@
+                </div>
+
+                <div class="project-banner-wrapper">
+                    <div class="col-sm-12">
+                        <div class="logo-project-wrapper">
+                            <img itemprop="image" src="~/@Model.PhotoURL" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block project-info-wrapper">
+                    <div class="col-sm-12">
+                        <div class="notes-block">
+                            <div class="col-sm-12">
+                                <h3>@General.Summary</h3>
+                                <p itemprop="description">@Model.Summary</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block project-info-wrapper">
+                    <div id="catalogProperties" class="col-sm-12">
+                        
+                    </div>
+                </div>
+
+
+
+                <div class="inner-social">
+                    <div class="col-sm-6 social-list">
+
+                        <div class="addthis_sharing_toolbox">
+                        </div>
+                        @*<ul class="social-list">
+                                <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                            </ul>*@
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="@this.Request.UrlReferrer" class="btn btn-theme btn-back">@General.Return <i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-12">
+            <!-- latest unit block start -->
+            <div id="divLatestAdded" class="Latest-Prop">
+
+            </div>
+            <!-- // latest unit block end -->
+        </div>
+        <!-- // project details block block end -->
+    </div>
+</div>
+<div id="divtag" style="display:none">
+    @Html.Raw(Model.Description)
+</div>
+@section Scripts
+{
+    @Scripts.Render(AppSettingKeysVariables.GoogleMapsKey)
+    @Scripts.Render("//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56de87f91ff9a0c0")
+    @Scripts.Render("~/Scripts/js/Map.js")
+    <script>
+        LoadPropertySearch("details");
+        GetCatalogProperyies(@Model.ID);
+        ShowTags();
+       
+    </script>
+}
+@section META{
+    @*///DESCRIPTION_VALUE and KEYWORD_VALUE - Can be replaced with model values (e.g. @Model.PageDescription) or ViewBag (e.g.@ViewBag.PageDescription)*@
+    <meta name="description" property="og:description" content="@Model.Description" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="@Model.Title| @General.SiteName">
+    <meta property="og:url" content="@this.Request.Url">
+    <meta property="og:image" content="@(ConfigurationSettings.AppSettings["WebSite"]+ Model.PhotoURL.Replace("~/", "").Replace(" ","%20"))">
+    <meta property="og:site_name" content="@General.SiteName">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="@Model.Title| @General.SiteName">
+    <meta name="twitter:description" content="@Model.Description">
+    <meta name="twitter:image" content="@(ConfigurationSettings.AppSettings["WebSite"]+ Model.PhotoURL.Replace("~/", "").Replace(" ","%20"))">
+    <meta name="twitter:site" content="@this.Request.Url">
+
+}

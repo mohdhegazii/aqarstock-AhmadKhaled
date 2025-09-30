@@ -1,0 +1,47 @@
+﻿<div class="compenies col-md-8">
+                    <div class="Title">
+                        <!--<h4>
+                            <span>مشاريع عقارية</span></h4>-->
+                            <h4><a class="back" detail-backbutton href="javascript:void(0);">رجوع</a>مشاريع {{Name}}</h4>
+                    </div>
+                    <div class="compeniesList">
+                        <div class="compeny" ng-repeat="Project in Projects">
+                            <div class="companyImg">
+                                <img src="http://www.aqarstock.com/{{Project.Logo}}" /></div>
+                            <div class="companyDes">
+                                <div class="companyTitle">
+                                    <span>{{Project.ProjectName}}</span></div>
+                                <hr />
+                                <div class="companyTxt">
+                                    <span>{{Project.Summary}} </span>
+                                </div>
+                                <div class="moreBtn">
+                                    <span><a ng-href="/مشاريع_عقارية/{{Project.ID}}/{{Project.URL}}">تعرف على المزيد</a></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="divListLoading" class="loader">
+                        <img src="images/Frontend/loading2.gif" /></div>
+                    <div class="pageController">
+                        <div class="prevBtn" ng-click="PreviousPage()">
+                        </div>
+                        <div class="firstOne" style="display: none">
+                            <a href="javascript:void(0);" ng-click="MoveTo(FirstPage)">{{FirstPage}}</a></div>
+                        <div id="divFirstPage" class="dottes" style="display: none">
+                            <span>...</span></div>
+                        <div class="numbers">
+                            <ul>
+                                <li class="number" ng-repeat="page in Pages" id="{{page}}" ng-click="MoveTo(page)" paging>
+                                    <a href="javascript:void(0);">{{page}}</a></li>
+                            </ul>
+                        </div>
+                        <div id="divLastPage" class="dottes">
+                            <span>...</span></div>
+                        <div class="lastOne">
+                            <a href="javascript:void(0);" ng-click="MoveTo(LastPage)">{{LastPage}}</a></div>
+                        <div class="nextBtn" ng-click="NextPage()">
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div>

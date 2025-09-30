@@ -1,0 +1,81 @@
+﻿<div class="compareToggle">
+    <div class="compareMenu">
+        <ul>
+            <li class="compareItem" ng-repeat="realestate in CompareRealEstates" id={{realestate.ID}}>
+                <div class="closeItem" ng-click="RemoveFromCompareList(realestate.ID)">
+                    <a href="javascript:void(0);">
+                        <img src="images/Frontend/popUpClose.png" /></a>
+                </div>
+                <div class="compareItemImg">
+                    <img src="http://www.aqarstock.com/{{realestate.Logo}}" />
+                </div>
+                <div class="compareItemText">
+                    <span>{{realestate.Type}} <b ng-if="realestate.Area != '0' ">{{realestate.Area}} م </b>- {{realestate.District}}, {{realestate.City}}</span>
+                </div>
+                
+            </li>
+           <!-- <li class="compareItem">
+                <div class="compareItemImg">
+                    <img src="images/Frontend/compImg.png" />
+                </div>
+                <div class="compareItemText">
+                    <span>فيلا <b>245</b> م تمليك، بجنينة <b>70</b> م، التجمع الخامس بمنطقة القرنفل</span>
+                </div>
+                <div class="closeItem">
+                    <a href="#">
+                        <img src="images/Frontend/popUpClose.png" /></a>
+                </div>
+            </li>
+            <li class="compareItem">
+                <div class="compareItemImg">
+                    <img src="images/Frontend/compImg.png" />
+                </div>
+                <div class="compareItemText">
+                    <span>فيلا <b>245</b> م تمليك، بجنينة <b>70</b> م، التجمع الخامس بمنطقة القرنفل</span>
+                </div>
+                <div class="closeItem">
+                    <a href="#">
+                        <img src="images/Frontend/popUpClose.png" /></a>
+                </div>
+            </li>
+            <li class="compareItem">
+                <div class="compareItemImg">
+                    <img src="images/Frontend/compImg.png" />
+                </div>
+                <div class="compareItemText">
+                    <span>فيلا <b>245</b> م تمليك، بجنينة <b>70</b> م، التجمع الخامس بمنطقة القرنفل</span>
+                </div>
+                <div class="closeItem">
+                    <a href="#">
+                        <img src="images/Frontend/popUpClose.png" /></a>
+                </div>
+            </li>
+            <li class="compareItem">
+                <div class="compareItemImg">
+                    <img src="images/Frontend/compImg.png" />
+                </div>
+                <div class="compareItemText">
+                    <span>فيلا <b>245</b> م تمليك، بجنينة <b>70</b> م، التجمع الخامس بمنطقة القرنفل</span>
+                </div>
+                <div class="closeItem">
+                    <a href="#">
+                        <img src="images/Frontend/popUpClose.png" /></a>
+                </div>
+            </li>-->
+        </ul>
+        <div class="actionBtn" ng-click="GotoCompare()">
+            <span>قارن</span>
+        </div>
+    </div>
+    <div id="divCompareBtn" class="compareBtn" btn-Comapre-Menu>
+        <span>قائمة قارن</span></br>
+        <img src="images/Frontend/compMenu.png" />
+    </div>
+</div>
+<!--<script>
+    $('.compareBtn').css({ "margin-top": (($('.compareMenu').height() - $('.compareBtn').height()) / 2) + "px" })
+
+    $('.compareBtn').click(function () {
+        $('.compareToggle').animate({ "right": (parseInt($('.compareToggle').css("right")) == 0 ? -350 : 0) + "px" })
+    });
+</script>-->

@@ -1,0 +1,240 @@
+﻿@model BrokerMVC.Models.ViewModel.SearchCriteria
+@using (Html.BeginForm("SearchResult", "home", FormMethod.Get, htmlAttributes: new { @id = "SearchForm" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="search-aside">
+        <div class="search-wrapper">
+            <!-- Nav tabs -->
+            @*<div class="col-sm-12">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#search-for-buy" aria-controls="search-for-buy" role="tab" data-toggle="tab">وحدات للبيع</a></li>
+                    <li role="presentation"><a href="#search-for-rent" aria-controls="search-for-rent" role="tab" data-toggle="tab">وحدات للإيجار</a></li>
+                </ul>
+            </div>*@
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="search-for-buy">
+                    <form class="">
+                        <div class="col-sm-6">
+                            <div class="form-group no-mrg">
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.RadioButton("SID", 1, new { @class = "form-control", @checked = "checked" }) @SaleTypes.Sale.GetValue()
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group no-mrg">
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.RadioButton("SID", 2, new { @class = "form-control" })@SaleTypes.Rent.GetValue()
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="iputUnitType3">@General.RealestateType<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                @Html.DropDownList("TID", null, General.Select, htmlAttributes: new {@id="ddlSearchType", @class = "form-control form-select selectpicker", @onchange = "GetStatus('ddlSearchType','ddlSearchStatus','" + General.Select + "')" })
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputCountry3">@General.CountryName<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                @Html.DropDownList("CID", null, General.Select, htmlAttributes: new { @id = "ddlSearchCountry", @class = "form-control form-select selectpicker", @onchange = "GetCities('ddlSearchCountry','ddlSearchCity','ddlSearchDistrict','" + General.Select + "')" })
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputGovernorate3">@General.CityName<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                @Html.DropDownList("CyId", null, General.Select, htmlAttributes: new { @id = "ddlSearchCity",@disabled="disabled", @class = "form-control form-select selectpicker", @onchange = "GetDistricts('ddlSearchCity','ddlSearchDistrict','" + General.Select + "')" })
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputDistrict3">@General.District<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                @Html.DropDownList("DID", null, General.Select, htmlAttributes: new { @id = "ddlSearchDistrict", @disabled = "disabled", @class = "form-control form-select selectpicker" })
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputPrice3">@General.Price<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                @Html.DropDownList("Price", null, General.Select, htmlAttributes: new { @class = "form-control form-select selectpicker" })
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputArea3">@General.Area<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                @Html.DropDownList("Area", null, General.Select, htmlAttributes: new { @class = "form-control form-select selectpicker" })
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputUnityState1">@General.Status<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                @Html.DropDownList("STID", null, General.Select, htmlAttributes: new { @id = "ddlSearchStatus", @disabled = "disabled", @class = "form-control form-select selectpicker"})
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputPaymentMethod1">@General.PaymentType<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                @Html.DropDownList("PID", null, General.Select, htmlAttributes: new { @class = "form-control form-select selectpicker" })
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputPaymentMethod1">@General.Currency<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                @Html.DropDownList("CUID", null, General.Select, htmlAttributes: new { @class = "form-control form-select selectpicker" })
+                            </div>
+                            </div>
+                        <div class="col-md-2 col-sm-3">
+                            <button type="button" class="btn btn-submit">@General.Search <i class="fa fa-search" aria-hidden="true"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="search-for-rent">
+                    <form class="">
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="iputUnitType2">نوع الوحدة<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                <select class="form-control form-select selectpicker" id="iputUnitType2">
+                                    <option value="">كل الأنواع</option>
+                                    <option>ارض مباني</option>
+                                    <option>ارضي زراعية</option>
+                                    <option>استوديو</option>
+                                    <option>بنتهاوس</option>
+                                    <option>تاون-هاوس</option>
+                                    <option>توين-هاوس</option>
+                                    <option>دوبلكس</option>
+                                    <option>رووف</option>
+                                    <option>شاليه</option>
+                                    <option>شقة</option>
+                                    <option>صيدلية</option>
+                                    <option>عقارات تجارية اخري</option>
+                                    <option>عقارات سكنية اخري</option>
+                                    <option>عمارة</option>
+                                    <option>عيادة</option>
+                                    <option>فيلا</option>
+                                    <option>قصر</option>
+                                    <option>محل</option>
+                                    <option>مخزن</option>
+                                    <option>مدفن</option>
+                                    <option>مصنع</option>
+                                    <option>مكتب</option>
+                                    <option>منزل</option>
+                                    <option>مول تجارى</option>
+                                    <option>وحدة فندقية</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputCountry2">البلد<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                <select class="form-control form-select selectpicker" id="inputCountry2">
+                                    <option>كل البلاد</option>
+                                    <option>البحرين</option>
+                                    <option>السعودية</option>
+                                    <option>السودان</option>
+                                    <option>الكويت</option>
+                                    <option>تركيا</option>
+                                    <option>مصر</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputGovernorate2">المحافظة<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                <select class="form-control form-select selectpicker" id="inputGovernorate2">
+                                    <option>كل المحافظات</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputDistrict2">الحي<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                <select class="form-control form-select selectpicker" id="inputDistrict2">
+                                    <option value="">كل الأحياء</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputPrice2">السعر<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                <select class="form-control form-select selectpicker" id="inputPrice2">
+                                    <option value="">أختر السعر</option>
+                                    <option>اقل من 1000</option>
+                                    <option>اقل من 5000</option>
+                                    <option>اقل من 10000</option>
+                                    <option>اقل من 15000</option>
+                                    <option>اقل من 20000</option>
+                                    <option>اقل من 50000</option>
+                                    <option>اقل من 100000</option>
+                                    <option>اقل من 250000</option>
+                                    <option>اقل من 500000</option>
+                                    <option>اقل من 1000000</option>
+                                    <option>اقل من 5000000</option>
+                                    <option>اقل من 10000000</option>
+                                    <option>اقل من 20000000</option>
+                                    <option>اقل من 50000000</option>
+                                    <option>اقل من 100000000</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputArea2">المساحة<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                <select class="form-control form-select selectpicker" id="inputArea2">
+                                    <option>أختر المساحة</option>
+                                    <option>اقل من 100م</option>
+                                    <option>اقل من 200م</option>
+                                    <option>اقل من 500م</option>
+                                    <option>اقل من 1000م</option>
+                                    <option>اقل من 1500م</option>
+                                    <option>اقل من 2000م</option>
+                                    <option>اقل من 2500م</option>
+                                    <option>اقل من 3000م</option>
+                                    <option>اقل من 5000م</option>
+                                    <option>اقل من 10000م</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputUnityState2">حالة الوحدة<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                <select class="form-control form-select selectpicker" id="inputUnityState2">
+                                    <option>أختر حالة الوحدة</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputPaymentMethod2">طريقة الدفع<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                <select class="form-control form-select selectpicker" id="inputPaymentMethod2">
+                                    <option>أختر طريقة الدفع</option>
+                                    <option>تقسيط</option>
+                                    <option>كاش</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <div class="form-group">
+                                <label for="inputCurrency2">العملة<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                                <select class="form-control form-select selectpicker" id="inputCurrency2">
+                                    <option>أختر العملة</option>
+                                    <option>الجنيه المصرى</option>
+                                    <option>الدولار الامريكى</option>
+                                    <option>الدينار الكويتى</option>
+                                    <option>الريال السعودي</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <button class="btn btn-submit">بحث <i class="fa fa-search" aria-hidden="true"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstateProject>
+<div class="row">
+    <div class="col-md-8 pull-right">
+        <span>@General.AvailableProjects</span>
+    </div>
+    <div class="col-md-pull-4 pull-right">
+        <strong class="label label-danger"> @ViewBag.AvailableProjects</strong>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 pull-right">
+        <span>@General.CurrentProjects</span>
+    </div>
+    <div class="col-md-pull-4 pull-right">
+        <strong class="label label-danger"> @ViewBag.CurrenrProjects</strong>
+    </div>
+</div>
+<div class="row">
+    <table class="table table-responsive table-bordered table-striped table-hover">
+        <tr class="success">
+            <th class="text-center">
+                @General.ProjectName
+            </th>
+
+            <th class="text-center">@General.Edit</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @*<div data-toggle="collapse" data-target="#divContact" aria-expanded="false" aria-controls="divContact">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>*@
+        @Html.DisplayFor(modelItem => item.Title)
+    @*</div>*@
+
+                </td>
+
+                <td class="text-center">
+                    <a href='@Url.Action("Edit","RealEstateProjects", new { id = item.ID })' class="btn btn-small">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                </td>
+            </tr>
+            @*<tr id="divContact" class="collapse">
+                <td colspan="2" class="td-colspan">
+                    <div class="row">
+                        <div class="col-md-2 pull-right"><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i></div>
+                        <div class="col-md-10">@item.</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 pull-right"><i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i></div>
+                        <div class="col-md-10">
+                            <span>
+                                @item.Email
+                            </span>
+                        </div>
+                    </div>
+                </td>
+            </tr>*@
+        }
+@if (ViewBag.CurrenrProjects > 5)
+{
+        <tfoot>
+            <tr>
+                <td colspan="2">
+                    <a href="@Url.Action("Index", "RealEstateProjects", new { CompanyID = ViewBag.CompanyID })" class="btn btn-block btn-success">@General.More</a>
+                </td>
+            </tr>
+        </tfoot>
+}
+    </table>
+</div>

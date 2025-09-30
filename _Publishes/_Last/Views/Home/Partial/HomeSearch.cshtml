@@ -1,0 +1,104 @@
+﻿@model BrokerMVC.Models.ViewModel.SearchCriteria
+
+@*@Html.AntiForgeryToken()*@
+<div class="search-wrapper">
+    <div class="col-sm-12">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#search-for-buy" aria-controls="search-for-buy" role="tab" data-toggle="tab">@General.SearchProperties</a></li>
+            <li role="presentation"><a href="#search-for-rent" aria-controls="search-for-rent" role="tab" data-toggle="tab">@General.SearchProjects</a></li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="search-for-buy">
+            @using (Html.BeginForm("SearchResult", "home", FormMethod.Get, htmlAttributes: new { @id = "SearchForm" }))
+            {
+                <div class="col-sm-6">
+                    <div class="form-group no-mrg">
+                        <div class="checkbox">
+                            <label>
+                                @Html.RadioButton("SID", 1, new { @class = "form-control", @checked = "checked" }) @SaleTypes.Sale.GetValue()
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group no-mrg">
+                        <div class="checkbox">
+                            <label>
+                                @Html.RadioButton("SID", 2, new { @class = "form-control" })@SaleTypes.Rent.GetValue()
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>@General.RealestateType<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                        @Html.DropDownList("TID", null, General.Select, htmlAttributes: new { @class = "form-control form-select selectpicker" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputCountry1">@General.CountryName<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                        @Html.DropDownList("CID", null, General.Select, htmlAttributes: new { @id = "ddlSearchCountry", @class = "form-control form-select selectpicker", @onchange = "GetCities('ddlSearchCountry','ddlSearchCity','ddlSearchDistrict','" + General.Select + "')" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputGovernorate1">@General.CityName<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                        @Html.DropDownList("CyId", null, General.Select, htmlAttributes: new { @id = "ddlSearchCity", @class = "form-control form-select selectpicker", @onchange = "GetDistricts('ddlSearchCity','ddlSearchDistrict','" + General.Select + "')" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputDistrict1">@General.District<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                        @Html.DropDownList("DID", null, General.Select, htmlAttributes: new { @id = "ddlSearchDistrict", @class = "form-control form-select selectpicker" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputPrice1">@General.Price<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                        @Html.DropDownList("Price", null, General.Select, htmlAttributes: new { @class = "form-control form-select selectpicker" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputPrice1">@General.Area<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                        @Html.DropDownList("Area", null, General.Select, htmlAttributes: new { @class = "form-control form-select selectpicker" })
+                    </div>
+                </div>
+                <hr>
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-submit">@General.Search <i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+            }
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="search-for-rent">
+            @using (Html.BeginForm("SearchProject", "home", FormMethod.Get, htmlAttributes: new { @id = "SearchForm" }))
+            {
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputCountry1">@General.CountryName<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                        @Html.DropDownList("CID", null, General.Select, htmlAttributes: new { @id = "ddlProjectSearchCountry", @class = "form-control form-select selectpicker", @onchange = "GetCities('ddlProjectSearchCountry','ddlProjectSearchCity','ddlProjectSearchDistrict','" + General.Select + "')" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputGovernorate1">@General.CityName<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                        @Html.DropDownList("CyId", null, General.Select, htmlAttributes: new { @id = "ddlProjectSearchCity", @class = "form-control form-select selectpicker", @onchange = "GetDistricts('ddlProjectSearchCity','ddlProjectSearchDistrict','" + General.Select + "')" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputDistrict1">@General.District<i class="fa fa-angle-double-left" aria-hidden="true"></i></label>
+                        @Html.DropDownList("DID", null, General.Select, htmlAttributes: new { @id = "ddlProjectSearchDistrict", @class = "form-control form-select selectpicker" })
+                    </div>
+                </div>
+                     <hr>
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-submit">@General.Search <i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

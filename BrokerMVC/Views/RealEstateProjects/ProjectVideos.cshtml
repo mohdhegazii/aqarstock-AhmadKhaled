@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstateProjectVideo>
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <div class="panel-title" role="button" data-toggle="collapse" href="#divVideosCollapse" aria-expanded="false" aria-controls="divUser">
+            <h4 class="col-md-10 pull-right">
+                <i class="fa fa-angle-down"></i>
+                <i class="fa fa-video-camera"></i>
+                @General.Videos
+            </h4>
+
+        </div>
+        <button type="button" onclick="AddNewProjectVideo(@ViewBag.ProjectID)" rel="@General.Add" class=" btn btn-sm btn-warning" data-target="#divModal" data-toggle="modal">
+            <i class="fa fa-plus"></i>
+        </button>
+    </div>
+    <div id="divVideosCollapse" class="panel panel-body collapse in">
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-responsive table-responsive table-bordered table-striped table-hover">
+                <tr class="success">
+                    <th class="text-center">
+                        @General.VideoName
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <div data-toggle="collapse" data-target="#divContact-@item.ID" aria-expanded="false" aria-controls="divContact-@item.ID">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                
+                                @Html.DisplayFor(modelItem => item.TiTle)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="divContact-@item.ID" class="collapse">
+                        <td class="td-colspan">
+                            <div class="btn-group btn-success btn-group-justified">
+                                <div class="btn-group">
+                                    <a href='@item.URL' target="_blank" class="btn  btn-success"><i class="fa fa-youtube-play"></i></a>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" onclick="EditProjectVideo(@item.ID)" class="btn  btn-success" data-target="#divModal" data-toggle="modal">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                </div>
+                                <div class="btn-group">
+                                    <a href='@Url.Action("Delete", "RealEstateProjectVideos", new { id = item.ID })' class="btn btn-success Deleteconfirm"><i class="fa fa-trash"></i></a>
+                                </div>
+</div>
+                                        </td>
+                                    </tr>
+                }
+
+            </table>
+        }
+        else
+        {
+            @Html.Partial("_EmptyMessage")
+        }
+</div>
+</div>

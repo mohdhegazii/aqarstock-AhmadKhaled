@@ -1,0 +1,110 @@
+﻿@model PagedList.IPagedList<BrokerMVC.Models.City>
+@using PagedList.Mvc;
+@using ResourcesFiles;
+@*<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />*@
+@{
+    ViewBag.Title = General.SiteName + " - " + General.Cities;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2><i class="fa fa-train fa-fw"></i>@General.Cities</h2>
+            </div>
+            <div class="btn-group pull-left">
+                <a href='@Url.Action("Create")' class="btn btn-group-lg btn-success">
+                    <i class="fa fa-plus-square"></i>
+                    @General.CreateNew
+                </a>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="panel-body">
+        <div class="row">
+            @*<i class="fa fa-plus-square fa-fw"></i>
+                @Html.ActionLink(General.CreateNew, "Create")*@
+        </div>
+        @using (Html.BeginForm("Index", "cities", FormMethod.Get))
+        {
+            <div class="">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <span class="control-label col-md-1 pull-right">@General.CountryName</span>
+                        <div class="col-md-11">
+                            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, htmlAttributes: new { @class = "form-control" })
+                           
+                        </div>
+                   
+                </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-group-lg btn-success" value="@General.Search" />
+                        </div>
+                        </div>
+                    </div>
+                </div>
+        }
+        <div class="row">
+            <table class="table table-responsive table-bordered table-striped table-hover">
+                <tr class="warning">
+                    <th class="text-center">
+                        @Html.ActionLink(General.Name, "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+                    </th>
+                    <th class="text-center">
+                        @Html.ActionLink(General.EnglishName, "Index", new { sortOrder = ViewBag.EnNameSortParm, currentFilter = ViewBag.CurrentFilter })
+                    </th>
+
+                    <th class="text-center">
+                        @Html.ActionLink(General.CountryName, "Index", new { sortOrder = ViewBag.CountrySortParm, currentFilter = ViewBag.CurrentFilter })
+                    </th>
+                    <th class="text-center">
+                        @Html.ActionLink(General.Sort, "Index", new { sortOrder = ViewBag.PrioritySortParm, currentFilter = ViewBag.CurrentFilter })
+                    </th>
+                    <th class="text-center">@General.Edit</th>
+                    <th class="text-center">@General.Delete</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.EnName)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Country.Name)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Sort)
+                        </td>
+                        <td class="text-center">
+                            <a href='@Url.Action("Edit", new { id = item.ID })' class="btn btn-small">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href='@Url.Action("delete", new { id = item.ID })' class="btn btn-small Deleteconfirm">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div class="row text-center">
+            <div class="Paging">
+                @*صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) من @Model.PageCount*@
+
+                @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), new PagedListRenderOptions { LiElementClasses = new List<string> { "Pageitem" } })
+            </div>
+        </div>
+    </div>
+</div>

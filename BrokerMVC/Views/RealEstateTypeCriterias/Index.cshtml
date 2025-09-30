@@ -1,0 +1,112 @@
+﻿@model PagedList.IPagedList<BrokerMVC.Models.RealEstateTypeCriteria>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = General.SiteName + " - " + General.RealestateCriteria;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+@helper selected(string c, string culture)
+{
+if (c == culture)
+{
+        @:checked="checked"
+    }
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6 pull-right">
+                <h2><i class="fa fa-filter fa-fw"></i>@General.RealestateCriteria</h2>
+            </div>
+            <div class="btn-group pull-left">
+                <a href='@Url.Action("Create")' class="btn btn-group-lg btn-success">
+                    <i class="fa fa-plus-square"></i>
+                    @General.CreateNew
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Index", "RealEstateTypeCriterias", FormMethod.Get))
+        {
+            <div class="">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <span class="control-label col-md-1 pull-right">@General.RealestateType</span>
+                        <div class="col-md-11">
+                            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, htmlAttributes: new { @class = "form-control" })
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-group-lg btn-success" value="@General.Search" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="row">
+            <table class="table table-responsive table-bordered table-striped table-hover">
+                <tr class="warning">
+                    <th class="text-center">
+                        @Html.ActionLink(General.Name, "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+                    </th>
+                    <th class="text-center">
+                        @Html.ActionLink(General.EnglishName, "Index", new { sortOrder = ViewBag.EnNameSortParm, currentFilter = ViewBag.CurrentFilter })
+                    </th>
+
+                    <th class="text-center">
+                        @Html.ActionLink(General.RealestateType, "Index", new { sortOrder = ViewBag.CategorySortParm, currentFilter = ViewBag.CurrentFilter })
+                    </th>
+                    <th class="text-center">
+                      @General.ValueType
+                    </th>
+                
+                    <th class="text-center">@General.Edit</th>
+                    <th class="text-center">@General.Delete</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.EnTitle)
+                        </td>
+                  
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.RealEstateType.Title)
+                        </td>
+                        <td class="text-center">
+                            @Commons.GetValue((CriteriaValueType)Enum.Parse(typeof(CriteriaValueType),item.ValueType+ "_Type"))
+                            @*@Html.DisplayFor(modelItem => item.ValueType)*@
+                        </td>
+                        <td class="text-center">
+                            <a href='@Url.Action("Edit", new { id = item.ID })' class="btn btn-small">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href='@Url.Action("delete", new { id = item.ID })' class="btn btn-small Deleteconfirm">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+</div>
+        <div class="row text-center">
+            <div class="Paging">
+                @*صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) من @Model.PageCount*@
+
+                @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), new PagedListRenderOptions { LiElementClasses = new List<string> { "Pageitem" } })
+            </div>
+        </div>
+        </div>
+    </div>

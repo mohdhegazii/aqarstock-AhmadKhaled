@@ -1,0 +1,40 @@
+﻿@using ActionMailer.Net
+@model BrokerMVC.Models.RealEstatePurchaseRequest
+@{
+    Layout = "~/Views/Mail/_EmailLayout.html.cshtml";
+}
+@*<div class="email_banner">
+        طلب شراء جديد
+    </div>
+    <div class="email_body">*@
+
+<div class="caption">
+    <h1>
+        عزيزى العميل
+        <br />
+        <span>
+            تم حجب بيانات @ViewBag.Object بعد مراجعتها 
+        </span>
+    </h1>
+</div>
+<table id="table">
+    @*<tr class="header-row row">
+            <td class="cell primary">Vehcile</td>
+            <td class="cell">Exterior</td>
+        </tr>*@
+    <tr>
+        <td class="cell primary"><h4>سبب الحجب</h4></td>
+        <td class="cell">@ViewBag.Reason</td>
+    </tr>
+    <tr>
+        <td class="cell primary"><h4>رسالة الادارة</h4></td>
+        <td class="cell"> @ViewBag.Message</td>
+    </tr>
+   
+
+</table>
+<div class="footer">
+    <a href="@ConfigurationSettings.AppSettings["WebSite"].ToString()"> خدمة عملاء @ConfigurationSettings.AppSettings["Name"].ToString()</a>
+    <br />
+</div>
+

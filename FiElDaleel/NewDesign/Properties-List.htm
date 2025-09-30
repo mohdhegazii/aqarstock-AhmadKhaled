@@ -1,0 +1,725 @@
+﻿
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="brokerApp" ng-controller="MainController">
+<head>
+    <meta charset="utf-8" />
+    <title>Aqar Stock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/bootstrap-theme.min.css" />
+    <link href="styles/CssStyle.css" rel="stylesheet" type="text/css" />
+    <script src="scripts/jquery-1.11.0.min.js"></script>
+    <script src="scripts/angular.min.js" type="text/javascript"></script>
+    <script src="scripts/angular-route.min.js" type="text/javascript"></script>
+    <script src="scripts/angular-ui-router.min.js" type="text/javascript"></script>
+    <script src="scripts/angular-animate.min.js" type="text/javascript"></script>
+    <script src="scripts/angular-resource.min.js" type="text/javascript"></script>
+    <script src="scripts/FrontEndController.js" type="text/javascript"></script>
+    <script src="scripts/services.js" type="text/javascript"></script>
+    <script src="scripts/FrontEndDirective.js" type="text/javascript"></script>
+</head>
+	<body class="rtl">	
+		<div class="wrapper">
+			<header>
+				<div class="top_bar">
+					<div class="container">
+						<div class="langList opp_float">
+							<span><a href="#">English</a></span>
+						</div>
+						<div class="flags opp_float">
+							<ul>
+							  <li ><a href="#"><img src="images/Frontend/egyptF.png" /></a></li>
+							  <li class="active"><a href="#"><img src="images/Frontend/egyptF.png" /></a></li>  
+							  <li ><a href="#"><img src="images/Frontend/egyptF.png" /></a></li>
+							</ul>
+						</div>
+						<div class="social opp_float">
+							<ul>
+							  <li id="linked"><a href="#"><img src="images/Frontend/smlink.png" /></a></li>
+							  <li id="google"><a href="#"><img src="images/Frontend/smGoogle.png" /></a></li>  
+							  <li id="twitter"><a href="#"><img src="images/Frontend/smTwitter.png" /></a></li>
+							  <li id="FB"><a href="#"><img src="images/Frontend/smFB.png" /></a></li>
+							</ul>
+						</div>
+						<div class="main_links opp_float">
+                            <ul>						
+							  <li>
+                                <a id="signIn" href="#">دخول</a>
+                                <!-- hidden elemnts start -->
+                                    <div class="logIn">
+                                        <label for="userName">أسم المستخدم</label>
+                                        <input type="text" name="userName"/></br>
+                                        <label for="password">كلمة المرور</label>
+                                        <input type="password" name="password"/>
+                                        <div class="loginBtn">
+                                            <a href="#">دخول</a>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                <!-- hidden elemnts end -->
+                              </li>
+							  <li><a id="signUp" href="#">تسجيل</a></li>
+							  <li><a id="add" href="#">أضف عقار</a></li>
+							</ul>
+						</div>
+                        <div class="accountSetting">
+                            <div class="noti"><a href="#">3</a></div>
+                            <div class="acoountNam">وليد محمد</div>
+                            <span>مرحباً : </span>
+                            <div class="clear"></div>
+                        </div>
+					</div>
+				</div>
+             
+				<div class="navigator">
+					<div class="container">
+						<div class="logo">
+							<a href="#"><img src="images/Frontend/logo.jpg" alt="" /></a>
+						</div>
+						<div class="nav">
+							<div class="mark"></div>
+							<ul>
+								<li class="active"><a href="#"><span>الرئيسية</span></a></li>
+								<li><a href="#"><span>عن عقار ستوك</span></a></li>
+								<li><a href="#"><span>وحدات</span></a></li>
+								<li><a href="#"><span>اخر الوحدات المضافة</span></a></li>
+								<li><a href="#"><span>عقارات مطلوبة</span></a></li>
+								<li><a href="#"><span>شركات عقارية</span></a></li>
+								<li><a href="#"><span>تقيم عقار</span></a></li>
+								<li><a href="#"><span>اتصل بنا</span></a></li>
+                                <li><a id="add2" href="#">أضف عقار</a></li>
+								<div class="clear"></div>
+							</ul>
+							
+						</div>
+					</div>
+				</div>
+			</header>
+            <!-- content Area start -->
+            <div class="content">
+                <div class="container">
+                    <div class="sideBar">
+                        <div class="searchArea">
+                             <div class="searchSm">
+                                <div class="tabsBoxSm">
+                                    <div class="tabs">
+                                        <div id="divTabSale" class="tab active" tab-click>
+                                            <span>وحدات للبيع</span>
+                                        </div>
+                                        <div id="divTabRent" class="tab" tab-click>
+                                            <span>وحدات للإيجار</span>
+                                        </div>
+                                    </div>
+                                    <div class="tabContentBoxes">
+                                        <div class="tabContentBox">
+                                            <div class="firstRow">
+                                                <div class="in">
+                                                    <span>نوع الوحدة</span></br>
+                                                    <select id="ddlSearchType" search-selecttype>
+                                                        <option value="">كل الأنواع</option>
+                                                        <option ng-repeat="RealEstateType in RealEstateTypes" value="{{RealEstateType.ID}}">
+                                                            {{RealEstateType.Name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="in">
+                                                    <span>البلد</span></br>
+                                                    <select id="ddlSearchCountry" search-selectcountry>
+                                                        <option value="">كل البلاد</option>
+                                                        <option ng-repeat="Country in Countries" value="{{Country.ID}}">{{Country.Name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="in">
+                                                    <span>المحافظة</span></br>
+                                                    <select id="ddlSearchCity" search-selectcity disabled>
+                                                        <option value="">كل المحافظات</option>
+                                                        <option ng-repeat="City in SearchCitiesList" value="{{City.ID}}">{{City.Name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="in">
+                                                    <span>الحي</span></br>
+                                                    <select id="ddlSearchDistrict" disabled>
+                                                        <option value="">كل الأحياء</option>
+                                                        <option ng-repeat="District in SearcDistricts" value="{{District.ID}}">{{District.Name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="in">
+                                                    <span>السعر</span></br>
+                                                    <select>
+                                                        <option value="">أختر السعر</option>
+                                                        <option ng-repeat="Price in Prices" value="{{Price.value}}">{{Price.text}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="clear">
+                                                </div>
+                                            </div>
+                                            <div class="secRow">
+                                                <div class="control">
+                                                    <span>البحث عن طريق <b>:</b> </span> </br>
+                                                    <ul>
+                                                        <li>
+                                                            <input type="radio" name="1" value="الصور" /><label>الصور</label></li>
+                                                        <li>
+                                                            <input type="radio" name="1" value="القائمة" /><label>القائمة</label></li>
+                                                        <li>
+                                                            <input type="radio" name="1" value="الخريطة" /><label>الخريطة</label></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="clear">
+                                                </div>
+                                            </div>
+                                            <div class="line">
+                                            </div>
+                                            <div class="thirdRow">
+                                                <div class="in">
+                                                    <span>المساحة</span></br>
+                                                    <select>
+                                                        <option value="">أختر المساحة</option>
+                                                        <option ng-repeat="Area in Areas" value="{{Area.value}}">{{Area.text}}</option>
+                                                    </select>
+                                                </div>
+                                                
+                                                <div class="in">
+                                                    <span>حالة الوحدة</span></br>
+                                                    <select id="ddlSearchStatus" disabled>
+                                                        <option value="">أختر حالة الوحدة</option>
+                                                        <option ng-repeat="Status in SearchStatuses" value="{{Status.ID}}">{{Status.Name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="in">
+                                                    <span>طريقة الدفع</span></br>
+                                                    <select>
+                                                        <option value="">أختر طريقة الدفع</option>
+                                                        <option ng-repeat="PaymentType in PaymentTypes" value="{{PaymentType.ID}}">{{PaymentType.Name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="in">
+                                                    <span>العملة</span></br>
+                                                    <select>
+                                                        <option value="">أختر العملة</option>
+                                                        <option ng-repeat="Currency in Currincies" value="{{Currency.ID}}">{{Currency.Name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="clear">
+                                                </div>
+                                                <div class="control">
+                                                    <span><a href="#" btn-advanced>بحث مفصل عن عقارك</a></span> <span class="expand"
+                                                        id="close"><a href="#" btn-advanced>غلق البحث المفضل</a></span>
+                                                    <div class="moreBtn">
+                                                        <a href="#">بحث</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="addAqar">
+                            <div class="BGC">
+                                <a href="#">أضف عقارك هنا</a>
+                            </div>
+                        </div>
+                        <div class="ADSSm">
+                            <img src="images/Frontend/ADS1.jpg" />
+                        </div>
+                        <div class="lastAdded">
+                            <div class="lastAddedTitle">
+                                 <h4>آخر الوحدات المضافة</h4>
+                            </div>
+                            <div class="lastAddedItems">
+                                <ul>
+                                    <li class="item">
+                                        <a href="#"><span>فيلا <b>245</b> م تمليك بجنينة ، التجمع الخامس</span></a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="#"><span>فيلا <b>245</b> م تمليك بجنينة ، التجمع الخامس</span></a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="#"><span>فيلا <b>245</b> م تمليك بجنينة ، التجمع الخامس</span></a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="#"><span>فيلا <b>245</b> م تمليك بجنينة ، التجمع الخامس</span></a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="#"><span>فيلا <b>245</b> م تمليك بجنينة ، التجمع الخامس</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="searchResult">
+                        <div class="resultTitle">
+                            <h4>نتيجة البحث</h4>
+                        </div>
+                        <div class="resultItems">
+                            <div class="item">
+                                <div class="itemImg">
+                                    <img src="images/Frontend/offerRes.png" />
+                                </div>
+                                <div class="itemDitails">  
+                                    <div class="itemDesc"><span>فيلا <b>245</b> م تمليك ، بجنينة  <b>70</b> م - التجمع الخامس بمنطقة القرنفل</span></div>
+                                    <div class="itemPrice"><span><b>3,000,000</b> جنية مصري</span></div>
+                                    <div class="itemControls">
+                                        <span class="moreDet">عرض التفاصيل</span>
+                                        <div class="controls">
+                                            <div class="delete"></div>
+                                            <div class="favorite"></div>
+                                            <div class="compare">
+                                                <span>قارن</span>
+                                                <input type="hidden" name="unchecked" value="unchecked" />
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div> 
+                                <div class="clear"></div>
+                            </div>
+                            <div class="item">
+                                <div class="itemImg">
+                                    <img src="images/Frontend/offerRes.png" />
+                                </div>
+                                <div class="itemDitails">  
+                                    <div class="itemDesc"><span>فيلا <b>245</b> م تمليك ، بجنينة  <b>70</b> م - التجمع الخامس بمنطقة القرنفل</span></div>
+                                    <div class="itemPrice"><span><b>3,000,000</b> جنية مصري</span></div>
+                                    <div class="itemControls">
+                                        <span class="moreDet">عرض التفاصيل</span>
+                                        <div class="controls">
+                                            <div class="delete"></div>
+                                            <div class="favorite"></div>
+                                            <div class="compare">
+                                                <span>قارن</span>
+                                                <input type="hidden" name="unchecked" value="unchecked" />
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div> 
+                                <div class="clear"></div>
+                            </div>
+                            <div class="item">
+                                <div class="itemImg">
+                                    <img src="images/Frontend/offerRes.png" />
+                                </div>
+                                <div class="itemDitails">  
+                                    <div class="itemDesc"><span>فيلا <b>245</b> م تمليك ، بجنينة  <b>70</b> م - التجمع الخامس بمنطقة القرنفل</span></div>
+                                    <div class="itemPrice"><span><b>3,000,000</b> جنية مصري</span></div>
+                                    <div class="itemControls">
+                                        <span class="moreDet">عرض التفاصيل</span>
+                                        <div class="controls">
+                                            <div class="delete"></div>
+                                            <div class="favorite"></div>
+                                            <div class="compare">
+                                                <span>قارن</span>
+                                                <input type="hidden" name="unchecked" value="unchecked" />
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div> 
+                                <div class="clear"></div>
+                            </div>
+                            <div class="item">
+                                <div class="itemImg">
+                                    <img src="images/Frontend/offerRes.png" />
+                                </div>
+                                <div class="itemDitails">  
+                                    <div class="itemDesc"><span>فيلا <b>245</b> م تمليك ، بجنينة  <b>70</b> م - التجمع الخامس بمنطقة القرنفل</span></div>
+                                    <div class="itemPrice"><span><b>3,000,000</b> جنية مصري</span></div>
+                                    <div class="itemControls">
+                                        <span class="moreDet">عرض التفاصيل</span>
+                                        <div class="controls">
+                                            <div class="delete"></div>
+                                            <div class="favorite"></div>
+                                            <div class="compare">
+                                                <span>قارن</span>
+                                                <input type="hidden" name="unchecked" value="unchecked" />
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div> 
+                                <div class="clear"></div>
+                            </div>
+                            <div class="item">
+                                <div class="itemImg">
+                                    <img src="images/Frontend/offerRes.png" />
+                                </div>
+                                <div class="itemDitails">  
+                                    <div class="itemDesc"><span>فيلا <b>245</b> م تمليك ، بجنينة  <b>70</b> م - التجمع الخامس بمنطقة القرنفل</span></div>
+                                    <div class="itemPrice"><span><b>3,000,000</b> جنية مصري</span></div>
+                                    <div class="itemControls">
+                                        <span class="moreDet">عرض التفاصيل</span>
+                                        <div class="controls">
+                                            <div class="delete"></div>
+                                            <div class="favorite"></div>
+                                            <div class="compare">
+                                                <span>قارن</span>
+                                                <input type="hidden" name="unchecked" value="unchecked" />
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div> 
+                                <div class="clear"></div>
+                            </div>
+                            <div class="item">
+                                <div class="itemImg">
+                                    <img src="images/Frontend/offerRes.png" />
+                                </div>
+                                <div class="itemDitails">  
+                                    <div class="itemDesc"><span>فيلا <b>245</b> م تمليك ، بجنينة  <b>70</b> م - التجمع الخامس بمنطقة القرنفل</span></div>
+                                    <div class="itemPrice"><span><b>3,000,000</b> جنية مصري</span></div>
+                                    <div class="itemControls">
+                                        <span class="moreDet">عرض التفاصيل</span>
+                                        <div class="controls">
+                                            <div class="delete"></div>
+                                            <div class="favorite"></div>
+                                            <div class="compare">
+                                                <span>قارن</span>
+                                                <input type="hidden" name="unchecked" value="unchecked" />
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div> 
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="pageController">
+                            <div class="prevBtn"></div>
+                            <div class="firstOne"><a href="#">1</a></div>
+                            <div class="dottes"><span>...</span></div>
+                            <div class="numbers">
+                                <ul>
+                                    <li class="number active"><a href="#">5</a></li>
+                                    <li class="number"><a href="#">6</a></li>
+                                    <li class="number"><a href="#">7</a></li>
+                                </ul>
+                            </div>
+                            <div class="dottes"><span>...</span></div>
+                            <div class="lastOne"><a href="#">255</a></div>
+                            <div class="nextBtn"></div>
+                           <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="compareToggle">                       
+                        <div class="compareMenu">
+                            <ul>
+                                <li class="compareItem">
+                                    <div class="compareItemImg">
+                                        <img src="images/Frontend/compImg.png" />
+                                    </div>
+                                    <div class="compareItemText">
+                                        <span>فيلا <b>245</b> م تمليك، بجنينة <b>70</b> م، التجمع الخامس بمنطقة القرنفل</span>
+                                    </div>
+                                    <div class="closeItem">
+                                        <a href="#"><img src="images/Frontend/popUpClose.png" /></a>
+                                    </div>
+                                </li>
+                                <li class="compareItem">
+                                    <div class="compareItemImg">
+                                        <img src="images/Frontend/compImg.png" />
+                                    </div>
+                                    <div class="compareItemText">
+                                        <span>فيلا <b>245</b> م تمليك، بجنينة <b>70</b> م، التجمع الخامس بمنطقة القرنفل</span>
+                                    </div>
+                                    <div class="closeItem">
+                                        <a href="#"><img src="images/Frontend/popUpClose.png" /></a>
+                                    </div>
+                                </li>
+                                <li class="compareItem">
+                                    <div class="compareItemImg">
+                                        <img src="images/Frontend/compImg.png" />
+                                    </div>
+                                    <div class="compareItemText">
+                                        <span>فيلا <b>245</b> م تمليك، بجنينة <b>70</b> م، التجمع الخامس بمنطقة القرنفل</span>
+                                    </div>
+                                    <div class="closeItem">
+                                        <a href="#"><img src="images/Frontend/popUpClose.png" /></a>
+                                    </div>
+                                </li>
+                                <li class="compareItem">
+                                    <div class="compareItemImg">
+                                        <img src="images/Frontend/compImg.png" />
+                                    </div>
+                                    <div class="compareItemText">
+                                        <span>فيلا <b>245</b> م تمليك، بجنينة <b>70</b> م، التجمع الخامس بمنطقة القرنفل</span>
+                                    </div>
+                                    <div class="closeItem">
+                                        <a href="#"><img src="images/Frontend/popUpClose.png" /></a>
+                                    </div>
+                                </li>
+                                <li class="compareItem">
+                                    <div class="compareItemImg">
+                                        <img src="images/Frontend/compImg.png" />
+                                    </div>
+                                    <div class="compareItemText">
+                                        <span>فيلا <b>245</b> م تمليك، بجنينة <b>70</b> م، التجمع الخامس بمنطقة القرنفل</span>
+                                    </div>
+                                    <div class="closeItem">
+                                        <a href="#"><img src="images/Frontend/popUpClose.png" /></a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="actionBtn">
+                                    <span>قارن</span>
+                            </div>
+                        </div>
+                        <div class="compareBtn">
+                            <span>قائمة قارن</span></br>
+                            <img src="images/Frontend/compMenu.png" />
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+            <!-- content Area end -->
+            <footer>
+				<div class="tellMeService">
+					<div class="tellMeServiceHeader">
+						<div class="container">
+							<p>خدمة بلغني : أرسل لنا العقار الذي تبحث عنه ، وسوف نرسل لك عنما يتم إضافته</P>
+						</div>
+					</div>
+					<div class="tellMeServiceBody">
+						<div class="container">
+							<ul>
+								<li class="in">
+									<span>نوع الوحدة</span></br>
+									<select>
+									  <option value="volvo">سكنية</option>
+									  <option value="saab">سكنية</option>
+									  <option value="opel">سكنية</option>
+									  <option value="audi">سكنية</option>
+									</select>
+								</li>
+								<li class="in">
+									<span>البلد</span></br>
+									<select>
+									  <option value="volvo">سكنية</option>
+									  <option value="saab">سكنية</option>
+									  <option value="opel">سكنية</option>
+									  <option value="audi">سكنية</option>
+									</select>
+								</li>
+								<li class="in">
+									<span>المحافظة</span></br>
+									<select>
+									  <option value="volvo">سكنية</option>
+									  <option value="saab">سكنية</option>
+									  <option value="opel">سكنية</option>
+									  <option value="audi">سكنية</option>
+									</select>
+								</li>
+								<li class="in">
+									<span>المنطقة</span></br>
+									<select>
+									  <option value="volvo">سكنية</option>
+									  <option value="saab">سكنية</option>
+									  <option value="opel">سكنية</option>
+									  <option value="audi">سكنية</option>
+									</select>
+								</li>
+								<li class="in">
+									<span>السعر</span></br>
+									<select>
+									  <option value="volvo">سكنية</option>
+									  <option value="saab">سكنية</option>
+									  <option value="opel">سكنية</option>
+									  <option value="audi">سكنية</option>
+									</select>
+								</li>
+								<li class="e-mail">
+									<span>الأيميل</span></br>
+									<input type="mail"/>
+								</li>
+								<li class="sendBtn">
+									<a href="#">أرسل</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="listOfAqarat">
+					<div class="container">
+					   <div class="listItem">
+							<ul>
+								<li class="title">عقارات القاهرة</li>
+								<li><a href="#">شقق للبيع</a></li>
+								<li><a href="#">عقارات مصر</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق للبيع بالأسكندرية</a></li>
+								<li><a href="#">شقق بالتقسيط</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> عقارات</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق عقار قديم</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+							</ul>
+					   </div>
+						<div class="listItem">
+							<ul>
+								<li class="title">عقارات القاهرة</li>
+								<li><a href="#">شقق للبيع</a></li>
+								<li><a href="#">عقارات مصر</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق للبيع بالأسكندرية</a></li>
+								<li><a href="#">شقق بالتقسيط</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> عقارات</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق عقار قديم</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+							</ul>
+					   </div>
+						<div class="listItem">
+							<ul>
+								<li class="title">عقارات القاهرة</li>
+								<li><a href="#">شقق للبيع</a></li>
+								<li><a href="#">عقارات مصر</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق للبيع بالأسكندرية</a></li>
+								<li><a href="#">شقق بالتقسيط</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> عقارات</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق عقار قديم</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+							</ul>
+					   </div>
+						<div class="listItem">
+							<ul>
+								<li class="title">عقارات القاهرة</li>
+								<li><a href="#">شقق للبيع</a></li>
+								<li><a href="#">عقارات مصر</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق للبيع بالأسكندرية</a></li>
+								<li><a href="#">شقق بالتقسيط</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> عقارات</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق عقار قديم</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+							</ul>
+					   </div>
+						<div class="listItem">
+							<ul>
+								<li class="title">عقارات القاهرة</li>
+								<li><a href="#">شقق للبيع</a></li>
+								<li><a href="#">عقارات مصر</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق للبيع بالأسكندرية</a></li>
+								<li><a href="#">شقق بالتقسيط</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> عقارات</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+								<li><a href="#"> شقق عقار قديم</a></li>
+								<li><a href="#"> شقق بنك الإسكان والتعمير</a></li>
+							</ul>
+					   </div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="ADS"></div>
+					<div class="aboutMastery">						
+						<div class="social opp_float">
+							<ul>
+							  <li id="linked"><a href="#"><img src="images/Frontend/smlink.png" /></a></li>
+							  <li id="google"><a href="#"><img src="images/Frontend/smGoogle.png" /></a></li>  
+							  <li id="twitter"><a href="#"><img src="images/Frontend/smTwitter.png" /></a></li>
+							  <li id="FB"><a href="#"><img src="images/Frontend/smFB.png" /></a></li>						  
+							</ul>
+						</div>						
+						<div class="copyrights">
+							<a href="#">&copy;2014 جميع الحقوق محفوظة لعقار ستوك .. تصميم وتطوير <b>MasteryIT</b></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		 <!-- footer Area end -->
+		
+		</div>
+		
+		<script>
+		    var IW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+		    var IH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+		   
+
+		     
+
+		        $('#signIn').click(function () {
+		            $('header .logIn').slideToggle();
+		        });
+
+		        // end login event //
+
+		        $('header .top_bar .flags li').click(function () {
+		            $('header .top_bar .flags').css({ "overflow": $('header .top_bar .flags').css("overflow") === "visible" ? "hidden" : "visible" });
+		        });
+
+		        // end flags event //
+
+		        var navigatorScrollPoint = $('.navigator').position().top;
+		        $(window).scroll(function () {
+		            if ($(this).scrollTop() > navigatorScrollPoint) {
+		                $('.navigator').addClass('fixed');
+		                $('.logo img').attr("src", "../images/Frontend/logoSm.png");
+		            } else {
+		                $('.navigator').removeClass('fixed');
+		                $('.logo img').attr("src", "../images/Frontend/logo.jpg");
+		            }
+		        });
+		        function toggleNavMenu(mark) {
+
+		            if ($('ul', mark.parents('.nav')).css('display') === 'none') {
+
+		                $('ul', mark.parents('.nav')).slideDown(1000);
+		            } else {
+		                $('ul', mark.parents('.nav')).slideUp(1000);
+		            }
+		        }
+		        $('.nav .mark').click(function () {
+		            toggleNavMenu($(this));
+		        });
+		        $('.nav li').click(function () {
+		            if ($('.mark', $(this).parents('.nav')).css('display') === 'block') {
+		                $('ul', $(this).parents('.nav')).slideUp(1000);
+		            }
+		        });
+
+
+		        // end responsive menu //
+
+
+		        $('.controls .compare').click(function () {
+		            $(this).toggleClass("checked");
+		            if ($('input', $(this)).val() == "unchecked") {
+		                $('input', $(this)).val("checked");
+
+		            } else{
+                        $('input', $(this)).val("unchecked");
+                    }
+
+                });
+
+
+               $('.tabsBox').each(function () {
+            		    var tabsBox = $(this);		           
+            		    $('.tab', tabsBox).click(function () {
+            		                
+            		    $('.tab.active', tabsBox).toggleClass('active');
+            		    $('.tab:eq(' + $(this).index() + ')', tabsBox).addClass('active');
+            		                
+            		  });
+            	 });
+
+
+          //for compare side menu
+
+          $('.compareBtn').css({ "margin-top": (($('.compareMenu').height() - $('.compareBtn').height())/2) + "px"})
+                
+                 $('.compareBtn').click(function () {
+            	     $('.compareToggle').animate({ "right": (parseInt($('.compareToggle').css("right")) == 0 ? -350 : 0) + "px" })
+            	 });
+		</script>
+	</body>
+</html>

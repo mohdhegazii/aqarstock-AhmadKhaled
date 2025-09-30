@@ -1,0 +1,139 @@
+﻿<div class="row">
+    <div class="col-md-6">
+        <form name="LoginForm" id="LoginForm" ng-submit="Login()" novalidate>
+            <div class="contactArea" style="width:100%" ng-class="{true: 'error'}[Loginsubmitted && LoginForm.$invalid]">
+
+                <div class="LoginForm">
+                    <h4>
+                        <span class="title">تسجيل الدخول </span></br>
+                    </h4>
+                    <div class="item" style="width:100%">
+                        <span class="title">اسم المستخدم </span></br>
+                        <input type="text" id="LoginName" ng-model="login.UserName" name="name" required />
+                        <span ng-show="Loginsubmitted && LoginForm.name.$error.required" class="Error">اسم المستخدم/ الايميل مطلوب</span>
+                        </br>
+                    </div>
+
+                    <div class="item" style="width:100%">
+                        <span class="title">كلمة السر</span></br>
+                        <input type="password" id="loginPassword" ng-model="login.Password" name="password" required />
+                        <span ng-show="Loginsubmitted && LoginForm.password.$error.required" class="Error">رقم الموبايل مطلوب</span>
+                        </br>
+                    </div>
+                    <!--<div class="item left">
+                        <span class="title">الرسالة </span></br>
+                        <textarea id="requestMsg" ng-model="Request.Message" name="message" required></textarea>
+                        <span ng-show="submitted && UserDataForm.message.$error.required" class="Error">
+                            الرسالة
+                            مطلوب
+                        </span> </br>
+                    </div>-->
+                    <div class="clear">
+                    </div>
+                    <div class="actions">
+
+                        <!--    <div class="resetBtn">
+                            <input class="gray" type="reset" value="رجوع" detail-Backbutton />
+                        </div>-->
+                        <div class="saveBtn">
+                            <!--<input class="orang" type="submit" ng-click="submitted=true" value="تسجيل البيانات" />-->
+                            <button id="btnlogin" style="background-color:#dc531f; color:white;font-size:17px" class="btn btn-default" type="submit" ng-click="Loginsubmitted=true">
+                                دخول
+                            </button>
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="col-md-6">
+        <form name="UserDataForm" id="UserDataForm" ng-submit="SendRequest()" novalidate>
+            <div class="contactArea" style="width:100%" ng-class="{true: 'error'}[submitted && UserDataForm.$invalid]">
+
+                <div class="contactForm">
+                    <h4 class="">
+                        <span class="title">سجل بياناتك للإشتراك في موقع عقار ستوك </span></br>
+                        </h4>
+                        <div class="item" style="width:100%">
+                            <span class="title">الإسم بالكامل </span></br>
+                            <input type="text" id="requestName" ng-model="Request.Name" name="name" required />
+                            <span ng-show="submitted && UserDataForm.name.$error.required" class="Error">الإسم بالكامل مطلوب</span>
+                            </br>
+                        </div>
+                    <div class="item" style="width:100%">
+                        <span class="title">اسم المستخدم </span></br>
+                        <input type="text" id="requestUserName" ng-model="Request.UserName" name="UserName" required />
+                        <span ng-show="submitted && UserDataForm.UserName.$error.required" class="Error">اسم المستخدم مطلوب</span>
+                        </br>
+                    </div>
+                        <div class="item" style="width:100%">
+                            <span class="title">البريد الإلكتروني</span></br>
+                            <input type="email" id="requestEmail" ng-model="Request.Email" name="email" required />
+                            <span ng-show="submitted && UserDataForm.email.$error.required" class="Error">البريد الإلكتروني مطلوب</span>
+                            <span ng-show="submitted && UserDataForm.email.$error.email" class="Error">
+                                البريد الإلكتروني
+                                غير صحيح
+                            </span> </br>
+                        </div>
+                        <div class="item" style="width:100%">
+                            <span class="title">رقم الموبايل</span></br>
+                            <input type="phone" id="requestPhone" ng-model="Request.Phone" name="phone" required data-container="body" data-toggle="popover" data-placement="bottom" data-content="اذا كنت من خارج مصر الرجاء ادخال كود البلد المقيم بها" />
+                            <span ng-show="submitted && UserDataForm.phone.$error.required" class="Error">رقم الموبايل مطلوب</span>
+                            </br>
+                        </div>
+                        <!--<div class="item left">
+            <span class="title">الرسالة </span></br>
+            <textarea id="requestMsg" ng-model="Request.Message" name="message" required></textarea>
+            <span ng-show="submitted && UserDataForm.message.$error.required" class="Error">
+                الرسالة
+                مطلوب
+            </span> </br>
+        </div>-->
+                        <div class="clear">
+                        </div>
+                        <div class="actions">
+
+                            <!--    <div class="resetBtn">
+                <input class="gray" type="reset" value="رجوع" detail-Backbutton />
+            </div>-->
+                            <div class="saveBtn">
+                                <!--<input class="orang" type="submit" ng-click="submitted=true" value="تسجيل البيانات" />-->
+                                <button id="btnRegister" class="orang send" type="submit" ng-click="submitted=true">
+                                    تسجيل
+                                </button>
+                            </div>
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--<div class="row">
+    <div class="back">
+        <a href="javascript:void(0);" detail-backbutton>رجوع</a>
+    </div>
+</div>-->
+<script>
+    $('#requestName , #requestEmail , #requestPhone , #requestMsg').keypress(function (event) {
+        if (event.keyCode == 13) {
+            $('#btnRegister').click();
+        }
+    });
+    $('#LoginName , #loginPassword ').keypress(function (event) {
+        if (event.keyCode == 13) {
+            $('#btnlogin').click();
+        }
+    });
+    $("#requestPhone").focusin(function () {
+        $("#requestPhone").popover('show');
+    });
+    $("#requestPhone").focusout(function () {
+        $("#requestPhone").popover('hide');
+    });
+</script>
+

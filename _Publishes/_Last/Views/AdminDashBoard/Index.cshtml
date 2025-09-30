@@ -1,0 +1,78 @@
+﻿@model PagedList.IPagedList<BrokerMVC.Models.SubscriberLog>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = General.SiteName + " - " + General.LatestAdded;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@helper selected(string c, string culture)
+{
+if (c == culture)
+{
+        @:checked="checked"
+    }
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-12 col-xs-8 pull-right">
+                <h2><i class="fa fa-list fa-fw"></i>@General.LatestAdded</h2>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-body">
+                        <div class="row">
+                            <table class="table table-responsive table-bordered table-striped table-hover">
+                                <tr class="warning">
+                                    <th class="text-center">
+                                        @Html.ActionLink(General.FullName, "Index", new { sortOrder = ViewBag.NameSortParm })
+                                    </th>
+                                    <th class="text-center">
+                                        @General.ActionType
+                                    </th>
+                                    <th class="text-center">
+                                        @Html.ActionLink(General.Type, "Index", new { sortOrder = ViewBag.TypeSortParm })
+                                    </th>
+                                    <th class="text-center">
+                                        @General.Date
+                                    </th>
+                                    <th class="text-center">
+                                        @General.Edit
+                                    </th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="text-center">
+                                            @Html.DisplayFor(modelItem => item.ObjectName)
+                                        </td>
+                                        <td class="text-center">
+                               @Commons.GetActionType(item.ActionID)
+                                        </td>
+                                        <td class="text-center">
+                                            @Commons.GetObjectType(item.ObjectTypeID)
+                                        </td>
+                                        <td class="text-center">
+                                            @item.Date.Value.ToShortDateString()
+                                        </td>
+                                        <td class="text-center">
+                                            <a href='@Url.Action("Edit", new { id = item.ID })' class="btn btn-small">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                        <div class="row text-center">
+                            <div class="Paging">
+                                @*صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) من @Model.PageCount*@
+
+                                @Html.PagedListPager(Model, page => Url.Action("Index",
+new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), new PagedListRenderOptions { LiElementClasses = new List<string> { "Pageitem" } })
+                            </div>
+                        </div>
+                       
+            </div>
+        </div>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<BrokerMVC.Models.RealEstate>
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <div class="panel-title paneltitle" role="button" data-toggle="collapse" href="#divRealestateData" aria-expanded="false" aria-controls="dicBasicData">
+            <h4 class="col-md-11 pull-right">
+                <i class="fa fa-angle-down"></i>
+                <i class="fa fa-building" aria-hidden="true"></i>
+                @General.Realestates
+            </h4>
+        </div>
+    </div>
+    <div id="divRealestateData" class="panel panel-body collapse in">
+        
+            @if (Model.Count() > 0)
+            {
+                <div class="row">
+                    <div class="col-md-6 pull-right">
+                        <span><strong>@General.SubscriberRealestateNo</strong></span>
+                    </div>
+                    <div class="col-md-pull-4 pull-right">
+                        <strong class="label label-danger"> @ViewBag.RealestateCount</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table table-responsive table-bordered table-striped table-hover">
+                        <tr class="success">
+                            <th class="text-center">
+                                @General.Name
+                            </th>
+
+                            <th class="text-center">@General.Edit</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <div data-toggle="collapse" data-target="#divrealestate-@item.ID" aria-expanded="false" aria-controls="divContact-@item.ID">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </div>
+                        </td>
+
+                        <td class="text-center">
+                            <a href='@Url.Action("Edit","RealEstates", new { id = item.ID })' class="btn btn-small">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="divrealestate-@item.ID" class="collapse tr-colspan">
+
+
+                        <td colspan="3" class="td-colspan text-warning">
+                            <div class="col-md-12 pull-right">
+                                <i class="fa fa-map" aria-hidden="true"></i>
+                                @Html.DisplayFor(modelItem => item.Address)
+                                <br />
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> 
+                                @Html.DisplayFor(modelItem => item.RealEstateType.Title) @Html.DisplayFor(modelItem => item.SaleType.Title) - 
+                                @Html.DisplayFor(modelItem => item.Area) @General.Meter -
+                                @Html.DisplayFor(modelItem => item.Price) @Html.DisplayFor(modelItem => item.Currency.Name)
+                                @*<br />*@
+                                @Html.DisplayFor(modelItem => item.PaymentType.Title) - @Html.DisplayFor(modelItem => item.RealEstateStatu.Title) 
+    
+                            </div>
+                        </td>
+                    </tr>
+                }
+                        @if (ViewBag.RealestateCount > 5)
+                {
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">
+                                <a href="@Url.Action("SubscriberRealestates", "Subscribers", new { id = ViewBag.UserID })" class="btn btn-block btn-success">@General.More</a>
+                            </td>
+                        </tr>
+                    </tfoot>
+                }
+                    </table>
+                    </div>
+                    }
+                    else
+                    {
+                    @Html.Partial("_EmptyMessage")
+                    }
+                </div>
+</div>
+
