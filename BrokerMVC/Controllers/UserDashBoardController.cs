@@ -143,8 +143,16 @@ namespace BrokerMVC.Controllers
         public ActionResult DeleteFavouriteRealestate(int? id)
         {
             SubscriberFavouriteRealEstate Fav = db.SubscriberFavouriteRealEstates.Find(id);
-            db.SubscriberFavouriteRealEstates.Remove(Fav);
-            this.AddNotification(Messages.DeletedSuccessfully, NotificationType.SUCCESS);
+    if (Fav != null)
+    {
+        db.SubscriberFavouriteRealEstates.Remove(Fav);
+        db.SaveChanges();
+        this.AddNotification(Messages.DeletedSuccessfully, NotificationType.SUCCESS);
+    }
+    else
+    {
+        this.AddNotification(Messages.ErrorMsg, NotificationType.ERROR);
+    }
             return RedirectToAction("GetFavouriteRealEstate");
         }
         public ActionResult MoveRealEstates(int? OldOwnerID, int? NewOwnerID)
