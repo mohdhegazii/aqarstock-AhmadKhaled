@@ -471,6 +471,22 @@ namespace BrokerMVC.Controllers
                 {
                     sub = context.Subscribers.FirstOrDefault(x => x.Email == loginInfo.Email);
                 }
+
+                if (sub == null)
+                {
+                    Subscriber newSub = new Subscriber();
+                    newSub.Password = new Password();
+                    newSub.IsCompanyAdmin = true;
+                    newSub.Password.password = loginInfo.Login.ProviderKey;
+                    newSub.Password.ConfirmPassword = loginInfo.Login.ProviderKey;
+                    newSub.FullName = loginInfo.ExternalIdentity.Name;
+                    newSub.EnFullName = loginInfo.ExternalIdentity.Name;
+                    newSub.Email = loginInfo.Email;
+                    newSub.UserName = newSub.Email;
+                    Session["Subscriber"] = newSub;
+                    return Redirect("/home/register");
+                }
+
                 if (sub.ActiveStatusID == 7 && sub.ActivationCode == null)
                     return UserIsLogedIn(new LoginViewModel() { Email = loginInfo.Email, Password = loginInfo.Login.ProviderKey, RememberMe = true }, returnUrl);
                 else
