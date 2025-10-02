@@ -49,22 +49,9 @@ namespace BrokerMVC.Controllers
             int pageNumber = (Page ?? 1);
             HorizonatlPropertyListView View = new HorizonatlPropertyListView();
             View.SpecailProperty = Repository.GetSpecailProperties().OrderByDescending(p => p.ChangeActiveStatus).FirstOrDefault();
-            if (pageNumber == 0)
-            {
-                View.ReqularProperties = Repository.GetSpecailProperties().OrderByDescending(p => p.ChangeActiveStatus).Take(PageSize).ToList();
-            }
-            else
-            {
-                var count = Repository.CountSpecailProperties();
-                if (count > (pageNumber * PageSize) + PageSize)
-                {
-                    View.ReqularProperties = Repository.GetSpecailProperties().OrderByDescending(p => p.ChangeActiveStatus).Skip((pageNumber * PageSize) + PageSize).Take(PageSize).ToList();
-                }
-                else
-                {
-                    View.ReqularProperties = new List<RealEstate>();
-                }
-            }
+
+            View.ReqularProperties = Repository.GetSpecailProperties().OrderByDescending(p => p.ChangeActiveStatus).Skip((pageNumber - 1) * PageSize).Take(PageSize).ToList();
+
             View.Name = General.SpecialPropList;
             return PartialView("Partial/SpecialProperties", View);
         }
